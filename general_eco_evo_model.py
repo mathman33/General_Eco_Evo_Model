@@ -77,12 +77,12 @@ def plot_traits(system, step, date_time_stamp, text):
         plt.plot(system.t, system.n[value], label="Prey %d Trait" % (i+1))
 
     limit = 12
-    plt.ylim(-1, limit)
+    plt.ylim(-limit, limit)
     plt.xlabel('Time')
     plt.ylabel('Trait Value')
 
     for index, text_line in enumerate(text):
-        plt.text(-.32*system.tf, limit*(1-(.04*index)), text_line)
+        plt.text(-.32*system.tf, limit*(1-(.06*index)), text_line)
 
     plt.legend(loc=0)
 
