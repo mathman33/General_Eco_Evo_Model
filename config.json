@@ -7,8 +7,8 @@
                 "initial_values": {
                     "densities": {
                         "1": {
-                            "start": 25.0,
-                            "stop": 25.0
+                            "start": 100.0,
+                            "stop": 100.0
                         }
                     },
                     "traits": {
@@ -43,22 +43,14 @@
                 "initial_values": {
                     "densities": {
                         "1": {
-                            "start": 100,
-                            "stop": 100
-                        },
-                        "2": {
-                            "start": 110,
-                            "stop": 110
+                            "start": 120,
+                            "stop": 120
                         }
                     },
                     "traits": {
                         "1": {
                             "start": 0.2,
                             "stop": 0.2
-                        },
-                        "2": {
-                            "start": 4.0,
-                            "stop": 4.0
                         }
                     }
                 },
@@ -67,18 +59,10 @@
                         "1": {
                             "start": 0.25,
                             "stop": 0.25
-                        },
-                        "2": {
-                            "start": 0.25,
-                            "stop": 0.25
                         }
                     },
                     "genetic": {
                         "1": {
-                            "start": 0.1,
-                            "stop": 0.1
-                        },
-                        "2": {
                             "start": 0.1,
                             "stop": 0.1
                         }
@@ -86,42 +70,26 @@
                 },
                 "growth_rates": {
                     "1": {
-                        "start": 0.5,
-                        "stop": 0.5
-                    },
-                    "2": {
-                        "start": 0.5,
-                        "stop": 0.5
+                        "start": 0.2,
+                        "stop": 0.2
                     }
                 },
                 "carrying_capacities": {
                     "1": {
-                        "start": 250,
-                        "stop": 250
-                    },
-                    "2": {
-                        "start": 250,
-                        "stop": 250
+                        "start": 225,
+                        "stop": 225
                     }
                 }
             },
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
-                        "start": 0.20,
-                        "stop": 0.20
-                    },
-                    "12": {
-                        "start": 0.20,
-                        "stop": 0.20
+                        "start": 0.50,
+                        "stop": 0.50
                     }
                 },
                 "specialization": {
                     "11": {
-                        "start": 0.1,
-                        "stop": 0.1
-                    },
-                    "12": {
                         "start": 0.1,
                         "stop": 0.1
                     }
@@ -130,20 +98,12 @@
                     "11": {
                         "start": 0.05,
                         "stop": 0.05
-                    },
-                    "12": {
-                        "start": 0.05,
-                        "stop": 0.05
                     }
                 },
                 "optimal_trait_differences": {
                     "11": {
-                        "start": -0.15,
-                        "stop": -0.15
-                    },
-                    "12": {
-                        "start": -0.15,
-                        "stop": -0.15
+                        "start": 0.1,
+                        "stop": 0.1
                     }
                 }
             }
