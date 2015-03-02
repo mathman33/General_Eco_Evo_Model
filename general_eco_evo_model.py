@@ -9,7 +9,7 @@ import os
 import json
 from datetime import datetime
 
-AVG_TIME_PER_GRAPH = 3.664
+AVG_TIME_PER_GRAPH = 6.518
 DIRECTORY = os.path.expanduser("~/src/General_Eco_Evo_Model")
 
 LaTeX_VARIABLE_FORMAT = {
@@ -76,13 +76,13 @@ def plot_traits(system, step, date_time_stamp, text):
     for i, value in enumerate(system.n):
         plt.plot(system.t, system.n[value], label="Prey %d Trait" % (i+1))
 
-    limit = 12
+    limit = 20
     plt.ylim(-limit, limit)
     plt.xlabel('Time')
     plt.ylabel('Trait Value')
 
     for index, text_line in enumerate(text):
-        plt.text(-.32*system.tf, limit*(1-(.06*index)), text_line)
+        plt.text(-.32*system.tf, limit*(1-(.061*index))+1, text_line)
 
     plt.legend(loc=0)
 

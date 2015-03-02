@@ -17,12 +17,12 @@
                     },
                     "traits": {
                         "1": {
-                            "start": 1.4,
-                            "stop": 1.4
+                            "start": 3.08,
+                            "stop": 3.08
                         },
                         "2": {
-                            "start": 1.0,
-                            "stop": 1.0
+                            "start": -5.07,
+                            "stop": -5.07
                         }
                     }
                 },
@@ -39,12 +39,12 @@
                     },
                     "genetic": {
                         "1": {
-                            "start": 0.10,
-                            "stop": 0.25
+                            "start": 0.08,
+                            "stop": 0.13
                         },
                         "2": {
-                            "start": 0.10,
-                            "stop": 0.25
+                            "start": 0.12,
+                            "stop": 0.17
                         }
                     }
                 },
@@ -63,22 +63,22 @@
                 "initial_values": {
                     "densities": {
                         "1": {
-                            "start": 100,
-                            "stop": 100
-                        },
-                        "2": {
                             "start": 110,
                             "stop": 110
+                        },
+                        "2": {
+                            "start": 100,
+                            "stop": 100
                         }
                     },
                     "traits": {
                         "1": {
-                            "start": 1.133,
-                            "stop": 1.133
+                            "start": 2.73,
+                            "stop": 2.73
                         },
                         "2": {
-                            "start": 1.267,
-                            "stop": 1.267
+                            "start": -4.5,
+                            "stop": -4.5
                         }
                     }
                 },
@@ -95,12 +95,12 @@
                     },
                     "genetic": {
                         "1": {
-                            "start": 0.1,
-                            "stop": 0.1
+                            "start": 0.07,
+                            "stop": 0.07
                         },
                         "2": {
-                            "start": 0.1,
-                            "stop": 0.1
+                            "start": 0.06,
+                            "stop": 0.06
                         }
                     }
                 },
@@ -128,8 +128,8 @@
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
-                        "start": 0.20,
-                        "stop": 0.20
+                        "start": 0.25,
+                        "stop": 0.25
                     },
                     "12": {
                         "start": 0.20,
@@ -164,8 +164,8 @@
                 },
                 "max_attack_rates": {
                     "11": {
-                        "start": 0.05,
-                        "stop": 0.05
+                        "start": 0.12,
+                        "stop": 0.12
                     },
                     "12": {
                         "start": 0.00,
@@ -182,20 +182,20 @@
                 },
                 "optimal_trait_differences": {
                     "11": {
-                        "start": -0.15,
-                        "stop": -0.15
+                        "start": 0.30,
+                        "stop": 0.30
                     },
                     "12": {
-                        "start": -0.15,
-                        "stop": -0.15
+                        "start": 0.15,
+                        "stop": 0.15
                     },
                     "21": {
-                        "start": 0.15,
-                        "stop": 0.15
+                        "start": 0.0,
+                        "stop": 0.0
                     },
                     "22": {
-                        "start": 0.15,
-                        "stop": 0.15
+                        "start": -0.50,
+                        "stop": -0.50
                     }
                 }
             }
