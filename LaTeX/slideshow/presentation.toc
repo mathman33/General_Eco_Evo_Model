@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.26pt}
+\beamer@sectionintoc {0}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {1}{Motivation}{3}{0}{2}
+\beamer@sectionintoc {2}{Model Formulation}{4}{0}{3}
+\beamer@sectionintoc {3}{Preliminary Results}{14}{0}{4}
+\beamer@sectionintoc {4}{Thanks}{16}{0}{5}
+\beamer@sectionintoc {5}{The Model}{17}{0}{6}
+\beamer@sectionintoc {6}{Case 1: $u = 1$, $v = 1$}{22}{0}{7}
+\beamer@subsectionintoc {6}{1}{Equilibria Analysis}{22}{0}{7}
+\beamer@subsectionintoc {6}{2}{Stability Analysis}{25}{0}{7}
+\beamer@subsubsectionintoc {6}{2}{1}{Special Case: $M^* = N^* = 0$}{28}{0}{7}
+\beamer@subsubsectionintoc {6}{2}{2}{Special Case: $M^* = 0$, $N^* = K$}{29}{0}{7}
