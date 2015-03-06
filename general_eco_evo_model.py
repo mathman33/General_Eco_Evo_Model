@@ -7,6 +7,9 @@ from timeit import default_timer
 import gc as garbage
 import os
 import json
+import shlex
+from time import sleep
+from subprocess import Popen
 from datetime import datetime
 
 AVG_TIME_PER_GRAPH = 6.518
@@ -61,7 +64,7 @@ def plot_densities(system, step, date_time_stamp, text):
 
     plt.legend(loc=0)
 
-    file_ = "%s/graphs/%s/densities_%03d" % (DIRECTORY, date_time_stamp, step)
+    file_ = "%s/graphs/%s/densities_%03d.png" % (DIRECTORY, date_time_stamp, step)
     plt.savefig(file_, format = 'png')
     plt.close()
     garbage.collect()
@@ -86,7 +89,7 @@ def plot_traits(system, step, date_time_stamp, text):
 
     plt.legend(loc=0)
 
-    file_ = "%s/graphs/%s/traits_%03d" % (DIRECTORY, date_time_stamp, step)
+    file_ = "%s/graphs/%s/traits_%03d.png" % (DIRECTORY, date_time_stamp, step)
     plt.savefig(file_, format = 'png')
     plt.close()
     garbage.collect()
@@ -269,10 +272,47 @@ class System:
             return response
         return pred_trait_response
 
+def combine_images(directory, step, replace):
+    input1 = "%s/densities_%.3d.png" % (directory, step)
+    input2 = "%s/traits_%.3d.png" % (directory, step)
+    output = "%s/output_%.3d.png" % (directory, step)
+    command = "convert +append %s %s %s" % (input1, input2, output)   
+    try:
+        Popen(shlex.split(command))
+        if replace:
+            while True:
+                if os.path.isfile(output):
+                    tries = 1
+                    while True:
+                        output_size = float(os.path.getsize(output))
+                        if tries > 10000:
+                            break
+                        sleep(.001)
+                        if output_size != 0:
+                            remove_command = "rm %s %s" % (input1, input2)
+                            Popen(shlex.split(remove_command))
+                            break
+                        else:
+                            tries += 1
+                    break
+                else:
+                    pass
+    except:
+        print("Unable to create dual graphs.  Please install 'ImageMagick'\n")
+
 def main():
     data = json.loads(open("%s/config.json" % DIRECTORY).read())
 
     for set_ in data["system_parameters"]:
+        now = datetime.now()
+        date_time_stamp = now.strftime('%y%m%d_%H%M%S')
+        current_directory = "%s/graphs/%s" % (DIRECTORY, date_time_stamp)
+        os.system("mkdir -p %s" % current_directory)
+
+        pretty_data = json.dumps(set_, indent=4, sort_keys=True)
+        with open("%s/relevant_data.json" % current_directory, "w") as relevant_data_file:
+            relevant_data_file.write(pretty_data)
+
         CONFIG_DESCRIPTIONS_TO_VARIABLES = {
             "M0"    : set_["predator"]["initial_values"]["densities"],
             "m0"    : set_["predator"]["initial_values"]["traits"],
@@ -292,9 +332,6 @@ def main():
             "alpha" : set_["interaction_parameters"]["max_attack_rates"],
             "theta" : set_["interaction_parameters"]["optimal_trait_differences"]
         }
-        now = datetime.now()
-        date_time_stamp = now.strftime('%y%m%d_%H%M%S')
-        os.system("mkdir -p %s/graphs/%s" % (DIRECTORY, date_time_stamp))
 
         # Parameter Step
         steps = int(set_["steps"])
@@ -350,6 +387,9 @@ def main():
             data_time = default_timer() - ts
             print "Time taken for this data: %.03f\n" % (data_time)
             time += data_time
+            
+            replace = True
+            combine_images(current_directory, step, replace)
 
         print "total time taken: %.03f seconds" % (time)
         print "average time per graph: %.03f seconds" % (time/number_of_graphs)
