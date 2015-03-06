@@ -373,7 +373,8 @@ def main():
             text = []
             for variable in parameters:
                 for subscript, value in parameters[variable].iteritems():
-                    text.append(r"$%s%s}= %.03f$" % (LaTeX_VARIABLE_FORMAT[variable], subscript, value))
+                    if starts_and_steps[variable][subscript]["step"] != 0:
+                        text.append(r"$%s%s}= %.03f$" % (LaTeX_VARIABLE_FORMAT[variable], subscript, value))
 
             ### plot results            
             plot_densities(system, step, date_time_stamp, text)
