@@ -325,10 +325,30 @@
 	\frac{d\overline{n}_j}{dt} &= \beta_{jG}^2\frac{\partial \overline{Y}_j}{\partial \overline{n}_j} = \beta_{jG}^2\sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]\\[.1cm]
 	\frac{d\overline{m}_i}{dt} &= \sigma_{iG}^2\frac{\partial \overline{W}_i}{\partial \overline{m}_i} = \sigma_{iG}^2\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]
 	\end{align*}
-
 \end{frame}
 
 \section{Preliminary Results}
+\subsection{$1 \times 1$}
+\begin{frame}
+	\frametitle{Equilibria}
+	\begin{align*}
+		\begin{array}{ll}
+			\dfrac{dN}{dt} = N\cdot \overline{Y}(\overline{m}, \overline{n}, M, N) &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2\dfrac{\partial \overline{Y}}{\partial \overline{n}} \\[.3cm]
+			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}, N) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
+		\end{array}
+	\end{align*}
+	\begin{align*}
+		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (0, 0, \underline{\ \ }, \underline{\ \ })
+	\end{align*}
+	Unstable
+	\begin{align*}
+		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (K, 0, \underline{\ \ }, \underline{\ \ })
+	\end{align*}
+	Unstable
+	\begin{align*}
+		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (\dfrac{d\sqrt{\sigma^2 + \beta^2 + \tau^2}}{e \alpha \tau}, 0, \underline{\ \ }, \underline{\ \ })
+	\end{align*}	
+\end{frame}
 
 \section{Thanks}
 
