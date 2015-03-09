@@ -337,17 +337,92 @@
 			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}, N) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
 		\end{array}
 	\end{align*}
+	{\bf Extinction} \uncover<2->{$\boxed{\text{\it Unstable}}$}
 	\begin{align*}
 		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (0, 0, \underline{\ \ }, \underline{\ \ })
 	\end{align*}
-	Unstable
+	{\bf Exclusion} \uncover<3->{$\boxed{\text{\it Stable under certain conditions}}$}
 	\begin{align*}
 		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (K, 0, \underline{\ \ }, \underline{\ \ })
 	\end{align*}
-	Unstable
+	\uncover<4->{{\bf Necessary Conditions for Stable Exclusion:}}
+	\begin{itemize}
+		\item \uncover<4->{$d > e\overline{a}(\overline{m}^*, \overline{n}^*)K$}
+		\item \uncover<4->{$(\overline{m}^* - \overline{n}^* - \theta)^2 < \sigma^2 + \beta^2 + \tau^2$}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Equilibria}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (\dfrac{d\sqrt{\sigma^2 + \beta^2 + \tau^2}}{e \alpha \tau}, 0, \underline{\ \ }, \underline{\ \ })
-	\end{align*}	
+		\begin{array}{ll}
+			\dfrac{dN}{dt} = N\cdot \overline{Y}(\overline{m}, \overline{n}, M, N) &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2\dfrac{\partial \overline{Y}}{\partial \overline{n}} \\[.3cm]
+			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}, N) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
+		\end{array}
+	\end{align*}
+	{\bf Coexistence} \uncover<2->{$\boxed{\text{\it Stable under certain conditions}}$}
+	\begin{align*}
+		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (\dfrac{d\sqrt{A}}{e \alpha \tau}\ ,\ \dfrac{r\sqrt{A}}{\alpha\tau}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\ ,\ \mu^*\ ,\ \mu^* - \theta) \\[.1cm]
+		\text{where $A = \sigma^2 + \beta^2 + \tau^2$ and $\mu^*$ is an arbitrary value.}
+	\end{align*}
+	\uncover<3->{{\bf Necessary Condition for Stable Coexistence:}}
+	\begin{itemize}
+		\item \uncover<3->{$d\sigma_G^2 > r\beta_G^2\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)$}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Figures}
+	{\bf Exclusion}
+		
+\end{frame}
+\begin{frame}
+	\frametitle{Figures}
+	{\bf Stable Coexistence}
+		
+\end{frame}
+\begin{frame}
+	\frametitle{Figures}
+	{\bf Unstable Coexistence}
+		
+\end{frame}
+
+\subsection{$1 \times 2$}
+\begin{frame}
+	\frametitle{Equilibria}
+	\begin{align*}
+		\begin{array}{ll}
+			\dfrac{dN_1}{dt} = N_1\cdot \overline{Y}_1(\overline{m}, \overline{n}_1, M, N_1) &\ \ \ \ \ \ \dfrac{d\overline{n}_1}{dt} = \beta_{1,G}^2\dfrac{\partial \overline{Y}_1}{\partial \overline{n}_1} \\[.3cm]
+			\dfrac{dN_2}{dt} = N_2\cdot \overline{Y}_2(\overline{m}, \overline{n}_2, M, N_2) &\ \ \ \ \ \ \dfrac{d\overline{n}_2}{dt} = \beta_{2,G}^2\dfrac{\partial \overline{Y}_2}{\partial \overline{n}_2} \\[.3cm]
+			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}_1, \overline{n}_2, N_1, N_2) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
+		\end{array}
+	\end{align*}
+	\uncover<2->{{\bf Extinction}} \uncover<3->{$\boxed{\text{\it Unstable}}$}
+	\begin{align*}
+		\uncover<2->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) = (0, 0, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
+	\end{align*}
+	\uncover<4->{{\bf Exclusion}} \uncover<5->{$\boxed{\text{\it Stable under certain conditions}}$}
+	\begin{align*}
+		\uncover<4->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) &= (K_1, K_2, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
+	\end{align*}
+	\uncover<6->{{\bf Generalist Becomes Specialist}} \uncover<7->{$\boxed{\text{\it Stable under certain conditions}}$}
+	\begin{align*}
+		\uncover<6->{(\dfrac{d\sqrt{A_1}}{e_1 \alpha_1 \tau_1}\ ,\ K_2\ ,\ \dfrac{r_1\sqrt{A_1}}{\alpha_1\tau_1}\left(1 - \dfrac{d\sqrt{A_1}}{K_1e_1\alpha_1\tau_1}\right)\ ,\ \mu_1^*\ ,\ \mu_2^*\ ,\ \mu_1^* - \theta_1)}
+	\end{align*}
+	\uncover<6->{where $A_1 = \sigma^2 + \beta_1^2 + \tau_1^2$, $\mu_1^*$ is an arbitrary value, and $\mu_2^*$ is sufficiently far from $\mu_1^* - \theta_1$.}
+\end{frame}
+\begin{frame}
+	\frametitle{Figures}
+	{\bf Exclusion}
+		
+\end{frame}
+\begin{frame}
+	\frametitle{Figures}
+	{\bf Stable Coexistence}
+		
+\end{frame}
+\begin{frame}
+	\frametitle{Figures}
+	{\bf Unstable Coexistence}
+		
 \end{frame}
 
 \section{Thanks}
