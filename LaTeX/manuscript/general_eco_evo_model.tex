@@ -1,0 +1,332 @@
+\documentclass[12pt]{article}
+\textwidth=17cm \oddsidemargin=-0.9cm \evensidemargin=-0.9cm
+\textheight=23.7cm \topmargin=-1.7cm
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{bigints}
+\newcommand{\suchthat}{\, \mid \,}
+\renewcommand{\theenumi}{\alph{enumi}}
+\setcounter{section}{-1}
+%\setlength{\jot}{30pt}
+
+
+\begin{document}
+
+\begin{center}
+	{\bf\LARGE The Ecological Effects of Trait Variation in a\\ \vskip 5pt$u$-Predator, $v$-Prey System \small (draft)}\\ \vskip 3pt \rule{4cm}{0.4pt}
+	\vskip 5pt
+	Sam Fleischer, Pablo Chavarria, Casey terHorst, Jing Li \\ Start Date:  March 2014 - - Today's Date: \today \rm
+\end{center}
+
+\vskip 15pt
+
+									\section{The Model}
+
+Let $M_i(t)$ be the density of the $i$\textsuperscript{th} predator species, and let $N_j(t)$ be the density of the $j$\textsuperscript{th} prey species.  Let $\overline{m_i}(t)$ be the mean of a single quantitative trait in the $i$\textsuperscript{th} predator species, and let $\overline{n_j}(t)$ be the mean of a single quantitative trait in the $j$\textsuperscript{th} prey species.  Suppose the traits are normally distributed, with $\sigma_i^2$ as the constant variance of the $i$\textsuperscript{th} predator species, and with $\beta_j^2$ as the constant variance of the $j$\textsuperscript{th} prey species.
+\begin{align*}
+	p(m_i, \overline{m_i}) &= \frac{1}{\sqrt{2\pi\sigma_i^2}}\exp\left[{-\frac{(m_i - \overline{m_i})^2}{2\sigma_i^2}}\right] \\
+	p(n_j, \overline{n_j}) &= \frac{1}{\sqrt{2\pi\beta_j^2}}\exp\left[{-\frac{(n_j - \overline{n_j})^2}{2\beta_j^2}}\right]
+\end{align*}
+
+\noindent All of the species' phenotypic variances have a genetic and environment component,
+\begin{align*}
+	\sigma_i^2 = \sigma_{Gi}^2 + \sigma_{Ei}^2 \\
+	\beta_j^2 = \beta_{Gj}^2 + \beta_{Ej}^2
+\end{align*}
+
+\noindent Let $a_{ij}(m_i, n_j)$ be the attack rate of an individual predator from species $i$ on an individual prey from species $j$.  Supposing the attack rate is optimal at $\alpha_{ij}$ when the predator's trait and prey's trait are at an optimal difference $\theta_{ij}$, and decreases in a Gaussian manner as the trait's diverge from that difference, then
+\begin{align*}
+	a_{ij}(m_i, n_j) = \alpha_{ij} \exp\left[{-\frac{(m_i - n_j - \theta_{ij})^2}{2\tau_{ij}^2}}\right]
+\end{align*}
+
+\noindent where $\tau_{ij}$ determines how phenotypically specialized a predator individual of species $i$ must be to use a prey individual of species $j$.  Let $\overline{a_{ij}}(\overline{m_i}, \overline{n_j})$ be the mean attack rate of predator species $i$ on prey species $j$.  Thus,
+\begin{align*}
+	\overline{a_{ij}}(\overline{m_i}, \overline{n_j}) &= \int_{-\infty}^{\infty}\int_{\-\infty}^{\infty} a_{ij}(m_i, n_j) \cdot p(m_i, \overline{m_i}) \cdot p(n_j, \overline{n_j}) dm_i dn_j \\
+	&= \frac{\alpha_{ij}\tau_{ij}}{\sqrt{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2}}\exp\left[{-\frac{(\overline{m_i} - \overline{n_j} - \theta_{ij})^2}{2(\sigma_i^2 + \beta_j^2 + \tau_{ij}^2)}}\right]
+\end{align*}
+
+\noindent Let $u$ be the number of predator species, and let $v$ be the number of prey species.  If predators have a linear functional response, convert the consumed prey into offspring with efficiencies $e_{ij}$, and experience a per-capita mortality rate $d_i$, then the fitness of a predator with phenotype $m_i$ is
+\begin{align*}
+	W_i(m_i, [N]_1^v, [n]_1^v) &= \sum_{j = 1}^v\left(e_{ij}a_{ij}(m_i, n_j)N_j\right) - d_i
+\end{align*}
+
+\noindent and thus the mean fitness of the $i$\textsuperscript{th} predator population is
+\begin{align*}
+	\overline{W_i}(\overline{m_i}, [N]_1^v, [\overline{n}]_1^v) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} W_i(m_i, [N]_1^v, [n]_1^v) p(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	&= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \left(\sum_{j = 1}^v\left(e_{ij}a_{ij}(m_i, n_j)N_j\right) - d_i\right) p(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	&= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \sum_{j = 1}^ve_{ij}a_{ij}(m_i, n_j)N_jp(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	&\qquad\qquad\qquad- \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} d_i \;p(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	&= \sum_{j=1}^v\left(e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_j\right) - d_i
+\end{align*}
+
+\noindent In the absence of the predators, each prey experience logistic growth with intrinsic growth rates $r_j$ and carrying capacities $K_j$.  Thus the fitness of a prey with phenotype $n_j$ is
+\begin{align*}
+	Y_j(N_j, n_j, [M]_1^u, [m]_1^u) &= r_j\left(1 - \frac{N_j}{K_j} \right) - \sum_{i = 1}^u\left(a_{ij}(m_i, n_j)M_i\right)
+\end{align*}
+
+\noindent and thus the mean fitness of the $j$\textsuperscript{th} prey population is
+\begin{align*}
+	\overline{Y_j}(N_j, \overline{n_j}, [M]_1^u, [\overline{m}]_1^u) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} Y_j(N_j, n_j, [M]_1^u, [m]_1^u) p(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	&= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \left(r_j\left(1 - \frac{N_j}{K_j} \right) - \sum_{i = 1}^u\left(a_{ij}(m_i, n_j)M_i\right)\right) p(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	&= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} r_j\left(1 - \frac{N_j}{K_j} \right) p(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	&\qquad\qquad\qquad - \sum_{i = 1}^u M_i \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} a_{ij}(m_i, n_j) p(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	&= r_j \left(1 - \frac{N_j}{K_j} \right) - \sum_{i = 1}^u \overline{a_{ij}}(\overline{m_i}, \overline{n_j}) M_i
+\end{align*}
+
+\noindent So the ecological dynamics of the model (population densities) are given by
+\begin{align}
+	\begin{cases}
+		\dfrac{dM_i}{dt} &= M_i \overline{W_i}(\overline{m_i}, [N]_1^v, [\overline{n}]_1^v) \\[.25cm]
+		\dfrac{dN_j}{dt} &= N_j \overline{Y_j}(N_j, \overline{n_j}, [M]_1^u, [\overline{m}]_1^u)
+	\end{cases}
+\end{align}
+
+\noindent We assume the distribution of phenotypes remains Gaussian.  Thus the evolutionary dynamics are given by
+\begin{align}
+	\begin{cases}
+		\dfrac{d\overline{m_i}}{dt} &= \sigma_{Gi}^2 \; \dfrac{\partial \overline{W_i}}{\partial \overline{m_i}} \\[.25cm]
+		\dfrac{d\overline{n_j}}{dt} &= \beta_{Gj}^2 \; \dfrac{\partial \overline{Y_j}}{\partial \overline{n_j}}
+	\end{cases}
+\end{align}
+
+\noindent where
+\begin{align*}
+	\frac{\partial \overline{W_i}}{\partial \overline{m_i}} &= \sum_{j=1}^v\frac{e_{ij}\alpha_{ij}\tau_{ij}N_j(\theta_{ij} + \overline{n_j} - \overline{m_i})}{(\sigma_i^2 + \beta_j^2 + \tau_{ij}^2)^{3/2}} \exp\left[{-\frac{(\overline{m_i} - \overline{n_j} - \theta_{ij})^2}{2(\sigma_i^2 + \beta_j^2 + \tau_{ij}^2)}}\right]\text{,} \qquad\text{and} \\
+	\frac{\partial \overline{Y_j}}{\partial \overline{n_j}} &= \sum_{i=1}^u\frac{\alpha_{ij}\tau_{ij}M_i(\theta_{ij} + \overline{n_j} - \overline{m_i})}{(\sigma_i^2 + \beta_j^2 + \tau_{ij}^2)^{3/2}} \exp\left[{-\frac{(\overline{m_i} - \overline{n_j} - \theta_{ij})^2}{2(\sigma_i^2 + \beta_j^2 + \tau_{ij}^2)}}\right]
+\end{align*}
+
+\vskip 30pt
+
+									\section{Case 1: $u = 1$, $v = 1$}
+									\subsection{Equilibria Analysis}
+
+
+Assuming there is only one predator species and one prey species, all subscripts are dropped, and the $(4uv)$-dimensional system becomes a 4 dimensional system:
+
+\begin{align}
+	\begin{cases}
+		f_1 = \dfrac{dM}{dt} &= M \overline{W}(\overline{m}, N, \overline{n}) \\[.25cm]
+		f_2 = \dfrac{dN}{dt} &= N \overline{Y}(N, \overline{n}, M, \overline{m}) \\[.25cm]
+		f_3 = \dfrac{d\overline{m}}{dt} &= \sigma_{G}^2 \; \dfrac{\partial \overline{W}}{\partial \overline{m}} \\[.25cm]
+		f_4 = \dfrac{d\overline{n}}{dt} &= \beta_{G}^2 \; \dfrac{\partial \overline{Y}}{\partial \overline{n}}
+	\end{cases}
+\end{align}
+
+\noindent where
+
+\begin{align*}
+	\overline{W}(\overline{m}, N, \overline{n}) &= e\overline{a}(\overline{m}, \overline{n})N - d \\
+	\overline{Y}(N, \overline{n}, M, \overline{m}) &= r \left(1 - \frac{N}{K} \right) - \overline{a}(\overline{m}, \overline{n}) M \\
+	\frac{\partial \overline{W}}{\partial \overline{m}} &= \frac{e\alpha\tau N(\theta + \overline{n} - \overline{m})}{(\sigma^2 + \beta^2 + \tau^2)^{3/2}} \exp\left[{-\frac{(\overline{m} - \overline{n} - \theta)^2}{2(\sigma^2 + \beta^2 + \tau^2)}}\right]\\
+	\frac{\partial \overline{Y}}{\partial \overline{n}} &= \frac{\alpha\tau M(\theta + \overline{n} - \overline{m})}{(\sigma^2 + \beta^2 + \tau^2)^{3/2}} \exp\left[{-\frac{(\overline{m} - \overline{n} - \theta)^2}{2(\sigma^2 + \beta^2 + \tau^2)}}\right]
+\end{align*}
+
+\begin{align}
+	f_3 &= 0 \ \ \implies \ \ \overline{m} - \overline{n} = \theta \ \ \text{or}\ \ N = 0 \\[.1cm]
+	f_4 &= 0 \ \ \implies \ \ \overline{m} - \overline{n} = \theta \ \ \text{or}\ \ M = 0 \\[.1cm]
+	f_1 &= 0 \ \ \implies \ \ M = 0 \ \ \text{or}\ \ N = \frac{d\sqrt{\sigma^2 + \beta^2 + \tau^2}}{e \alpha \tau}\exp\left[{\frac{(\overline{m} - \overline{n} - \theta)^2}{2(\sigma^2 + \beta^2 + \tau^2)}}\right] \\[.1cm]
+	f_2 &= 0 \ \ \implies \ \ N = 0 \ \ \text{or}\ \ M = \frac{r\sqrt{\sigma^2 + \beta^2 + \tau^2}}{\alpha \tau}\left(1 - \frac{N}{K}\right)\exp\left[{\frac{(\overline{m} - \overline{n} - \theta)^2}{2(\sigma^2 + \beta^2 + \tau^2)}}\right]
+\end{align}
+
+\vskip 10pt
+
+\noindent Clearly, $M = N = 0$ satisfies the equilibrium conditions.  (7) is satisfied by $N = 0$, which, by (6), implies $M = 0$.  This is intuitive because the predator can only survive if there is prey. \\
+
+\noindent On the other hand, (6) is satisfied by $M = 0$, which, by (7), implies either $N = 0$ or $N = K$.  This is intuitive because the prey can reach equilibrium at its carrying capacity. \\
+
+\noindent For coexistence equilibria (represented by $M^*$ and $N^*$), let $\overline{m} - \overline{n} = \theta$.  Then
+\begin{align*}
+	\begin{cases}
+		N^* = \dfrac{d\sqrt{\sigma^2 + \beta^2 + \tau^2}}{e \alpha \tau} \\[.25cm]
+		M^* = \dfrac{r\sqrt{\sigma^2 + \beta^2 + \tau^2}}{\alpha \tau}\left(1 - \dfrac{N^*}{K}\right)
+	\end{cases}
+\end{align*}
+
+\noindent Thus coexistence equilibria can be reached with the above values of $N^*$ and $M^*$ and any values $\overline{m}$ and $\overline{n}$ so long as $\overline{m} - \overline{n} = \theta$.
+
+\vskip 30pt
+							\subsection{Stability Analysis}
+
+\noindent For local stability around the various equilibria $E^* = (M^*, N^*, \overline{m}^*, \overline{n}^*)$, we find the Jacobian matrix:
+\begin{align*}
+	J^* = J\big|_{E^*} = \left(
+	\begin{array}{cccc}
+		\dfrac{\partial f_1}{\partial M}\bigg|_{E^*} & \dfrac{\partial f_1}{\partial N}\bigg|_{E^*} & \dfrac{\partial f_1}{\partial \overline{m}}\bigg|_{E^*} & \dfrac{\partial f_1}{\partial \overline{m}}\bigg|_{E^*} \\[.4cm]
+		\dfrac{\partial f_2}{\partial M}\bigg|_{E^*} & \dfrac{\partial f_2}{\partial N}\bigg|_{E^*} & \dfrac{\partial f_2}{\partial \overline{m}}\bigg|_{E^*} & \dfrac{\partial f_2}{\partial \overline{m}}\bigg|_{E^*} \\[.4cm]
+		\dfrac{\partial f_3}{\partial M}\bigg|_{E^*} & \dfrac{\partial f_3}{\partial N}\bigg|_{E^*} & \dfrac{\partial f_3}{\partial \overline{m}}\bigg|_{E^*} & \dfrac{\partial f_3}{\partial \overline{m}}\bigg|_{E^*} \\[.4cm]
+		\dfrac{\partial f_4}{\partial M}\bigg|_{E^*} & \dfrac{\partial f_4}{\partial N}\bigg|_{E^*} & \dfrac{\partial f_4}{\partial \overline{m}}\bigg|_{E^*} & \dfrac{\partial f_4}{\partial \overline{m}}\bigg|_{E^*} \\
+	\end{array}
+	\right)
+\end{align*}
+
+\noindent The conditions for stability of $E^*$ are equivalent to the conditions by which all roots of the characteristic polynomial of $J^*$ have non-positive real parts (i.e. the Routh-Hurwitz criterion).  First, we must calculate the partial derivatives. \\
+\begin{align*}
+	\frac{\partial f_1}{\partial M} &= \overline{W}(\overline{m}, N, \overline{n}) \\[.15cm]
+	\frac{\partial f_1}{\partial N} &= e\overline{a}(\overline{m}, \overline{n}) \cdot M \\[.15cm]
+	\frac{\partial f_1}{\partial \overline{m}} &= \frac{e\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot M \cdot N \cdot (\theta + \overline{n} - \overline{m}) \\[.15cm]
+	\frac{\partial f_1}{\partial \overline{n}} &= \frac{e\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot M \cdot N \cdot (\overline{m} - \overline{n} - \theta)
+\end{align*}
+
+\begin{align*}
+	\frac{\partial f_2}{\partial M} &= -\overline{a}(\overline{m}, \overline{n}) \cdot N \\[.15cm]
+	\frac{\partial f_2}{\partial N} &= \overline{Y}(N, \overline{n}, M, \overline{m})  - \frac{Nr}{K} \\[.15cm]
+	\frac{\partial f_2}{\partial \overline{m}} &= \frac{\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot M \cdot N \cdot (\overline{m} - \overline{n} - \theta) \\[.15cm]
+	\frac{\partial f_2}{\partial \overline{n}} &= \frac{\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot M \cdot N \cdot (\theta + \overline{n} - \overline{m})
+\end{align*}
+
+\begin{align*}
+	\frac{\partial f_3}{\partial M} &= 0 \\[.15cm]
+	\frac{\partial f_3}{\partial N} &= \frac{\sigma_G^2e\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot (\theta + \overline{n} - \overline{m}) \\[.15cm]
+	\frac{\partial f_3}{\partial \overline{m}} &= \frac{\sigma_G^2e\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot N\left(\frac{(\overline{m} - \overline{n} - \theta)^2}{\sigma^2 + \beta^2 + \tau^2} -1\right) \\[.15cm]
+	\frac{\partial f_3}{\partial \overline{n}} &= \frac{\sigma_G^2e\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot N\left(1- \frac{(\overline{m} - \overline{n} - \theta)^2}{\sigma^2 + \beta^2 + \tau^2} \right)
+\end{align*}
+
+\begin{align*}
+	\frac{\partial f_4}{\partial M} &= \frac{\beta_G^2\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot (\overline{n} - \overline{m}) \\[.15cm]
+	\frac{\partial f_4}{\partial N} &= 0 \\[.15cm]
+	\frac{\partial f_4}{\partial \overline{m}} &= \frac{\beta_G^2\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot M\left(\frac{(\overline{m} - \overline{n} - \theta)^2}{\sigma^2 + \beta^2 + \tau^2} - 1\right) \\[.15cm]
+	\frac{\partial f_4}{\partial \overline{n}} &= \frac{\beta_G^2\overline{a}(\overline{m}, \overline{n})}{\sigma^2 + \beta^2 + \tau^2} \cdot M\left(1 - \frac{(\overline{m} - \overline{n} - \theta)^2}{\sigma^2 + \beta^2 + \tau^2}\right)
+\end{align*}
+
+							\subsubsection{Special Case: $M^* = N^* = 0$}
+
+$E^* = (0, 0, \overline{m}^*, \overline{n}^*)$ where $\overline{m}^*$ and $\overline{n}^*$ are arbitrary values.  Then
+\begin{align*}
+	J^* = J\big|_{E^*} = \left(
+	\begin{array}{cccc}
+		-d & 0 & 0 & 0 \\[.4cm]
+		0 & r & 0 & 0 \\[.4cm]
+		0 & \dfrac{\sigma_G^2e\overline{a}(\overline{m}^*, \overline{n}^*)}{\sigma^2 + \beta^2 + \tau^2} \cdot (\theta + \overline{n}^* - \overline{m}^*) & 0 & 0 \\[.4cm]
+		\dfrac{\beta_G^2\overline{a}(\overline{m}^*, \overline{n}^*)}{\sigma^2 + \beta^2 + \tau^2} \cdot (\theta + \overline{n}^* - \overline{m}^*) & 0 & 0 & 0 \\
+	\end{array}
+	\right)
+\end{align*}
+
+\vskip 10pt
+
+\noindent Since $J^*$ is a lower-triangular matrix, its eigenvalues are its diagonal entries: $-d$, $r$, $0$, and $0$.  Since $r$ is positive, this equilibrium is locally unstable.
+
+							\subsubsection{Special Case: $M^* = 0$, $N^* = K$}
+
+$E^* = (0, K, \overline{m}^*, \overline{n}^*)$ where $\overline{m}^*$ and $\overline{n}^*$ are arbitrary values.  Then
+\begin{align*}
+	J^* = J\big|_{E^*} = \left(
+	\begin{array}{cccc}
+		e\overline{a}(\overline{m}^*, \overline{n}^*)K - d & 0 & 0 & 0 \\[.4cm]
+		0 & -r & 0 & 0 \\[.4cm]
+		0 & j_{32} & j_{33} & j_{34} \\[.4cm]
+		j_{41} & 0 & 0 & 0 \\
+	\end{array}
+	\right)
+\end{align*}
+
+\noindent where
+\begin{align*}
+	j_{32} &= \dfrac{\sigma_G^2e\overline{a}(\overline{m}^*, \overline{n}^*)}{\sigma^2 + \beta^2 + \tau^2} \cdot (\theta + \overline{n}^* - \overline{m}^*) \\
+	j_{33} &=  \dfrac{\sigma_G^2e\overline{a}(\overline{m}^*, \overline{n}^*)}{\sigma^2 + \beta^2 + \tau^2} \cdot K\left(\dfrac{(\overline{m}^* - \overline{n}^* - \theta)^2}{\sigma^2 + \beta^2 + \tau^2} - 1\right) \\
+	j_{34} &= \dfrac{\sigma_G^2e\overline{a}(\overline{m}^*, \overline{n}^*)}{\sigma^2 + \beta^2 + \tau^2} \cdot K\left(1 - \dfrac{(\overline{m}^* - \overline{n}^* - \theta)^2}{\sigma^2 + \beta^2 + \tau^2}\right) \\
+	j_{41} &= \dfrac{\beta_G^2\overline{a}(\overline{m}^*, \overline{n}^*)}{\sigma^2 + \beta^2 + \tau^2} \cdot (\theta + \overline{n}^* - \overline{m}^*)
+\end{align*}
+
+\vskip 10pt
+
+\noindent By reordering the variables $E^{**} = (M^*, N^*, \overline{n}^*, \overline{m}^*)$, we can force $J^*$ to be a lower-triangular matrix, and hence it's eigenvalues are its diagonal entries:
+\begin{align*}
+	J^{**} = J\big|_{E^{**}} = \left(
+	\begin{array}{cccc}
+		e\overline{a}(\overline{m}^*, \overline{n}^*)K - d & 0 & 0 & 0 \\[.4cm]
+		0 & -r & 0 & 0 \\[.4cm]
+		j_{41} & 0 & 0 & 0 \\[.4cm]
+		0 & j_{32} & j_{34} & j_{33}
+	\end{array}
+	\right)
+\end{align*}
+
+\vskip 10pt
+
+\noindent Thus the eigenvalues are $e\overline{a}(\overline{m}, \overline{n})K - d$, $-r$, $0$, and $j_{33}$.  Thus $E^*$ is stable if the following hold:
+\begin{align*}
+	d &> e\overline{a}(\overline{m}^*, \overline{n}^*)K \text{,}\qquad\text{and} \\[.1cm]
+	(\overline{m}^* - \overline{n}^* - \theta)^2 &< \sigma^2 + \beta^2 + \tau^2
+\end{align*}
+
+\noindent $E^*$ is unstable if either of the above fails.
+
+\vskip 20pt
+							\subsubsection{Special Case: \\ $M^* = \dfrac{r\sqrt{\sigma^2 + \beta^2 + \tau^2}}{\alpha \tau}\left(1 - \dfrac{N^*}{K}\right)$, $N^* = \dfrac{d\sqrt{\sigma^2 + \beta^2 + \tau^2}}{e \alpha \tau}$, $\overline{m}^* = \overline{n}^* = \mu^*$}
+
+$E^* = (M^*, N^*, \mu^*, \mu^*)$ where $\mu^*$ is an arbitrary value.  Then
+\begin{align*}
+	J^* = J\big|_{E^*} = \left(
+	\begin{array}{cccc}
+	0 & er\left(1 - \dfrac{N^*}{K}\right) & 0 & 0 \\[.4cm]
+	-\dfrac{d}{e} & -\dfrac{rN^*}{K} & 0 & 0 \\[.4cm]
+	0 & 0 & -\dfrac{d\sigma_G^2 }{\sigma^2 + \beta^2 + \tau^2} & \dfrac{d\sigma_G^2 }{\sigma^2 + \beta^2 + \tau^2} \\[.4cm]
+	0 & 0 & -\dfrac{r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2} & \dfrac{r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2} \\
+	\end{array}
+	\right)
+\end{align*}
+
+\noindent The characteristic polynomial is
+\begin{align*}
+	P(\lambda) &= \left|{\lambda I - J^*}\right| = \left|
+	\begin{array}{cccc}
+		\lambda & -er\left(1 - \dfrac{N^*}{K}\right) & 0 & 0 \\[.4cm]
+		\dfrac{d}{e} & \lambda + \dfrac{rN^*}{K} & 0 & 0\\
+		0 & 0 & \lambda + \dfrac{d\sigma_G^2 }{\sigma^2 + \beta^2 + \tau^2} & -\dfrac{d\sigma_G^2 }{\sigma^2 + \beta^2 + \tau^2} \\[.4cm]
+		0 & 0 & \dfrac{r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2} & \lambda - \dfrac{r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2} \\
+	\end{array}
+	\right| \\[.3cm]
+\end{align*}
+
+\noindent Thus,
+\begin{align*}
+	P(\lambda) &= \left|
+	\begin{array}{cc}
+		\lambda & -er\left(1 - \dfrac{N^*}{K}\right) \\[.4cm]
+		\dfrac{d}{e} & \lambda + \dfrac{rN^*}{K} \\
+	\end{array}
+	\right| \cdot \left|
+	\begin{array}{cc}
+		\lambda + \dfrac{d\sigma_G^2 }{\sigma^2 + \beta^2 + \tau^2} & -\dfrac{d\sigma_G^2 }{\sigma^2 + \beta^2 + \tau^2} \\[.4cm]
+		\dfrac{r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2} & \lambda - \dfrac{r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2}	
+	\end{array}
+	\right| \\[.2cm]
+	&= P_1(\lambda)\cdot P_2(\lambda)
+\end{align*}
+
+\noindent Thus the zeros of $P(\lambda)$ are the zeros of both $P_1(\lambda)$ and $P_2(\lambda)$.
+\begin{align*}
+	P_1(\lambda) &= \lambda^2 + \frac{rN^*}{K}\lambda + rd\left(1 - \frac{N^*}{K}\right) = 0 \\
+	\implies \lambda_{1,2} &= \frac{1}{2}\left[-\frac{rN^*}{K} \pm \sqrt{\Delta}\right]
+\end{align*}
+
+\noindent Where $\Delta = \left(\dfrac{rN^*}{K}\right)^2 - 4rd\left(1 - \dfrac{N^*}{K}\right)$.  Since $N^* < K$, $\sqrt{\Delta} < \left|{\dfrac{rN^*}{K}}\right|$.  Thus $\text{Re} (\lambda_{1,2}) < 0$.
+
+\begin{align*}
+	P_2(\lambda) &= \lambda^2 + \left(\frac{d\sigma_G^2-r\beta^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2}\right)\lambda + \left(\frac{rd\sigma_G^2\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{(\sigma^2 + \beta^2 + \tau^2)^2}\right) = 0 \\
+	\implies \lambda_{3,4} &= \frac{1}{2}\left[-\left(\frac{d\sigma_G^2-r\beta^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2}\right) \pm \sqrt{\Delta}\right]
+\end{align*}
+
+\noindent Where
+\begin{align*}
+	\Delta = \left(\dfrac{d\sigma_G^2-r\beta^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2}\right)^2 - \left(\dfrac{4rd\sigma_G^2\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{(\sigma^2 + \beta^2 + \tau^2)^2}\right)
+\end{align*} 
+
+\noindent Again, since $N^* < K$, $\sqrt{\Delta} < \left|\left(\dfrac{d\sigma_G^2-r\beta^2\left(1 - \dfrac{N^*}{K}\right)}{\sigma^2 + \beta^2 + \tau^2}\right)\right|$. Thus $\text{Re} (\lambda_{3,4}) < 0 \iff d\sigma_G^2 > r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)$.  So the coexistence equilibrium is stable if 
+\begin{align*}
+	d\sigma_G^2 > r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)
+\end{align*}
+\end{document}
