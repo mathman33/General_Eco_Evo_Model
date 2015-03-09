@@ -7,16 +7,14 @@ from timeit import default_timer
 import gc as garbage
 import os
 import json
-#import argparse
+import argparse
 import shlex
 from time import sleep
 from subprocess import Popen
 from datetime import datetime
 
 AVG_TIME_PER_GRAPH = 6.518
-DIRECTORY = os.path.expanduser("~/src/General_Eco_Evo_Model")
-#DIRECTORY = os.path.whereami(__file__)
-
+DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 IMAGEMAGICK_COMMAND = "convert +append %s %s %s"
 NO_IMAGEMAGICK_ERROR = "Unable to create dual graphs.  Please install 'ImageMagick'\n"
 DATE_TIME_DIRECTORY_FORMAT = '%y%m%d_%H%M%S'
@@ -44,68 +42,71 @@ LaTeX_VARIABLE_FORMAT = {
     "theta" : "\\theta_{"
 }
 
-def REMOVE_COMMAND(*items):
+def remove_command(*items):
     command = "rm"
     for item in items:
         command += " %s" % item
     return command
 
-def plot_densities(system, step, date_time_stamp, text):    
+def plot_densities(system, densities_file, text, display_parameters):
     plt.figure()
-    plt.axes([0.25, 0.1, 0.7, 0.85], axisbg="white", frameon=True)
+
+    if display_parameters:
+        plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
+
+    limit = 1.1*max([system.K[subscript] for subscript in system.K])
+    plt.ylim(-1., limit)
+    plt.xlabel('Time')
+    plt.ylabel('Population Density')
+    
+    if display_parameters:
+        for index, text_line in enumerate(text):
+            plt.text(-.25*system.tf, limit*(1-(.05*index)), text_line)
 
     for i, value in enumerate(system.M):
         plt.plot(system.t, system.M[value], label="Predator %d Density" % (i+1))
     for i, value in enumerate(system.N):
         plt.plot(system.t, system.N[value], label="Prey %d Density" % (i+1))
 
-    limit = 1.3*max([system.K[subscript] for subscript in system.K])
-
-    plt.ylim(-1., 1.1*limit)
-    plt.xlabel('Time')
-    plt.ylabel('Population Density')
-
-    for index, text_line in enumerate(text):
-        plt.text(-.32*system.tf, limit*(1-(.05*index)), text_line)
-
     plt.legend(loc=0)
 
-    file_ = "%s/graphs/%s/densities_%03d.png" % (DIRECTORY, date_time_stamp, step)
-    plt.savefig(file_, format = 'png')
+    plt.savefig(densities_file, format = 'png')
     plt.close()
     garbage.collect()
-    print "GRAPH SAVED: %s" % file_
+    print "GRAPH SAVED: %s" % densities_file
 
-def plot_traits(system, step, date_time_stamp, text):
+def plot_traits(system, traits_file, text, display_parameters, combine):
     plt.figure()
+    
+    if display_parameters and not combine:
+        plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
+    
+    limit = 20
+    plt.ylim(-limit, limit)
+    plt.xlabel('Time')
+    plt.ylabel('Trait Value')
+
+    if display_parameters and not combine:
+        for index, text_line in enumerate(text):
+            plt.text(-.25*system.tf, limit*(1-(.05*index)), text_line)
 
     for i, value in enumerate(system.m):
         plt.plot(system.t, system.m[value], label="Predator %d Trait" % (i+1))
     for i, value in enumerate(system.n):
         plt.plot(system.t, system.n[value], label="Prey %d Trait" % (i+1))
 
-    limit = 20
-    plt.ylim(-limit, limit)
-    plt.xlabel('Time')
-    plt.ylabel('Trait Value')
-
     plt.legend(loc=0)
 
-    file_ = "%s/graphs/%s/traits_%03d.png" % (DIRECTORY, date_time_stamp, step)
-    plt.savefig(file_, format = 'png')
+    plt.savefig(traits_file, format = 'png')
     plt.close()
     garbage.collect()
-    print "GRAPH SAVED: %s" % file_
+    print "GRAPH SAVED: %s" % traits_file
 
-def combine_images(directory, step):
-    input1 = "%s/densities_%.3d.png" % (directory, step)
-    input2 = "%s/traits_%.3d.png" % (directory, step)
-    output = "%s/output_%.3d.png" % (directory, step)
+def combine_images(input1, input2, output, keep_original_images):
     command = IMAGEMAGICK_COMMAND % (input1, input2, output)   
     try:
         Popen(shlex.split(command))
-        #if not ARGS.keep:
-        if True:
+        if not keep_original_images:
             while True:
                 if os.path.isfile(output):
                     tries = 1
@@ -115,7 +116,7 @@ def combine_images(directory, step):
                             break
                         sleep(.001)
                         if output_size != 0:
-                            Popen(shlex.split(REMOVE_COMMAND(input1, input2)))
+                            Popen(shlex.split(remove_command(input1, input2)))
                             break
                         else:
                             tries += 1
@@ -302,13 +303,15 @@ class System:
             return response
         return pred_trait_response
 
-#def parse_args():
-#    global ARGS
-#    
-#    argparse.argument("-k", "--keep", action=store_True, dest=keep, default=False)
-
+def PARSE_ARGS():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-k", "--keep-orignial-images", action = "store_true", dest = "keep_original_images", default = False)
+    parser.add_argument("-c", "--no-combine", action = "store_false", dest = "combine", default = True)
+    parser.add_argument("-p", "--no-parameters", action = "store_false", dest = "display_parameters", default = True)
+    return parser.parse_args()
+    
 def main():
-    #parse_args()
+    args = PARSE_ARGS()
 
     data = json.loads(open("%s/config.json" % DIRECTORY).read())
 
@@ -385,20 +388,24 @@ def main():
                     if starts_and_steps[variable][subscript]["step"] != 0:
                         text.append(r"$%s%s}= %.03f$" % (LaTeX_VARIABLE_FORMAT[variable], subscript, value))
 
-            ### plot results            
-            plot_densities(system, step, date_time_stamp, text)
+            ### plot results     
+            densities_file = "%s/densities_%03d.png" % (current_directory, step)
+            plot_densities(system, densities_file, text, args.display_parameters)
             data_time = default_timer() - ts
             print "Time taken for this data: %.03f\n" % (data_time)
             time += data_time
 
             ts = default_timer()
 
-            plot_traits(system, step, date_time_stamp, text)
+            traits_file    = "%s/traits_%03d.png" % (current_directory, step)
+            plot_traits(system, traits_file, text, args.display_parameters, args.combine)
             data_time = default_timer() - ts
             print "Time taken for this data: %.03f\n" % (data_time)
             time += data_time
             
-            combine_images(current_directory, step)
+            output = "%s/output_%.3d.png" % (current_directory, step)
+            if args.combine:
+                combine_images(densities_file, traits_file, output, args.keep_original_images)
 
         print TOT_TIME_MESSAGE % (time)
         print AVG_TIME_MESSAGE % (time/number_of_graphs)
