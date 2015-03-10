@@ -22,6 +22,10 @@ TIME_NEEDED_MESSAGE = "Approximate Time Needed: %.03f minutes\n\n"
 NUMBER_OF_GRAPHS_MESSAGE = "%d graphs will be generated."
 AVG_TIME_MESSAGE = "average time per graph: %.03f seconds"
 TOT_TIME_MESSAGE = "total time taken: %.03f seconds"
+GRAPH_SAVED = """
+GRAPH SAVED
+-----------
+%s"""
 LaTeX_VARIABLE_FORMAT = {
     "M0"    : "M_{0",
     "m0"    : "m_{0",
@@ -73,7 +77,7 @@ def plot_densities(system, densities_file, text, display_parameters):
     plt.savefig(densities_file, format = 'png')
     plt.close()
     garbage.collect()
-    print "GRAPH SAVED: %s" % densities_file
+    print GRAPH_SAVED % densities_file
 
 def plot_traits(system, traits_file, text, display_parameters, combine):
     plt.figure()
@@ -100,7 +104,7 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     plt.savefig(traits_file, format = 'png')
     plt.close()
     garbage.collect()
-    print "GRAPH SAVED: %s" % traits_file
+    print GRAPH_SAVED % traits_file
 
 def combine_images(input1, input2, output, keep_original_images):
     command = IMAGEMAGICK_COMMAND % (input1, input2, output)   
