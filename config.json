@@ -1,8 +1,8 @@
 {
     "system_parameters": [
         {
-            "steps": 15,
-            "final_time": 1000,
+            "steps": 5,
+            "final_time": 400,
             "predator": {
                 "initial_values": {
                     "densities": {
@@ -27,8 +27,8 @@
                     },
                     "genetic": {
                         "1": {
-                            "start": 0.10,
-                            "stop": 0.25
+                            "start": 0.13,
+                            "stop": 0.14
                         }
                     }
                 },
@@ -47,8 +47,8 @@
                             "stop": 100
                         },
                         "2": {
-                            "start": 110,
-                            "stop": 110
+                            "start": 200,
+                            "stop": 200
                         }
                     },
                     "traits": {
@@ -57,8 +57,8 @@
                             "stop": 0.2
                         },
                         "2": {
-                            "start": 4.0,
-                            "stop": 4.0
+                            "start": -0.2,
+                            "stop": -0.2
                         }
                     }
                 },
@@ -100,8 +100,8 @@
                         "stop": 250
                     },
                     "2": {
-                        "start": 250,
-                        "stop": 250
+                        "start": 200,
+                        "stop": 200
                     }
                 }
             },
@@ -138,8 +138,8 @@
                 },
                 "optimal_trait_differences": {
                     "11": {
-                        "start": -0.15,
-                        "stop": -0.15
+                        "start": 0.15,
+                        "stop": 0.15
                     },
                     "12": {
                         "start": -0.15,
