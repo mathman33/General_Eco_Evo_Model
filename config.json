@@ -84,8 +84,8 @@
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
-                        "start": 0.50,
-                        "stop": 0.50
+                        "start": 0.5,
+                        "stop": 0.5
                     }
                 },
                 "specialization": {

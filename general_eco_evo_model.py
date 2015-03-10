@@ -13,7 +13,7 @@ from time import sleep
 from subprocess import Popen
 from datetime import datetime
 
-AVG_TIME_PER_GRAPH = 6.518
+AVG_TIME_PER_GRAPH = 1.670
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 IMAGEMAGICK_COMMAND = "convert +append %s %s %s"
 NO_IMAGEMAGICK_ERROR = "Unable to create dual graphs.  Please install 'ImageMagick'\n"
@@ -81,8 +81,8 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     if display_parameters and not combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
     
-    limit = 20
-    plt.ylim(-limit, limit)
+    limit = 10
+    plt.ylim(-1, limit)
     plt.xlabel('Time')
     plt.ylabel('Trait Value')
 
@@ -291,17 +291,16 @@ class System:
         return pred_trait_response
 
     def give_params_prey_trait_response(self, prey_subscript):
-        def pred_trait_response(M, m, n):
+        def prey_trait_response(M, m, n):
             response = 0
             for pred_subscript in self.M0:
                 interaction_subscript = pred_subscript + prey_subscript
                 avgattack = self.avgattack[interaction_subscript]
-                eff = self.eff[interaction_subscript]
                 A = self.A[interaction_subscript]
                 theta = self.theta[interaction_subscript]
-                response += avgattack(m[int(pred_subscript)-1],n)*(eff*M[int(pred_subscript)-1]*(theta + n - m[int(pred_subscript)-1]))/(A)
+                response += avgattack(m[int(pred_subscript)-1],n)*(M[int(pred_subscript)-1]*(theta + n - m[int(pred_subscript)-1]))/(A)
             return response
-        return pred_trait_response
+        return prey_trait_response
 
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
