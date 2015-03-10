@@ -64,9 +64,9 @@ def plot_densities(system, densities_file, text, display_parameters):
             plt.text(-.25*system.tf, limit*(1-(.05*index)), text_line)
 
     for i, value in enumerate(system.M):
-        plt.plot(system.t, system.M[value], label="Predator %d Density" % (i+1))
+        plt.plot(system.t, system.M[value], label="Predator %d Density" % (i+1), lw=2)
     for i, value in enumerate(system.N):
-        plt.plot(system.t, system.N[value], label="Prey %d Density" % (i+1))
+        plt.plot(system.t, system.N[value], label="Prey %d Density" % (i+1), lw=2)
 
     plt.legend(loc=0)
 
@@ -91,9 +91,9 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
             plt.text(-.25*system.tf, limit*(1-(.05*index)), text_line)
 
     for i, value in enumerate(system.m):
-        plt.plot(system.t, system.m[value], label="Predator %d Trait" % (i+1))
+        plt.plot(system.t, system.m[value], label="Predator %d Trait" % (i+1), lw=2)
     for i, value in enumerate(system.n):
-        plt.plot(system.t, system.n[value], label="Prey %d Trait" % (i+1))
+        plt.plot(system.t, system.n[value], label="Prey %d Trait" % (i+1), lw=2)
 
     plt.legend(loc=0)
 
