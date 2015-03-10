@@ -1,152 +1,152 @@
 {
     "system_parameters": [
         {
-            "steps": 5,
-            "final_time": 400,
-            "predator": {
-                "initial_values": {
-                    "densities": {
-                        "1": {
-                            "start": 25.0,
-                            "stop": 25.0
-                        }
-                    },
-                    "traits": {
-                        "1": {
-                            "start": 0.0,
-                            "stop": 0.0
-                        }
-                    }
-                },
-                "trait_variances": {
-                    "total": {
-                        "1": {
-                            "start": 0.25,
-                            "stop": 0.25
-                        }
-                    },
-                    "genetic": {
-                        "1": {
-                            "start": 0.13,
-                            "stop": 0.14
-                        }
-                    }
-                },
-                "death_rates": {
-                    "1": {
-                        "start": 0.05,
-                        "stop": 0.05
-                    }
-                }
-            },
-            "prey": {
-                "initial_values": {
-                    "densities": {
-                        "1": {
-                            "start": 100,
-                            "stop": 100
-                        },
-                        "2": {
-                            "start": 200,
-                            "stop": 200
-                        }
-                    },
-                    "traits": {
-                        "1": {
-                            "start": 0.2,
-                            "stop": 0.2
-                        },
-                        "2": {
-                            "start": -0.2,
-                            "stop": -0.2
-                        }
-                    }
-                },
-                "trait_variances": {
-                    "total": {
-                        "1": {
-                            "start": 0.25,
-                            "stop": 0.25
-                        },
-                        "2": {
-                            "start": 0.25,
-                            "stop": 0.25
-                        }
-                    },
-                    "genetic": {
-                        "1": {
-                            "start": 0.1,
-                            "stop": 0.1
-                        },
-                        "2": {
-                            "start": 0.1,
-                            "stop": 0.1
-                        }
-                    }
-                },
-                "growth_rates": {
-                    "1": {
-                        "start": 0.5,
-                        "stop": 0.5
-                    },
-                    "2": {
-                        "start": 0.5,
-                        "stop": 0.5
-                    }
-                },
-                "carrying_capacities": {
-                    "1": {
-                        "start": 250,
-                        "stop": 250
-                    },
-                    "2": {
-                        "start": 200,
-                        "stop": 200
-                    }
-                }
-            },
+            "final_time": 400, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
-                        "start": 0.20,
-                        "stop": 0.20
-                    },
+                        "start": 0.2, 
+                        "stop": 0.2
+                    }, 
                     "12": {
-                        "start": 0.20,
-                        "stop": 0.20
+                        "start": 0.2, 
+                        "stop": 0.2
                     }
-                },
-                "specialization": {
-                    "11": {
-                        "start": 0.1,
-                        "stop": 0.1
-                    },
-                    "12": {
-                        "start": 0.1,
-                        "stop": 0.1
-                    }
-                },
+                }, 
                 "max_attack_rates": {
                     "11": {
-                        "start": 0.05,
+                        "start": 0.05, 
                         "stop": 0.05
-                    },
+                    }, 
                     "12": {
-                        "start": 0.05,
+                        "start": 0.05, 
                         "stop": 0.05
                     }
-                },
+                }, 
                 "optimal_trait_differences": {
                     "11": {
-                        "start": 0.15,
+                        "start": 0.15, 
                         "stop": 0.15
-                    },
+                    }, 
                     "12": {
-                        "start": -0.15,
+                        "start": -0.15, 
                         "stop": -0.15
                     }
+                }, 
+                "specialization": {
+                    "11": {
+                        "start": 0.1, 
+                        "stop": 0.1
+                    }, 
+                    "12": {
+                        "start": 0.1, 
+                        "stop": 0.1
+                    }
                 }
-            }
+            }, 
+            "predator": {
+                "death_rates": {
+                    "1": {
+                        "start": 0.05, 
+                        "stop": 0.05
+                    }
+                }, 
+                "initial_values": {
+                    "densities": {
+                        "1": {
+                            "start": 25.0, 
+                            "stop": 25.0
+                        }
+                    }, 
+                    "traits": {
+                        "1": {
+                            "start": 0.0, 
+                            "stop": 0.0
+                        }
+                    }
+                }, 
+                "trait_variances": {
+                    "genetic": {
+                        "1": {
+                            "start": 0.13, 
+                            "stop": 0.14
+                        }
+                    }, 
+                    "total": {
+                        "1": {
+                            "start": 0.25, 
+                            "stop": 0.25
+                        }
+                    }
+                }
+            }, 
+            "prey": {
+                "carrying_capacities": {
+                    "1": {
+                        "start": 250, 
+                        "stop": 250
+                    }, 
+                    "2": {
+                        "start": 200, 
+                        "stop": 200
+                    }
+                }, 
+                "growth_rates": {
+                    "1": {
+                        "start": 0.5, 
+                        "stop": 0.5
+                    }, 
+                    "2": {
+                        "start": 0.5, 
+                        "stop": 0.5
+                    }
+                }, 
+                "initial_values": {
+                    "densities": {
+                        "1": {
+                            "start": 100, 
+                            "stop": 100
+                        }, 
+                        "2": {
+                            "start": 200, 
+                            "stop": 200
+                        }
+                    }, 
+                    "traits": {
+                        "1": {
+                            "start": 0.2, 
+                            "stop": 0.2
+                        }, 
+                        "2": {
+                            "start": -0.2, 
+                            "stop": -0.2
+                        }
+                    }
+                }, 
+                "trait_variances": {
+                    "genetic": {
+                        "1": {
+                            "start": 0.1, 
+                            "stop": 0.1
+                        }, 
+                        "2": {
+                            "start": 0.1, 
+                            "stop": 0.1
+                        }
+                    }, 
+                    "total": {
+                        "1": {
+                            "start": 0.25, 
+                            "stop": 0.25
+                        }, 
+                        "2": {
+                            "start": 0.25, 
+                            "stop": 0.25
+                        }
+                    }
+                }
+            }, 
+            "steps": 1
         }
     ]
 }
