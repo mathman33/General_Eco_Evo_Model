@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 MAR 2015 10:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 MAR 2015 13:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1419,7 +1419,7 @@ Overfull \hbox (10.24216pt too wide) in paragraph at lines 437--437
 [42
 
  <./figures/1x2/traits_generalist_to_specialist.png>]
-<figures/1x2/densities_unstable_coexistence.png, id=1577, 578.16pt x 433.62pt>
+<figures/1x2/densities_unstable_coexistence.png, id=1578, 578.16pt x 433.62pt>
 File: figures/1x2/densities_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/densities_unstable_coexistence.png>
@@ -1434,7 +1434,7 @@ Overfull \hbox (10.24216pt too wide) in paragraph at lines 442--442
 [43
 
  <./figures/1x2/densities_unstable_coexistence.png>]
-<figures/1x2/traits_unstable_coexistence.png, id=1614, 578.16pt x 433.62pt>
+<figures/1x2/traits_unstable_coexistence.png, id=1615, 578.16pt x 433.62pt>
 File: figures/1x2/traits_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/traits_unstable_coexistence.png>
@@ -1473,10 +1473,10 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 455.
  ) 
 Here is how much of TeX's memory you used:
- 19279 strings out of 493315
- 366996 string characters out of 6137904
- 450605 words of memory out of 5000000
- 22172 multiletter control sequences out of 15000+600000
+ 19281 strings out of 493315
+ 367012 string characters out of 6137904
+ 450646 words of memory out of 5000000
+ 22174 multiletter control sequences out of 15000+600000
  11750 words of font info for 46 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,17n,61p,422b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1497,7 +1497,7 @@ al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msam5.pfb></usr/loca
 l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on presentation.pdf (44 pages, 586043 bytes).
+Output written on presentation.pdf (44 pages, 596066 bytes).
 PDF statistics:
  1732 PDF objects out of 2073 (max. 8388607)
  1625 compressed objects within 17 object streams
