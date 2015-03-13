@@ -66,8 +66,18 @@
 \headcommand {\beamer@framepages {39}{39}}
 \headcommand {\slideentry {3}{2}{4}{40/40}{$1 \times 2$}{0}}
 \headcommand {\beamer@framepages {40}{40}}
-\headcommand {\beamer@partpages {1}{40}}
-\headcommand {\beamer@subsectionpages {41}{40}}
-\headcommand {\beamer@sectionpages {41}{40}}
-\headcommand {\beamer@documentpages {40}}
-\headcommand {\def \inserttotalframenumber {25}}
+\headcommand {\sectionentry {4}{Possible Expansions}{41}{Possible Expansions}{0}}
+\headcommand {\beamer@sectionpages {21}{40}}
+\headcommand {\beamer@subsectionpages {31}{40}}
+\headcommand {\slideentry {4}{0}{5}{41/48}{}{0}}
+\headcommand {\beamer@framepages {41}{48}}
+\headcommand {\sectionentry {5}{Thank You}{49}{Thank You}{0}}
+\headcommand {\beamer@sectionpages {41}{48}}
+\headcommand {\beamer@subsectionpages {41}{48}}
+\headcommand {\slideentry {5}{0}{6}{49/49}{}{0}}
+\headcommand {\beamer@framepages {49}{49}}
+\headcommand {\beamer@partpages {1}{49}}
+\headcommand {\beamer@subsectionpages {50}{49}}
+\headcommand {\beamer@sectionpages {50}{49}}
+\headcommand {\beamer@documentpages {49}}
+\headcommand {\def \inserttotalframenumber {27}}
