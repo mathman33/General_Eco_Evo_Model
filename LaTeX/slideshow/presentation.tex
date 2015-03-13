@@ -15,7 +15,9 @@
 \usepackage{alltt}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
+\usepackage{pgfplots}
 \usepackage{bigints}
 
 \newcommand{\suchthat}{\, \mid \,}
@@ -27,6 +29,11 @@
   \end{minipage}%
   }%
 }
+
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+
 \setcounter{section}{-1}
 %\setlength{\jot}{30pt}
 
@@ -83,19 +90,24 @@
 \subsection{Lotka-Volterra}
 \begin{frame}
 	\frametitle{Classical Lotka-Volterra Model}
-	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
-		thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+	\begin{columns}
+    		\begin{column}{0.48\textwidth}
+			\begin{align*}
+				\frac{dN}{dt} &= N(r - \alpha M)\\[.1cm]
+				\frac{dM}{dt} &= M(e\alpha N - d)
+			\end{align*}
+   		 \end{column}
+    		\begin{column}{0.48\textwidth}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
 
-		\node[main node] (1) {M};
-		\node[main node] (2) [right of=1] {N};
+				\node[main node] (1) {M};
+				\node[main node] (2) [right of=1] {N};
 
-		\path[every node/.style={font=\sffamily\small}]
-		(1) edge [right] node[left] {} (2);
-	\end{tikzpicture}
-	\begin{align*}
-		\frac{dN}{dt} &= N(r - \alpha M)\\[.1cm]
-		\frac{dM}{dt} &= M(e\alpha N - d)
-	\end{align*}
+				\path[every node/.style={font=\sffamily\small}]
+				(1) edge [right] node[left] {} (2);
+			\end{tikzpicture}
+    		\end{column}
+	\end{columns}\vskip.25cm
 	{\bf Variables}
 	\begin{itemize}
 		\item $N \equiv $ Prey Density
@@ -119,7 +131,7 @@
 	\begin{itemize}
 		\item $N \equiv $ Prey Density
 		\item $M \equiv $ Predator Density
-		\item \uncover<2->{{\color{red} No Prey Character}}
+		\item {\color{red} No Prey Character}
 		\item $m \equiv $ Predator Character (Trait Value)
 	\end{itemize}
 	{\bf Parameters}
@@ -133,7 +145,7 @@
 \begin{frame}
 	\frametitle{Our Extension}
 	\begin{align*}
-		a(m, n) = \alpha \exp\left[-\frac{(m - n - \theta)^2}{2\tau^2}\right]
+		a(m, n) = \alpha \exp\left[-\frac{(m - n - {\color{red} \theta})^2}{2\tau^2}\right]
 	\end{align*}
 	{\bf Variables}
 	\begin{itemize}
@@ -155,10 +167,25 @@
 	\begin{itemize}
 		\item Trait values are {\bf normally distributed} over the populations
 	\end{itemize}
-	\begin{align*}
-		p(n, \overline{n}) &= \frac{1}{\sqrt{2\pi\beta^2}}\exp\left[{-\frac{(n - \overline{n})^2}{2\beta^2}}\right] \\
-		p(m, \overline{m}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{(m - \overline{m})^2}{2\sigma^2}}\right]
-	\end{align*}
+	\begin{columns}
+		\begin{column}{0.48\textwidth}
+			\begin{align*}
+				p(n, \overline{n}) &= \frac{1}{\sqrt{2\pi\beta^2}}\exp\left[{-\frac{(n - \overline{n})^2}{2\beta^2}}\right] \\
+				p(m, \overline{m}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{(m - \overline{m})^2}{2\sigma^2}}\right]
+			\end{align*}
+		\end{column}
+%		\begin{column}{0.48\textwidth}
+%			\begin{tikzpicture}[scale = 0.36]
+%				\begin{axis}[every axis plot post/.append style={
+%					mark=none,domain=-2:3,samples=50,smooth}, % All plots: from -2:2, 50 samples, smooth, no marks
+%					axis x line*=bottom, % no box around the plot, only x and y axis
+%					axis y line*=left, % the * suppresses the arrow tips
+%	  					enlargelimits=upper] % extend the axes a bit to the right and top
+%					\addplot {gauss(0,0.75)};
+%				\end{axis}
+%			\end{tikzpicture}
+%		\end{column}
+	\end{columns}
 	{\bf Variables}
 	\begin{itemize}
 		\item $N \equiv $ Prey Density
@@ -230,20 +257,26 @@
 	\overline{W}(\overline{m}, \overline{n}, N) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} W(m, n, N) \cdot p(m, \overline{m}) \cdot p(n, \overline{n}) dm dn \\
 	&= eN\overline{a}(\overline{m}, \overline{n}) - d
 	\end{align*}
-	{\bf Variables}
-	\begin{itemize}
-		\item $N \equiv $ Prey Density
-		\item $\overline{n} \equiv $ Mean Prey Character
-		\item $M \equiv $ Predator Density
-		\item $\overline{m} \equiv $ Mean Predator Character
-	\end{itemize}
-	{\bf Parameters}
-	\begin{itemize}
-		\item $r \equiv $ Intrinsic Prey Growth Rate
-		\item $K \equiv $ Prey Carrying Capacity
-		\item $d \equiv $ Predator Death Rate
-		\item $e \equiv $ Efficiency
-	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			{\bf Variables}
+			\begin{itemize}
+				\item $N \equiv $ Prey Density
+				\item $\overline{n} \equiv $ Mean Prey Character
+				\item $M \equiv $ Predator Density
+				\item $\overline{m} \equiv $ Mean Predator Character
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			{\bf Parameters}
+			\begin{itemize}
+				\item $r \equiv $ Intrinsic Prey Growth Rate
+				\item $K \equiv $ Prey Carrying Capacity
+				\item $d \equiv $ Predator Death Rate
+				\item $e \equiv $ Efficiency
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}
 	\frametitle{}
@@ -252,20 +285,37 @@
 		\frac{dN}{dt} &= N\cdot {\color{red}\overline{Y}(\overline{m}, \overline{n}, M, N)}= N{\color{red}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
 		\frac{dM}{dt} &= M\cdot {\color{blue}\overline{W}(\overline{m}, \overline{n}, N)}\ \ \ = M{\color{blue}\left[eN\overline{a}(\overline{m}, \overline{n}) - d\right]}
 	\end{align*}
-	{\bf Variables}
-	\begin{itemize}
-		\item $N \equiv $ Prey Density
-		\item $\overline{n} \equiv $ Mean Prey Character
-		\item $M \equiv $ Predator Density
-		\item $\overline{m} \equiv $ Mean Predator Character
-	\end{itemize}
-	{\bf Parameters}
-	\begin{itemize}
-		\item $r \equiv $ Intrinsic Prey Growth Rate
-		\item $K \equiv $ Prey Carrying Capacity
-		\item $d \equiv $ Predator Death Rate
-		\item $e \equiv $ Efficiency
-	\end{itemize}
+	\begin{center}
+		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+		
+			\node[main node] (1) {M};
+			\node[main node] (2) [right of=1] {N};
+		
+			\path[every node/.style={font=\sffamily\small}]
+			(1) edge [right] node[left] {} (2);
+		\end{tikzpicture}
+	\end{center}
+	\vskip.25cm
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			{\bf Variables}
+			\begin{itemize}
+				\item $N \equiv $ Prey Density
+				\item $\overline{n} \equiv $ Mean Prey Character
+				\item $M \equiv $ Predator Density
+				\item $\overline{m} \equiv $ Mean Predator Character
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			{\bf Parameters}
+			\begin{itemize}
+				\item $r \equiv $ Intrinsic Prey Growth Rate
+				\item $K \equiv $ Prey Carrying Capacity
+				\item $d \equiv $ Predator Death Rate
+				\item $e \equiv $ Efficiency
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}
 	\frametitle{}
@@ -275,20 +325,37 @@
 	\end{itemize}
 	\begin{align*}
 	\frac{d\overline{n}}{dt} &= \beta_G^2{\color{magenta}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{magenta}\frac{M(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}\\[.1cm]
-	\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{cyan}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{cyan}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}\\
+	\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{cyan}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{cyan}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
 	\end{align*}
-	{\bf Variables}
-	\begin{itemize}
-		\item $N \equiv $ Prey Density
-		\item $\overline{n} \equiv $ Mean Prey Character
-		\item $M \equiv $ Predator Density
-		\item $\overline{m} \equiv $ Mean Predator Character
-	\end{itemize}
-	{\bf Parameters}
-	\begin{itemize}
-		\item $\beta_G^2 \equiv $ Prey genetic variance
-		\item $\sigma_G^2 \equiv $ Predator genetic variance
-	\end{itemize}
+	\begin{center}
+		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+		
+			\node[main node] (1) {M};
+			\node[main node] (2) [right of=1] {N};
+		
+			\path[every node/.style={font=\sffamily\small}]
+			(1) edge [right] node[left] {} (2);
+		\end{tikzpicture}
+	\end{center}
+	\vskip.25cm
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			{\bf Variables}
+			\begin{itemize}
+				\item $N \equiv $ Prey Density
+				\item $\overline{n} \equiv $ Mean Prey Character
+				\item $M \equiv $ Predator Density
+				\item $\overline{m} \equiv $ Mean Predator Character
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			{\bf Parameters}
+			\begin{itemize}
+				\item $\beta_G^2 \equiv $ Prey genetic variance
+				\item $\sigma_G^2 \equiv $ Predator genetic variance
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}
 	\frametitle{The Complete $1\times1$ Model \\ (One Predator Species, One Prey Species)}
@@ -335,6 +402,33 @@
 		&= \int\limits_{\mathbb{R}^{u+1}} W_i \cdot p_i(m_i, \overline{m_i}) \cdot \prod\limits_{j=1}^{v}\Big[p(n_j, \overline{n}_j)\Big] dm_i \prod\limits_{j=1}^{v}\Big[dn_j\Big]\\
 		&= \sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\Big] - d_i
 	\end{align*}
+\end{frame}
+\begin{frame}
+	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}
+	\begin{center}
+		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+		
+			\node[main node] (1) {$M_1$};
+			\node[main node] (2) [below of=1] {$M_2$};
+			\node (dots1) [below = 0.5cm of 2] {$\vdots$};
+			\node[main node] (3) [below = 2cm of 2] {$M_u$};
+			\node[main node] (4) [right of=1] {$N_1$};
+			\node[main node] (5) [below of=4] {$N_2$};
+			\node (dots2) [below = 0.15cm of 5] {$\vdots$};
+			\node[main node] (6) [below = 1.25cm of 5] {$N_v$};
+					
+			\path[every node/.style={font=\sffamily\small}]
+			(1) 	edge [right] node[left] {} (4)
+				edge [right] node[left] {} (5)
+				edge [right] node[left] {} (6)
+			(2) 	edge [right] node[left] {} (4)
+				edge [right] node[left] {} (5)
+				edge [right] node[left] {} (6)
+			(3) 	edge [right] node[left] {} (4)
+				edge [right] node[left] {} (5)
+				edge [right] node[left] {} (6);
+		\end{tikzpicture}
+	\end{center}
 \end{frame}
 \begin{frame}
 	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}

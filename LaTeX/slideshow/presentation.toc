@@ -5,8 +5,8 @@
 \beamer@subsectionintoc {2}{1}{Lotka-Volterra}{4}{0}{3}
 \beamer@subsectionintoc {2}{2}{Schreiber, B\"urger, and Bolnick}{6}{0}{3}
 \beamer@subsectionintoc {2}{3}{Our Extension}{8}{0}{3}
-\beamer@sectionintoc {3}{Preliminary Results}{21}{0}{4}
-\beamer@subsectionintoc {3}{1}{$1 \times 1$}{21}{0}{4}
-\beamer@subsectionintoc {3}{2}{$1 \times 2$}{31}{0}{4}
-\beamer@sectionintoc {4}{Possible Expansions}{41}{0}{5}
-\beamer@sectionintoc {5}{Thank You}{42}{0}{6}
+\beamer@sectionintoc {3}{Preliminary Results}{22}{0}{4}
+\beamer@subsectionintoc {3}{1}{$1 \times 1$}{22}{0}{4}
+\beamer@subsectionintoc {3}{2}{$1 \times 2$}{32}{0}{4}
+\beamer@sectionintoc {4}{Possible Expansions}{42}{0}{5}
+\beamer@sectionintoc {5}{Thank You}{43}{0}{6}
