@@ -15,6 +15,7 @@
 \usepackage{alltt}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usetikzlibrary{arrows}
 \usepackage{bigints}
 
 \newcommand{\suchthat}{\, \mid \,}
@@ -82,6 +83,15 @@
 \subsection{Lotka-Volterra}
 \begin{frame}
 	\frametitle{Classical Lotka-Volterra Model}
+	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+		thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+
+		\node[main node] (1) {M};
+		\node[main node] (2) [right of=1] {N};
+
+		\path[every node/.style={font=\sffamily\small}]
+		(1) edge [right] node[left] {} (2);
+	\end{tikzpicture}
 	\begin{align*}
 		\frac{dN}{dt} &= N(r - \alpha M)\\[.1cm]
 		\frac{dM}{dt} &= M(e\alpha N - d)
@@ -471,19 +481,36 @@
 \section{Possible Expansions}
 \begin{frame}
 	\begin{itemize}
-		\item \uncover<2->{Two Predators competing for One Prey}
-		\item \uncover<3->{One Specialist Predator Competing with One Generalist Predator for Two Prey Species}
-		\item \uncover<4->{Two Specialist Predators Competing with One Generalist Predator for Two Prey Species}
-		\item \uncover<5->{Further Analysis of the General $u \times v$ Model}
-		\item \uncover<6->{Intra-Guild Predation}
-		\item \uncover<7->{Adding Evolutionary Cost to Prey}
-		\item \uncover<8->{Adding Evolutionary Cost to Predator}
+		\item Two Predators competing for One Prey
+		\item One Specialist Predator Competing with One Generalist Predator for Two Prey Species
+		\item Two Specialist Predators Competing with One Generalist Predator for Two Prey Species
+		\item Further Analysis of the General $u \times v$ Model
+		\item Intra-Guild Predation
+		\item Adding Evolutionary Cost to Prey
+		\item Adding Evolutionary Cost to Predator
 	\end{itemize}
 \end{frame}
 
 \section{Thank You}
 \begin{frame}
-hello
+	\frametitle{Thank You!}
+	\begin{itemize}
+		\item Pacific Coast Undergraduate Math Conference
+		\item Dr. Alissa Crans, Dr. Karrolyne Fogel, Dr. Kendra Killpatrick, Dr. John Rock, and all other PCUMC Organizers
+		\item National Science Foundation
+		\item Mathematical Association of America and all other PCUMC sponsors
+		\item Cal Lutheran University and all other PCUMC university supporters
+		\item Dr. Helena Noronha
+		\item Pacific Math Alliance PUMP Undergraduate Research Groups
+		\item California State University, Northridge
+		\item Dr. Jing Li and Dr. Casey terHorst
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{}
+	\begin{center}
+		{\Huge Questions?}
+	\end{center}
 \end{frame}
 
 \section{Thanks}
