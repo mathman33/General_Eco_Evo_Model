@@ -13,7 +13,7 @@ from time import sleep
 from subprocess import Popen
 from datetime import datetime
 
-AVG_TIME_PER_GRAPH = 6.518
+AVG_TIME_PER_GRAPH = 1.670
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 IMAGEMAGICK_COMMAND = "convert +append %s %s %s"
 NO_IMAGEMAGICK_ERROR = "Unable to create dual graphs.  Please install 'ImageMagick'\n"
@@ -22,6 +22,10 @@ TIME_NEEDED_MESSAGE = "Approximate Time Needed: %.03f minutes\n\n"
 NUMBER_OF_GRAPHS_MESSAGE = "%d graphs will be generated."
 AVG_TIME_MESSAGE = "average time per graph: %.03f seconds"
 TOT_TIME_MESSAGE = "total time taken: %.03f seconds"
+GRAPH_SAVED = """
+GRAPH SAVED
+-----------
+%s"""
 LaTeX_VARIABLE_FORMAT = {
     "M0"    : "M_{0",
     "m0"    : "m_{0",
@@ -73,7 +77,7 @@ def plot_densities(system, densities_file, text, display_parameters):
     plt.savefig(densities_file, format = 'png')
     plt.close()
     garbage.collect()
-    print "GRAPH SAVED: %s" % densities_file
+    print GRAPH_SAVED % densities_file
 
 def plot_traits(system, traits_file, text, display_parameters, combine):
     plt.figure()
@@ -81,7 +85,7 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     if display_parameters and not combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
     
-    limit = 20
+    limit = 10
     plt.ylim(-limit, limit)
     plt.xlabel('Time')
     plt.ylabel('Trait Value')
@@ -100,7 +104,7 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     plt.savefig(traits_file, format = 'png')
     plt.close()
     garbage.collect()
-    print "GRAPH SAVED: %s" % traits_file
+    print GRAPH_SAVED % traits_file
 
 def combine_images(input1, input2, output, keep_original_images):
     command = IMAGEMAGICK_COMMAND % (input1, input2, output)   
@@ -291,17 +295,16 @@ class System:
         return pred_trait_response
 
     def give_params_prey_trait_response(self, prey_subscript):
-        def pred_trait_response(M, m, n):
+        def prey_trait_response(M, m, n):
             response = 0
             for pred_subscript in self.M0:
                 interaction_subscript = pred_subscript + prey_subscript
                 avgattack = self.avgattack[interaction_subscript]
-                eff = self.eff[interaction_subscript]
                 A = self.A[interaction_subscript]
                 theta = self.theta[interaction_subscript]
-                response += avgattack(m[int(pred_subscript)-1],n)*(eff*M[int(pred_subscript)-1]*(theta + n - m[int(pred_subscript)-1]))/(A)
+                response += avgattack(m[int(pred_subscript)-1],n)*(M[int(pred_subscript)-1]*(theta + n - m[int(pred_subscript)-1]))/(A)
             return response
-        return pred_trait_response
+        return prey_trait_response
 
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
