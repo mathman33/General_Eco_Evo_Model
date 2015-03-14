@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  14 MAR 2015 11:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  14 MAR 2015 12:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1401,7 +1401,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 ] [23
 
 ]
-<figures/1x1/densities_exclusion.png, id=833, 578.16pt x 433.62pt>
+<figures/1x1/densities_exclusion.png, id=835, 578.16pt x 433.62pt>
 File: figures/1x1/densities_exclusion.png Graphic file (type png)
 
 <use figures/1x1/densities_exclusion.png>
@@ -1409,7 +1409,7 @@ Package pdftex.def Info: figures/1x1/densities_exclusion.png used on input line
  432.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_exclusion.png, id=835, 578.16pt x 433.62pt>
+<figures/1x1/traits_exclusion.png, id=837, 578.16pt x 433.62pt>
 File: figures/1x1/traits_exclusion.png Graphic file (type png)
 
 <use figures/1x1/traits_exclusion.png>
@@ -1419,7 +1419,7 @@ Package pdftex.def Info: figures/1x1/traits_exclusion.png used on input line 43
  [24
 
  <./figures/1x1/densities_exclusion.png> <./figures/1x1/traits_exclusion.png>]
-<figures/1x1/densities_stable_coexistence.png, id=869, 578.16pt x 433.62pt>
+<figures/1x1/densities_stable_coexistence.png, id=871, 578.16pt x 433.62pt>
 File: figures/1x1/densities_stable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/densities_stable_coexistence.png>
@@ -1427,7 +1427,7 @@ Package pdftex.def Info: figures/1x1/densities_stable_coexistence.png used on i
 nput line 441.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_stable_coexistence.png, id=870, 578.16pt x 433.62pt>
+<figures/1x1/traits_stable_coexistence.png, id=872, 578.16pt x 433.62pt>
 File: figures/1x1/traits_stable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/traits_stable_coexistence.png>
@@ -1438,7 +1438,7 @@ t line 441.
 
  <./figures/1x1/densities_stable_coexistence.png> <./figures/1x1/traits_stable_
 coexistence.png>]
-<figures/1x1/densities_unstable_coexistence.png, id=906, 578.16pt x 433.62pt>
+<figures/1x1/densities_unstable_coexistence.png, id=908, 578.16pt x 433.62pt>
 File: figures/1x1/densities_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/densities_unstable_coexistence.png>
@@ -1446,7 +1446,7 @@ Package pdftex.def Info: figures/1x1/densities_unstable_coexistence.png used on
  input line 450.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_unstable_coexistence.png, id=907, 578.16pt x 433.62pt>
+<figures/1x1/traits_unstable_coexistence.png, id=909, 578.16pt x 433.62pt>
 File: figures/1x1/traits_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/traits_unstable_coexistence.png>
@@ -1493,39 +1493,39 @@ ble_coexistence.png>]
 ] [43
 
 ]
-<figures/1x2/densities_generalist_to_specialist.png, id=1468, 578.16pt x 433.62
+<figures/1x2/densities_generalist_to_specialist.png, id=1470, 578.16pt x 433.62
 pt>
 File: figures/1x2/densities_generalist_to_specialist.png Graphic file (type png
 )
  <use figures/1x2/densities_generalist_to_specialist.png>
 Package pdftex.def Info: figures/1x2/densities_generalist_to_specialist.png use
-d on input line 676.
+d on input line 675.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x2/traits_generalist_to_specialist.png, id=1469, 578.16pt x 433.62pt>
+<figures/1x2/traits_generalist_to_specialist.png, id=1471, 578.16pt x 433.62pt>
 File: figures/1x2/traits_generalist_to_specialist.png Graphic file (type png)
 <use figures/1x2/traits_generalist_to_specialist.png>
 Package pdftex.def Info: figures/1x2/traits_generalist_to_specialist.png used o
-n input line 676.
+n input line 675.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
  [44
 
  <./figures/1x2/densities_generalist_to_specialist.png> <./figures/1x2/traits_g
 eneralist_to_specialist.png>]
-<figures/1x2/densities_unstable_coexistence.png, id=1501, 578.16pt x 433.62pt>
+<figures/1x2/densities_unstable_coexistence.png, id=1503, 578.16pt x 433.62pt>
 File: figures/1x2/densities_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/densities_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x2/densities_unstable_coexistence.png used on
- input line 685.
+ input line 684.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x2/traits_unstable_coexistence.png, id=1502, 578.16pt x 433.62pt>
+<figures/1x2/traits_unstable_coexistence.png, id=1504, 578.16pt x 433.62pt>
 File: figures/1x2/traits_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/traits_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x2/traits_unstable_coexistence.png used on in
-put line 685.
+put line 684.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
  [45
 
@@ -1540,12 +1540,12 @@ ble_coexistence.png>]
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 691.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 691.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 690.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 690.
 
 (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 691.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 691.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 690.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 690.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: A11C9241E951418B9CC97E63B1DA02F6;482.
 
@@ -1553,40 +1553,42 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 691.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 690.
  ) 
 Here is how much of TeX's memory you used:
- 30284 strings out of 493117
- 718435 string characters out of 6135433
+ 30295 strings out of 493117
+ 718566 string characters out of 6135433
  904200 words of memory out of 5000000
- 32995 multiletter control sequences out of 15000+600000
- 19159 words of font info for 69 fonts, out of 8000000 for 9000
+ 33003 multiletter control sequences out of 15000+600000
+ 21392 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,22n,78p,728b,1042s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.
 pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
 fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on presentation.pdf (45 pages, 682034 bytes).
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on presentation.pdf (45 pages, 697501 bytes).
 PDF statistics:
- 1625 PDF objects out of 1728 (max. 8388607)
- 1503 compressed objects within 16 object streams
+ 1633 PDF objects out of 1728 (max. 8388607)
+ 1509 compressed objects within 16 object streams
  99 named destinations out of 1000 (max. 500000)
  204 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -196,7 +196,7 @@
 		\begin{column}{0.48\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item $\beta^2 \equiv $ Prey Trait Variance
+				\item \footnotesize$\beta^2 \equiv $ Prey Trait Variance
 				\item $\sigma^2 \equiv $ Predator Trait Variance
 				\item \uncover<2->{$\alpha \equiv $ Maximum attack rate}
 				\item \uncover<2->{{\color{cyan}$\theta \equiv $ Optimal trait \bf difference}}
@@ -476,17 +476,16 @@
 	\end{align*}
 \end{frame}
 \begin{frame}
-	\frametitle{}
-	{\bf Average Fitness}
+	\frametitle{Average Fitness}
 	\begin{align*}
-		\overline{Y}_j([\overline{m}_i]_{i=1}^{u}, \overline{n}_j,\ &[M_i]_{i=1}^{u}, N_j) \\
+		{\color{blue}\overline{Y}_j([\overline{m}_i]_{i=1}^{u}, \overline{n}_j,}\ &{\color{blue}[M_i]_{i=1}^{u}, N_j)} \\
 		&= \int\limits_{\mathbb{R}^{u+1}} Y_j \cdot \prod\limits_{i=1}^{u}\Big[p_i(m_i, \overline{m_i})\Big] \cdot p(n, \overline{n}) \prod\limits_{i=1}^{u}\Big[dm_i\Big] dn_j\\
-		&= r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)
+		&= {\color{blue}r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}
 	\end{align*}
 	\begin{align*}
-		\overline{W}_i(\overline{m}_i, [\overline{n}_j]_{j=1}^{v}, [&N_j]_{j=1}^{v}) \\
+		{\color{red}\overline{W}_i(\overline{m}_i, [\overline{n}_j]_{j=1}^{v}, [}&{\color{red}N_j]_{j=1}^{v})} \\
 		&= \int\limits_{\mathbb{R}^{u+1}} W_i \cdot p_i(m_i, \overline{m_i}) \cdot \prod\limits_{j=1}^{v}\Big[p(n_j, \overline{n}_j)\Big] dm_i \prod\limits_{j=1}^{v}\Big[dn_j\Big]\\
-		&= \sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)\Big] - d_i
+		&= {\color{red}\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)\Big] - d_i}
 	\end{align*}
 \end{frame}
 %\begin{frame}
