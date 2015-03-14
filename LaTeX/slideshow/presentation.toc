@@ -1,10 +1,9 @@
 \beamer@endinputifotherversion {3.33pt}
-\beamer@sectionintoc {0}{Motivation}{2}{0}{1}
-\beamer@sectionintoc {1}{Model Formulation}{3}{0}{2}
-\beamer@subsectionintoc {1}{1}{Lotka-Volterra}{3}{0}{2}
-\beamer@subsectionintoc {1}{2}{Schreiber, B\"urger, and Bolnick}{5}{0}{2}
-\beamer@subsectionintoc {1}{3}{Our Extension}{7}{0}{2}
-\beamer@sectionintoc {2}{Preliminary Results}{14}{0}{3}
-\beamer@subsectionintoc {2}{1}{$1 \times 1$}{14}{0}{3}
-\beamer@sectionintoc {3}{Possible Expansions}{30}{0}{4}
-\beamer@sectionintoc {4}{Thank You}{31}{0}{5}
+\beamer@sectionintoc {0}{Motivation / Observations in Nature}{3}{0}{1}
+\beamer@sectionintoc {1}{Model Formulation}{4}{0}{2}
+\beamer@subsectionintoc {1}{1}{Lotka-Volterra}{4}{0}{2}
+\beamer@subsectionintoc {1}{2}{Schreiber, B\"urger, and Bolnick}{6}{0}{2}
+\beamer@subsectionintoc {1}{3}{Our Extension}{9}{0}{2}
+\beamer@sectionintoc {2}{Preliminary Results}{17}{0}{3}
+\beamer@subsectionintoc {2}{1}{$1 \times 1$}{17}{0}{3}
+\beamer@sectionintoc {3}{Future Work}{34}{0}{4}
