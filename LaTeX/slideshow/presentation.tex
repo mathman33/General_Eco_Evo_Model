@@ -45,36 +45,44 @@
 
 \begin{frame}
 	\titlepage
+	\begin{align*}
+		\begin{array}{lll}
+		\text{Advisor:} & \text{Dr. Jing Li, Mathematics,} & \text{CSU Northridge} \\
+		\text{Consultant:} & \text{Dr. Casey terHorst, Biology,} & \text{CSU Northridge} \\
+		\text{Supported By:} & \text{Pacific Math Alliance, PUMP,} & \text{CSU Northridge}
+		\end{array}
+	\end{align*}
 \end{frame}
 
-\section{Introduction}
-\begin{frame}
-	\frametitle{}
-	{\bf Advisors}
-	\begin{itemize}
-		\item Dr. Jing Li \\
-		Assistant Professor, CSU Northridge \\
-		Department of Mathematics
-		\item Dr. Casey terHorst \\
-		Assistant Professor, CSU Northridge \\
-		Biology Department
-	\end{itemize}
-	{\bf Funding}
-	\begin{itemize}
-		\item National Science Foundation \\
-		Pacific Math Alliance \\
-		Preparing Undergraduates through Mentoring towards PhDs (PUMP)
-	\end{itemize}
-\end{frame}
+%\section{Introduction}
+%\begin{frame}
+%	\frametitle{}
+%	{\bf Advisors}
+%	\begin{itemize}
+%		\item Dr. Jing Li \\
+%		Assistant Professor, CSU Northridge \\
+%		Department of Mathematics
+%		\item Dr. Casey terHorst \\
+%		Assistant Professor, CSU Northridge \\
+%		Biology Department
+%	\end{itemize}
+%	{\bf Funding}
+%	\begin{itemize}
+%		\item National Science Foundation \\
+%		Pacific Math Alliance \\
+%		Preparing Undergraduates through Mentoring towards PhDs (PUMP)
+%	\end{itemize}
+%\end{frame}
 
 \section{Motivation}
 \begin{frame}
-	\frametitle{}
-	{\bf Observations}
+	\frametitle{Observations}
+	\footnotesize{
+\begin{minipage}{0.65\textwidth}
 	\begin{itemize}
 		\item Predator/Prey interactions are prevalent in nature
 		\begin{itemize}
-			\item Crab vs. gastropod
+			\item \footnotesize{Crab vs. gastropod}
 			\item Protist vs. bacteria
 		\end{itemize}
 		\item There is trait variation within species
@@ -84,68 +92,99 @@
 		\end{itemize}
 		\item Incorporating trait variation provides richer dynamics than classical Lotka-Volterra models
 	\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.25\textwidth}
+	\begin{figure}
+	\includegraphics[width=0.95\textwidth]{figures/crab_eating_gastropod.jpg}
+	\end{figure}
+	\end{minipage}
+	
+	}
 \end{frame}
 
 \section{Model Formulation}
 \subsection{Lotka-Volterra}
 \begin{frame}
 	\frametitle{Classical Lotka-Volterra Model}
+	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+
+		\node[main node] (1) {$N$};
+		\node (midpt) [right of=1] {$\dots$};
+		\node[main node] (2) [right of=midpt] {$M$};
+		\node (input) [left of=1] {};
+		\node (output) [right of=2] {};
+
+		\path[every node/.style={font=\sffamily\small}]
+		(input)	edge node {$rN$} (1)
+		(1)		edge node {${\color{red}\alpha} MN$} (midpt)
+		(midpt)	edge node {$e{\color{red}\alpha} MN$} (2)
+		(2)		edge node {dM} (output);
+	\end{tikzpicture}\vskip0.75cm
 	\begin{columns}
-    		\begin{column}{0.48\textwidth}
+    		\begin{column}{0.35\textwidth}
 			\begin{align*}
-				\frac{dN}{dt} &= N(r - \alpha M)\\[.1cm]
-				\frac{dM}{dt} &= M(e\alpha N - d)
+				\frac{dN}{dt} &= N(r - {\color{red}\alpha} M)\\[.1cm]
+				\frac{dM}{dt} &= M(e{\color{red}\alpha} N - d)
 			\end{align*}
    		 \end{column}
-    		\begin{column}{0.48\textwidth}
-			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
-
-				\node[main node] (1) {M};
-				\node[main node] (2) [right of=1] {N};
-
-				\path[every node/.style={font=\sffamily\small}]
-				(1) edge [right] node[left] {} (2);
-			\end{tikzpicture}
-    		\end{column}
-	\end{columns}\vskip.25cm
-	{\bf Variables}
-	\begin{itemize}
-		\item $N \equiv $ Prey Density
-		\item $M \equiv $ Predator Density
-	\end{itemize}
-	{\bf Parameters}
-	\begin{itemize}
-		\item $\alpha \equiv $ Attack rate \uncover<2->{{\color{red}\ \ \ \ \ $\longleftarrow$ {\it No variation!}}}
-		\item $r \equiv $ Prey birth rate
-		\item $e \equiv $ Efficiency
-		\item $d \equiv $ Predator death rate
-	\end{itemize}
+		 \begin{column}{0.60\textwidth}
+			{\bf Variables}
+			\begin{itemize}
+				\item $N \equiv $ Prey Density
+				\item $M \equiv $ Predator Density
+			\end{itemize}
+			{\bf Parameters}
+			\begin{itemize}
+				\item {\color{red}$\alpha \equiv $ Attack rate\uncover<2->{\ \ \ \ \ $\longleftarrow$ {\it No variation!}}}
+				\item $r \equiv $ Prey birth rate
+				\item $e \equiv $ Efficiency
+				\item $d \equiv $ Predator death rate
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 \subsection{Schreiber, B\"urger, and Bolnick}
 \begin{frame}
 	\frametitle{Schreiber, B\"urger, and Bolnick's Extension}
+	{\bf Assume the {\color{red}Predator Species} has a normally distributed trait value.}
 	\begin{align*}
-		a(m) = \alpha \exp\left[-\frac{(m - \theta)^2}{2\tau^2}\right]
+		p({\color{red}m}, \overline{m}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{({\color{red}m} - \overline{m})^2}{2\sigma^2}}\right]
 	\end{align*}
-	{\bf Variables}
-	\begin{itemize}
-		\item $N \equiv $ Prey Density
-		\item $M \equiv $ Predator Density
-		\item {\color{red} No Prey Character}
-		\item $m \equiv $ Predator Character (Trait Value)
-	\end{itemize}
-	{\bf Parameters}
-	\begin{itemize}
-		\item $\alpha \equiv $ Maximum attack rate
-		\item $\theta \equiv $ Optimal trait value \uncover<2->{{\color{red}\ \ \ \ \ $\longleftarrow$ {\it No variation!}}}
-		\item $\tau \equiv $ Specialization Constant
-	\end{itemize}
+	{\bf Attack Rate as a Function of the {\color{red}Predator's Trait Value}}
+	\begin{align*}
+		a({\color{red}m}) &= \alpha \exp\left[-\frac{({\color{red}m} - {\color{cyan}\theta})^2}{2\tau^2}\right]
+	\end{align*}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			{\bf Variables}
+			\begin{itemize}
+				\item $N \equiv $ Prey Density
+				\item $M \equiv $ Predator Density
+				\item {\color{blue} (((No Prey Character)))}
+				\item {\color{red}$m \equiv $ Predator Character (Trait Value)}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.55\textwidth}
+			{\bf Parameters}
+			\begin{itemize}
+				\item $\alpha \equiv $ Maximum attack rate
+				\item {\color{cyan}$\theta \equiv $ Optimal trait value \uncover<2->{\ \ \ \ \ $\longleftarrow$ {\it No variation!}}}
+				\item $\tau \equiv $ Specialization Constant
+				\item $\sigma^2 \equiv $ Predator Trait Variance
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 \subsection{Our Extension}
 \begin{frame}
 	\frametitle{Our Extension}
+	{\bf Assume the {\color{red}Predator} and {\color{blue}Prey} has a normally distributed trait value.}
 	\begin{align*}
-		a(m, n) = \alpha \exp\left[-\frac{(m - n - {\color{red} \theta})^2}{2\tau^2}\right]
+		p({\color{red}m}, \overline{m}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{({\color{red}m} - \overline{m})^2}{2\sigma^2}}\right]
+	\end{align*}
+	{\bf Attack Rate as a Function of the {\color{red}Predator's Trait Value}}
+	\begin{align*}
+		a({\color{red}m}) &= \alpha \exp\left[-\frac{({\color{red}m} - {\color{cyan}\theta})^2}{2\tau^2}\right]
 	\end{align*}
 	{\bf Variables}
 	\begin{itemize}
@@ -174,17 +213,6 @@
 				p(m, \overline{m}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{(m - \overline{m})^2}{2\sigma^2}}\right]
 			\end{align*}
 		\end{column}
-%		\begin{column}{0.48\textwidth}
-%			\begin{tikzpicture}[scale = 0.36]
-%				\begin{axis}[every axis plot post/.append style={
-%					mark=none,domain=-2:3,samples=50,smooth}, % All plots: from -2:2, 50 samples, smooth, no marks
-%					axis x line*=bottom, % no box around the plot, only x and y axis
-%					axis y line*=left, % the * suppresses the arrow tips
-%	  					enlargelimits=upper] % extend the axes a bit to the right and top
-%					\addplot {gauss(0,0.75)};
-%				\end{axis}
-%			\end{tikzpicture}
-%		\end{column}
 	\end{columns}
 	{\bf Variables}
 	\begin{itemize}
