@@ -45,6 +45,9 @@
 
 \begin{frame}
 	\titlepage
+	\begin{center}
+		{\bf Pacific Coast Undergraduate Mathematics Conference}
+	\end{center}
 	\begin{align*}
 		\begin{array}{lll}
 		\text{Advisor:} & \text{Dr. Jing Li, Mathematics,} & \text{CSU Northridge} \\
@@ -76,13 +79,13 @@
 	\begin{itemize}
 		\item Predator/Prey interactions are prevalent in nature
 		\begin{itemize}
-			\item Crab vs. gastropod {\tiny[Saloniemi]}
+			\item Crab vs. gastropod {\tiny[Saloniemi, 1993]}
 			\item Protist vs. bacteria {\tiny[terHorst]}
 		\end{itemize}
 		\item There is trait variation within species
 		\begin{itemize}
-			\item Thickness of plant cuticula {\tiny[Saloniemi]}
-			\item Strength of gastropod shell {\tiny[Saloniemi]}
+			\item Thickness of plant cuticula {\tiny[Saloniemi, 1993]}
+			\item Strength of gastropod shell {\tiny[Saloniemi, 1993]}
 		\end{itemize}
 		\item Incorporating trait variation provides {\bf richer dynamics} than classical Lotka-Volterra models
 	\end{itemize}
@@ -147,11 +150,11 @@
 		a({\color{red}m}) &= \alpha \exp\left[-\frac{({\color{red}m} - {\color{cyan}\theta})^2}{2\tau^2}\right]
 	\end{align*}}
 	\begin{columns}
-		\begin{column}{0.4\textwidth}
+		\begin{column}{0.45\textwidth}
 			{\bf Variables}
 			\begin{itemize}
 				\item {\color{red}$m \equiv $ Predator Trait Value}
-				\item \uncover<3->{{\color{blue} (((No Prey Character)))}}
+				\item \uncover<3->{{\color{blue} (((No Prey Trait Value)))}}
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.60\textwidth}
@@ -338,7 +341,7 @@
 \begin{frame}
 	\frametitle{Evolutionary Components}
 	\begin{itemize}
-		\item The evolution of the mean character is always \underline{in the direction which} \underline{increases the mean fitness in the population}.
+		\item The evolution of the mean trait value is always \underline{in the direction} \underline{which increases the mean fitness in the population}. {\tiny[Lande, 1976]}
 	\end{itemize}
 	\begin{align*}
 	\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}\\[.1cm]
