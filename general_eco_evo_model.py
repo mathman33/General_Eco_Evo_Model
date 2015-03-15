@@ -306,6 +306,12 @@ class System:
             return response
         return prey_trait_response
 
+def get_system_dimension(set_):
+    number_of_predators = str(len(set_["predator"]["initial_values"]["densities"]))
+    number_of_preys     = str(len(set_["prey"]["initial_values"]["densities"]))
+    dim = "%sx%s" % (number_of_predators, number_of_preys)
+    return dim
+
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
     parser.add_argument("-k", "--keep-orignial-images", action = "store_true", dest = "keep_original_images", default = False)
@@ -321,7 +327,8 @@ def main():
     for set_ in data["system_parameters"]:
         now = datetime.now()
         date_time_stamp = now.strftime(DATE_TIME_DIRECTORY_FORMAT)
-        current_directory = "%s/graphs/%s" % (DIRECTORY, date_time_stamp)
+        dimension = get_system_dimension(set_)
+        current_directory = "%s/graphs/%s/%s" % (DIRECTORY, dimension, date_time_stamp)
         os.system("mkdir -p %s" % current_directory)
 
         pretty_data = json.dumps(set_, indent=4, sort_keys=True)
