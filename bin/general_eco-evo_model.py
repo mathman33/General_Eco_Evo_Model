@@ -24,6 +24,14 @@ TIME_NEEDED_MESSAGE = "Approximate Time Needed: %.03f minutes\n\n"
 NUMBER_OF_GRAPHS_MESSAGE = "%d graphs will be generated."
 AVG_TIME_MESSAGE = "average time per graph: %.03f seconds"
 TOT_TIME_MESSAGE = "total time taken: %.03f seconds"
+K_OPTION_HELP = """\
+Individual Density and Trait graphs are not deleted after being combined into a single .png
+through ImageMagick.  This option is automatically enabled if -c/--no-combine is specified."""
+C_OPTION_HELP = """\
+ImageMagick is not called, and no combination .png's are created.  This option automatically
+enables the -k/--keep-orignial-images option."""
+P_OPTION_HELP = """\
+No parameter values are printed on the graphs."""
 GRAPH_SAVED = """
 GRAPH SAVED
 -----------
@@ -317,9 +325,9 @@ def get_system_dimension(set_):
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
     parser.add_argument("config_file")
-    parser.add_argument("-k", "--keep-orignial-images", action = "store_true", dest = "keep_original_images", default = False)
-    parser.add_argument("-c", "--no-combine", action = "store_false", dest = "combine", default = True)
-    parser.add_argument("-p", "--no-parameters", action = "store_false", dest = "display_parameters", default = True)
+    parser.add_argument("-k", "--keep-orignial-images", action = "store_true", dest = "keep_original_images", default = False, help=K_OPTION_HELP)
+    parser.add_argument("-c", "--no-combine", action = "store_false", dest = "combine", default = True, help=C_OPTION_HELP)
+    parser.add_argument("-p", "--no-parameters", action = "store_false", dest = "display_parameters", default = True, help=P_OPTION_HELP)
     return parser.parse_args()
     
 def main():
