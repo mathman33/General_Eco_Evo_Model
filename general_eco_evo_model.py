@@ -314,6 +314,7 @@ def get_system_dimension(set_):
 
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
+    parser.add_argument("config_file")
     parser.add_argument("-k", "--keep-orignial-images", action = "store_true", dest = "keep_original_images", default = False)
     parser.add_argument("-c", "--no-combine", action = "store_false", dest = "combine", default = True)
     parser.add_argument("-p", "--no-parameters", action = "store_false", dest = "display_parameters", default = True)
@@ -322,7 +323,7 @@ def PARSE_ARGS():
 def main():
     args = PARSE_ARGS()
 
-    data = json.loads(open("%s/config.json" % DIRECTORY).read())
+    data = json.loads(open("%s/%s" % (DIRECTORY, args.config_file)).read())
 
     for set_ in data["system_parameters"]:
         now = datetime.now()
@@ -335,7 +336,7 @@ def main():
         with open("%s/relevant_data.json" % current_directory, "w") as relevant_data_file:
             relevant_data_file.write(pretty_data)
 
-        CONFIG_DESCRIPTIONS_TO_VARIABLES = {
+        config_descriptions_to_variables = {
             "M0"    : set_["predator"]["initial_values"]["densities"],
             "m0"    : set_["predator"]["initial_values"]["traits"],
             "sigma" : set_["predator"]["trait_variances"]["total"],
@@ -368,7 +369,7 @@ def main():
 
         starts_and_steps = {}
 
-        for variable, dict_ in CONFIG_DESCRIPTIONS_TO_VARIABLES.iteritems():    
+        for variable, dict_ in config_descriptions_to_variables.iteritems():    
             starts_and_steps[variable] = {}
             for subscript, parameter_range in dict_.iteritems():
                 starts_and_steps[variable][subscript] = {}
