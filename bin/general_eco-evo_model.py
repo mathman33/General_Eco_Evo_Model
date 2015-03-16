@@ -53,7 +53,11 @@ LaTeX_VARIABLE_FORMAT = {
     "eff"   : "e_{",
     "tau"   : "\\tau_{",
     "alpha" : "\\alpha_{",
-    "theta" : "\\theta_{"
+    "theta" : "\\theta_{",
+
+    "rho"   : "\\rho_{",
+    "phi"   : "\\phi_{",
+    "gamma" : "\\gamma_{"
 }
 
 def remove_command(*items):
@@ -162,7 +166,9 @@ class System:
         self.n0     = parameters["n0"]
         self.beta   = parameters["beta"]
         self.betaG  = parameters["betaG"]
-        self.r      = parameters["r"]
+        self.rho    = parameters["rho"]
+        self.phi    = parameters["phi"]
+        self.gamma  = parameters["gamma"]
         self.K      = parameters["K"]
         self.num_preys = len(self.N0)
 
@@ -181,29 +187,31 @@ class System:
         self.alpha  = parameters["alpha"]
         self.theta  = parameters["theta"]
 
-        self.A                     = {}
+        self.A                    = {}
         for pred_subscript in self.M0:
             for prey_subscript in self.N0:
                 interaction_subscript = pred_subscript + prey_subscript
                 self.A[interaction_subscript] = self.sigma[pred_subscript]**2 + self.beta[prey_subscript]**2 + self.tau[interaction_subscript]**2
 
-        self.avgattack             = {}
+        self.avgattack            = {}
         for pred_subscript in self.M0:
             for prey_subscript in self.N0:
                 interaction_subscript = pred_subscript + prey_subscript
                 self.avgattack[interaction_subscript] = self.give_params_avgattack(interaction_subscript)
 
-        self.avg_pred_fitness      = {}
-        self.pred_trait_response   = {}
+        self.avg_pred_fitness     = {}
+        self.pred_trait_response  = {}
         for pred_subscript in self.M0:
             self.avg_pred_fitness[pred_subscript]    = self.give_params_avg_pred_fitness(pred_subscript)
             self.pred_trait_response[pred_subscript] = self.give_params_pred_trait_response(pred_subscript)
 
-        self.avg_prey_fitness      = {}
-        self.prey_trait_response   = {}
+        self.avg_prey_fitness     = {}
+        self.prey_trait_response  = {}
+        self.avg_prey_growth_rate = {}
         for prey_subscript in self.N0:
-            self.avg_prey_fitness[prey_subscript]    = self.give_params_avg_prey_fitness(prey_subscript)
-            self.prey_trait_response[prey_subscript] = self.give_params_prey_trait_response(prey_subscript)
+            self.avg_prey_growth_rate[prey_subscript] = self.give_params_avg_prey_growth_rate(prey_subscript)
+            self.avg_prey_fitness[prey_subscript]     = self.give_params_avg_prey_fitness(prey_subscript)
+            self.prey_trait_response[prey_subscript]  = self.give_params_prey_trait_response(prey_subscript)
 
         self.soln = odeint(self.f, self.y0, self.t)
 
@@ -279,8 +287,22 @@ class System:
             return fitness_source - d
         return avg_pred_fitness
 
+    def give_params_avg_prey_growth_rate(self, prey_subscript):
+        rho   = self.rho[prey_subscript]
+        phi   = self.phi[prey_subscript]
+        gamma = self.gamma[prey_subscript]
+        beta  = self.beta[prey_subscript]
+        B     = beta**2 + gamma**2
+        def avg_prey_growth_rate(n):
+            numerator      = rho*gamma
+            denominator    = sqrt(B)
+            exponent_num   = -(n - phi)**2
+            exponent_denom = 2*B
+            return (numerator/denominator)*exp(exponent_num/exponent_denom)
+        return avg_prey_growth_rate
+
     def give_params_avg_prey_fitness(self, prey_subscript):
-        r = self.r[prey_subscript]
+        r = self.avg_prey_growth_rate[prey_subscript]
         K = self.K[prey_subscript]
         def avg_prey_fitness(M, m, N, n):
             fitness_sink = 0
@@ -288,7 +310,7 @@ class System:
                 interaction_subscript = pred_subscript + prey_subscript
                 avgattack = self.avgattack[interaction_subscript]
                 fitness_sink += avgattack(m[int(pred_subscript)-1], n)*M[int(pred_subscript)-1]
-            return r*(1 - (N/K)) - fitness_sink
+            return r(n)*(1 - (N/K)) - fitness_sink
         return avg_prey_fitness
 
     def give_params_pred_trait_response(self, pred_subscript):
@@ -357,13 +379,15 @@ def main():
             "n0"    : set_["prey"]["initial_values"]["traits"],
             "beta"  : set_["prey"]["trait_variances"]["total"],
             "betaG" : set_["prey"]["trait_variances"]["genetic"],
-            "r"     : set_["prey"]["growth_rates"],
             "K"     : set_["prey"]["carrying_capacities"],
+            "rho"   : set_["prey"]["max_growth_rates"],
+            "phi"   : set_["prey"]["optimum_trait_values"],
+            "gamma" : set_["prey"]["cost_variances"],
 
             "eff"   : set_["interaction_parameters"]["efficiencies"],
             "tau"   : set_["interaction_parameters"]["specialization"],
             "alpha" : set_["interaction_parameters"]["max_attack_rates"],
-            "theta" : set_["interaction_parameters"]["optimal_trait_differences"]
+            "theta" : set_["interaction_parameters"]["optimal_trait_differences"],
         }
 
         # Parameter Step
