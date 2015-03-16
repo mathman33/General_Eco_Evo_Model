@@ -15,6 +15,8 @@ from datetime import datetime
 
 AVG_TIME_PER_GRAPH = 1.670
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+if DIRECTORY.endswith("/bin"):
+    DIRECTORY = DIRECTORY[:-4]
 IMAGEMAGICK_COMMAND = "convert +append %s %s %s"
 NO_IMAGEMAGICK_ERROR = "Unable to create dual graphs.  Please install 'ImageMagick'\n"
 DATE_TIME_DIRECTORY_FORMAT = '%y%m%d_%H%M%S'
@@ -86,7 +88,7 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
     
     limit = 10
-    plt.ylim(-1, limit)
+    plt.ylim(-limit, limit)
     plt.xlabel('Time')
     plt.ylabel('Trait Value')
 
