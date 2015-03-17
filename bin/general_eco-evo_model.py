@@ -193,6 +193,10 @@ class System:
                 interaction_subscript = pred_subscript + prey_subscript
                 self.A[interaction_subscript] = self.sigma[pred_subscript]**2 + self.beta[prey_subscript]**2 + self.tau[interaction_subscript]**2
 
+        self.B                    = {}
+        for prey_subscript in self.N0:
+            self.B[prey_subscript] = self.beta[prey_subscript]**2 + self.gamma[prey_subscript]**2
+
         self.avgattack            = {}
         for pred_subscript in self.M0:
             for prey_subscript in self.N0:
@@ -259,10 +263,10 @@ class System:
             f[index] = N[i]*self.avg_prey_fitness[str(i+1)](M, m, N[i], n[i])
         for i in xrange(0, self.num_preds):
             index = i + self.num_preds + self.num_preys
-            f[index] = self.sigmaG[str(i+1)]*self.pred_trait_response[str(i+1)](N, m[i], n)
+            f[index] = (self.sigmaG[str(i+1)]**2)*self.pred_trait_response[str(i+1)](N, m[i], n)
         for i in xrange(0, self.num_preys):
             index = i + self.num_preds + self.num_preys + self.num_preds
-            f[index] = self.betaG[str(i+1)]*self.prey_trait_response[str(i+1)](M, m, n[i])
+            f[index] = (self.betaG[str(i+1)]**2)*self.prey_trait_response[str(i+1)](M, m, N[i], n[i])
         
         return f
 
@@ -291,8 +295,7 @@ class System:
         rho   = self.rho[prey_subscript]
         phi   = self.phi[prey_subscript]
         gamma = self.gamma[prey_subscript]
-        beta  = self.beta[prey_subscript]
-        B     = beta**2 + gamma**2
+        B     = self.B[prey_subscript]
         def avg_prey_growth_rate(n):
             numerator      = rho*gamma
             denominator    = sqrt(B)
@@ -327,8 +330,12 @@ class System:
         return pred_trait_response
 
     def give_params_prey_trait_response(self, prey_subscript):
-        def prey_trait_response(M, m, n):
-            response = 0
+        r   = self.avg_prey_growth_rate[prey_subscript]
+        phi = self.phi[prey_subscript]
+        B   = self.B[prey_subscript]
+        K   = self.K[prey_subscript]
+        def prey_trait_response(M, m, N, n):
+            response = ((phi - n)/B)*(1 - N/K)*r(n)
             for pred_subscript in self.M0:
                 interaction_subscript = pred_subscript + prey_subscript
                 avgattack = self.avgattack[interaction_subscript]

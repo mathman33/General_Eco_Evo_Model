@@ -1,7 +1,7 @@
 {
     "system_parameters": [
         {
-            "final_time": 400, 
+            "final_time": 1000, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
@@ -25,12 +25,12 @@
                 }, 
                 "optimal_trait_differences": {
                     "11": {
-                        "start": 0.15, 
-                        "stop": 0.15
-                    }, 
-                    "12": {
                         "start": -0.15, 
                         "stop": -0.15
+                    }, 
+                    "12": {
+                        "start": 0.15, 
+                        "stop": 0.15
                     }
                 }, 
                 "specialization": {
@@ -60,16 +60,16 @@
                     }, 
                     "traits": {
                         "1": {
-                            "start": 0.0, 
-                            "stop": 0.0
+                            "start": -0.5, 
+                            "stop": -0.5
                         }
                     }
                 }, 
                 "trait_variances": {
                     "genetic": {
                         "1": {
-                            "start": 0.13, 
-                            "stop": 0.14
+                            "start": 0.15, 
+                            "stop": 0.15
                         }
                     }, 
                     "total": {
@@ -83,24 +83,44 @@
             "prey": {
                 "carrying_capacities": {
                     "1": {
-                        "start": 250, 
-                        "stop": 250
+                        "start": 350, 
+                        "stop": 350
                     }, 
                     "2": {
-                        "start": 200, 
-                        "stop": 200
+                        "start": 350, 
+                        "stop": 350
                     }
                 }, 
-                "growth_rates": {
+                "max_growth_rates": {
                     "1": {
-                        "start": 0.5, 
+                        "start": 0.5,
                         "stop": 0.5
-                    }, 
+                    },
                     "2": {
-                        "start": 0.5, 
+                        "start": 0.5,
                         "stop": 0.5
                     }
-                }, 
+                },
+                "optimum_trait_values": {
+                    "1": {
+                        "start": -0.2,
+                        "stop": -0.2
+                    },
+                    "2": {
+                        "start": 0.2,
+                        "stop": 0.2
+                    }
+                },
+                "cost_variances": {
+                    "1": {
+                        "start": 3.0,
+                        "stop": 3.0
+                    },
+                    "2": {
+                        "start": 3.0,
+                        "stop": 3.0
+                    }
+                },
                 "initial_values": {
                     "densities": {
                         "1": {
@@ -114,12 +134,12 @@
                     }, 
                     "traits": {
                         "1": {
-                            "start": 0.2, 
-                            "stop": 0.2
-                        }, 
-                        "2": {
                             "start": -0.2, 
                             "stop": -0.2
+                        }, 
+                        "2": {
+                            "start": 0.2, 
+                            "stop": 0.2
                         }
                     }
                 }, 
@@ -146,7 +166,7 @@
                     }
                 }
             }, 
-            "steps": 1
+            "steps": 15
         }
     ]
 }
