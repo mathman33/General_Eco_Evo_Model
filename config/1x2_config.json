@@ -1,7 +1,7 @@
 {
     "system_parameters": [
         {
-            "final_time": 20000, 
+            "final_time": 15000, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
@@ -83,12 +83,12 @@
             "prey": {
                 "carrying_capacities": {
                     "1": {
-                        "start": 350, 
-                        "stop": 350
+                        "start": 200, 
+                        "stop": 200
                     }, 
                     "2": {
-                        "start": 350, 
-                        "stop": 350
+                        "start": 200, 
+                        "stop": 200
                     }
                 }, 
                 "max_growth_rates": {
@@ -113,12 +113,12 @@
                 },
                 "cost_variances": {
                     "1": {
-                        "start": 3.0,
-                        "stop": 6.0
+                        "start": 0.5,
+                        "stop": 1.5
                     },
                     "2": {
-                        "start": 3.0,
-                        "stop": 3.0
+                        "start": 1.0,
+                        "stop": 1.0
                     }
                 },
                 "initial_values": {
