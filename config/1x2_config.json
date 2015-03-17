@@ -1,7 +1,7 @@
 {
     "system_parameters": [
         {
-            "final_time": 1000, 
+            "final_time": 20000, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
@@ -15,22 +15,22 @@
                 }, 
                 "max_attack_rates": {
                     "11": {
-                        "start": 0.05, 
-                        "stop": 0.05
+                        "start": 0.5, 
+                        "stop": 0.5
                     }, 
                     "12": {
-                        "start": 0.05, 
-                        "stop": 0.05
+                        "start": 0.5, 
+                        "stop": 0.5
                     }
                 }, 
                 "optimal_trait_differences": {
                     "11": {
-                        "start": -0.15, 
-                        "stop": -0.15
+                        "start": 0.0, 
+                        "stop": 0.0
                     }, 
                     "12": {
-                        "start": 0.15, 
-                        "stop": 0.15
+                        "start": 0.0, 
+                        "stop": 0.0
                     }
                 }, 
                 "specialization": {
@@ -47,8 +47,8 @@
             "predator": {
                 "death_rates": {
                     "1": {
-                        "start": 0.05, 
-                        "stop": 0.05
+                        "start": 0.15, 
+                        "stop": 0.15
                     }
                 }, 
                 "initial_values": {
@@ -103,8 +103,8 @@
                 },
                 "optimum_trait_values": {
                     "1": {
-                        "start": -0.2,
-                        "stop": -0.2
+                        "start": 0.1,
+                        "stop": 0.1
                     },
                     "2": {
                         "start": 0.2,
@@ -114,7 +114,7 @@
                 "cost_variances": {
                     "1": {
                         "start": 3.0,
-                        "stop": 3.0
+                        "stop": 6.0
                     },
                     "2": {
                         "start": 3.0,
@@ -138,8 +138,8 @@
                             "stop": -0.2
                         }, 
                         "2": {
-                            "start": 0.2, 
-                            "stop": 0.2
+                            "start": -0.1, 
+                            "stop": -0.1
                         }
                     }
                 }, 
