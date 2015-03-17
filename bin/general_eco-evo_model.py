@@ -251,10 +251,10 @@ class System:
             f[index] = N[i]*self.avg_prey_fitness[str(i+1)](M, m, N[i], n[i])
         for i in xrange(0, self.num_preds):
             index = i + self.num_preds + self.num_preys
-            f[index] = self.sigmaG[str(i+1)]*self.pred_trait_response[str(i+1)](N, m[i], n)
+            f[index] = (self.sigmaG[str(i+1)]**2)*self.pred_trait_response[str(i+1)](N, m[i], n)
         for i in xrange(0, self.num_preys):
             index = i + self.num_preds + self.num_preys + self.num_preds
-            f[index] = self.betaG[str(i+1)]*self.prey_trait_response[str(i+1)](M, m, n[i])
+            f[index] = (self.betaG[str(i+1)]**2)*self.prey_trait_response[str(i+1)](M, m, n[i])
         
         return f
 
