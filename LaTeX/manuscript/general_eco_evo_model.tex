@@ -123,11 +123,48 @@ Let $M_i(t)$ be the density of the $i$\textsuperscript{th} predator species, and
 \noindent For example, the $1\times1$ model is a four-dimensional system given by
 \begin{align*}
 	\left\{\begin{array}{lll}
-		\dfrac{dM}{dt} &= M \overline{W}(\overline{m}, N, \overline{n}) &= M \left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[.5cm]
-		\dfrac{dN}{dt} &= N \overline{Y}(N, \overline{n}, M, \overline{m}) &= N \left[\overline{r}(\overline{n}) \left(1 - \dfrac{N}{K} \right) - \overline{a}(\overline{m}, \overline{n}) M\right] \\[.5cm]
-		\dfrac{d\overline{m}}{dt} &= \sigma_{G}^2 \; \dfrac{\partial \overline{W}}{\partial \overline{m}} &= \sigma_{G}^2 \left[\dfrac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \cdot \overline{a}(\overline{m}, \overline{n})\right]\\[.5cm]
-		\dfrac{d\overline{n}}{dt} &= \beta_{G}^2 \; \dfrac{\partial \overline{Y}}{\partial \overline{n}} &= \beta_{G}^2 \left[\overline{r}(\overline{n})\left(1 - \dfrac{N}{K}\right)\dfrac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \dfrac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \cdot \overline{a}(\overline{m}, \overline{n})\right]
+		f_1 = \dfrac{dM}{dt} &= M \overline{W}(\overline{m}, N, \overline{n}) &= M \left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[.5cm]
+		f_2 = \dfrac{dN}{dt} &= N \overline{Y}(N, \overline{n}, M, \overline{m}) &= N \left[\overline{r}(\overline{n}) \left(1 - \dfrac{N}{K} \right) - \overline{a}(\overline{m}, \overline{n}) M\right] \\[.5cm]
+		f_3 = \dfrac{d\overline{m}}{dt} &= \sigma_{G}^2 \; \dfrac{\partial \overline{W}}{\partial \overline{m}} &= \sigma_{G}^2 \left[\dfrac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \cdot \overline{a}(\overline{m}, \overline{n})\right]\\[.5cm]
+		f_4 = \dfrac{d\overline{n}}{dt} &= \beta_{G}^2 \; \dfrac{\partial \overline{Y}}{\partial \overline{n}} &= \beta_{G}^2 \left[\overline{r}(\overline{n})\left(1 - \dfrac{N}{K}\right)\dfrac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \dfrac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \cdot \overline{a}(\overline{m}, \overline{n})\right]
 	\end{array}\right.
+\end{align*}
+
+\subsubsection*{Equilibrium Analysis}
+To find the equilibria of this system, we set each equation to zero, i.e. $f_1 = f_2 = f_3 = f_4 = 0$.
+\begin{align*}
+	f_3 = 0 \implies N = 0 \ \ \text{ or }\ \  \overline{m} - \overline{n} = \theta
+\end{align*}
+Let's consider the non-trivial solution, and thus $\overline{m} - \overline{n} = \theta$.  Then $\overline{a}(\overline{m}, \overline{n}) = \dfrac{\alpha\tau}{\sqrt{A}}$ where $A = \alpha^2 + \beta^2 + \tau^2$.
+\begin{align*}
+	f_1 = 0 \implies M = 0 \ \ \text{ or }\ \  N = \frac{d}{e\overline{a}(\overline{m}, \overline{n})} = \frac{d\sqrt{A}}{e\alpha\tau}
+\end{align*}
+Again, let's consider the non-trivial solution, and thus $\dfrac{d\sqrt{A}}{e\alpha\tau}$.
+\begin{align*}
+	f_4 = 0 \implies N = K \ \ \text{ or }\ \ \overline{n} = \phi
+\end{align*}
+Since $M \neq 0$, then $f_2 = 0 \implies N \neq K$.  Thus $\overline{n} = \phi$, and thus $\overline{m} = \theta + \phi$ and $\overline{r}(\overline{n}) = \rho$.
+\begin{align*}
+	f_2 = 0 \implies M = \frac{\rho\sqrt{A}}{e\alpha\tau}\left(1 - \frac{d\sqrt{A}}{e\alpha\tau K}\right)
+\end{align*}
+So the coexistence equilibrium solution is
+\begin{align*}
+	C^* = (M^*, N^*, \overline{m}^*, \overline{n}^*) = \left(\frac{\rho\sqrt{A}}{e\alpha\tau}\left(1 - \frac{d\sqrt{A}}{e\alpha\tau K}\right)\ ,\ \frac{d\sqrt{A}}{e\alpha\tau}\ ,\ \theta + \phi\ ,\ \phi\right)
+\end{align*}
+To check for local stability, we find eigenvalues of the Jacobian of the system evaluated at $C^*$.
+\begin{align*}
+	&\begin{cases}
+		\dfrac{\partial f_1}{\partial M} &= e\overline{a}(\overline{m}, \overline{n})N - d \\[.25cm]
+		\dfrac{\partial f_1}{\partial N} &= e\overline{a}(\overline{m}, \overline{n}M) \\[.25cm]
+		\dfrac{\partial f_1}{\partial \overline{m}} &= \dfrac{MNe(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m} - \overline{n}) \\[.25cm]
+		\dfrac{\partial f_1}{\partial \overline{n}} &= \dfrac{MNe((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m} - \overline{n})
+	\end{cases}\\
+	&\begin{cases}
+		\dfrac{\partial f_2}{\partial M} &= -\overline{a}(\overline{m}, \overline{n})N \\[.25cm]
+		\dfrac{\partial f_2}{\partial N} &= \overline{r}(\overline{n})\left(1 - \dfrac{2N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M \\[.25cm]
+		\dfrac{\partial f_2}{\partial \overline{m}} &= -\dfrac{MN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[.25cm]
+		\dfrac{\partial f_2}{\partial \overline{n}} &= N\left[\dfrac{\phi - \overline{n}}{B}\overline{r}(\overline{n})\left(1 - \dfrac{N}{K}\right) - \dfrac{M((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n})\right]
+	\end{cases}
 \end{align*}
 
 \end{document}
