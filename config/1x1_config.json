@@ -1,7 +1,7 @@
 {
     "system_parameters": [
         {
-            "final_time": 10000, 
+            "final_time": 6000, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
@@ -32,7 +32,7 @@
                 "death_rates": {
                     "1": {
                         "start": 0.05, 
-                        "stop": 0.05
+                        "stop": 0.2
                     }
                 }, 
                 "initial_values": {
@@ -73,8 +73,8 @@
                 }, 
                 "max_growth_rates": {
                     "1": {
-                        "start": 0.2, 
-                        "stop": 0.2
+                        "start": 0.5, 
+                        "stop": 0.5
                     }
                 }, 
                 "optimum_trait_values": {
@@ -85,8 +85,8 @@
                 }, 
                 "cost_variances": {
                     "1": {
-                        "start": 0.5, 
-                        "stop": 5.0
+                        "start": 1.0, 
+                        "stop": 1.0
                     }
                 },
                 "initial_values": {
@@ -118,7 +118,7 @@
                     }
                 }
             }, 
-            "steps": 90
+            "steps": 15
         }
     ]
 }
