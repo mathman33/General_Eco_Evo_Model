@@ -32,56 +32,57 @@
 
 \vskip 15pt
 
-									\section*{The Model}
-
-Let $M_i(t)$ be the density of the $i$\textsuperscript{th} predator species, and let $N_j(t)$ be the density of the $j$\textsuperscript{th} prey species.  Let $\overline{m_i}(t)$ be the mean of a single quantitative trait in the $i$\textsuperscript{th} predator species, and let $\overline{n_j}(t)$ be the mean of a single quantitative trait in the $j$\textsuperscript{th} prey species.  Suppose the traits are normally distributed, with $\sigma_i^2$ as the constant variance of the $i$\textsuperscript{th} predator species, and with $\beta_j^2$ as the constant variance of the $j$\textsuperscript{th} prey species.
+\section*{The Model}
+\subsection*{Attack Rate as a Function of Predator and Prey Trait Values}
+Let $M_i(t)$ be the density of the $i$\textsuperscript{th} predator species, and let $N_j(t)$ be the density of the $j$\textsuperscript{th} prey species.  Let $\overline{m_i}(t)$ be the mean of a single quantitative trait in the $i$\textsuperscript{th} predator species, and let $\overline{n_j}(t)$ be the mean of a single quantitative trait in the $j$\textsuperscript{th} prey species.  Suppose the traits are normally distributed, and stay normally distributed, with $\sigma_i^2$ as the constant variance of the $i$\textsuperscript{th} predator species, and with $\beta_j^2$ as the constant variance of the $j$\textsuperscript{th} prey species.  Their distributions are given by:
 \begin{align*}
 	p(m_i, \overline{m_i}) &= \frac{1}{\sqrt{2\pi\sigma_i^2}}\exp\left[{-\frac{(m_i - \overline{m_i})^2}{2\sigma_i^2}}\right] \\
 	p(n_j, \overline{n_j}) &= \frac{1}{\sqrt{2\pi\beta_j^2}}\exp\left[{-\frac{(n_j - \overline{n_j})^2}{2\beta_j^2}}\right]
 \end{align*}
 
-\noindent All of the species' phenotypic variances have a genetic and environment component,
+\noindent Assume all of the species' phenotypic variances have genetic and environment components:
 \begin{align*}
 	\sigma_i^2 = \sigma_{Gi}^2 + \sigma_{Ei}^2 \\
 	\beta_j^2 = \beta_{Gj}^2 + \beta_{Ej}^2
 \end{align*}
 
-\noindent Let $a_{ij}(m_i, n_j)$ be the attack rate of an individual predator from species $i$ on an individual prey from species $j$.  Supposing the attack rate is optimal at $\alpha_{ij}$ when the predator's trait and prey's trait are at an optimal difference $\theta_{ij}$, and decreases in a Gaussian manner as the trait's diverge from that difference, then
+\noindent Let $a_{ij}(m_i, n_j)$ be the attack rate of an individual predator from species $i$ on an individual prey from species $j$.  Supposing the attack rate is optimal at $\alpha_{ij}$ when the predator's trait and prey's trait are at an optimal difference $\theta_{ij}$, and decreases in a Gaussian manner as the trait's deviate from that difference, then
 \begin{align*}
-	a_{ij}(m_i, n_j) = \alpha_{ij} \exp\left[{-\frac{(m_i - n_j - \theta_{ij})^2}{2\tau_{ij}^2}}\right]
+	a_{ij}(m_i, n_j) = \alpha_{ij} \exp\left[{-\frac{((m_i - n_j) - \theta_{ij})^2}{2\tau_{ij}^2}}\right]
 \end{align*}
 
 \noindent where $\tau_{ij}$ determines how phenotypically specialized a predator individual of species $i$ must be to use a prey individual of species $j$.  Let $\overline{a_{ij}}(\overline{m_i}, \overline{n_j})$ be the mean attack rate of predator species $i$ on prey species $j$.  Thus,
 \begin{align*}
-	\overline{a_{ij}}(\overline{m_i}, \overline{n_j}) &= \int_{-\infty}^{\infty}\int_{\-\infty}^{\infty} a_{ij}(m_i, n_j) \cdot p(m_i, \overline{m_i}) \cdot p(n_j, \overline{n_j}) dm_i dn_j \\
-	&= \frac{\alpha_{ij}\tau_{ij}}{\sqrt{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2}}\exp\left[{-\frac{(\overline{m_i} - \overline{n_j} - \theta_{ij})^2}{2(\sigma_i^2 + \beta_j^2 + \tau_{ij}^2)}}\right]
+	\overline{a_{ij}}(\overline{m_i}, \overline{n_j}) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} a_{ij}(m_i, n_j) \cdot p(m_i, \overline{m_i}) \cdot p(n_j, \overline{n_j}) dm_i dn_j \\
+	&= \frac{\alpha_{ij}\tau_{ij}}{\sqrt{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2}}\exp\left[{-\frac{((\overline{m_i} - \overline{n_j}) - \theta_{ij})^2}{2(\sigma_i^2 + \beta_j^2 + \tau_{ij}^2)}}\right]
 \end{align*}
 
-\noindent Let $u$ be the number of predator species, and let $v$ be the number of prey species.  If predators have a linear functional response, convert the consumed prey into offspring with efficiencies $e_{ij}$, and experience a per-capita mortality rate $d_i$, then the fitness of a predator with phenotype $m_i$ is
+\subsection*{Fitness Assumptions}
+\noindent Let $u$ be the number of predator species, and let $v$ be the number of prey species.  Assuming predators have a linear functional response, convert the consumed prey into offspring with efficiencies $e_{ij}$, and experience a per-capita mortality rate $d_i$, then the fitness of a predator with phenotype $m_i$ is
 \begin{align*}
 	W_i(m_i, [N]_1^v, [n]_1^v) &= \sum_{j = 1}^v\left(e_{ij}a_{ij}(m_i, n_j)N_j\right) - d_i
 \end{align*}
 
 \noindent and thus the mean fitness of the $i$\textsuperscript{th} predator population is
 \begin{align*}
-	\overline{W_i}(\overline{m_i}, [N]_1^v, [\overline{n}]_1^v) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} W_i(m_i, [N]_1^v, [n]_1^v) p(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	\overline{W_i}(\overline{m_i}, [N]_1^v, [\overline{n}]_1^v) &= \int\limits_{\mathbb{R}^{v+1}} W_i(m_i, [N]_1^v, [n]_1^v) p(m_i, \overline{m_i}) \prod\limits_{j = 1}^{v}\left[p(n_j, \overline{n_j})\right] dm_i \prod\limits_{j = 1}^{v}\left[dn_j\right] \\
 	&= \sum_{j=1}^v\left(e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_j\right) - d_i
 \end{align*}
 
-\noindent In the absence of the predators, each prey experience logistic growth with varying intrinsic growth rates $r_j(n_j)$ and carrying capacities $K_j$.  Assume the intrinsic growth rate of each prey decreases in a Gaussian manner as the the prey trait value diverges away from an optimal trait value for that species, $\phi_j$.  Let $\rho_j$ be the maximal intrinsic growth rate and $\gamma_j$ be the ``cost variance".  In other words,
+\noindent Suppose prey species $j$ experiences logistic-type growth in the absence of predators with carrying capacity $K_j$ and intrinsic growth rate $r_j$.  However, assume the intrinsic growth rate varies as a function of the prey individual's trait value.  Assume the contribution of a prey individual to its population decreases in a Gaussian manner as the trait value deviates away from an optimal trait value for that species, $\phi_j$.  Let $\rho_j$ be the maximal contribution rate and $\gamma_j$ be the ``cost variance".  In other words,
 
 \begin{align*}
 	r_j(n_j) = \rho_j\exp{\left[-\frac{(n_j - \phi_j)^2}{2\gamma_j^2}\right]}
 \end{align*}
 
-\noindent The average intrinsic growth rate for the prey population is given by
+\noindent Thus, the average intrinsic growth rate for the prey population is
 
 \begin{align*}
 	\overline{r}_j(\overline{n}_j) &= \int_{-\infty}^\infty{r_j(n_j)p(n_j, \overline{n}_j)}dn_j \\
 	&= \frac{\rho_j\gamma_j}{\sqrt{\beta_j^2 + \gamma_j^2}}\exp\left[{-\frac{(n_j - \phi_j)^2}{2(\beta_j^2 + \gamma_j^2)}}\right]
 \end{align*}
 
-\noindent Thus the fitness of a prey with phenotype $n_j$ is
+\noindent Define the fitness of prey individuals with phenotype $n_j$ as
 \begin{align*}
 	Y_j(N_j, n_j, [M]_1^u, [m]_1^u) &= r_j(n_j)\left(1 - \frac{N_j}{K_j} \right) - \sum_{i = 1}^u\left(a_{ij}(m_i, n_j)M_i\right) \\
 	&= \rho_j\exp{\left[-\frac{(n_j - \phi_j)^2}{2\gamma_j^2}\right]}\left(1 - \frac{N_j}{K_j}\right) - \sum_{i = 1}^u\left(a_{ij}(m_i, n_j)M_i\right)
@@ -89,11 +90,12 @@ Let $M_i(t)$ be the density of the $i$\textsuperscript{th} predator species, and
 
 \noindent and thus the mean fitness of the $j$\textsuperscript{th} prey population is
 \begin{align*}
-	\overline{Y_j}(N_j, \overline{n_j}, [M]_1^u, [\overline{m}]_1^u) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} Y_j(N_j, n_j, [M]_1^u, [m]_1^u) p(m_i, \overline{m_i}) p(n_j, \overline{n_j}) dm_i dn_j \\
+	\overline{Y_j}(N_j, \overline{n_j}, [M]_1^u, [\overline{m}]_1^u) &= \int\limits_{\mathbb{R}^{u+1}} Y_j(N_j, n_j, [M]_1^u, [m]_1^u) \prod\limits_{i=1}^{u}\left[p(m_i, \overline{m_i})\right] p(n_j, \overline{n_j}) \prod\limits_{i=1}^{u}\left[dm_i\right] dn_j \\
 	&= \overline{r}_j(\overline{n}_j) \left(1 - \frac{N_j}{K_j} \right) - \sum_{i = 1}^u \overline{a_{ij}}(\overline{m_i}, \overline{n_j}) M_i
 \end{align*}
 
-\noindent So the ecological dynamics of the model (population densities) are given by
+\subsection*{Ecological Dynamics}
+\noindent The ecological dynamics of the model (population densities) are given by
 \begin{align}
 	\begin{cases}
 		\dfrac{dM_i}{dt} &= M_i \overline{W_i}(\overline{m_i}, [N]_1^v, [\overline{n}]_1^v) \\[.25cm]
@@ -101,7 +103,8 @@ Let $M_i(t)$ be the density of the $i$\textsuperscript{th} predator species, and
 	\end{cases}
 \end{align}
 
-\noindent We assume the distribution of phenotypes remains Gaussian.  Thus the evolutionary dynamics are given by
+\subsection*{Evolutionary Dynamics}
+\noindent Assume the evolution of the mean trait value is always in the direction which increases the mean fitness in the population.  Thus the evolutionary dynamics are given by
 \begin{align}
 	\begin{cases}
 		\dfrac{d\overline{m_i}}{dt} &= \sigma_{Gi}^2 \; \dfrac{\partial \overline{W_i}}{\partial \overline{m_i}} \\[.25cm]
@@ -116,7 +119,8 @@ Let $M_i(t)$ be the density of the $i$\textsuperscript{th} predator species, and
 	\frac{\partial \overline{Y_j}}{\partial \overline{n_j}} &= \overline{r}_j(\overline{n}_j)\left(1 - \frac{N_j}{K_j}\right)\frac{(\phi_j - \overline{n}_j)}{\beta_j^2 + \gamma_j^2} + \sum_{i=1}^u\left[\frac{M_i(\theta_{ij} - (\overline{m}_i - \overline{n}_j))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \cdot \overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\right]
 \end{align*}
 
-\noindent The $1\times1$ model is a four-dimensional system given by
+\subsection*{The $1\times1$ Model}
+\noindent For example, the $1\times1$ model is a four-dimensional system given by
 \begin{align*}
 	\left\{\begin{array}{lll}
 		\dfrac{dM}{dt} &= M \overline{W}(\overline{m}, N, \overline{n}) &= M \left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[.5cm]
