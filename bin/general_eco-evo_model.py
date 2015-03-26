@@ -32,6 +32,12 @@ ImageMagick is not called, and no combination .png's are created.  This option a
 enables the -k/--keep-orignial-images option."""
 P_OPTION_HELP = """\
 No parameter values are printed on the graphs."""
+LOWER_LIMIT_HELP = """
+Define lowest y-value on the trait graph.  Default is -10.
+"""
+UPPER_LIMIT_HELP = """
+Define highest y-value on the trait graph.  Default is 10.
+"""
 GRAPH_SAVED = """
 GRAPH SAVED
 -----------
@@ -99,8 +105,7 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     if display_parameters and not combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
     
-    limit = 10
-    plt.ylim(-limit, limit)
+    plt.ylim(LOWER_LIMIT, UPPER_LIMIT)
     plt.xlabel('Time')
     plt.ylabel('Trait Value')
 
@@ -351,16 +356,50 @@ def get_system_dimension(set_):
     dim = "%sx%s" % (number_of_predators, number_of_preys)
     return dim
 
+def SET_TRAIT_GRAPH_LIMITS(args):
+    global LOWER_LIMIT
+    global UPPER_LIMIT
+
+    default_limit = 10
+
+    if not args.trait_graph_lower_limit and not args.trait_graph_upper_limit:
+        LOWER_LIMIT = -default_limit
+        UPPER_LIMIT = default_limit
+    elif args.trait_graph_lower_limit and not args.trait_graph_upper_limit:
+        LOWER_LIMIT = args.trait_graph_lower_limit
+        if LOWER_LIMIT < default_limit:
+            UPPER_LIMIT = default_limit
+        else:
+            UPPER_LIMIT = 10 + LOWER_LIMIT
+    elif not args.trait_graph_lower_limit and args.trait_graph_upper_limit:
+        UPPER_LIMIT = args.trait_graph_upper_limit
+        if UPPER_LIMIT > -default_limit:
+            LOWER_LIMIT = -default_limit
+        else:
+            LOWER_LIMIT = UPPER_LIMIT - 10
+    else:
+        if args.trait_graph_upper_limit > args.trait_graph_lower_limit:
+            LOWER_LIMIT = args.trait_graph_lower_limit
+            UPPER_LIMIT = args.trait_graph_upper_limit
+        else:
+            print "Lower limit must be less than Upper limit ;)"
+            raise ValueError
+
+
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
     parser.add_argument("config_file")
     parser.add_argument("-k", "--keep-orignial-images", action = "store_true", dest = "keep_original_images", default = False, help=K_OPTION_HELP)
     parser.add_argument("-c", "--no-combine", action = "store_false", dest = "combine", default = True, help=C_OPTION_HELP)
     parser.add_argument("-p", "--no-parameters", action = "store_false", dest = "display_parameters", default = True, help=P_OPTION_HELP)
+    parser.add_argument("--lower-limit", dest = "trait_graph_lower_limit", type = float, help=LOWER_LIMIT_HELP)
+    parser.add_argument("--upper-limit", dest = "trait_graph_upper_limit", type = float, help=UPPER_LIMIT_HELP)
     return parser.parse_args()
     
 def main():
     args = PARSE_ARGS()
+
+    SET_TRAIT_GRAPH_LIMITS(args)
 
     data = json.loads(open("%s/%s" % (DIRECTORY, args.config_file)).read())
 

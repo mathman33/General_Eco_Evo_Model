@@ -1,7 +1,7 @@
 {
     "system_parameters": [
         {
-            "final_time": 6000, 
+            "final_time": 1000, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
@@ -12,7 +12,7 @@
                 "max_attack_rates": {
                     "11": {
                         "start": 0.05, 
-                        "stop": 0.05
+                        "stop": 0.20
                     }
                 }, 
                 "optimal_trait_differences": {
@@ -31,7 +31,7 @@
             "predator": {
                 "death_rates": {
                     "1": {
-                        "start": 0.05, 
+                        "start": 0.2, 
                         "stop": 0.2
                     }
                 }, 
