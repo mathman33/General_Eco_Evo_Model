@@ -1,7 +1,7 @@
 {
     "system_parameters": [
         {
-            "final_time": 6000, 
+            "final_time": 2000, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
@@ -17,8 +17,8 @@
                 }, 
                 "optimal_trait_differences": {
                     "11": {
-                        "start": 0.1, 
-                        "stop": 0.1
+                        "start": 0.0, 
+                        "stop": 0.0
                     }
                 }, 
                 "specialization": {
@@ -38,8 +38,8 @@
                 "initial_values": {
                     "densities": {
                         "1": {
-                            "start": 1.0, 
-                            "stop": 1.0
+                            "start": 30.0, 
+                            "stop": 30.0
                         }
                     }, 
                     "traits": {
@@ -52,8 +52,8 @@
                 "trait_variances": {
                     "genetic": {
                         "1": {
-                            "start": 0.18, 
-                            "stop": 0.18
+                            "start": 0.0, 
+                            "stop": 0.0
                         }
                     }, 
                     "total": {
@@ -71,6 +71,26 @@
                         "stop": 250
                     }
                 }, 
+                "cost_variances": {
+                    "1": {
+                        "start": 0.15, 
+                        "stop": 0.15
+                    }
+                }, 
+                "initial_values": {
+                    "densities": {
+                        "1": {
+                            "start": 120, 
+                            "stop": 120
+                        }
+                    }, 
+                    "traits": {
+                        "1": {
+                            "start": 0.05, 
+                            "stop": 0.05
+                        }
+                    }
+                }, 
                 "max_growth_rates": {
                     "1": {
                         "start": 0.5, 
@@ -83,31 +103,11 @@
                         "stop": 0.0
                     }
                 }, 
-                "cost_variances": {
-                    "1": {
-                        "start": 1.0, 
-                        "stop": 1.0
-                    }
-                },
-                "initial_values": {
-                    "densities": {
-                        "1": {
-                            "start": 120, 
-                            "stop": 120
-                        }
-                    }, 
-                    "traits": {
-                        "1": {
-                            "start": 1.0, 
-                            "stop": 1.0
-                        }
-                    }
-                }, 
                 "trait_variances": {
                     "genetic": {
                         "1": {
-                            "start": 0.1, 
-                            "stop": 0.1
+                            "start": 0.0, 
+                            "stop": 0.0
                         }
                     }, 
                     "total": {
@@ -117,7 +117,7 @@
                         }
                     }
                 }
-            }, 
+            },
             "steps": 25
         }
     ]
