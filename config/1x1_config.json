@@ -5,8 +5,8 @@
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
-                        "start": 0.5, 
-                        "stop": 0.5
+                        "start": 0.01, 
+                        "stop": 0.22
                     }
                 }, 
                 "max_attack_rates": {
@@ -67,8 +67,8 @@
             "prey": {
                 "carrying_capacities": {
                     "1": {
-                        "start": 225, 
-                        "stop": 225
+                        "start": 250, 
+                        "stop": 250
                     }
                 }, 
                 "cost_variances": {
@@ -117,8 +117,8 @@
                         }
                     }
                 }
-            }, 
-            "steps": 2
+            },
+            "steps": 25
         }
     ]
 }
