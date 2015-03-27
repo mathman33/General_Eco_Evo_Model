@@ -124,7 +124,7 @@
                         }
                     }
                 },
-                "growth_rates": {
+                "max_growth_rates": {
                     "1": {
                         "start": 0.5,
                         "stop": 0.5
@@ -132,6 +132,26 @@
                     "2": {
                         "start": 0.5,
                         "stop": 0.5
+                    }
+                },
+                "optimum_trait_values": {
+                    "1": {
+                        "start": 0.0,
+                        "stop": 0.0
+                    },
+                    "2": {
+                        "start": 1.0,
+                        "stop": 1.0
+                    }
+                },
+                "cost_variances": {
+                    "1": {
+                        "start": 1.5,
+                        "stop": 1.5
+                    },
+                    "2": {
+                        "start": 1.5,
+                        "stop": 1.5
                     }
                 },
                 "carrying_capacities": {

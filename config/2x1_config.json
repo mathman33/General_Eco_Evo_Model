@@ -2,17 +2,17 @@
     "system_parameters": [
         {
             "steps": 15,
-            "final_time": 1000,
+            "final_time": 2500,
             "predator": {
                 "initial_values": {
                     "densities": {
                         "1": {
-                            "start": 25.0,
-                            "stop": 20.0
+                            "start": 40.0,
+                            "stop": 40.0
                         },
                         "2": {
-                            "start": 25.0,
-                            "stop": 25.0
+                            "start": 41.0,
+                            "stop": 41.0
                         }
                     },
                     "traits": {
@@ -39,12 +39,12 @@
                     },
                     "genetic": {
                         "1": {
-                            "start": 0.16,
-                            "stop": 0.16
+                            "start": 0.05,
+                            "stop": 0.20
                         },
                         "2": {
-                            "start": 0.16,
-                            "stop": 0.16
+                            "start": 0.11,
+                            "stop": 0.11
                         }
                     }
                 },
@@ -83,15 +83,27 @@
                     },
                     "genetic": {
                         "1": {
-                            "start": 0.1,
-                            "stop": 0.1
+                            "start": 0.06,
+                            "stop": 0.06
                         }
                     }
                 },
-                "growth_rates": {
+                "max_growth_rates": {
                     "1": {
-                        "start": 0.5,
-                        "stop": 0.5
+                        "start": 1.5,
+                        "stop": 1.5
+                    }
+                },
+                "optimum_trait_values": {
+                    "1": {
+                        "start": 0.0,
+                        "stop": 0.0
+                    }
+                },
+                "cost_variances": {
+                    "1": {
+                        "start": 1.0,
+                        "stop": 1.0
                     }
                 },
                 "carrying_capacities": {
