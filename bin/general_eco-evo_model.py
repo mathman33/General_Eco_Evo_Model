@@ -32,6 +32,12 @@ ImageMagick is not called, and no combination .png's are created.  This option a
 enables the -k/--keep-orignial-images option."""
 P_OPTION_HELP = """\
 No parameter values are printed on the graphs."""
+LOWER_LIMIT_HELP = """
+Define lowest y-value on the trait graph.  Default is -10.
+"""
+UPPER_LIMIT_HELP = """
+Define highest y-value on the trait graph.  Default is 10.
+"""
 GRAPH_SAVED = """
 GRAPH SAVED
 -----------
@@ -53,7 +59,11 @@ LaTeX_VARIABLE_FORMAT = {
     "eff"   : "e_{",
     "tau"   : "\\tau_{",
     "alpha" : "\\alpha_{",
-    "theta" : "\\theta_{"
+    "theta" : "\\theta_{",
+
+    "rho"   : "\\rho_{",
+    "phi"   : "\\phi_{",
+    "gamma" : "\\gamma_{"
 }
 
 def remove_command(*items):
@@ -95,8 +105,7 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     if display_parameters and not combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
     
-    limit = 10
-    plt.ylim(-limit, limit)
+    plt.ylim(LOWER_LIMIT, UPPER_LIMIT)
     plt.xlabel('Time')
     plt.ylabel('Trait Value')
 
@@ -162,7 +171,9 @@ class System:
         self.n0     = parameters["n0"]
         self.beta   = parameters["beta"]
         self.betaG  = parameters["betaG"]
-        self.r      = parameters["r"]
+        self.rho    = parameters["rho"]
+        self.phi    = parameters["phi"]
+        self.gamma  = parameters["gamma"]
         self.K      = parameters["K"]
         self.num_preys = len(self.N0)
 
@@ -181,29 +192,35 @@ class System:
         self.alpha  = parameters["alpha"]
         self.theta  = parameters["theta"]
 
-        self.A                     = {}
+        self.A                    = {}
         for pred_subscript in self.M0:
             for prey_subscript in self.N0:
                 interaction_subscript = pred_subscript + prey_subscript
                 self.A[interaction_subscript] = self.sigma[pred_subscript]**2 + self.beta[prey_subscript]**2 + self.tau[interaction_subscript]**2
 
-        self.avgattack             = {}
+        self.B                    = {}
+        for prey_subscript in self.N0:
+            self.B[prey_subscript] = self.beta[prey_subscript]**2 + self.gamma[prey_subscript]**2
+
+        self.avgattack            = {}
         for pred_subscript in self.M0:
             for prey_subscript in self.N0:
                 interaction_subscript = pred_subscript + prey_subscript
                 self.avgattack[interaction_subscript] = self.give_params_avgattack(interaction_subscript)
 
-        self.avg_pred_fitness      = {}
-        self.pred_trait_response   = {}
+        self.avg_pred_fitness     = {}
+        self.pred_trait_response  = {}
         for pred_subscript in self.M0:
             self.avg_pred_fitness[pred_subscript]    = self.give_params_avg_pred_fitness(pred_subscript)
             self.pred_trait_response[pred_subscript] = self.give_params_pred_trait_response(pred_subscript)
 
-        self.avg_prey_fitness      = {}
-        self.prey_trait_response   = {}
+        self.avg_prey_fitness     = {}
+        self.prey_trait_response  = {}
+        self.avg_prey_growth_rate = {}
         for prey_subscript in self.N0:
-            self.avg_prey_fitness[prey_subscript]    = self.give_params_avg_prey_fitness(prey_subscript)
-            self.prey_trait_response[prey_subscript] = self.give_params_prey_trait_response(prey_subscript)
+            self.avg_prey_growth_rate[prey_subscript] = self.give_params_avg_prey_growth_rate(prey_subscript)
+            self.avg_prey_fitness[prey_subscript]     = self.give_params_avg_prey_fitness(prey_subscript)
+            self.prey_trait_response[prey_subscript]  = self.give_params_prey_trait_response(prey_subscript)
 
         self.soln = odeint(self.f, self.y0, self.t)
 
@@ -254,7 +271,7 @@ class System:
             f[index] = (self.sigmaG[str(i+1)]**2)*self.pred_trait_response[str(i+1)](N, m[i], n)
         for i in xrange(0, self.num_preys):
             index = i + self.num_preds + self.num_preys + self.num_preds
-            f[index] = (self.betaG[str(i+1)]**2)*self.prey_trait_response[str(i+1)](M, m, n[i])
+            f[index] = (self.betaG[str(i+1)]**2)*self.prey_trait_response[str(i+1)](M, m, N[i], n[i])
         
         return f
 
@@ -279,8 +296,21 @@ class System:
             return fitness_source - d
         return avg_pred_fitness
 
+    def give_params_avg_prey_growth_rate(self, prey_subscript):
+        rho   = self.rho[prey_subscript]
+        phi   = self.phi[prey_subscript]
+        gamma = self.gamma[prey_subscript]
+        B     = self.B[prey_subscript]
+        def avg_prey_growth_rate(n):
+            numerator      = rho*gamma
+            denominator    = sqrt(B)
+            exponent_num   = -(n - phi)**2
+            exponent_denom = 2*B
+            return (numerator/denominator)*exp(exponent_num/exponent_denom)
+        return avg_prey_growth_rate
+
     def give_params_avg_prey_fitness(self, prey_subscript):
-        r = self.r[prey_subscript]
+        r = self.avg_prey_growth_rate[prey_subscript]
         K = self.K[prey_subscript]
         def avg_prey_fitness(M, m, N, n):
             fitness_sink = 0
@@ -288,7 +318,7 @@ class System:
                 interaction_subscript = pred_subscript + prey_subscript
                 avgattack = self.avgattack[interaction_subscript]
                 fitness_sink += avgattack(m[int(pred_subscript)-1], n)*M[int(pred_subscript)-1]
-            return r*(1 - (N/K)) - fitness_sink
+            return r(n)*(1 - (N/K)) - fitness_sink
         return avg_prey_fitness
 
     def give_params_pred_trait_response(self, pred_subscript):
@@ -305,8 +335,12 @@ class System:
         return pred_trait_response
 
     def give_params_prey_trait_response(self, prey_subscript):
-        def prey_trait_response(M, m, n):
-            response = 0
+        r   = self.avg_prey_growth_rate[prey_subscript]
+        phi = self.phi[prey_subscript]
+        B   = self.B[prey_subscript]
+        K   = self.K[prey_subscript]
+        def prey_trait_response(M, m, N, n):
+            response = ((phi - n)/B)*(1 - N/K)*r(n)
             for pred_subscript in self.M0:
                 interaction_subscript = pred_subscript + prey_subscript
                 avgattack = self.avgattack[interaction_subscript]
@@ -322,16 +356,50 @@ def get_system_dimension(set_):
     dim = "%sx%s" % (number_of_predators, number_of_preys)
     return dim
 
+def SET_TRAIT_GRAPH_LIMITS(args):
+    global LOWER_LIMIT
+    global UPPER_LIMIT
+
+    default_limit = 10
+
+    if not args.trait_graph_lower_limit and not args.trait_graph_upper_limit:
+        LOWER_LIMIT = -default_limit
+        UPPER_LIMIT = default_limit
+    elif args.trait_graph_lower_limit and not args.trait_graph_upper_limit:
+        LOWER_LIMIT = args.trait_graph_lower_limit
+        if LOWER_LIMIT < default_limit:
+            UPPER_LIMIT = default_limit
+        else:
+            UPPER_LIMIT = 10 + LOWER_LIMIT
+    elif not args.trait_graph_lower_limit and args.trait_graph_upper_limit:
+        UPPER_LIMIT = args.trait_graph_upper_limit
+        if UPPER_LIMIT > -default_limit:
+            LOWER_LIMIT = -default_limit
+        else:
+            LOWER_LIMIT = UPPER_LIMIT - 10
+    else:
+        if args.trait_graph_upper_limit > args.trait_graph_lower_limit:
+            LOWER_LIMIT = args.trait_graph_lower_limit
+            UPPER_LIMIT = args.trait_graph_upper_limit
+        else:
+            print "Lower limit must be less than Upper limit ;)"
+            raise ValueError
+
+
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
     parser.add_argument("config_file")
     parser.add_argument("-k", "--keep-orignial-images", action = "store_true", dest = "keep_original_images", default = False, help=K_OPTION_HELP)
     parser.add_argument("-c", "--no-combine", action = "store_false", dest = "combine", default = True, help=C_OPTION_HELP)
     parser.add_argument("-p", "--no-parameters", action = "store_false", dest = "display_parameters", default = True, help=P_OPTION_HELP)
+    parser.add_argument("--lower-limit", dest = "trait_graph_lower_limit", type = float, help=LOWER_LIMIT_HELP)
+    parser.add_argument("--upper-limit", dest = "trait_graph_upper_limit", type = float, help=UPPER_LIMIT_HELP)
     return parser.parse_args()
     
 def main():
     args = PARSE_ARGS()
+
+    SET_TRAIT_GRAPH_LIMITS(args)
 
     data = json.loads(open("%s/%s" % (DIRECTORY, args.config_file)).read())
 
@@ -357,13 +425,15 @@ def main():
             "n0"    : set_["prey"]["initial_values"]["traits"],
             "beta"  : set_["prey"]["trait_variances"]["total"],
             "betaG" : set_["prey"]["trait_variances"]["genetic"],
-            "r"     : set_["prey"]["growth_rates"],
             "K"     : set_["prey"]["carrying_capacities"],
+            "rho"   : set_["prey"]["max_growth_rates"],
+            "phi"   : set_["prey"]["optimum_trait_values"],
+            "gamma" : set_["prey"]["cost_variances"],
 
             "eff"   : set_["interaction_parameters"]["efficiencies"],
             "tau"   : set_["interaction_parameters"]["specialization"],
             "alpha" : set_["interaction_parameters"]["max_attack_rates"],
-            "theta" : set_["interaction_parameters"]["optimal_trait_differences"]
+            "theta" : set_["interaction_parameters"]["optimal_trait_differences"],
         }
 
         # Parameter Step
