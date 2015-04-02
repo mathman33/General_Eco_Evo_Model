@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from __future__ import division
 from math import sqrt
 import json
@@ -5,6 +7,8 @@ import argparse
 import os
 
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+
+INVALID_DATA_LOCATION = "\n\nInvalid data location... no such file or directory: \'%s\'\n\n"
 
 def irange(start, stop, step):
     r = start
@@ -62,7 +66,11 @@ def PARSE_ARGS():
 def main():
     args = PARSE_ARGS()
 
-    data = json.loads(open("%s/%s" % (DIRECTORY, args.relavent_data)).read())
+    try:
+        data = json.loads(open(args.relavent_data).read())
+    except IOError:
+        print INVALID_DATA_LOCATION % args.relavent_data
+        return 
 
     config_descriptions_to_variables = {
         "M0"    : data["predator"]["initial_values"]["densities"],

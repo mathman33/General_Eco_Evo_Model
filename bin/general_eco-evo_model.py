@@ -10,7 +10,7 @@ import json
 import argparse
 import shlex
 from time import sleep
-from subprocess import Popen
+from subprocess import Popen, PIPE
 from datetime import datetime
 
 AVG_TIME_PER_GRAPH = 1.670
@@ -21,9 +21,12 @@ IMAGEMAGICK_COMMAND = "convert +append %s %s %s"
 NO_IMAGEMAGICK_ERROR = "Unable to create dual graphs.  Please install 'ImageMagick'\n"
 DATE_TIME_DIRECTORY_FORMAT = '%y%m%d_%H%M%S'
 TIME_NEEDED_MESSAGE = "Approximate Time Needed: %.03f minutes\n\n"
-NUMBER_OF_GRAPHS_MESSAGE = "%d graphs will be generated."
+NUMBER_OF_GRAPHS_MESSAGE = "\n\n%d graphs will be generated."
 AVG_TIME_MESSAGE = "average time per graph: %.03f seconds"
 TOT_TIME_MESSAGE = "total time taken: %.03f seconds"
+NO_STABILITY_CHECK = """
+NO STABILITY CHECK FILE EXISTS --- NO ANALYSIS WILL BE DONE
+"""
 K_OPTION_HELP = """\
 Individual Density and Trait graphs are not deleted after being combined into a single .png
 through ImageMagick.  This option is automatically enabled if -c/--no-combine is specified."""
@@ -65,6 +68,18 @@ LaTeX_VARIABLE_FORMAT = {
     "phi"   : "\\phi_{",
     "gamma" : "\\gamma_{"
 }
+
+def header(string):
+    l = len(string)
+    hashtags = "\n" + "#"*(3*l) + "\n"
+    total = hashtags + " "*l + string + hashtags
+    return total
+
+def subheader(string):
+    l = len(string)
+    hashtags = "\n" + " "*4 + "#"*l + "\n"
+    total = hashtags + " "*4 + string + hashtags
+    return total
 
 def remove_command(*items):
     command = "rm"
@@ -385,10 +400,19 @@ def SET_TRAIT_GRAPH_LIMITS(args):
             print "Lower limit must be less than Upper limit ;)"
             raise ValueError
 
+def save_OUT_and_ERR(OUT, ERR, current_directory):
+    total = header("STD_OUT") + OUT + "\n"*10 + header("STD_ERR")
+    if len(ERR) == 0:
+        total += "\n<<< NONE >>>\n\n"
+    else:
+        total += ERR
+    filename = "%s/stability_results.txt" % current_directory
+    with open(filename, "w") as stab_res_file_object:
+        stab_res_file_object.write(total)
 
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
-    parser.add_argument("config_file")
+    parser.add_argument("dimension")
     parser.add_argument("-k", "--keep-orignial-images", action = "store_true", dest = "keep_original_images", default = False, help=K_OPTION_HELP)
     parser.add_argument("-c", "--no-combine", action = "store_false", dest = "combine", default = True, help=C_OPTION_HELP)
     parser.add_argument("-p", "--no-parameters", action = "store_false", dest = "display_parameters", default = True, help=P_OPTION_HELP)
@@ -401,18 +425,30 @@ def main():
 
     SET_TRAIT_GRAPH_LIMITS(args)
 
-    data = json.loads(open("%s/%s" % (DIRECTORY, args.config_file)).read())
+    config_file = "%s/bin/config/%s_config.json" % (DIRECTORY, args.dimension)
+    data = json.loads(open(config_file).read())
 
     for set_ in data["system_parameters"]:
         now = datetime.now()
         date_time_stamp = now.strftime(DATE_TIME_DIRECTORY_FORMAT)
         dimension = get_system_dimension(set_)
+
         current_directory = "%s/graphs/%s/%s" % (DIRECTORY, dimension, date_time_stamp)
         os.system("mkdir -p %s" % current_directory)
 
+        relevant_data_file = "%s/relevant_data.json" % current_directory
         pretty_data = json.dumps(set_, indent=4, sort_keys=True)
-        with open("%s/relevant_data.json" % current_directory, "w") as relevant_data_file:
-            relevant_data_file.write(pretty_data)
+        with open(relevant_data_file, "w") as rel_data_file_object:
+            rel_data_file_object.write(pretty_data)
+
+        stability_check = "%s/bin/stability_checks/%s_check.py" % (DIRECTORY, dimension)
+        if os.path.isfile(stability_check):
+            command_line = [stability_check, relevant_data_file]
+            p = Popen(command_line, stdout = PIPE, stderr = PIPE)
+            (OUT, ERR) = p.communicate()
+            save_OUT_and_ERR(OUT, ERR, current_directory)
+        else:
+            print(NO_STABILITY_CHECK)
 
         config_descriptions_to_variables = {
             "M0"    : set_["predator"]["initial_values"]["densities"],
