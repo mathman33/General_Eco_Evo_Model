@@ -13,11 +13,12 @@ from time import sleep
 from subprocess import Popen, PIPE
 from datetime import datetime
 
-AVG_TIME_PER_GRAPH = 1.670
+AVG_TIME_PER_GRAPH = 0.389
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 if DIRECTORY.endswith("/bin"):
     DIRECTORY = DIRECTORY[:-4]
-IMAGEMAGICK_COMMAND = "convert +append %s %s %s"
+IMAGEMAGICK_SIDE_BY_SIDE_COMMAND = "convert +append %s %s %s"
+IMAGEMAGICK_ON_TOP_COMMAND = "convert -append %s %s %s"
 NO_IMAGEMAGICK_ERROR = "Unable to create dual graphs.  Please install 'ImageMagick'\n"
 DATE_TIME_DIRECTORY_FORMAT = '%y%m%d_%H%M%S'
 TIME_NEEDED_MESSAGE = "Approximate Time Needed: %.03f minutes\n\n"
@@ -122,16 +123,16 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     
     plt.ylim(LOWER_LIMIT, UPPER_LIMIT)
     plt.xlabel('Time')
-    plt.ylabel('Trait Value')
+    plt.ylabel('Character Value')
 
     if display_parameters and not combine:
         for index, text_line in enumerate(text):
-            plt.text(-.25*system.tf, limit*(1-(.05*index)), text_line)
+            plt.text(-.25*system.tf, UPPER_LIMIT*(1-(.05*index)), text_line)
 
     for i, value in enumerate(system.m):
-        plt.plot(system.t, system.m[value], label="Predator %d Trait" % (i+1), lw=2)
+        plt.plot(system.t, system.m[value], label="Predator %d Character" % (i+1), lw=2)
     for i, value in enumerate(system.n):
-        plt.plot(system.t, system.n[value], label="Prey %d Trait" % (i+1), lw=2)
+        plt.plot(system.t, system.n[value], label="Prey %d Character" % (i+1), lw=2)
 
     plt.legend(loc=0)
 
@@ -140,7 +141,7 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     garbage.collect()
     print GRAPH_SAVED % traits_file
 
-def plot_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+def plot_densities_phase_plane(system, phase_plane_file, text, display_parameters, combine):
     plt.figure()
 
     if display_parameters and not combine:
@@ -156,7 +157,7 @@ def plot_phase_plane(system, phase_plane_file, text, display_parameters, combine
 
     if display_parameters and not combine:
         for index, text_line in enumerate(text):
-            plt.text(-.25*system.tf, limit*(1-(.05*index)), text_line)
+            plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
 
     plt.plot(system.M["1"], system.N["1"], lw=1)
     plt.plot(system.M["1"][0], system.N["1"][0], 'gD', label="TIME=0.0")
@@ -168,24 +169,48 @@ def plot_phase_plane(system, phase_plane_file, text, display_parameters, combine
     garbage.collect()
     print GRAPH_SAVED % phase_plane_file
 
-def combine_images(input1, input2, output, keep_original_images):
-    command = IMAGEMAGICK_COMMAND % (input1, input2, output)   
+def plot_traits_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+    plt.figure()
+
+    if display_parameters and not combine:
+        plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
+
+    plt.xlim(min(system.m["1"]), max(system.m["1"]))
+    plt.ylim(min(system.n["1"]), max(system.n["1"]))
+    plt.xlabel('Predator 1 Character')
+    plt.ylabel('Prey 1 Character')
+
+    if display_parameters and not combine:
+        for index, text_line in enumerate(text):
+            x_diff = max(system.m["1"]) - min(system.m["1"])
+            plt.text(min(system.m["1"])-.25*x_diff, max(system.n["1"])*(1-(.05*index)), text_line)
+
+    plt.plot(system.m["1"], system.n["1"], lw=1)
+    plt.plot(system.m["1"][0], system.n["1"][0], 'gD', label="TIME=0.0")
+    plt.plot(system.m["1"][-1], system.n["1"][-1], 'rD', label="TIME=%.1f" % system.tf)
+    plt.legend(loc=0)
+
+    plt.savefig(phase_plane_file, format = 'png')
+    plt.close()
+    garbage.collect()
+    print GRAPH_SAVED % phase_plane_file
+
+def combine_images(input1, input2, output, keep_original_images, COMMAND):
+    command = COMMAND % (input1, input2, output)   
     try:
         Popen(shlex.split(command))
         if not keep_original_images:
             while True:
                 if os.path.isfile(output):
-                    tries = 1
+                    ts = default_timer()
                     while True:
                         output_size = float(os.path.getsize(output))
-                        if tries > 10000:
+                        if default_timer() - ts > 10:
                             break
-                        sleep(.001)
+                        sleep(.005)
                         if output_size != 0:
                             Popen(shlex.split(remove_command(input1, input2)))
                             break
-                        else:
-                            tries += 1
                     break
                 else:
                     pass
@@ -442,7 +467,7 @@ def PARSE_ARGS():
     parser = argparse.ArgumentParser()
     parser.add_argument("dimension")
     parser.add_argument("-k", "--keep-orignial-images", action = "store_true", dest = "keep_original_images", default = False, help=K_OPTION_HELP)
-    parser.add_argument("-c", "--no-combine", action = "store_false", dest = "combine", default = True, help=C_OPTION_HELP)
+    parser.add_argument("-n", "--no-combine", action = "store_false", dest = "combine", default = True, help=C_OPTION_HELP)
     parser.add_argument("-p", "--no-parameters", action = "store_false", dest = "display_parameters", default = True, help=P_OPTION_HELP)
     parser.add_argument("--lower-limit", dest = "trait_graph_lower_limit", type = float, help=LOWER_LIMIT_HELP)
     parser.add_argument("--upper-limit", dest = "trait_graph_upper_limit", type = float, help=UPPER_LIMIT_HELP)
@@ -505,7 +530,7 @@ def main():
         def get_step(dictionary):
             return (dictionary["stop"] - dictionary["start"])/steps
 
-        number_of_graphs = (steps+1)*3
+        number_of_graphs = (steps+1)*4
         time_needed = AVG_TIME_PER_GRAPH*number_of_graphs/60.
         print NUMBER_OF_GRAPHS_MESSAGE % number_of_graphs
         print TIME_NEEDED_MESSAGE % time_needed
@@ -558,17 +583,38 @@ def main():
             print "Time taken for this data: %.03f\n" % (data_time)
             time += data_time
 
+            combined_time_graphs = "%s/combined_time_graphs_%.3d.png" % (current_directory, step)
+            if args.combine:
+                combine_images(densities_file, traits_file, combined_time_graphs, args.keep_original_images, IMAGEMAGICK_SIDE_BY_SIDE_COMMAND)
+
             ts = default_timer()
 
-            phase_plane_file = "%s/phase_plane_%03d.png" % (current_directory, step)
-            plot_phase_plane(system, phase_plane_file, text, args.display_parameters, args.combine)
+            density_phase_plane_file = "%s/density_phase_plane_%03d.png" % (current_directory, step)
+            plot_densities_phase_plane(system, density_phase_plane_file, text, args.display_parameters, args.combine)
             data_time = default_timer() - ts
             print "Time taken for this data: %.03f\n" % (data_time)
             time += data_time
 
+            ts = default_timer()
+
+            trait_phase_plane_file = "%s/trait_phase_plane_%03d.png" % (current_directory, step)
+            plot_traits_phase_plane(system, trait_phase_plane_file, text, args.display_parameters, args.combine)
+            data_time = default_timer() - ts
+            print "Time taken for this data: %.03f\n" % (data_time)
+            time += data_time
+
+            combined_phase_planes = "%s/combined_phase_planes_%.3d.png" % (current_directory, step)
+            if args.combine:
+                combine_images(density_phase_plane_file, trait_phase_plane_file, combined_phase_planes, args.keep_original_images, IMAGEMAGICK_SIDE_BY_SIDE_COMMAND)
+
+        ### This separate section is so that the images are guaranteed to exist before attempting to combine them
+        print "\n\nUsing ImageMagick to combine graphs.....\n\n"
+        for step in irange(0, steps, 1):
+            combined_time_graphs = "%s/combined_time_graphs_%.3d.png" % (current_directory, step)
+            combined_phase_planes = "%s/combined_phase_planes_%.3d.png" % (current_directory, step)
             output = "%s/output_%.3d.png" % (current_directory, step)
             if args.combine:
-                combine_images(densities_file, traits_file, output, args.keep_original_images)
+                combine_images(combined_time_graphs, combined_phase_planes, output, args.keep_original_images, IMAGEMAGICK_ON_TOP_COMMAND)
 
         print TOT_TIME_MESSAGE % (time)
         print AVG_TIME_MESSAGE % (time/number_of_graphs)
