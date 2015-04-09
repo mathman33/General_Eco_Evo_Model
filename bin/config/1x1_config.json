@@ -1,12 +1,12 @@
 {
     "system_parameters": [
         {
-            "final_time": 2000, 
+            "final_time": 10000, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
-                        "start": 0.01, 
-                        "stop": 0.22
+                        "start": 0.5, 
+                        "stop": 0.5
                     }
                 }, 
                 "max_attack_rates": {
@@ -17,8 +17,8 @@
                 }, 
                 "optimal_trait_differences": {
                     "11": {
-                        "start": 0.0, 
-                        "stop": 0.0
+                        "start": 0.1, 
+                        "stop": 0.1
                     }
                 }, 
                 "specialization": {
@@ -38,8 +38,8 @@
                 "initial_values": {
                     "densities": {
                         "1": {
-                            "start": 30.0, 
-                            "stop": 30.0
+                            "start": 1.0, 
+                            "stop": 1.0
                         }
                     }, 
                     "traits": {
@@ -52,8 +52,8 @@
                 "trait_variances": {
                     "genetic": {
                         "1": {
-                            "start": 0.0, 
-                            "stop": 0.0
+                            "start": 0.18, 
+                            "stop": 0.18
                         }
                     }, 
                     "total": {
@@ -67,14 +67,14 @@
             "prey": {
                 "carrying_capacities": {
                     "1": {
-                        "start": 250, 
-                        "stop": 250
+                        "start": 225, 
+                        "stop": 225
                     }
                 }, 
                 "cost_variances": {
                     "1": {
-                        "start": 0.15, 
-                        "stop": 0.15
+                        "start": 0.5, 
+                        "stop": 5.0
                     }
                 }, 
                 "initial_values": {
@@ -86,15 +86,15 @@
                     }, 
                     "traits": {
                         "1": {
-                            "start": 0.05, 
-                            "stop": 0.05
+                            "start": 1.0, 
+                            "stop": 1.0
                         }
                     }
                 }, 
                 "max_growth_rates": {
                     "1": {
-                        "start": 0.5, 
-                        "stop": 0.5
+                        "start": 0.2, 
+                        "stop": 0.2
                     }
                 }, 
                 "optimum_trait_values": {
@@ -106,8 +106,8 @@
                 "trait_variances": {
                     "genetic": {
                         "1": {
-                            "start": 0.0, 
-                            "stop": 0.0
+                            "start": 0.1, 
+                            "stop": 0.1
                         }
                     }, 
                     "total": {
@@ -117,8 +117,8 @@
                         }
                     }
                 }
-            },
-            "steps": 25
+            }, 
+            "steps": 15
         }
     ]
 }

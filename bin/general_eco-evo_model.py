@@ -140,6 +140,34 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     garbage.collect()
     print GRAPH_SAVED % traits_file
 
+def plot_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+    plt.figure()
+
+    if display_parameters and not combine:
+        plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
+    
+    xlimit = 1.1*max(system.M["1"])
+    ylimit = 1.1*max(system.N["1"])
+
+    plt.xlim(-1., xlimit)
+    plt.ylim(-1., ylimit)
+    plt.xlabel('Predator 1 Density')
+    plt.ylabel('Prey 1 Density')
+
+    if display_parameters and not combine:
+        for index, text_line in enumerate(text):
+            plt.text(-.25*system.tf, limit*(1-(.05*index)), text_line)
+
+    plt.plot(system.M["1"], system.N["1"], lw=1)
+    plt.plot(system.M["1"][0], system.N["1"][0], 'gD', label="TIME=0.0")
+    plt.plot(system.M["1"][-1], system.N["1"][-1], 'rD', label="TIME=%.1f" % system.tf)
+    plt.legend(loc=0)
+
+    plt.savefig(phase_plane_file, format = 'png')
+    plt.close()
+    garbage.collect()
+    print GRAPH_SAVED % phase_plane_file
+
 def combine_images(input1, input2, output, keep_original_images):
     command = IMAGEMAGICK_COMMAND % (input1, input2, output)   
     try:
@@ -477,7 +505,7 @@ def main():
         def get_step(dictionary):
             return (dictionary["stop"] - dictionary["start"])/steps
 
-        number_of_graphs = (steps+1)*2
+        number_of_graphs = (steps+1)*3
         time_needed = AVG_TIME_PER_GRAPH*number_of_graphs/60.
         print NUMBER_OF_GRAPHS_MESSAGE % number_of_graphs
         print TIME_NEEDED_MESSAGE % time_needed
@@ -529,7 +557,15 @@ def main():
             data_time = default_timer() - ts
             print "Time taken for this data: %.03f\n" % (data_time)
             time += data_time
-            
+
+            ts = default_timer()
+
+            phase_plane_file = "%s/phase_plane_%03d.png" % (current_directory, step)
+            plot_phase_plane(system, phase_plane_file, text, args.display_parameters, args.combine)
+            data_time = default_timer() - ts
+            print "Time taken for this data: %.03f\n" % (data_time)
+            time += data_time
+
             output = "%s/output_%.3d.png" % (current_directory, step)
             if args.combine:
                 combine_images(densities_file, traits_file, output, args.keep_original_images)
