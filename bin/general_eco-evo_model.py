@@ -94,7 +94,8 @@ def plot_densities(system, densities_file, text, display_parameters):
     if display_parameters:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
 
-    limit = 1.1*max([system.K[subscript] for subscript in system.K])
+    limit = 1.1*max([max(system.M[value]) for value in system.M] + [max(system.N[value]) for value in system.N])
+
     plt.ylim(-1., limit)
     plt.xlabel('Time')
     plt.ylabel('Population Density')
