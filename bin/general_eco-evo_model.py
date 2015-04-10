@@ -141,6 +141,7 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
     garbage.collect()
     print GRAPH_SAVED % traits_file
 
+### 1x1 HARD-CODED PHASE PLANE FUNCTION
 def plot_densities_phase_plane(system, phase_plane_file, text, display_parameters, combine):
     plt.figure()
 
@@ -169,21 +170,24 @@ def plot_densities_phase_plane(system, phase_plane_file, text, display_parameter
     garbage.collect()
     print GRAPH_SAVED % phase_plane_file
 
+### 1x1 HARD-CODED PHASE PLANE FUNCTION
 def plot_traits_phase_plane(system, phase_plane_file, text, display_parameters, combine):
     plt.figure()
 
     if display_parameters and not combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
 
-    plt.xlim(min(system.m["1"]), max(system.m["1"]))
-    plt.ylim(min(system.n["1"]), max(system.n["1"]))
+    m_min = min(system.m["1"]); m_max = max(system.m["1"])
+    n_min = min(system.n["1"]); n_max = max(system.n["1"])
+    plt.xlim(m_min, m_max)
+    plt.ylim(n_min, n_max)
     plt.xlabel('Predator 1 Character')
     plt.ylabel('Prey 1 Character')
 
     if display_parameters and not combine:
         for index, text_line in enumerate(text):
-            x_diff = max(system.m["1"]) - min(system.m["1"])
-            plt.text(min(system.m["1"])-.25*x_diff, max(system.n["1"])*(1-(.05*index)), text_line)
+            x_diff = m_max - m_min
+            plt.text(m_min-.25*x_diff, n_max*(1-(.05*index)), text_line)
 
     plt.plot(system.m["1"], system.n["1"], lw=1)
     plt.plot(system.m["1"][0], system.n["1"][0], 'gD', label="TIME=0.0")
