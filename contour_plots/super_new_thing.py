@@ -1,54 +1,87 @@
 #!/usr/bin/python
 
 from __future__ import division
-from math import sqrt
 import gc as garbage
 import matplotlib.pyplot as plt
-import pylab
+import numpy as np
+from pylab import meshgrid, cm
 import json
 from datetime import datetime
 
 
-def make_stability_check(data):
-    data["d"]
-    data["sigma"]
-    data["beta"]
-    data["ratio"]
-    data["tau"]
-    data["gamma"]
-    data["rho"]
-    data["e"]
-    data["alpha"]
-    data["K"]
+DATE_TIME_DIRECTORY_FORMAT = '%y%m%d_%H%M%S'
+LaTeX_VARIABLE_FORMAT = {
+    "M0"    : "M_0",
+    "m0"    : "m_0",
+    "sigma" : "\\sigma",
+    "sigmaG": "\\sigma_G",
+    "d"     : "d",
+
+    "N0"    : "N_0",
+    "n0"    : "n_0",
+    "beta"  : "\\beta",
+    "betaG" : "\\beta_G",
+    "r"     : "r",
+    "K"     : "K",
+
+    "e"     : "e",
+    "tau"   : "\\tau",
+    "alpha" : "\\alpha",
+    "theta" : "\\theta",
+
+    "rho"   : "\\rho",
+    "phi"   : "\\phi",
+    "gamma" : "\\gamma",
+
+    "ratio" : "\\frac{\\sigma_G}{\\beta_G}"
+}
 
 
-    # A = sigma**2 + beta**2 + tau**2
-    # B = beta**2 + gamma**2
-    # r = (rho*gamma)/sqrt(B)
-    # N_star = (d*sqrt(A))/(e*alpha*tau)
+def make_stability_checks(p):
 
-    if len(data["ratio"]) == 1:
-        LHS = lambda x: data["ratio"][0]**2
-    else:
-        LHS = lambda x: x**2
+    def coex_stability_check(x, y):
+        for k, v in p.iteritems():
+            if v == "var_1":
+                p[k] = x
+            elif v == "var_2":
+                p[k] = y
 
-        if len(data["beta"]) == 1:
-            if len(data):
-                pass
+        A = p["sigma"]**2 + p["beta"]**2 + p["tau"]**2
+        B = p["beta"]**2 + p["gamma"]**2
+        r = (p["rho"]*p["gamma"])/np.sqrt(B)
+        N_star = (p["d"]*np.sqrt(A))/(p["e"]*p["alpha"]*p["tau"])
 
-    ## NNOOOOOOOOO
+        LHS = p["ratio"]**2
+        RHS = (r/p["d"])*(1 - N_star/p["K"])*(1 - (A/B))
+
+        return (LHS - RHS)
+
+    def excl_stability_check(x, y):
+        for k, v in p.iteritems():
+            if v == "var_1":
+                p[k] = x
+            elif v == "var_2":
+                p[k] = y
+
+        A = p["sigma"]**2 + p["beta"]**2 + p["tau"]**2
+        LHS = p["d"]**2
+        RHS = (p["e"]*p["alpha"]*p["tau"]*p["K"])/np.sqrt(A)
+
+        return (LHS - RHS)
+
+    return (coex_stability_check, excl_stability_check)
 
 
-
-
-
-    def stability_check(var_1, var_2):
-        pass
-
-
-
-    return stability_check
-
+def make_title(data, changing_vars):
+    Title = ""
+    count = 0
+    for k, v in data.iteritems():
+        if k not in changing_vars:
+            Title += r"$%s = %.1f$, " % (LaTeX_VARIABLE_FORMAT[str(k)], v[0])
+            if count == 4:
+                Title += "\n"
+            count += 1
+    return Title
 
 
 def main():
@@ -57,35 +90,38 @@ def main():
 
     data = json.loads(open("data.json").read())
 
-    stability_check = make_stability_check(data)
-
-
-
     p = {}
-    for var in constant_vars:
-        p[var] = data[var][0]
+    changing_vars = []
+    for k, v in data.iteritems():
+        if len(v) == 1:
+            p[k] = v[0]
+        else:
+            changing_vars.append(k)
+            p[k] = "var_%d" % len(changing_vars)
+    if len(changing_vars) != 2:
+        raise ValueError
+
+    (coex_stability_check, excl_stability_check) = make_stability_checks(p)
+
+    x = np.arange(data[changing_vars[0]][0], data[changing_vars[0]][1], ((data[changing_vars[0]][1] - data[changing_vars[0]][0])/100))
+    y = np.arange(data[changing_vars[1]][0], data[changing_vars[1]][1], ((data[changing_vars[1]][1] - data[changing_vars[1]][0])/100))
+    X, Y = meshgrid(x, y)
+    Z = coex_stability_check(X, Y)
 
     plt.figure()
-    for i in irange(data[var_1][0], data[var_1][1], ((data[var_1][1] - data[var_1][0])/100)):
-        p[var_1] = i
-        for j in irange(data[var_2][0], data[var_2][1], ((data[var_2][1] - data[var_2][0])/100)):
-            p[var_2] = j
+    plt.xlabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[changing_vars[0]]), fontsize=20, rotation=0)
+    plt.ylabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[changing_vars[1]]), fontsize=20, rotation=0)
+    CS = plt.contour(X, Y, Z, np.arange(-2, 2, 0.5), cmap=cm.RdBu)
+    plt.clabel(CS, inline=1, fontsize=10)
 
-            plt.xlabel(var_1)
-            plt.ylabel(var_2)
+    Title = make_title(data, changing_vars)
+    plt.title(Title)
 
-            if exclusion_stability(p):
-                plt.plot(p[var_1], p[var_2], 'rs')
-            elif coexistence_stability(p):
-                plt.plot(p[var_1], p[var_2], 'gs')
-            else:
-                plt.plot(p[var_1], p[var_2], 'ys')
-
-    file_name = "%s_%s_%s" % (var_1, var_2, date_time_stamp)
+    file_name = "%s_%s_%s" % (changing_vars[0], changing_vars[1], date_time_stamp)
     plt.savefig(file_name, format="png")
+    print file_name
     plt.close()
     garbage.collect()
-
 
 if __name__ == "__main__":
     main()
