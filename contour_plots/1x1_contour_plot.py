@@ -12,55 +12,54 @@ import os
 
 DATE_TIME_DIRECTORY_FORMAT = '%y%m%d_%H%M%S'
 LaTeX_VARIABLE_FORMAT = {
-    "sigma" : "\\sigma",
-    "d"     : "d",
-    "beta"  : "\\beta",
-    "K"     : "K",
-    "e"     : "e",
-    "tau"   : "\\tau",
-    "alpha" : "\\alpha",
-    "rho"   : "\\rho",
-    "gamma" : "\\gamma",
-    "ratio" : "\\frac{\\sigma_G}{\\beta_G}"
+    "sigma": "\\sigma",
+    "d": "d",
+    "beta": "\\beta",
+    "K": "K",
+    "e": "e",
+    "tau": "\\tau",
+    "alpha": "\\alpha",
+    "rho": "\\rho",
+    "gamma": "\\gamma",
+    "ratio": "\\frac{\\sigma_G}{\\beta_G}"
 }
 
 
 def make_stability_checks(data):
-    dictionary = data
 
-    def coex_stability_check(x, y):
-        for key, value in dictionary.iteritems():
+    def coexistence_stability_check(x, y):
+        for key, value in data.iteritems():
             if type(value) == list:
                 if value[0] == "x":
-                    dictionary[key] = x
+                    data[key] = x
                 elif value[0] == "y":
-                    dictionary[key] = y
+                    data[key] = y
 
-        A = dictionary["sigma"]**2 + dictionary["beta"]**2 + dictionary["tau"]**2
-        B = dictionary["beta"]**2 + dictionary["gamma"]**2
-        r = (dictionary["rho"]*dictionary["gamma"])/np.sqrt(B)
-        N_star = (dictionary["d"]*np.sqrt(A))/(dictionary["e"]*dictionary["alpha"]*dictionary["tau"])
+        A = data["sigma"]**2 + data["beta"]**2 + data["tau"]**2
+        B = data["beta"]**2 + data["gamma"]**2
+        r = (data["rho"]*data["gamma"])/np.sqrt(B)
+        N_star = (data["d"]*np.sqrt(A))/(data["e"]*data["alpha"]*data["tau"])
 
-        LHS = dictionary["ratio"]**2
-        RHS = (r/dictionary["d"])*(1 - N_star/dictionary["K"])*(1 - (A/B))
+        LHS = data["ratio"]**2
+        RHS = (r/data["d"])*(1 - N_star/data["K"])*(1 - (A/B))
 
         return (LHS - RHS)
 
-    def excl_stability_check(x, y):
-        for key, value in dictionary.iteritems():
+    def exclusion_stability_check(x, y):
+        for key, value in data.iteritems():
             if type(value) == list:
                 if value[0] == "x":
-                    dictionary[key] = x
+                    data[key] = x
                 elif value[0] == "y":
-                    dictionary[key] = y
+                    data[key] = y
 
-        A = dictionary["sigma"]**2 + dictionary["beta"]**2 + dictionary["tau"]**2
-        LHS = dictionary["d"]**2
-        RHS = (dictionary["e"]*dictionary["alpha"]*dictionary["tau"]*dictionary["K"])/np.sqrt(A)
+        A = data["sigma"]**2 + data["beta"]**2 + data["tau"]**2
+        LHS = data["d"]**2
+        RHS = (data["e"]*data["alpha"]*data["tau"]*data["K"])/np.sqrt(A)
 
         return (LHS - RHS)
 
-    return (coex_stability_check, excl_stability_check)
+    return (coexistence_stability_check, exclusion_stability_check)
 
 
 def make_title(data):
@@ -75,9 +74,11 @@ def main():
     NOW = datetime.now()
     date_time_stamp = NOW.strftime(DATE_TIME_DIRECTORY_FORMAT)
 
-    data = json.loads(open("data.json").read())
+    cwd = os.path.dirname(os.path.realpath(__file__))
+    data_file = "data.json"
+    data = json.loads(open(os.path.join(cwd, data_file)).read())
 
-    (coex_stability_check, excl_stability_check) = make_stability_checks(data)
+    (coexistence_stability_check, exclusion_stability_check) = make_stability_checks(data)
 
     mesh_refinement = 100
     for key, value in data.iteritems():
@@ -96,29 +97,42 @@ def main():
     x = np.arange(x_start, x_stop, x_delta)
     y = np.arange(y_start, y_stop, y_delta)
     X, Y = meshgrid(x, y)
-    Z = coex_stability_check(X, Y)
-
-    plt.figure()
-    plt.xlabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[x_var]), fontsize=15, rotation=0)
-    plt.ylabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[y_var]), fontsize=15, rotation=0)
-    CS = plt.contour(X, Y, Z, np.arange(-2, 2, 0.5), cmap=cm.RdBu)
-    plt.clabel(CS, inline=1, fontsize=10)
-
-    Title = make_title(data)
-    plt.title(Title, fontsize=20)
+    Z = {
+        "coexistence": coexistence_stability_check(X, Y),
+        "exclusion": exclusion_stability_check(X, Y)
+    }
 
     plots = "plots"
-    cwd = os.path.dirname(os.path.realpath(__file__))
-    if not os.path.isdir(os.path.join(cwd, plots)):
+    plots_dir = os.path.join(cwd, plots)
+    if not os.path.isdir(plots_dir):
         os.system("mkdir %s" % plots)
 
-    file_name = os.path.join(plots, "%s_%s_%s" % (x_var, y_var, date_time_stamp))
-    plt.savefig(file_name, format="png")
+    for type_ in ["coexistence", "exclusion"]:
+        direc = os.path.join(plots_dir, type_)
+        if not os.path.isdir(direc):
+            os.system("mkdir %s" % direc)
 
-    print "\nFile saved: %s\n" % file_name
+        plt.figure()
+        plt.xlabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[x_var]), fontsize=15, rotation=0)
+        plt.ylabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[y_var]), fontsize=15, rotation=0)
+        CS = plt.contour(X, Y, Z[type_], np.arange(-2, 2, 0.5), cmap=cm.RdBu)
+        plt.clabel(CS, inline=1, fontsize=10)
 
-    plt.close()
-    garbage.collect()
+        Title = make_title(data)
+        plt.title(Title, fontsize=20)
+
+        file_name = "%s_%s_%s" % (x_var, y_var, date_time_stamp)
+        file_path = os.path.join(plots, type_, file_name)
+        save_location = os.path.join(direc, file_name)
+        try:
+            plt.savefig(save_location, format="png")
+            print "File saved: %s\n" % file_path
+        except:
+            print "Unable to save figure"
+            plt.show()
+
+        plt.close()
+        garbage.collect()
 
 if __name__ == "__main__":
     main()
