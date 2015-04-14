@@ -8,6 +8,7 @@ from pylab import meshgrid, cm
 import json
 from datetime import datetime
 import os
+import argparse
 
 
 DATE_TIME_DIRECTORY_FORMAT = '%y%m%d_%H%M%S'
@@ -70,7 +71,15 @@ def make_title(data):
     return Title
 
 
+def PARSE_ARGS():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c", dest="contour_line_delta", type=float, default=0.5)
+    return parser.parse_args()
+
+
 def main():
+    args = PARSE_ARGS()
+
     NOW = datetime.now()
     date_time_stamp = NOW.strftime(DATE_TIME_DIRECTORY_FORMAT)
 
@@ -115,7 +124,7 @@ def main():
         plt.figure()
         plt.xlabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[x_var]), fontsize=15, rotation=0)
         plt.ylabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[y_var]), fontsize=15, rotation=0)
-        CS = plt.contour(X, Y, Z[type_], np.arange(-2, 2, 0.5), cmap=cm.RdBu)
+        CS = plt.contour(X, Y, Z[type_], np.arange(-2, 2, args.contour_line_delta), cmap=cm.RdBu)
         plt.clabel(CS, inline=1, fontsize=10)
 
         Title = make_title(data)
