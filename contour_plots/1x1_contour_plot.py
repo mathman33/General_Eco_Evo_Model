@@ -22,7 +22,7 @@ LaTeX_VARIABLE_FORMAT = {
     "alpha": "\\alpha",
     "rho": "\\rho",
     "gamma": "\\gamma",
-    "ratio": "\\frac{\\sigma_G}{\\beta_G}"
+    "ratio": "\\sigma_G/\\beta_G"
 }
 
 
@@ -55,7 +55,7 @@ def make_stability_checks(data):
                     data[key] = y
 
         A = data["sigma"]**2 + data["beta"]**2 + data["tau"]**2
-        LHS = data["d"]**2
+        LHS = data["d"]
         RHS = (data["e"]*data["alpha"]*data["tau"]*data["K"])/np.sqrt(A)
 
         return (LHS - RHS)
@@ -124,7 +124,14 @@ def main():
         plt.figure()
         plt.xlabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[x_var]), fontsize=15, rotation=0)
         plt.ylabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[y_var]), fontsize=15, rotation=0)
-        CS = plt.contour(X, Y, Z[type_], np.arange(-2, 2, args.contour_line_delta), cmap=cm.RdBu)
+        try:
+            l = len(Z[type_])
+            warning = False
+        except:
+            warning = True
+            constant_value = float(Z[type_])
+            Z[type_] = np.asarray([[float(Z[type_])]*mesh_refinement]*mesh_refinement)
+        CS = plt.contour(X, Y, Z[type_], np.arange(-1.5, 1.5, args.contour_line_delta), cmap=cm.RdBu)
         plt.clabel(CS, inline=1, fontsize=10)
 
         Title = make_title(data)
@@ -135,13 +142,20 @@ def main():
         save_location = os.path.join(direc, file_name)
         try:
             plt.savefig(save_location, format="png")
-            print "File saved: %s\n" % file_path
+            print "\nFile saved: %s" % file_path
+            if warning:
+                print "Warning: %s function is constant with respect to %s and %s" % (type_, x_var, y_var)
+                print "  Value: %.3f" % constant_value
+            else:
+                pass
         except:
             print "Unable to save figure"
             plt.show()
 
         plt.close()
         garbage.collect()
+
+    print
 
 if __name__ == "__main__":
     main()
