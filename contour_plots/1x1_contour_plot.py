@@ -137,7 +137,7 @@ def main():
         Title = make_title(data)
         plt.title(Title, fontsize=20)
 
-        file_name = "%s_%s_%s" % (x_var, y_var, date_time_stamp)
+        file_name = "%s_%s_%s.png" % (x_var, y_var, date_time_stamp)
         file_path = os.path.join(plots, type_, file_name)
         save_location = os.path.join(direc, file_name)
         try:
