@@ -295,7 +295,7 @@
 	\end{itemize}
 	\begin{align*}
 		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
-		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
 	\end{align*}
 	\vskip.25cm
 	\begin{columns}
@@ -330,7 +330,7 @@
 	{\bf Evolutionary Components}
 	\begin{align*}
 		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
-		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
 	\end{align*}
 \end{frame}
 
@@ -355,7 +355,7 @@
 	\uncover<4->{{\bf Necessary Conditions for Locally Stable Exclusion:}}
 	\begin{itemize}
 		\item \uncover<4->{$d > e\overline{a}(\overline{m}^*, \overline{n}^*)K$}
-		\item \uncover<4->{$(\overline{m}^* - \overline{n}^* - \theta)^2 < \sigma^2 + \beta^2 + \tau^2$}
+		\item \uncover<4->{$((\overline{m}^* - \overline{n}^*) - \theta)^2 < \sigma^2 + \beta^2 + \tau^2$}
 	\end{itemize}
 \end{frame}
 \begin{frame}
@@ -382,13 +382,13 @@
 	\begin{columns}[t]
 		\begin{column}{.5\textwidth}
 			\centering
-			\includegraphics[width=5cm,height=3.5cm]{figures/1x1/variable_growth/stable_exclusion/densities.png}\\
-			\includegraphics[width=5cm,height=4cm]{figures/1x1/variable_growth/stable_exclusion/traits.png}
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_exclusion/densities.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png}
 		\end{column}
 		\begin{column}{.5\textwidth}
 			\centering
-			\includegraphics[width=5cm,height=3.5cm]{figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png}\\
-			\includegraphics[width=5cm,height=4cm]{figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png}
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_exclusion/traits.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -397,13 +397,13 @@
 	\begin{columns}[t]
 		\begin{column}{.5\textwidth}
 			\centering
-			\includegraphics[width=5cm,height=3.5cm]{figures/1x1/variable_growth/stable_coexistence/densities.png}\\
-			\includegraphics[width=5cm,height=4cm]{figures/1x1/variable_growth/stable_coexistence/traits.png}
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_coexistence/densities.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png}
 		\end{column}
 		\begin{column}{.5\textwidth}
 			\centering
-			\includegraphics[width=5cm,height=3.5cm]{figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png}\\
-			\includegraphics[width=5cm,height=4cm]{figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png}
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_coexistence/traits.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -412,13 +412,13 @@
 	\begin{columns}[t]
 		\begin{column}{.5\textwidth}
 			\centering
-			\includegraphics[width=5cm,height=3.5cm]{figures/1x1/variable_growth/stable_cycles/densities.png}\\
-			\includegraphics[width=5cm,height=4cm]{figures/1x1/variable_growth/stable_cycles/traits.png}
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_cycles/densities.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_cycles/density_phase_plane.png}
 		\end{column}
 		\begin{column}{.5\textwidth}
 			\centering
-			\includegraphics[width=5cm,height=3.5cm]{figures/1x1/variable_growth/stable_cycles/density_phase_plane.png}\\
-			\includegraphics[width=5cm,height=4cm]{figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png}
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_cycles/traits.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -457,20 +457,21 @@
 	\end{align*}
 \end{frame}
 \begin{frame}
-	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}
+	\frametitle{The Complete $u\times v$ Model - \normalsize($u$ Predator Species, $v$ Prey Species)}
 	{\bf Ecological Components}
 	\begin{align*}
-		\frac{dN_j}{dt} &= N_j {\color{blue}\left[{\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}\right]} \\
-		\frac{dM_i}{dt} &= M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\Big] - d_i\right]}
+		\frac{dN_j}{dt} &= N_j{\color{blue}\overline{Y_j}} = N_j {\color{blue}\left[{\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}\right]} \\
+		\frac{dM_i}{dt} &= M_i{\color{red}\overline{W_i}} = M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\Big] - d_i\right]}
 	\end{align*}
 	{\bf Evolutionary Components}
 	\begin{align*}
-		\frac{d\overline{n}_j}{dt} &= \beta_{Gj}^2{\color{cyan}\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{(\phi_j - \overline{n_j})}{\beta_j^2 + \gamma_j^2} + \sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]\right]}\\
-		\frac{d\overline{m}_i}{dt} &= \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}
+		\frac{d\overline{n}_j}{dt} &= \beta_{Gj}^2{\color{cyan}\frac{\partial \overline{Y_j}}{\partial \overline{n_j}}} = \beta_{Gj}^2{\color{cyan}\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{(\phi_j - \overline{n_j})}{\beta_j^2 + \gamma_j^2}\right.}
+		\\&\hphantom{\text{mmmmmmmmmmm}}{\left.\color{cyan}+ \sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]\right]}\\
+		\frac{d\overline{m}_i}{dt} &= \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}
 	\end{align*}
 \end{frame}
 \begin{frame}
-	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}
+	\frametitle{The Complete $u\times v$ Model - \normalsize($u$ Predator Species, $v$ Prey Species)}
 	\Wider[6em]{
 	\begin{center}
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
@@ -490,14 +491,14 @@
 			\node (alittleright) [right = 0.3cm of furtherdown] {};
 	
 			\path[every node/.style={font=\sffamily\small}]
-			(input1)	edge node {\tiny{\color{blue}$r_jN_j\left(1 - \frac{N_j}{K_j}\right)$}} (n1)
-			(n1)		edge node {\tiny{\color{blue}$\overline{a_{i,j}}(\overline{n_j}, \overline{m_i})M_iN_j$}} (midpt1)
-					edge node {\tiny{\color{blue}$\overline{a_{i-1,j}}(\overline{n_j}, \overline{m_{i-1}})M_{i-1}N_j$}} (furtherright)
-					edge node {\tiny{\color{blue}$\overline{a_{i+1,j}}(\overline{n_j}, \overline{m_{i+1}})M_{i+1}N_j$}} (alittleleft)
-			(midpt1)	edge node {\tiny{\color{red}$e_{i,j}\overline{a_{i,j}}(\overline{n_j}, \overline{m_i})M_iN_j$}} (m1)
-			(m1)		edge node {\tiny{\color{red}$d_iM_i$}} (output1)
-			(upleft)	edge node {\tiny{\color{red}$e_{i,j-1}\overline{a_{i,j-1}}(\overline{n_{j-1}}, \overline{m_i})M_iN_{j-1}$}} (m1)
-			(alittleright)	edge node {\tiny{\color{red}$e_{i,j-1}\overline{a_{i,j-1}}(\overline{n_{j-1}}, \overline{m_i})M_iN_{j-1}$}} (m1)
+			(input1)	edge node {\scriptsize{\color{blue}$\overline{r_j}(n_j)N_j\left(1 - \frac{N_j}{K_j}\right)$}} (n1)
+			(n1)		edge node {\scriptsize{\color{blue}$\overline{a_{i,j}}(\overline{n_j}, \overline{m_i})M_iN_j$}} (midpt1)
+					edge node {\scriptsize{\color{blue}$\overline{a_{i-1,j}}(\overline{n_j}, \overline{m_{i-1}})M_{i-1}N_j$}} (furtherright)
+					edge node {\scriptsize{\color{blue}$\overline{a_{i+1,j}}(\overline{n_j}, \overline{m_{i+1}})M_{i+1}N_j$}} (alittleleft)
+			(midpt1)	edge node {\scriptsize{\color{red}$e_{i,j}\overline{a_{i,j}}(\overline{n_j}, \overline{m_i})M_iN_j$}} (m1)
+			(m1)		edge node {\scriptsize{\color{red}$d_iM_i$}} (output1)
+			(upleft)	edge node {\scriptsize{\color{red}$e_{i,j-1}\overline{a_{i,j-1}}(\overline{n_{j-1}}, \overline{m_i})M_iN_{j-1}$}} (m1)
+			(alittleright)	edge node {\scriptsize{\color{red}$e_{i,j-1}\overline{a_{i,j-1}}(\overline{n_{j-1}}, \overline{m_i})M_iN_{j-1}$}} (m1)
 			;
 		\end{tikzpicture}\vskip0.35cm
 	\end{center}
@@ -508,24 +509,21 @@
 \begin{frame}
 	\frametitle{Future Work}
 	\begin{itemize}
-		\item Two Predators competing for One Prey
-		\item One Specialist Predator Competing with One Generalist Predator for Two Prey Species
-		\item Two Specialist Predators Competing with One Generalist Predator for Two Prey Species
-		\item Further Analysis of the General $u \times v$ Model
-		\item Intra-Guild Predation
-		\item Adding Evolutionary Cost to Prey
-		\item Adding Evolutionary Cost to Predator
+		\item Two prey species in apparent competition via one generalist predator
+		\item Two predator species in competition for one prey
+		\item One specialist predator competing with one generalist predator for two prey
+		\item Two specialist predators competing with one generalist predator for two prey species
+		\item Further analysis of the general $u \times v$ model
+		\item Intraguild predation
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Thank You!}
 	\begin{itemize}
-		\item Pacific Coast Undergraduate Math Conference
-		\item Dr. Alissa Crans, Dr. Karrolyne Fogel, Dr. Kendra Killpatrick, Dr. John Rock, and all other PCUMC Organizers
+		\item CSUN Chapter of Sigma Xi
+		\item Dr. Daniel Katz, and all other organizers of this Sigma Xi Symposium
 		\item National Science Foundation
-		\item Mathematical Association of America and all other PCUMC sponsors
-		\item Cal Lutheran University and all other PCUMC university supporters
 		\item Dr. Helena Noronha
 		\item Pacific Math Alliance PUMP Undergraduate Research Groups
 		\item California State University, Northridge
@@ -536,60 +534,77 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Equilibria - $1\times2$}
-	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN_1}{dt} = N_1\cdot \overline{Y}_1(\overline{m}, \overline{n}_1, M, N_1) &\ \ \ \ \ \ \dfrac{d\overline{n}_1}{dt} = \beta_{G1}^2\dfrac{\partial \overline{Y}_1}{\partial \overline{n}_1} \\[.3cm]
-			\dfrac{dN_2}{dt} = N_2\cdot \overline{Y}_2(\overline{m}, \overline{n}_2, M, N_2) &\ \ \ \ \ \ \dfrac{d\overline{n}_2}{dt} = \beta_{G2}^2\dfrac{\partial \overline{Y}_2}{\partial \overline{n}_2} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}_1, \overline{n}_2, N_1, N_2) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
-		\end{array}
-	\end{align*}
-	\uncover<2->{{\bf Extinction}} \uncover<3->{$\boxed{\text{\it Unstable}}$}
-	\begin{align*}
-		\uncover<2->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) = (0, 0, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
-	\end{align*}
-	\uncover<4->{{\bf Exclusion}} \uncover<5->{$\boxed{\text{\it Stable under certain conditions}}$}
-	\begin{align*}
-		\uncover<4->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) &= (K_1, K_2, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
-	\end{align*}
-\end{frame}
-\begin{frame}
-	\frametitle{Equilibria - $1\times2$}
-	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN_1}{dt} = N_1\cdot \overline{Y}_1(\overline{m}, \overline{n}_1, M, N_1) &\ \ \ \ \ \ \dfrac{d\overline{n}_1}{dt} = \beta_{G1}^2\dfrac{\partial \overline{Y}_1}{\partial \overline{n}_1} \\[.3cm]
-			\dfrac{dN_2}{dt} = N_2\cdot \overline{Y}_2(\overline{m}, \overline{n}_2, M, N_2) &\ \ \ \ \ \ \dfrac{d\overline{n}_2}{dt} = \beta_{G2}^2\dfrac{\partial \overline{Y}_2}{\partial \overline{n}_2} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}_1, \overline{n}_2, N_1, N_2) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
-		\end{array}
-	\end{align*}
-	\uncover<2->{{\bf Generalist Becomes Specialist}} \uncover<3->{$\boxed{\text{\it Stable under certain conditions???}}$}
-	\begin{align*}
-		\uncover<2->{&(N_1^*,N_2^*,M^*,\overline{n}_1^*,\overline{n}_2^*,\overline{m}^*) \\[.1cm]
-		=\ &(\dfrac{d\sqrt{A_1}}{e_1 \alpha_1 \tau_1}\ ,\ K_2\ ,\ \dfrac{r_1\sqrt{A_1}}{\alpha_1\tau_1}\left(1 - \dfrac{d\sqrt{A_1}}{K_1e_1\alpha_1\tau_1}\right)\ ,\ \mu_1^*\ ,\ \mu_2^*\ ,\ \mu_1^* - \theta_1)}
-	\end{align*}
-	\uncover<2->{where $A_1 = \sigma^2 + \beta_1^2 + \tau_1^2$, $\mu_1^*$ is an arbitrary value, and $\mu_2^*$ is sufficiently far from $\mu_1^* - \theta_1$.}
 
-\end{frame}
 
-\begin{frame}
-	\frametitle{Figures - $1\times2$}
-	{\bf Generalist Becomes Specialist}
-	\Wider[6em]{
-	\includegraphics[scale=0.3175]{figures/1x2/densities_generalist_to_specialist.png}
-   	\hfill
-   	\includegraphics[scale=0.3175]{figures/1x2/traits_generalist_to_specialist.png}
-	}
-\end{frame}
-\begin{frame}
-	\frametitle{Figures - $1\times2$}
-	{\bf Unstable Coexistence}
-	\Wider[6em]{
-	\includegraphics[scale=0.3175]{figures/1x2/densities_unstable_coexistence.png}
-   	\hfill
-   	\includegraphics[scale=0.3175]{figures/1x2/traits_unstable_coexistence.png}
-	}
-\end{frame}
+
+
+
+
+
+
+
+
+
+
+% \begin{frame}
+% 	\frametitle{Equilibria - $1\times2$}
+% 	\begin{align*}
+% 		\begin{array}{ll}
+% 			\dfrac{dN_1}{dt} = N_1\cdot \overline{Y}_1(\overline{m}, \overline{n}_1, M, N_1) &\ \ \ \ \ \ \dfrac{d\overline{n}_1}{dt} = \beta_{G1}^2\dfrac{\partial \overline{Y}_1}{\partial \overline{n}_1} \\[.3cm]
+% 			\dfrac{dN_2}{dt} = N_2\cdot \overline{Y}_2(\overline{m}, \overline{n}_2, M, N_2) &\ \ \ \ \ \ \dfrac{d\overline{n}_2}{dt} = \beta_{G2}^2\dfrac{\partial \overline{Y}_2}{\partial \overline{n}_2} \\[.3cm]
+% 			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}_1, \overline{n}_2, N_1, N_2) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
+% 		\end{array}
+% 	\end{align*}
+% 	\uncover<2->{{\bf Extinction}} \uncover<3->{$\boxed{\text{\it Unstable}}$}
+% 	\begin{align*}
+% 		\uncover<2->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) = (0, 0, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
+% 	\end{align*}
+% 	\uncover<4->{{\bf Exclusion}} \uncover<5->{$\boxed{\text{\it Stable under certain conditions}}$}
+% 	\begin{align*}
+% 		\uncover<4->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) &= (K_1, K_2, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
+% 	\end{align*}
+% \end{frame}
+% \begin{frame}
+% 	\frametitle{Equilibria - $1\times2$}
+% 	\begin{align*}
+% 		\begin{array}{ll}
+% 			\dfrac{dN_1}{dt} = N_1\cdot \overline{Y}_1(\overline{m}, \overline{n}_1, M, N_1) &\ \ \ \ \ \ \dfrac{d\overline{n}_1}{dt} = \beta_{G1}^2\dfrac{\partial \overline{Y}_1}{\partial \overline{n}_1} \\[.3cm]
+% 			\dfrac{dN_2}{dt} = N_2\cdot \overline{Y}_2(\overline{m}, \overline{n}_2, M, N_2) &\ \ \ \ \ \ \dfrac{d\overline{n}_2}{dt} = \beta_{G2}^2\dfrac{\partial \overline{Y}_2}{\partial \overline{n}_2} \\[.3cm]
+% 			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}_1, \overline{n}_2, N_1, N_2) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
+% 		\end{array}
+% 	\end{align*}
+% 	\uncover<2->{{\bf Generalist Becomes Specialist}} \uncover<3->{$\boxed{\text{\it Stable under certain conditions???}}$}
+% 	\begin{align*}
+% 		\uncover<2->{&(N_1^*,N_2^*,M^*,\overline{n}_1^*,\overline{n}_2^*,\overline{m}^*) \\[.1cm]
+% 		=\ &(\dfrac{d\sqrt{A_1}}{e_1 \alpha_1 \tau_1}\ ,\ K_2\ ,\ \dfrac{r_1\sqrt{A_1}}{\alpha_1\tau_1}\left(1 - \dfrac{d\sqrt{A_1}}{K_1e_1\alpha_1\tau_1}\right)\ ,\ \mu_1^*\ ,\ \mu_2^*\ ,\ \mu_1^* - \theta_1)}
+% 	\end{align*}
+% 	\uncover<2->{where $A_1 = \sigma^2 + \beta_1^2 + \tau_1^2$, $\mu_1^*$ is an arbitrary value, and $\mu_2^*$ is sufficiently far from $\mu_1^* - \theta_1$.}
+
+% \end{frame}
+
+% \begin{frame}
+% 	\frametitle{Figures - $1\times2$}
+% 	{\bf Generalist Becomes Specialist}
+% 	\Wider[6em]{
+% 	\includegraphics[scale=0.3175]{figures/1x2/densities_generalist_to_specialist.png}
+%    	\hfill
+%    	\includegraphics[scale=0.3175]{figures/1x2/traits_generalist_to_specialist.png}
+% 	}
+% \end{frame}
+% \begin{frame}
+% 	\frametitle{Figures - $1\times2$}
+% 	{\bf Unstable Coexistence}
+% 	\Wider[6em]{
+% 	\includegraphics[scale=0.3175]{figures/1x2/densities_unstable_coexistence.png}
+%    	\hfill
+%    	\includegraphics[scale=0.3175]{figures/1x2/traits_unstable_coexistence.png}
+% 	}
+% \end{frame}
+
+
+
+
+
 
 
 

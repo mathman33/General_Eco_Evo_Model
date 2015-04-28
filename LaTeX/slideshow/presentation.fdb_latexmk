@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1430241697 "presentation.tex" "presentation.pdf" "presentation" 1430241701
+["pdflatex"] 1430262889 "presentation.tex" "presentation.pdf" "presentation" 1430262893
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/atbegshi.sty" 1335995445 24460 92f559a71aac869021852c227c704b38 ""
@@ -222,17 +222,14 @@
   "figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png" 1430206327 25224 5357221e704e4ae9236b5d6e9c4cbf92 ""
   "figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png" 1430206327 27718 d823c131c420c9225cb068c6dc4a7ec8 ""
   "figures/1x1/variable_growth/stable_exclusion/traits.png" 1430206327 28381 6b965b0864a35ae769a724eaeca82133 ""
-  "figures/1x2/densities_generalist_to_specialist.png" 1426467997 46592 dfc21e3fb78f80ba64da36bd2f7b64a6 ""
-  "figures/1x2/densities_unstable_coexistence.png" 1426467997 45412 b506d03528e16876381d62b9f8afae7e ""
-  "figures/1x2/traits_unstable_coexistence.png" 1426467997 38884 79f8d35c4eeed1e019eb8a021d5f88cd ""
   "figures/crab_eating_gastropod.jpg" 1426467997 41878 c57a08fb30fea0e5e8ac26dc902e6d2a ""
-  "presentation.aux" 1430241701 6134 edfac3d08869f0d7787e996a2ab11804 ""
-  "presentation.nav" 1430241701 3745 a6c124356890860e4ec335148de50c40 ""
-  "presentation.out" 1430241701 275 cf7dca2a62f65b012ad262d7133dae4e ""
-  "presentation.tex" 1430241697 28175 a60be45950481494f8d86dbcd589e223 ""
+  "presentation.aux" 1430262892 5621 6b3c205e7c0e7e37a1e7dbc415ac803d ""
+  "presentation.nav" 1430262892 3376 cb154a4434e4a73e79e9b28ca0c2b7c6 ""
+  "presentation.out" 1430262892 275 cf7dca2a62f65b012ad262d7133dae4e ""
+  "presentation.tex" 1430262885 28414 fdacec7fc2c4fa4e7462050fcbc07fa3 ""
   (generated)
-  "presentation.nav"
-  "presentation.out"
   "presentation.pdf"
-  "presentation.log"
+  "presentation.out"
+  "presentation.nav"
   "presentation.aux"
+  "presentation.log"
