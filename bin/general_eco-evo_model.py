@@ -468,22 +468,25 @@ def SET_TRAIT_GRAPH_LIMITS(args):
 
     default_limit = 10
 
-    if not args.trait_graph_lower_limit and not args.trait_graph_upper_limit:
+    if args.trait_graph_lower_limit == None and args.trait_graph_upper_limit == None:
         LOWER_LIMIT = -default_limit
         UPPER_LIMIT = default_limit
-    elif args.trait_graph_lower_limit and not args.trait_graph_upper_limit:
+
+    elif type(args.trait_graph_lower_limit) == float and args.trait_graph_upper_limit == None:
         LOWER_LIMIT = args.trait_graph_lower_limit
         if LOWER_LIMIT < default_limit:
             UPPER_LIMIT = default_limit
         else:
             UPPER_LIMIT = 10 + LOWER_LIMIT
-    elif not args.trait_graph_lower_limit and args.trait_graph_upper_limit:
+
+    elif args.trait_graph_lower_limit == None and type(args.trait_graph_upper_limit) == float:
         UPPER_LIMIT = args.trait_graph_upper_limit
         if UPPER_LIMIT > -default_limit:
             LOWER_LIMIT = -default_limit
         else:
             LOWER_LIMIT = UPPER_LIMIT - 10
-    else:
+
+    elif type(args.trait_graph_lower_limit) == float and type(args.trait_graph_upper_limit) == float:
         if args.trait_graph_upper_limit > args.trait_graph_lower_limit:
             LOWER_LIMIT = args.trait_graph_lower_limit
             UPPER_LIMIT = args.trait_graph_upper_limit
