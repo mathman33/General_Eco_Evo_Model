@@ -1,9 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  14 MAR 2015 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  26 APR 2015 18:54
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**presentation.tex
+**presentation.tex -recorder
 (./presentation.tex
 LaTeX2e <2014/05/01>
 Babel <3.9k> and hyphenation patterns for 78 languages loaded.
@@ -1085,44 +1084,44 @@ Package bigints Info: This is Bigints by Merciadri Luca. on input line 5.
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 44.
+(hyperref)                removing `math shift' on input line 43.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 44.
+(hyperref)                removing `math shift' on input line 43.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 44.
+(hyperref)                removing `math shift' on input line 43.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 44.
+(hyperref)                removing `math shift' on input line 43.
 
 (./presentation.aux)
 \openout1 = `presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 43.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    ... okay on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1188,7 +1187,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring OFF on input line 44.
+Package hyperref Info: Link coloring OFF on input line 43.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1198,66 +1197,66 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count183
 )
-LaTeX Info: Redefining \ref on input line 44.
-LaTeX Info: Redefining \pageref on input line 44.
-LaTeX Info: Redefining \nameref on input line 44.
+LaTeX Info: Redefining \ref on input line 43.
+LaTeX Info: Redefining \pageref on input line 43.
+LaTeX Info: Redefining \nameref on input line 43.
 
 (./presentation.out) (./presentation.out)
 \@outlinefile=\write5
 \openout5 = `presentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 44.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 43.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 44.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 43.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 44.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 44.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 44.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 44.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 43.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 44.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 44.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 44.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 43.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 44.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 44.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 44.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 43.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 44.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 44.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 43.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 44.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 43.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 44.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 44.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 44.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 44.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 44.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 44.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 44.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 43.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 43.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 4
-4.
+3.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
-44.
+43.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 44.
+ut line 43.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/beamer/translator/dicts/translato
 r-basic-dictionary/translator-basic-dictionary-English.dict
@@ -1283,27 +1282,27 @@ Dictionary: translator-numbers-dictionary, Language: English
 r-theorem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 44.
+LaTeX Info: Redefining \includegraphics on input line 43.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.10} into 
 your preamble.
- on input line 44.
+ on input line 43.
 
 (./presentation.nav)
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 43.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 43.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 44.
+line 43.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -1311,19 +1310,19 @@ thkerncmss.
 )
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 58.
+(Font)              size <5> substituted on input line 57.
 
 [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
 [2
 
-] <figures/crab_eating_gastropod.jpg, id=105, 126.4725pt x 105.87555pt>
+] <figures/crab_eating_gastropod.jpg, id=124, 126.4725pt x 105.87555pt>
 File: figures/crab_eating_gastropod.jpg Graphic file (type jpg)
 
 <use figures/crab_eating_gastropod.jpg>
 Package pdftex.def Info: figures/crab_eating_gastropod.jpg used on input line 9
-8.
+2.
 (pdftex.def)             Requested size: 72.9811pt x 61.09605pt.
  [3
 
@@ -1337,29 +1336,9 @@ Package pdftex.def Info: figures/crab_eating_gastropod.jpg used on input line 9
 
 ] [8
 
-]
-Overfull \hbox (10.57893pt too wide) in paragraph at lines 210--210
-[]  
- []
+] [9
 
-
-Overfull \hbox (19.91231pt too wide) in paragraph at lines 210--210
-[]  
- []
-
-[9
-
-]
-Overfull \hbox (10.57893pt too wide) in paragraph at lines 210--210
-[]  
- []
-
-
-Overfull \hbox (19.91231pt too wide) in paragraph at lines 210--210
-[]  
- []
-
-[10
+] [10
 
 ] [11
 
@@ -1367,26 +1346,26 @@ Overfull \hbox (19.91231pt too wide) in paragraph at lines 210--210
 
 ] [13
 
-] [14
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 338.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\times' on input line 338.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 338.
+
+[14
 
 ] [15
 
 ] [16
 
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 385.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 385.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 385.
-
-[17
+] [17
 
 ] [18
 
@@ -1394,70 +1373,70 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 ] [20
 
-] [21
-
-] [22
-
-] [23
-
 ]
-<figures/1x1/densities_exclusion.png, id=810, 578.16pt x 433.62pt>
+<figures/1x1/densities_exclusion.png, id=693, 578.16pt x 433.62pt>
 File: figures/1x1/densities_exclusion.png Graphic file (type png)
 
 <use figures/1x1/densities_exclusion.png>
 Package pdftex.def Info: figures/1x1/densities_exclusion.png used on input line
- 435.
+ 388.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_exclusion.png, id=812, 578.16pt x 433.62pt>
+<figures/1x1/traits_exclusion.png, id=695, 578.16pt x 433.62pt>
 File: figures/1x1/traits_exclusion.png Graphic file (type png)
 
 <use figures/1x1/traits_exclusion.png>
-Package pdftex.def Info: figures/1x1/traits_exclusion.png used on input line 43
-5.
+Package pdftex.def Info: figures/1x1/traits_exclusion.png used on input line 38
+8.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
- [24
+ [21
 
  <./figures/1x1/densities_exclusion.png> <./figures/1x1/traits_exclusion.png>]
-<figures/1x1/densities_stable_coexistence.png, id=846, 578.16pt x 433.62pt>
+<figures/1x1/densities_stable_coexistence.png, id=729, 578.16pt x 433.62pt>
 File: figures/1x1/densities_stable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/densities_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/densities_stable_coexistence.png used on i
-nput line 444.
+nput line 397.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_stable_coexistence.png, id=847, 578.16pt x 433.62pt>
+<figures/1x1/traits_stable_coexistence.png, id=730, 578.16pt x 433.62pt>
 File: figures/1x1/traits_stable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/traits_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/traits_stable_coexistence.png used on inpu
-t line 444.
+t line 397.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
- [25
+ [22
 
  <./figures/1x1/densities_stable_coexistence.png> <./figures/1x1/traits_stable_
 coexistence.png>]
-<figures/1x1/densities_unstable_coexistence.png, id=882, 578.16pt x 433.62pt>
+<figures/1x1/densities_unstable_coexistence.png, id=764, 578.16pt x 433.62pt>
 File: figures/1x1/densities_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/densities_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/densities_unstable_coexistence.png used on
- input line 453.
+ input line 406.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_unstable_coexistence.png, id=883, 578.16pt x 433.62pt>
+<figures/1x1/traits_unstable_coexistence.png, id=765, 578.16pt x 433.62pt>
 File: figures/1x1/traits_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/traits_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/traits_unstable_coexistence.png used on in
-put line 453.
+put line 406.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
- [26
+ [23
 
  <./figures/1x1/densities_unstable_coexistence.png> <./figures/1x1/traits_unsta
 ble_coexistence.png>]
-[27
+[24
+
+] [25
+
+] [26
+
+] [27
 
 ] [28
 
@@ -1481,53 +1460,47 @@ ble_coexistence.png>]
 
 ] [38
 
-] [39
+]
+[39
 
 ] [40
 
-] [41
-
 ]
-[42
-
-] [43
-
-]
-<figures/1x2/densities_generalist_to_specialist.png, id=1446, 578.16pt x 433.62
+<figures/1x2/densities_generalist_to_specialist.png, id=1327, 578.16pt x 433.62
 pt>
 File: figures/1x2/densities_generalist_to_specialist.png Graphic file (type png
 )
  <use figures/1x2/densities_generalist_to_specialist.png>
 Package pdftex.def Info: figures/1x2/densities_generalist_to_specialist.png use
-d on input line 678.
+d on input line 571.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x2/traits_generalist_to_specialist.png, id=1447, 578.16pt x 433.62pt>
+<figures/1x2/traits_generalist_to_specialist.png, id=1328, 578.16pt x 433.62pt>
 File: figures/1x2/traits_generalist_to_specialist.png Graphic file (type png)
 <use figures/1x2/traits_generalist_to_specialist.png>
 Package pdftex.def Info: figures/1x2/traits_generalist_to_specialist.png used o
-n input line 678.
+n input line 571.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
- [44
+ [41
 
  <./figures/1x2/densities_generalist_to_specialist.png> <./figures/1x2/traits_g
 eneralist_to_specialist.png>]
-<figures/1x2/densities_unstable_coexistence.png, id=1479, 578.16pt x 433.62pt>
+<figures/1x2/densities_unstable_coexistence.png, id=1360, 578.16pt x 433.62pt>
 File: figures/1x2/densities_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/densities_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x2/densities_unstable_coexistence.png used on
- input line 687.
+ input line 580.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x2/traits_unstable_coexistence.png, id=1480, 578.16pt x 433.62pt>
+<figures/1x2/traits_unstable_coexistence.png, id=1361, 578.16pt x 433.62pt>
 File: figures/1x2/traits_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/traits_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x2/traits_unstable_coexistence.png used on in
-put line 687.
+put line 580.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
- [45
+ [42
 
  <./figures/1x2/densities_unstable_coexistence.png> <./figures/1x2/traits_unsta
 ble_coexistence.png>]
@@ -1540,35 +1513,29 @@ ble_coexistence.png>]
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 693.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 693.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 586.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 586.
 
 (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 693.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 693.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 586.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 586.
+Package rerunfilecheck Info: File `presentation.out' has not changed.
+(rerunfilecheck)             Checksum: CF7DCA2A62F65B012AD262D7133DAE4E;275.
 
-
-Package rerunfilecheck Warning: File `presentation.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `presentation.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  A11C9241E951418B9CC97E63B1DA02F6;482.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 693.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 586.
  ) 
 Here is how much of TeX's memory you used:
- 30286 strings out of 493117
- 718451 string characters out of 6135433
+ 30273 strings out of 493117
+ 718332 string characters out of 6135433
  904200 words of memory out of 5000000
- 32994 multiletter control sequences out of 15000+600000
+ 32990 multiletter control sequences out of 15000+600000
  21392 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,22n,78p,728b,1042s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,22n,78p,738b,1042s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.
 pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
@@ -1591,10 +1558,10 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
 ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/
 2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on presentation.pdf (45 pages, 698065 bytes).
+Output written on presentation.pdf (42 pages, 685838 bytes).
 PDF statistics:
- 1607 PDF objects out of 1728 (max. 8388607)
- 1484 compressed objects within 15 object streams
- 99 named destinations out of 1000 (max. 500000)
- 140 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1487 PDF objects out of 1728 (max. 8388607)
+ 1368 compressed objects within 14 object streams
+ 90 named destinations out of 1000 (max. 500000)
+ 180 words of extra memory for PDF output out of 10000 (max. 10000000)
 

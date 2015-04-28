@@ -35,18 +35,17 @@
 }
 
 \setcounter{section}{-1}
-%\setlength{\jot}{30pt}
 
 \title{The Ecological Effects of Trait Variation in a $u$-Predator, $v$-Prey System}
 \author{Sam Fleischer, Pablo Chavarria}
-\date{March 14, 2015}
+\date{May 1, 2015}
 
 \begin{document}
 
 \begin{frame}
 	\titlepage
 	\begin{center}
-		{\bf Pacific Coast Undergraduate Mathematics Conference}
+		{\bf Sigma Xi Student Research Symposium}
 	\end{center}
 	\begin{align*}
 		\begin{array}{lll}
@@ -62,11 +61,6 @@
 	\begin{itemize}
 		\item Motivation / Observations in Nature
 		\item Model Formulation
-		\begin{itemize}
-			\item Classical Lotka-Volterra Predator-Prey Model
-			\item Schreiber, B\"urger, and Bolnick's Extension
-			\item Our Extension
-		\end{itemize}
 		\item Preliminary Results
 		\item Future Work
 	\end{itemize}
@@ -98,138 +92,94 @@
 \end{frame}
 
 \section{Model Formulation}
-\subsection{Lotka-Volterra}
 \begin{frame}
-	\frametitle{Classical Lotka-Volterra Model}
-	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
-
-		\node[main node] (1) {$N$};
-		\node (midpt) [right of=1] {$\frown$};
-		\node[main node] (2) [right of=midpt] {$M$};
-		\node (input) [left of=1] {};
-		\node (output) [right of=2] {};
-
-		\path[every node/.style={font=\sffamily\small}]
-		(input)	edge node {$rN$} (1)
-		(1)		edge node {${\color{red}\alpha} MN$} (midpt)
-		(midpt)	edge node {$e{\color{red}\alpha} MN$} (2)
-		(2)		edge node {$dM$} (output);
-	\end{tikzpicture}\vskip0.75cm
-	\begin{columns}
-    		\begin{column}{0.35\textwidth}
-			\begin{align*}
-				\frac{dN}{dt} &= N(r - {\color{red}\alpha} M)\\[.1cm]
-				\frac{dM}{dt} &= M(e{\color{red}\alpha} N - d)
-			\end{align*}
-   		 \end{column}
-		 \begin{column}{0.60\textwidth}
-			{\bf Variables}
-			\begin{itemize}
-				\item $N \equiv $ Prey Density
-				\item $M \equiv $ Predator Density
-			\end{itemize}
-			{\bf Parameters}
-			\begin{itemize}
-				\item {\color{red}$\alpha \equiv $ Attack rate\uncover<2->{\ \ \ \ \ $\longleftarrow$ {\bf No variation!}}}
-				\item $r \equiv $ Prey birth rate
-				\item $e \equiv $ Efficiency
-				\item $d \equiv $ Predator death rate
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-\subsection{Schreiber, B\"urger, and Bolnick}
-\begin{frame}
-	\frametitle{Schreiber, B\"urger, and Bolnick's Extension}
-	{\bf Assume the {\color{red}Predator Species} has a normally distributed trait value.}
-	\begin{align*}
-		p({\color{red}m}, \overline{m}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{({\color{red}m} - \overline{m})^2}{2\sigma^2}}\right]
-	\end{align*}
-	\uncover<2->{{\bf Attack Rate is a Function of the {\color{red}Predator's Trait Value}}
-	\begin{align*}
-		a({\color{red}m}) &= \alpha \exp\left[-\frac{({\color{red}m} - {\color{cyan}\theta})^2}{2\tau^2}\right]
-	\end{align*}}
-	\begin{columns}
-		\begin{column}{0.45\textwidth}
-			{\bf Variables}
-			\begin{itemize}
-				\item {\color{red}$m \equiv $ Predator Trait Value}
-				\item \uncover<3->{{\color{blue} (((No Prey Trait Value)))}}
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.60\textwidth}
-			{\bf Parameters}
-			\begin{itemize}
-				\item $\sigma^2 \equiv $ Predator Trait Variance
-				\item \uncover<2->{$\alpha \equiv $ Maximum attack rate}
-				\item \uncover<2->{$\tau \equiv $ Specialization Constant}
-				\item \uncover<2->{{\color{cyan}$\theta \equiv $ Optimal trait value \uncover<3->{\\ \ \ \ \ \ \ $\uparrow$ {\bf No variation!}}}}
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-\subsection{Our Extension}
-\begin{frame}
-	\frametitle{Our Extension}
+	\frametitle{Normally Distributed Trait Values}
 	{\bf Assume {\color{blue}Prey} and {\color{red}Predator} have normally distributed trait values.}
+	\begin{align*}
+		p({\color{blue}n}, {\color{blue}\overline{n}}) &= \frac{1}{\sqrt{2\pi\beta^2}}\exp\left[{-\frac{({\color{blue}n} - {\color{blue}\overline{n}})^2}{2\beta^2}}\right]
+	\end{align*}
+	\begin{align*}
+		p({\color{red}m}, {\color{red}\overline{m}}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{({\color{red}m} - {\color{red}\overline{m}})^2}{2\sigma^2}}\right]
+	\end{align*}
 	\begin{columns}
-		\begin{column}{0.45\textwidth}
-			\begin{align*}
-				p({\color{blue}n}, \overline{n}) &= \frac{1}{\sqrt{2\pi\beta^2}}\exp\left[{-\frac{({\color{blue}n} - \overline{n})^2}{2\beta^2}}\right]
-			\end{align*}
+		\begin{column}{0.50\textwidth}
+			{\bf Variables}
+			\begin{itemize}
+				\item \footnotesize{\color{blue}$n \equiv $ Prey Trait Value}
+				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
+				\item {\color{red}$m \equiv $ Predator Trait Value}
+				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait Value}
+			\end{itemize}
 		\end{column}
-		\begin{column}{0.45\textwidth}
-			\begin{align*}
-				p({\color{red}m}, \overline{m}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{({\color{red}m} - \overline{m})^2}{2\sigma^2}}\right]
-			\end{align*}
+		\begin{column}{0.42\textwidth}
+			{\bf Parameters}
+			\begin{itemize}
+				\item \footnotesize$\beta^2 \equiv $ Prey Trait Variance
+				\item $\sigma^2 \equiv $ Predator Trait Variance
+			\end{itemize}
 		\end{column}
-	\end{columns}\vskip.25cm
-	\uncover<2->{{\bf Attack Rate is a Function of the {\color{blue}Prey's Trait Value} and the {\color{red}Predator's Trait Value}}
+	\end{columns}
+
+\end{frame}
+\begin{frame}
+	\frametitle{{\large Attack Rate as a function of Normally Distributed Trait Values}}
+	{\bf Attack Rate is a Function of the {\color{blue}Prey's Trait Value} and the {\color{red}Predator's Trait Value}}
 	\begin{align*}
 		a({\color{blue}n}, {\color{red}m}) &= \alpha \exp\left[-\frac{(({\color{red}m} - {\color{blue}n}) - {\color{cyan}\theta})^2}{2\tau^2}\right]
+	\end{align*}
+	\uncover<2->{{\bf Average Attack Rate}
+	\begin{align*}
+		\overline{a}({\color{blue}\overline{n}}, {\color{red}\overline{m}}) &= \int_{-\infty}^{\infty}\int_{\-\infty}^{\infty} a({\color{blue}n}, {\color{red}m}) \cdot p({\color{blue}n}, {\color{blue}\overline{n}}) \cdot p({\color{red}m}, {\color{red}\overline{m}})\ d{\color{blue}n} d{\color{red}m} \\
+		&= \frac{\alpha\tau}{\sqrt{\sigma^2 + \beta^2 + \tau^2}}\exp\left[{-\frac{(({\color{red}\overline{m}} - {\color{blue}\overline{n}}) - {\color{cyan}\theta})^2}{2(\sigma^2 + \beta^2 + \tau^2)}}\right]
+	\end{align*}}
+	\begin{columns}
+		\begin{column}{0.50\textwidth}
+			{\bf Variables}
+			\begin{itemize}
+				\item \footnotesize{\color{blue}$n \equiv $ Prey Trait Value}
+				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
+				\item {\color{red}$m \equiv $ Predator Trait Value}
+				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait Value}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.42\textwidth}
+			{\bf Parameters}
+			\begin{itemize}
+				\item \footnotesize$\alpha \equiv $ Maximum attack rate
+				\item {\color{cyan}$\theta \equiv $ Optimal trait \bf difference}
+				\item $\tau^2 \equiv $ Specialization Constant
+				\item \uncover<2->{$\beta^2 \equiv $ Prey Trait Variance}
+				\item \uncover<2->{$\sigma^2 \equiv $ Predator Trait Variance}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\frametitle{{\normalsize Intrinsic Growth Rate as a function of the Normally Distributed Trait Value}}
+	{\bf Prey Growth Rate is is a Function of the {\color{blue}Prey's Trait Value}}
+	\begin{align*}
+		r({\color{blue}n}) &= \rho \exp\left[-\frac{({\color{blue}n} - \phi)^2}{2\gamma^2}\right]
+	\end{align*}
+	\uncover<2->{{\bf Averge Growth Rate}}
+	\uncover<2->{\begin{align*}
+		\overline{r}({\color{blue}\overline{n}}) &= \int_{-\infty}^{\infty}r({\color{blue}n}) \cdot p({\color{blue}n}, {\color{blue}\overline{n}}) d{\color{blue}n} \\
+		&= \frac{\rho\gamma}{\sqrt{\beta^2 + \gamma^2}}\exp{\left[-\frac{({\color{blue}n} - \phi)^2}{2\gamma^2}\right]}
 	\end{align*}}
 	\begin{columns}
 		\begin{column}{0.42\textwidth}
 			{\bf Variables}
 			\begin{itemize}
-				\item {\color{blue}$n \equiv $ Prey Trait Value}
-				\item {\color{red}$m \equiv $ Predator Trait Value}
+				\item \footnotesize{\color{blue}$n \equiv $ Prey Trait Value}
+				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.48\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item \footnotesize$\beta^2 \equiv $ Prey Trait Variance
-				\item $\sigma^2 \equiv $ Predator Trait Variance
-				\item \uncover<2->{$\alpha \equiv $ Maximum attack rate}
-				\item \uncover<2->{{\color{cyan}$\theta \equiv $ Optimal trait \bf difference}}
-				\item \uncover<2->{$\tau \equiv $ Specialization Constant}
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-\begin{frame}
-	\frametitle{Average Attack Rate}
-	\begin{align*}
-		\overline{a}({\color{blue}\overline{n}}, {\color{red}\overline{m}}) &= \int_{-\infty}^{\infty}\int_{\-\infty}^{\infty} a({\color{blue}n}, {\color{red}m}) \cdot p({\color{blue}n}, {\color{blue}\overline{n}}) \cdot p({\color{red}m}, {\color{red}\overline{m}})\ d{\color{blue}n} d{\color{red}m} \\
-		&= \frac{\alpha\tau}{\sqrt{\sigma^2 + \beta^2 + \tau^2}}\exp\left[{-\frac{(({\color{red}\overline{m}} - {\color{blue}\overline{n}}) - {\color{cyan}\theta})^2}{2(\sigma^2 + \beta^2 + \tau^2)}}\right]
-	\end{align*}\vskip0.35cm
-	\begin{columns}
-		\begin{column}{0.45\textwidth}
-	{\bf Variables}
-			\begin{itemize}
-				\item {\color{blue}$\overline{n} \equiv $ Mean Prey Character}
-				\item {\color{red}$\overline{m} \equiv $ Mean Predator Character}
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-	{\bf Parameters}
-			\begin{itemize}
-				\item $\beta^2 \equiv $ Prey Trait Variance
-				\item $\sigma^2 \equiv $ Predator Trait Variance
-				\item $\alpha \equiv $ Maximum attack rate
-				\item {\color{cyan}$\theta \equiv $ Optimal trait \bf difference}
-				\item $\tau \equiv $ Specialization Constant
+				\item \footnotesize$\rho \equiv $ Maximum Growth Rate
+				\item $\phi \equiv $ Prey Optimum Trait Value
+				\item $\gamma^2 \equiv $ Stabilizing Selection Constant
+				\item \uncover<2->{$\beta^2 \equiv $ Prey Trait Variance}
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -237,29 +187,29 @@
 \begin{frame}
 	\frametitle{Fitness Assumptions}
 	\begin{itemize}
-		\item Prey experiences {\color{blue}logistic growth} in absence of predator
-		\item Predator experiences {\color{red} exponential decay} in absence of prey
+		\item Prey experiences \underline{logistic growth} in absence of predator
+		\item Predator experiences \underline{\underline{exponential decay}} in absence of prey
 	\end{itemize}
 	\begin{align*}
-		Y(m, n, M, N) &= {\color{blue}r\left(1 - \frac{N}{K}\right)} - Ma(n, m) \\[.1cm]
-		W(m, n, N) &= eNa(n, m)\ {\color{red} -\ d}
+		Y({\color{blue}n}, {\color{blue}N}, {\color{red}m}, {\color{red}M}) &= \underline{r({\color{blue}n})\left(1 - \frac{{\color{blue}N}}{K}\right)} - {\color{red}M}a({\color{blue}n}, {\color{red}m}) \\[.1cm]
+		W({\color{blue}n}, {\color{blue}N}, {\color{red}m}) &= e{\color{blue}N}a({\color{blue}n}, {\color{red}m})\ \underline{\underline{-\ d}}
 	\end{align*}
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
 			{\bf Variables}
 			\begin{itemize}
-				\item $N \equiv $ Prey Density
-				\item $n \equiv $ Prey Trait Value
-				\item $M \equiv $ Predator Density
-				\item $m \equiv $ Predator Trait Value
+				\item \footnotesize{\color{blue}$n \equiv $ Prey Trait Value
+				\item $N \equiv $ Prey Density}
+				\item {\color{red}$m \equiv $ Predator Trait Value
+				\item $M \equiv $ Predator Density}
 			\end{itemize}
 		\end{column}
-		\begin{column}{0.5\textwidth}
+		\begin{column}{0.55\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item {\color{blue}$r \equiv $ Intrinsic Prey Growth Rate}
-				\item {\color{blue}$K \equiv $ Prey Carrying Capacity}
-				\item {\color{red}$d \equiv $ Predator Death Rate}
+				\item \footnotesize\underline{$r \equiv $ Intrinsic Prey Growth Rate Function}
+				\item \underline{$K \equiv $ Prey Carrying Capacity}
+				\item \underline{\underline{$d \equiv $ Predator Death Rate}}
 				\item $e \equiv $ Efficiency
 			\end{itemize}
 		\end{column}
@@ -269,24 +219,24 @@
 	\frametitle{Average Fitness}
 	\begin{align*}
 	{\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)} &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} Y(m, n, M, N) \cdot p(m, \overline{m}) \cdot p(n, \overline{n})\ dm dn \\
-	&= {\color{blue}r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})} \\[.1cm]
+	&= {\color{blue}\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})} \\[.1cm]
 	{\color{red}\overline{W}(\overline{m}, \overline{n}, N)} &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} W(m, n, N) \cdot p(m, \overline{m}) \cdot p(n, \overline{n})\ dm dn \\
 	&= {\color{red}eN\overline{a}(\overline{n}, \overline{m}) - d}
 	\end{align*}
 	\begin{columns}
-		\begin{column}{0.5\textwidth}
+		\begin{column}{0.45\textwidth}
 			{\bf Variables}
 			\begin{itemize}
-				\item {\color{blue}$N \equiv $ Prey Density}
-				\item {\color{blue}$\overline{n} \equiv $ Mean Prey Character}
+				\item \footnotesize{\color{blue}$N \equiv $ Prey Density}
+				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
 				\item {\color{red}$M \equiv $ Predator Density}
-				\item {\color{red}$\overline{m} \equiv $ Mean Predator Character}
+				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait \hphantom{$\overline{m} \equiv $} Value}
 			\end{itemize}
 		\end{column}
-		\begin{column}{0.5\textwidth}
+		\begin{column}{0.55\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item $r \equiv $ Intrinsic Prey Growth Rate
+				\item \footnotesize$\overline{r} \equiv $ Average Intrinsic Prey Growth Rate \hphantom{$\overline{r} \equiv $} Function
 				\item $K \equiv $ Prey Carrying Capacity
 				\item $d \equiv $ Predator Death Rate
 				\item $e \equiv $ Efficiency
@@ -297,7 +247,7 @@
 \begin{frame}
 	\frametitle{Ecological Components}
 	\begin{align*}
-		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)}= N{\color{blue}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})\right]}\\[.1cm]
+		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)}= N{\color{blue}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})\right]}\\[.1cm]
 		\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(\overline{m}, \overline{n}, N)}\ \ \ = M{\color{red}\left[eN\overline{a}(\overline{n}, \overline{m}) - d\right]}
 	\end{align*}\vskip0.15cm
 	\begin{center}
@@ -310,7 +260,7 @@
 			\node (output) [right of=2] {};
 	
 			\path[every node/.style={font=\sffamily\small}]
-			(input)	edge node {{\color{blue}$rN(1 - \frac{N}{K})$}} (1)
+			(input)	edge node {{\color{blue}$\overline{r}(\overline{n})N(1 - \frac{N}{K})$}} (1)
 			(1)		edge node {{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (midpt)
 			(midpt)	edge node {{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (2)
 			(2)		edge node {{\color{red}$dM$}} (output);
@@ -321,16 +271,16 @@
 		\begin{column}{0.5\textwidth}
 			{\bf Variables}
 			\begin{itemize}
-				\item $N \equiv $ Prey Density
-				\item $\overline{n} \equiv $ Mean Prey Character
-				\item $M \equiv $ Predator Density
-				\item $\overline{m} \equiv $ Mean Predator Character
+				\item \footnotesize{\color{blue}$N \equiv $ Prey Density}
+				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
+				\item {\color{red}$M \equiv $ Predator Density}
+				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait Value}
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item $r \equiv $ Intrinsic Prey Growth Rate
+				\item \footnotesize$\overline{r} \equiv $ Average Intrinsic Prey Growth \hphantom{$\overline{r} \equiv $} Rate Function
 				\item $K \equiv $ Prey Carrying Capacity
 				\item $d \equiv $ Predator Death Rate
 				\item $e \equiv $ Efficiency
@@ -341,27 +291,30 @@
 \begin{frame}
 	\frametitle{Evolutionary Components}
 	\begin{itemize}
-		\item The evolution of the mean trait value is always \underline{in the direction} \underline{which increases the mean fitness in the population}. {\tiny[Lande, 1976]}
+		\item The evolution of the average trait value is always \underline{in the direction} \underline{which increases the mean fitness in the population}. {\tiny[Lande, 1976]}
 	\end{itemize}
 	\begin{align*}
-	\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}\\[.1cm]
-	\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
 	\end{align*}
 	\vskip.25cm
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			{\bf Variables}
 			\begin{itemize}
-				\item $N \equiv $ Prey Density
-				\item $\overline{n} \equiv $ Mean Prey Character
+				\item \footnotesize$N \equiv $ Prey Density
+				\item $\overline{n} \equiv $ {\bf Average} Prey Trait Value
 				\item $M \equiv $ Predator Density
-				\item $\overline{m} \equiv $ Mean Predator Character
+				\item $\overline{m} \equiv $ {\bf Average} Predator Trait Value
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item $\beta_G^2 \equiv $ Prey genetic variance
+				\item \footnotesize$\phi \equiv $ Prey Optimum Trait Value
+				\item $\gamma^2 \equiv $ Stabilizing Selection Constant
+				\item $\overline{r} \equiv $ Average Intrinsic Prey Growth \hphantom{$\overline{r} \equiv $} Rate Function
+				\item \footnotesize$\beta_G^2 \equiv $ Prey genetic variance
 				\item $\sigma_G^2 \equiv $ Predator genetic variance
 			\end{itemize}
 		\end{column}
@@ -371,13 +324,13 @@
 	\frametitle{The Complete $1\times1$ Model \\ (One Predator Species, One Prey Species)}
 	{\bf Ecological Components}
 	\begin{align*}
-	\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)}\ \ =\ N{\color{blue}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
-	\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(\overline{m}, \overline{n}, N)}\ \ \ \ \ =\ M{\color{red}\left[eN\overline{a}(\overline{m}, \overline{n}) - d\right]}
+		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)}= N{\color{blue}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})\right]}\\[.1cm]
+		\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(\overline{m}, \overline{n}, N)}\ \ \ = M{\color{red}\left[eN\overline{a}(\overline{n}, \overline{m}) - d\right]}
 	\end{align*}
 	{\bf Evolutionary Components}
 	\begin{align*}
-	\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}\\[.1cm]
-	\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
 	\end{align*}
 \end{frame}
 
@@ -415,8 +368,8 @@
 	\end{align*}
 	{\bf Coexistence} \uncover<2->{$\boxed{\text{\it Stable under certain conditions}}$}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (\dfrac{d\sqrt{A}}{e \alpha \tau}\ ,\ \dfrac{r\sqrt{A}}{\alpha\tau}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\ ,\ \mu^*\ ,\ \mu^* - \theta) \\[.1cm]
-		\text{where $A = \sigma^2 + \beta^2 + \tau^2$ and $\mu^*$ is an arbitrary value.}
+		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (\dfrac{d\sqrt{A}}{e \alpha \tau}\ ,\ \dfrac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\ ,\ \theta\ ,\ \theta + \phi) \\[.1cm]
+		\text{where $A = \sigma^2 + \beta^2 + \tau^2$ and $B = \beta^2 + \gamma^2$}
 	\end{align*}
 	\uncover<3->{{\bf Necessary Condition for Stable Coexistence:}}
 	\begin{itemize}
@@ -491,66 +444,6 @@
 		&= {\color{red}\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)\Big] - d_i}
 	\end{align*}
 \end{frame}
-%\begin{frame}
-%	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}
-%	\begin{center}
-%		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
-%		
-%			\node[main node] (1) {$M_1$};
-%			\node[main node] (2) [below of=1] {$M_2$};
-%			\node (dots1) [below = 0.5cm of 2] {$\vdots$};
-%			\node[main node] (3) [below = 2cm of 2] {$M_u$};
-%			\node[main node] (4) [right of=1] {$N_1$};
-%			\node[main node] (5) [below of=4] {$N_2$};
-%			\node (dots2) [below = 0.15cm of 5] {$\vdots$};
-%			\node[main node] (6) [below = 1.25cm of 5] {$N_v$};
-%					
-%			\path[every node/.style={font=\sffamily\small}]
-%			(1) 	edge [right] node[left] {} (4)
-%				edge [right] node[left] {} (5)
-%				edge [right] node[left] {} (6)
-%			(2) 	edge [right] node[left] {} (4)
-%				edge [right] node[left] {} (5)
-%				edge [right] node[left] {} (6)
-%			(3) 	edge [right] node[left] {} (4)
-%				edge [right] node[left] {} (5)
-%				edge [right] node[left] {} (6);
-%		\end{tikzpicture}
-%	\end{center}
-%\end{frame}
-%\begin{frame}
-%	\begin{center}
-%		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
-%	
-%			\node[main node] (n1) {$N_1$};
-%			\node (midpt1) [right of=n1] {$\dots$};
-%			\node[main node] (m1) [right of=midpt1] {$M_1$};
-%			\node (input1) [left of=n1] {};
-%			\node (output1) [right of=m1] {};
-%			\node[main node] (n2) [below of=n1] {$N_2$};
-%			\node (midpt2) [right of=n2] {$\dots$};
-%			\node[main node] (m2) [right of=midpt2] {$M_2$};
-%			\node (input2) [left of=n2] {};
-%			\node (output2) [right of=m2] {};
-%
-%			\node (inbtw1) [below=1cm of midpt1] {\text{\ \ }};
-%	
-%			\path[every node/.style={font=\sffamily\small}]
-%			(input1)	edge node {\tiny{\color{blue}$rN(1 - \frac{N}{K})$}} (n1)
-%			(n1)		edge node {\tiny{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (inbtw1)
-%					edge node {\tiny{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (midpt1)
-%			(midpt1)	edge node {\tiny{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (m1)
-%			(inbtw1)	edge node {\tiny{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (m1)
-%					edge node {\tiny{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (m2)
-%			(m1)		edge node {\tiny{\color{red}$dM$}} (output1)
-%			(input2)	edge node {\tiny{\color{blue}$rN(1 - \frac{N}{K})$}} (n2)
-%			(n2)		edge node {\tiny{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (midpt2)
-%					edge node {\tiny{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (inbtw1)
-%			(midpt2)	edge node {\tiny{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (m2)
-%			(m2)		edge node {\tiny{\color{red}$dM$}} (output2);
-%		\end{tikzpicture}\vskip0.35cm
-%	\end{center}
-%\end{frame}
 \begin{frame}
 	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}
 	{\bf Ecological Components}
