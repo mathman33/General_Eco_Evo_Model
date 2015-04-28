@@ -428,21 +428,21 @@
 	\frametitle{}
 	{\bf Prey Fitness}
 	\begin{align*}
-		Y(N, n, M, m) &= r(n)\left(1 - \frac{N}{K}\right) - Ma(n, m) \\
+		{\color{blue}Y(N, n, M, m)} &= r(n)\left(1 - \frac{N}{K}\right) - Ma(n, m) \\
 		\uncover<2->{&\downarrow} \\
-		\uncover<2->{Y_j(N_j, n_j, [M_i]_{i=1}^{u}, [m_i]_{i=1}^{u}) &= r_j(n_j)\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_ia_{ij}(n_j, m_i)}
+		\uncover<2->{{\color{blue}Y_j(N_j, n_j, [M_i]_{i=1}^{u}, [m_i]_{i=1}^{u})} &= r_j(n_j)\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_ia_{ij}(n_j, m_i)}
 	\end{align*}
 	{\bf Predator Fitness}
 	\begin{align*}
-		W(N, n, M, m) &= eNa(n, m) - d \\
+		{\color{red}W(N, n, M, m)} &= eNa(n, m) - d \\[.3cm]
 		\uncover<3->{&\downarrow} \\
-		\uncover<3->{W_i([N_j]_{j=1}^{v}, [n_j]_{j=1}^{v}, M_i, m_i) &= \sum\limits_{j = 1}^{v}\Big[e_{ij}N_ja_{ij}(n_j, m_i)\Big] - d_i}
+		\uncover<3->{{\color{red}W_i([N_j]_{j=1}^{v}, [n_j]_{j=1}^{v}, M_i, m_i)} &= \sum\limits_{j = 1}^{v}\Big[e_{ij}N_ja_{ij}(n_j, m_i)\Big] - d_i}
 	\end{align*}
 	\uncover<2->{{\bf Notation}}
 	\begin{align*}
 		\uncover<2->{[x_i]_{i=1}^{u} = x_1, \dots, x_u}
 	\end{align*}
-\end{frame},
+\end{frame}
 \begin{frame}
 	\frametitle{Average Fitness}
 	\begin{align*}
@@ -460,13 +460,13 @@
 	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}
 	{\bf Ecological Components}
 	\begin{align*}
-		\frac{dN_j}{dt} &= N_j{\color{blue}\overline{Y}_j} = N_j {\color{blue}\left[{\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}\right]} \\[.1cm]
-		\frac{dM_i}{dt} &= M_i{\color{red}\overline{W}_i} = M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\Big] - d_i\right]}
+		\frac{dN_j}{dt} &= N_j {\color{blue}\left[{\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}\right]} \\
+		\frac{dM_i}{dt} &= M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\Big] - d_i\right]}
 	\end{align*}
 	{\bf Evolutionary Components}
 	\begin{align*}
-		\frac{d\overline{n}_j}{dt} &= \beta_{Gj}^2{\color{cyan}\frac{\partial \overline{Y}_j}{\partial \overline{n}_j}} = \beta_{Gj}^2{\color{cyan}\sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}\\[.1cm]
-		\frac{d\overline{m}_i}{dt} &= \sigma_{Gi}^2{\color{magenta}\frac{\partial \overline{W}_i}{\partial \overline{m}_i}} = \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}
+		\frac{d\overline{n}_j}{dt} &= \beta_{Gj}^2{\color{cyan}\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{(\phi_j - \overline{n_j})}{\beta_j^2 + \gamma_j^2} + \sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]\right]}\\
+		\frac{d\overline{m}_i}{dt} &= \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}
 	\end{align*}
 \end{frame}
 \begin{frame}
