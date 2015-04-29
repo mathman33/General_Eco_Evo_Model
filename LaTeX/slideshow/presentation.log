@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  28 APR 2015 21:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 APR 2015 16:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1308,9 +1308,6 @@ line 44.
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-Overfull \vbox (0.67538pt too high) detected at line 58
- []
-
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 58.
@@ -1320,7 +1317,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 ]
 [2
 
-] <figures/crab_eating_gastropod.jpg, id=141, 126.4725pt x 105.87555pt>
+] <figures/crab_eating_gastropod.jpg, id=133, 126.4725pt x 105.87555pt>
 File: figures/crab_eating_gastropod.jpg Graphic file (type jpg)
 
 <use figures/crab_eating_gastropod.jpg>
@@ -1341,17 +1338,9 @@ Package pdftex.def Info: figures/crab_eating_gastropod.jpg used on input line 9
 
 ] [9
 
-]
-Overfull \vbox (0.65413pt too high) detected at line 233
- []
+] [10
 
-[10
-
-]
-Overfull \vbox (0.65413pt too high) detected at line 233
- []
-
-[11
+] [11
 
 ] [12
 
@@ -1363,24 +1352,12 @@ Overfull \vbox (0.65413pt too high) detected at line 233
 
 ] [16
 
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 382.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 382.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 382.
-
-[17
+] [17
 
 ] [18
 
-] [19
+]
+[19
 
 ] [20
 
@@ -1391,83 +1368,101 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 ] [23
 
 ]
-<figures/1x1/densities_exclusion.png, id=830, 578.16pt x 433.62pt>
-File: figures/1x1/densities_exclusion.png Graphic file (type png)
-
-<use figures/1x1/densities_exclusion.png>
-Package pdftex.def Info: figures/1x1/densities_exclusion.png used on input line
- 432.
+<figures/1x1/constant_growth/densities_exclusion.png, id=846, 578.16pt x 433.62
+pt>
+File: figures/1x1/constant_growth/densities_exclusion.png Graphic file (type pn
+g)
+ <use figures/1x1/constant_growth/densities_exclusion.png>
+Package pdftex.def Info: figures/1x1/constant_growth/densities_exclusion.png us
+ed on input line 429.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_exclusion.png, id=832, 578.16pt x 433.62pt>
-File: figures/1x1/traits_exclusion.png Graphic file (type png)
-
-<use figures/1x1/traits_exclusion.png>
-Package pdftex.def Info: figures/1x1/traits_exclusion.png used on input line 43
-2.
+<figures/1x1/constant_growth/traits_exclusion.png, id=848, 578.16pt x 433.62pt>
+File: figures/1x1/constant_growth/traits_exclusion.png Graphic file (type png)
+<use figures/1x1/constant_growth/traits_exclusion.png>
+Package pdftex.def Info: figures/1x1/constant_growth/traits_exclusion.png used 
+on input line 429.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
  [24
 
- <./figures/1x1/densities_exclusion.png> <./figures/1x1/traits_exclusion.png>]
-<figures/1x1/densities_stable_coexistence.png, id=867, 578.16pt x 433.62pt>
-File: figures/1x1/densities_stable_coexistence.png Graphic file (type png)
+ <./figures/1x1/constant_growth/densities_exclusion.png> <./figures/1x1/constan
+t_growth/traits_exclusion.png>]
+<figures/1x1/constant_growth/densities_stable_coexistence.png, id=884, 578.16pt
+ x 433.62pt>
+File: figures/1x1/constant_growth/densities_stable_coexistence.png Graphic file
+ (type png)
 
-<use figures/1x1/densities_stable_coexistence.png>
-Package pdftex.def Info: figures/1x1/densities_stable_coexistence.png used on i
-nput line 441.
+<use figures/1x1/constant_growth/densities_stable_coexistence.png>
+Package pdftex.def Info: figures/1x1/constant_growth/densities_stable_coexisten
+ce.png used on input line 437.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_stable_coexistence.png, id=868, 578.16pt x 433.62pt>
-File: figures/1x1/traits_stable_coexistence.png Graphic file (type png)
-
-<use figures/1x1/traits_stable_coexistence.png>
-Package pdftex.def Info: figures/1x1/traits_stable_coexistence.png used on inpu
-t line 441.
-(pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
- [25
-
- <./figures/1x1/densities_stable_coexistence.png> <./figures/1x1/traits_stable_
-coexistence.png>]
-<figures/1x1/densities_unstable_coexistence.png, id=905, 578.16pt x 433.62pt>
-File: figures/1x1/densities_unstable_coexistence.png Graphic file (type png)
-
-<use figures/1x1/densities_unstable_coexistence.png>
-Package pdftex.def Info: figures/1x1/densities_unstable_coexistence.png used on
- input line 450.
+<figures/1x1/constant_growth/traits_stable_coexistence.png, id=885, 578.16pt x 
+433.62pt>
+File: figures/1x1/constant_growth/traits_stable_coexistence.png Graphic file (t
+ype png)
+ <use figures/1x1/constant_growth/traits_stable_coexistence.png>
+Package pdftex.def Info: figures/1x1/constant_growth/traits_stable_coexistence.
+png used on input line 437.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_unstable_coexistence.png, id=906, 578.16pt x 433.62pt>
-File: figures/1x1/traits_unstable_coexistence.png Graphic file (type png)
+[25
 
-<use figures/1x1/traits_unstable_coexistence.png>
-Package pdftex.def Info: figures/1x1/traits_unstable_coexistence.png used on in
-put line 450.
+ <./figures/1x1/constant_growth/densities_stable_coexistence.png> <./figures/1x
+1/constant_growth/traits_stable_coexistence.png>]
+<figures/1x1/constant_growth/densities_unstable_coexistence.png, id=923, 578.16
+pt x 433.62pt>
+File: figures/1x1/constant_growth/densities_unstable_coexistence.png Graphic fi
+le (type png)
+
+<use figures/1x1/constant_growth/densities_unstable_coexistence.png>
+Package pdftex.def Info: figures/1x1/constant_growth/densities_unstable_coexist
+ence.png used on input line 445.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
- [26
 
- <./figures/1x1/densities_unstable_coexistence.png> <./figures/1x1/traits_unsta
-ble_coexistence.png>]
-[27
+<figures/1x1/constant_growth/traits_unstable_coexistence.png, id=924, 578.16pt 
+x 433.62pt>
+File: figures/1x1/constant_growth/traits_unstable_coexistence.png Graphic file 
+(type png)
+ <use figures/1x1/constant_growth/traits_unstable_coexistence.png>
+Package pdftex.def Info: figures/1x1/constant_growth/traits_unstable_coexistenc
+e.png used on input line 445.
+(pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
+
+[26
+
+ <./figures/1x1/constant_growth/densities_unstable_coexistence.png> <./figures/
+1x1/constant_growth/traits_unstable_coexistence.png>] [27
 
 ] [28
 
 ] [29
 
-] [30
+]
+[30
 
 ] [31
 
-]
-Overfull \vbox (1.0246pt too high) detected at line 563
- []
-
-[32
+] [32
 
 ] [33
 
 ] [34
 
-] [35
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 638.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\times' on input line 638.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 638.
+
+[35
 
 ] [36
 
@@ -1481,46 +1476,312 @@ Overfull \vbox (1.0246pt too high) detected at line 563
 
 ] [41
 
-] [42
+]
 
-] [43
+LaTeX Warning: File `figures/1x1/variable_growth/stable_exclusion/densities.png
+' not found on input line 694.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_exclusion/
+densities.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.694 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_exclusion/density_phase
+_plane.png' not found on input line 694.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_exclusion/
+density_phase_plane.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.694 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_exclusion/traits.png' n
+ot found on input line 694.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_exclusion/
+traits.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.694 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_exclusion/trait_phase_p
+lane.png' not found on input line 694.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_exclusion/
+trait_phase_plane.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.694 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \vbox (4.73793pt too high) detected at line 694
+ []
+
+[42
 
 ]
-<figures/1x2/densities_generalist_to_specialist.png, id=1485, 578.16pt x 433.62
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_coexistence/densities.p
+ng' not found on input line 709.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_coexistenc
+e/densities.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.709 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_coexistence/density_pha
+se_plane.png' not found on input line 709.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_coexistenc
+e/density_phase_plane.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.709 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_coexistence/traits.png'
+ not found on input line 709.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_coexistenc
+e/traits.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.709 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_coexistence/trait_phase
+_plane.png' not found on input line 709.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_coexistenc
+e/trait_phase_plane.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.709 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \vbox (4.73793pt too high) detected at line 709
+ []
+
+[43
+
+]
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_cycles/densities.png' n
+ot found on input line 724.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_cycles/den
+sities.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.724 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_cycles/density_phase_pl
+ane.png' not found on input line 724.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_cycles/den
+sity_phase_plane.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.724 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_cycles/traits.png' not 
+found on input line 724.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_cycles/tra
+its.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.724 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `figures/1x1/variable_growth/stable_cycles/trait_phase_plan
+e.png' not found on input line 724.
+
+
+! Package pdftex.def Error: File `figures/1x1/variable_growth/stable_cycles/tra
+it_phase_plane.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.724 \end{frame}
+                 
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \vbox (4.73793pt too high) detected at line 724
+ []
+
+[44
+
+] [45
+
+] [46
+
+] [47
+
+] [48
+
+] [49
+
+] [50
+
+] [51
+
+] [52
+
+] [53
+
+] [54
+
+] [55
+
+] [56
+
+] [57
+
+] [58
+
+]
+[59
+
+] [60
+
+]
+<figures/1x2/densities_generalist_to_specialist.png, id=2038, 578.16pt x 433.62
 pt>
 File: figures/1x2/densities_generalist_to_specialist.png Graphic file (type png
 )
  <use figures/1x2/densities_generalist_to_specialist.png>
 Package pdftex.def Info: figures/1x2/densities_generalist_to_specialist.png use
-d on input line 675.
+d on input line 953.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x2/traits_generalist_to_specialist.png, id=1486, 578.16pt x 433.62pt>
+<figures/1x2/traits_generalist_to_specialist.png, id=2039, 578.16pt x 433.62pt>
 File: figures/1x2/traits_generalist_to_specialist.png Graphic file (type png)
 <use figures/1x2/traits_generalist_to_specialist.png>
 Package pdftex.def Info: figures/1x2/traits_generalist_to_specialist.png used o
-n input line 675.
+n input line 953.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
- [44
+ [61
 
  <./figures/1x2/densities_generalist_to_specialist.png> <./figures/1x2/traits_g
 eneralist_to_specialist.png>]
-<figures/1x2/densities_unstable_coexistence.png, id=1519, 578.16pt x 433.62pt>
+<figures/1x2/densities_unstable_coexistence.png, id=2073, 578.16pt x 433.62pt>
 File: figures/1x2/densities_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/densities_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x2/densities_unstable_coexistence.png used on
- input line 684.
+ input line 962.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x2/traits_unstable_coexistence.png, id=1520, 578.16pt x 433.62pt>
+<figures/1x2/traits_unstable_coexistence.png, id=2074, 578.16pt x 433.62pt>
 File: figures/1x2/traits_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/traits_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x2/traits_unstable_coexistence.png used on in
-put line 684.
+put line 962.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
- [45
+ [62
 
  <./figures/1x2/densities_unstable_coexistence.png> <./figures/1x2/traits_unsta
 ble_coexistence.png>]
@@ -1533,27 +1794,27 @@ ble_coexistence.png>]
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 690.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 690.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 968.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 968.
 
 (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 690.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 690.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 968.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 968.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 9E41E5718405F091E6CB25F2BE368FCB;472.
+(rerunfilecheck)             Checksum: 0384D04FF15A126E8252B567ABC8649E;420.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 690.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 968.
  ) 
 Here is how much of TeX's memory you used:
- 30296 strings out of 493117
- 718566 string characters out of 6135433
+ 30359 strings out of 493117
+ 719659 string characters out of 6135433
  904200 words of memory out of 5000000
- 33004 multiletter control sequences out of 15000+600000
- 21392 words of font info for 77 fonts, out of 8000000 for 9000
+ 33025 multiletter control sequences out of 15000+600000
+ 21560 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,22n,78p,738b,1042s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
@@ -1577,11 +1838,12 @@ texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
 ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on presentation.pdf (45 pages, 699390 bytes).
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on presentation.pdf (62 pages, 774813 bytes).
 PDF statistics:
- 1650 PDF objects out of 1728 (max. 8388607)
- 1525 compressed objects within 16 object streams
- 99 named destinations out of 1000 (max. 500000)
- 204 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2212 PDF objects out of 2487 (max. 8388607)
+ 2065 compressed objects within 21 object streams
+ 133 named destinations out of 1000 (max. 500000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 
