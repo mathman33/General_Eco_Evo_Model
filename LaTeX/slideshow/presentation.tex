@@ -625,11 +625,11 @@
 
 
 
-\begin{frame}
-	\begin{center}
-		\huge Ask us about our\\ preliminary $1 \times 2$ results!
-	\end{center}
-\end{frame}
+% \begin{frame}
+% 	\begin{center}
+% 		\huge Ask us about our\\ preliminary $1 \times 2$ results!
+% 	\end{center}
+% \end{frame}
 
 
 
@@ -723,124 +723,52 @@
 	\end{columns}
 \end{frame}
 
-
-
-
-
-
-
-
-
-
-
-
+\subsection*{General Ditrophic Expansion}
 \begin{frame}
-	\frametitle{}
+	\frametitle{Expansion of Fitness Functions}
 	{\bf Prey Fitness}
 	\begin{align*}
-		Y(m, n, M, N) &= r\left(1 - \frac{N}{K}\right) - Ma(n, m) \\
-		\uncover<2->{&\downarrow} \\
-		\uncover<2->{Y_j([m_i]_{i=1}^{u}, n_j, [M_i]_{i=1}^{u}, N_j) &= r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_ia_{ij}(n_j, m_i)}
+		{\color{blue}Y(N, n, M, m)} &= r(n)\left(1 - \frac{N}{K}\right) - Ma(n, m) \\
+		\uncover<2->{\scriptsize&\downarrow} \\
+		\uncover<2->{{\color{blue}Y_j(N_j, n_j, [M_i]_{i=1}^{u}, [m_i]_{i=1}^{u})} &= r_j(n_j)\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_ia_{ij}(n_j, m_i)}
 	\end{align*}
 	{\bf Predator Fitness}
 	\begin{align*}
-		W(m, n, N) &= eNa(n, m) - d \\
-		\uncover<3->{&\downarrow} \\
-		\uncover<3->{W_i(m_i, [n_j]_{j=1}^{v}, [N_j]_{j=1}^{v}) &= \sum\limits_{j = 1}^{v}\Big[e_{ij}N_ja_{ij}(n_j, m_i)\Big] - d_i}
+		{\color{red}W(N, n, M, m)} &= eNa(n, m) - d \\
+		\uncover<3->{\scriptsize&\downarrow} \\
+		\uncover<3->{{\color{red}W_i([N_j]_{j=1}^{v}, [n_j]_{j=1}^{v}, M_i, m_i)} &= \sum\limits_{j = 1}^{v}\Big[e_{ij}N_ja_{ij}(n_j, m_i)\Big] - d_i}
 	\end{align*}
-	\uncover<2->{{\bf Notation}}
-	\begin{align*}
-		\uncover<2->{[x_i]_{i=1}^{u} = x_1, \dots, x_u}
-	\end{align*}
+	\uncover<2->{\begin{center}{\bf Notation:} $[x_i]_{i=1}^{u} = x_1, \dots, x_u$\end{center}}
 \end{frame}
 \begin{frame}
-	\frametitle{Average Fitness}
+	\frametitle{Average Fitness Calculation}
 	\begin{align*}
-		{\color{blue}\overline{Y}_j([\overline{m}_i]_{i=1}^{u}, \overline{n}_j,}\ &{\color{blue}[M_i]_{i=1}^{u}, N_j)} \\
+		{\color{blue}\overline{Y}_j(N_j, \overline{n_j}, [M_i]_{i=1}^{u}, }&{\color{blue}[\overline{m_i}]_{i=1}^{u})} \\
 		&= \int\limits_{\mathbb{R}^{u+1}} Y_j \cdot \prod\limits_{i=1}^{u}\Big[p_i(m_i, \overline{m_i})\Big] \cdot p(n, \overline{n}) \prod\limits_{i=1}^{u}\Big[dm_i\Big] dn_j\\
-		&= {\color{blue}r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}
+		&= {\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}
 	\end{align*}
 	\begin{align*}
-		{\color{red}\overline{W}_i(\overline{m}_i, [\overline{n}_j]_{j=1}^{v}, [}&{\color{red}N_j]_{j=1}^{v})} \\
+		{\color{red}\overline{W}_i(N_j, \overline{n_j}, [M_i]_{i=1}^{u}, }&{\color{red}[\overline{m_i}]_{i=1}^{u})} \\
 		&= \int\limits_{\mathbb{R}^{u+1}} W_i \cdot p_i(m_i, \overline{m_i}) \cdot \prod\limits_{j=1}^{v}\Big[p(n_j, \overline{n}_j)\Big] dm_i \prod\limits_{j=1}^{v}\Big[dn_j\Big]\\
 		&= {\color{red}\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)\Big] - d_i}
 	\end{align*}
 \end{frame}
-%\begin{frame}
-%	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}
-%	\begin{center}
-%		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
-%		
-%			\node[main node] (1) {$M_1$};
-%			\node[main node] (2) [below of=1] {$M_2$};
-%			\node (dots1) [below = 0.5cm of 2] {$\vdots$};
-%			\node[main node] (3) [below = 2cm of 2] {$M_u$};
-%			\node[main node] (4) [right of=1] {$N_1$};
-%			\node[main node] (5) [below of=4] {$N_2$};
-%			\node (dots2) [below = 0.15cm of 5] {$\vdots$};
-%			\node[main node] (6) [below = 1.25cm of 5] {$N_v$};
-%					
-%			\path[every node/.style={font=\sffamily\small}]
-%			(1) 	edge [right] node[left] {} (4)
-%				edge [right] node[left] {} (5)
-%				edge [right] node[left] {} (6)
-%			(2) 	edge [right] node[left] {} (4)
-%				edge [right] node[left] {} (5)
-%				edge [right] node[left] {} (6)
-%			(3) 	edge [right] node[left] {} (4)
-%				edge [right] node[left] {} (5)
-%				edge [right] node[left] {} (6);
-%		\end{tikzpicture}
-%	\end{center}
-%\end{frame}
-%\begin{frame}
-%	\begin{center}
-%		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
-%	
-%			\node[main node] (n1) {$N_1$};
-%			\node (midpt1) [right of=n1] {$\dots$};
-%			\node[main node] (m1) [right of=midpt1] {$M_1$};
-%			\node (input1) [left of=n1] {};
-%			\node (output1) [right of=m1] {};
-%			\node[main node] (n2) [below of=n1] {$N_2$};
-%			\node (midpt2) [right of=n2] {$\dots$};
-%			\node[main node] (m2) [right of=midpt2] {$M_2$};
-%			\node (input2) [left of=n2] {};
-%			\node (output2) [right of=m2] {};
-%
-%			\node (inbtw1) [below=1cm of midpt1] {\text{\ \ }};
-%	
-%			\path[every node/.style={font=\sffamily\small}]
-%			(input1)	edge node {\tiny{\color{blue}$rN(1 - \frac{N}{K})$}} (n1)
-%			(n1)		edge node {\tiny{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (inbtw1)
-%					edge node {\tiny{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (midpt1)
-%			(midpt1)	edge node {\tiny{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (m1)
-%			(inbtw1)	edge node {\tiny{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (m1)
-%					edge node {\tiny{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (m2)
-%			(m1)		edge node {\tiny{\color{red}$dM$}} (output1)
-%			(input2)	edge node {\tiny{\color{blue}$rN(1 - \frac{N}{K})$}} (n2)
-%			(n2)		edge node {\tiny{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (midpt2)
-%					edge node {\tiny{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (inbtw1)
-%			(midpt2)	edge node {\tiny{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (m2)
-%			(m2)		edge node {\tiny{\color{red}$dM$}} (output2);
-%		\end{tikzpicture}\vskip0.35cm
-%	\end{center}
-%\end{frame}
 \begin{frame}
-	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}
+	\frametitle{The Complete $u\times v$ Model - \normalsize($u$ Predator Species, $v$ Prey Species)}
 	{\bf Ecological Components}
 	\begin{align*}
-		\frac{dN_j}{dt} &= N_j{\color{blue}\overline{Y}_j} = N_j {\color{blue}\left[r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\right]} \\[.1cm]
-		\frac{dM_i}{dt} &= M_i{\color{red}\overline{W}_i} = M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\Big] - d_i\right]}
+		\frac{dN_j}{dt} &= N_j{\color{blue}\overline{Y_j}} = N_j {\color{blue}\left[{\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}\right]} \\
+		\frac{dM_i}{dt} &= M_i{\color{red}\overline{W_i}} = M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\Big] - d_i\right]}
 	\end{align*}
 	{\bf Evolutionary Components}
 	\begin{align*}
-	\frac{d\overline{n}_j}{dt} &= \beta_{Gj}^2{\color{cyan}\frac{\partial \overline{Y}_j}{\partial \overline{n}_j}} = \beta_{Gj}^2{\color{cyan}\sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}\\[.1cm]
-	\frac{d\overline{m}_i}{dt} &= \sigma_{Gi}^2{\color{magenta}\frac{\partial \overline{W}_i}{\partial \overline{m}_i}} = \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} + \overline{n_j} - \overline{m_i})}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}
+		\frac{d\overline{n}_j}{dt} &= \beta_{Gj}^2{\color{cyan}\frac{\partial \overline{Y_j}}{\partial \overline{n_j}}} = \beta_{Gj}^2{\color{cyan}\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{(\phi_j - \overline{n_j})}{\beta_j^2 + \gamma_j^2}\right.}
+		\\&\hphantom{\text{mmmmmmmmmmm}}{\left.\color{cyan}+ \sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]\right]}\\
+		\frac{d\overline{m}_i}{dt} &= \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}
 	\end{align*}
 \end{frame}
 \begin{frame}
-	\frametitle{The Complete $u\times v$ Model \\ ($u$ Predator Species, $v$ Prey Species)}
+	\frametitle{The Complete $u\times v$ Model - \normalsize($u$ Predator Species, $v$ Prey Species)}
 	\Wider[6em]{
 	\begin{center}
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
@@ -860,14 +788,14 @@
 			\node (alittleright) [right = 0.3cm of furtherdown] {};
 	
 			\path[every node/.style={font=\sffamily\small}]
-			(input1)	edge node {\tiny{\color{blue}$r_jN_j\left(1 - \frac{N_j}{K_j}\right)$}} (n1)
-			(n1)		edge node {\tiny{\color{blue}$\overline{a_{i,j}}(\overline{n_j}, \overline{m_i})M_iN_j$}} (midpt1)
-					edge node {\tiny{\color{blue}$\overline{a_{i-1,j}}(\overline{n_j}, \overline{m_{i-1}})M_{i-1}N_j$}} (furtherright)
-					edge node {\tiny{\color{blue}$\overline{a_{i+1,j}}(\overline{n_j}, \overline{m_{i+1}})M_{i+1}N_j$}} (alittleleft)
-			(midpt1)	edge node {\tiny{\color{red}$e_{i,j}\overline{a_{i,j}}(\overline{n_j}, \overline{m_i})M_iN_j$}} (m1)
-			(m1)		edge node {\tiny{\color{red}$d_iM_i$}} (output1)
-			(upleft)	edge node {\tiny{\color{red}$e_{i,j-1}\overline{a_{i,j-1}}(\overline{n_{j-1}}, \overline{m_i})M_iN_{j-1}$}} (m1)
-			(alittleright)	edge node {\tiny{\color{red}$e_{i,j-1}\overline{a_{i,j-1}}(\overline{n_{j-1}}, \overline{m_i})M_iN_{j-1}$}} (m1)
+			(input1)	edge node {\scriptsize{\color{blue}$\overline{r_j}(n_j)N_j\left(1 - \frac{N_j}{K_j}\right)$}} (n1)
+			(n1)		edge node {\scriptsize{\color{blue}$\overline{a_{i,j}}(\overline{n_j}, \overline{m_i})M_iN_j$}} (midpt1)
+					edge node {\scriptsize{\color{blue}$\overline{a_{i-1,j}}(\overline{n_j}, \overline{m_{i-1}})M_{i-1}N_j$}} (furtherright)
+					edge node {\scriptsize{\color{blue}$\overline{a_{i+1,j}}(\overline{n_j}, \overline{m_{i+1}})M_{i+1}N_j$}} (alittleleft)
+			(midpt1)	edge node {\scriptsize{\color{red}$e_{i,j}\overline{a_{i,j}}(\overline{n_j}, \overline{m_i})M_iN_j$}} (m1)
+			(m1)		edge node {\scriptsize{\color{red}$d_iM_i$}} (output1)
+			(upleft)	edge node {\scriptsize{\color{red}$e_{i,j-1}\overline{a_{i,j-1}}(\overline{n_{j-1}}, \overline{m_i})M_iN_{j-1}$}} (m1)
+			(alittleright)	edge node {\scriptsize{\color{red}$e_{i,j-1}\overline{a_{i,j-1}}(\overline{n_{j-1}}, \overline{m_i})M_iN_{j-1}$}} (m1)
 			;
 		\end{tikzpicture}\vskip0.35cm
 	\end{center}
@@ -878,26 +806,23 @@
 \begin{frame}
 	\frametitle{Future Work}
 	\begin{itemize}
-		\item Two Predators competing for One Prey
-		\item One Specialist Predator Competing with One Generalist Predator for Two Prey Species
-		\item Two Specialist Predators Competing with One Generalist Predator for Two Prey Species
-		\item Further Analysis of the General $u \times v$ Model
-		\item Intra-Guild Predation
-		\item Adding Evolutionary Cost to Prey
-		\item Adding Evolutionary Cost to Predator
+		\item Two prey species in apparent competition via one generalist predator
+		\item Two predator species in competition for one prey
+		\item One specialist predator competing with one generalist predator for two prey
+		\item Two specialist predators competing with one generalist predator for two prey species
+		\item Further analysis of the general $u \times v$ model
+		\item Intraguild predation
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Thank You!}
 	\begin{itemize}
-		\item Pacific Coast Undergraduate Math Conference
-		\item Dr. Alissa Crans, Dr. Karrolyne Fogel, Dr. Kendra Killpatrick, Dr. John Rock, and all other PCUMC Organizers
+		\item PUMP (Preparing Undergraduates through Mentoring towards PhDs)
+		\item Pacific Math Alliance
+		\item National Math Alliance
+		\item Dr. Helena Noronha, Dr. Ramin Vakilian, and all other PUMP organizers
 		\item National Science Foundation
-		\item Mathematical Association of America and all other PCUMC sponsors
-		\item Cal Lutheran University and all other PCUMC university supporters
-		\item Dr. Helena Noronha
-		\item Pacific Math Alliance PUMP Undergraduate Research Groups
 		\item California State University, Northridge
 		\item Dr. Jing Li and Dr. Casey terHorst
 	\end{itemize}
@@ -906,60 +831,60 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Equilibria - $1\times2$}
-	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN_1}{dt} = N_1\cdot \overline{Y}_1(\overline{m}, \overline{n}_1, M, N_1) &\ \ \ \ \ \ \dfrac{d\overline{n}_1}{dt} = \beta_{G1}^2\dfrac{\partial \overline{Y}_1}{\partial \overline{n}_1} \\[.3cm]
-			\dfrac{dN_2}{dt} = N_2\cdot \overline{Y}_2(\overline{m}, \overline{n}_2, M, N_2) &\ \ \ \ \ \ \dfrac{d\overline{n}_2}{dt} = \beta_{G2}^2\dfrac{\partial \overline{Y}_2}{\partial \overline{n}_2} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}_1, \overline{n}_2, N_1, N_2) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
-		\end{array}
-	\end{align*}
-	\uncover<2->{{\bf Extinction}} \uncover<3->{$\boxed{\text{\it Unstable}}$}
-	\begin{align*}
-		\uncover<2->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) = (0, 0, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
-	\end{align*}
-	\uncover<4->{{\bf Exclusion}} \uncover<5->{$\boxed{\text{\it Stable under certain conditions}}$}
-	\begin{align*}
-		\uncover<4->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) &= (K_1, K_2, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
-	\end{align*}
-\end{frame}
-\begin{frame}
-	\frametitle{Equilibria - $1\times2$}
-	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN_1}{dt} = N_1\cdot \overline{Y}_1(\overline{m}, \overline{n}_1, M, N_1) &\ \ \ \ \ \ \dfrac{d\overline{n}_1}{dt} = \beta_{G1}^2\dfrac{\partial \overline{Y}_1}{\partial \overline{n}_1} \\[.3cm]
-			\dfrac{dN_2}{dt} = N_2\cdot \overline{Y}_2(\overline{m}, \overline{n}_2, M, N_2) &\ \ \ \ \ \ \dfrac{d\overline{n}_2}{dt} = \beta_{G2}^2\dfrac{\partial \overline{Y}_2}{\partial \overline{n}_2} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}_1, \overline{n}_2, N_1, N_2) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
-		\end{array}
-	\end{align*}
-	\uncover<2->{{\bf Generalist Becomes Specialist}} \uncover<3->{$\boxed{\text{\it Stable under certain conditions???}}$}
-	\begin{align*}
-		\uncover<2->{&(N_1^*,N_2^*,M^*,\overline{n}_1^*,\overline{n}_2^*,\overline{m}^*) \\[.1cm]
-		=\ &(\dfrac{d\sqrt{A_1}}{e_1 \alpha_1 \tau_1}\ ,\ K_2\ ,\ \dfrac{r_1\sqrt{A_1}}{\alpha_1\tau_1}\left(1 - \dfrac{d\sqrt{A_1}}{K_1e_1\alpha_1\tau_1}\right)\ ,\ \mu_1^*\ ,\ \mu_2^*\ ,\ \mu_1^* - \theta_1)}
-	\end{align*}
-	\uncover<2->{where $A_1 = \sigma^2 + \beta_1^2 + \tau_1^2$, $\mu_1^*$ is an arbitrary value, and $\mu_2^*$ is sufficiently far from $\mu_1^* - \theta_1$.}
+% \begin{frame}
+% 	\frametitle{Equilibria - $1\times2$}
+% 	\begin{align*}
+% 		\begin{array}{ll}
+% 			\dfrac{dN_1}{dt} = N_1\cdot \overline{Y}_1(\overline{m}, \overline{n}_1, M, N_1) &\ \ \ \ \ \ \dfrac{d\overline{n}_1}{dt} = \beta_{G1}^2\dfrac{\partial \overline{Y}_1}{\partial \overline{n}_1} \\[.3cm]
+% 			\dfrac{dN_2}{dt} = N_2\cdot \overline{Y}_2(\overline{m}, \overline{n}_2, M, N_2) &\ \ \ \ \ \ \dfrac{d\overline{n}_2}{dt} = \beta_{G2}^2\dfrac{\partial \overline{Y}_2}{\partial \overline{n}_2} \\[.3cm]
+% 			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}_1, \overline{n}_2, N_1, N_2) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
+% 		\end{array}
+% 	\end{align*}
+% 	\uncover<2->{{\bf Extinction}} \uncover<3->{$\boxed{\text{\it Unstable}}$}
+% 	\begin{align*}
+% 		\uncover<2->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) = (0, 0, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
+% 	\end{align*}
+% 	\uncover<4->{{\bf Exclusion}} \uncover<5->{$\boxed{\text{\it Stable under certain conditions}}$}
+% 	\begin{align*}
+% 		\uncover<4->{(N_1^*, N_2^*, M^*, \overline{n}_1^*, \overline{n}_2^*, \overline{m}^*) &= (K_1, K_2, 0, \underline{\ \ }, \underline{\ \ }, \underline{\ \ })}
+% 	\end{align*}
+% \end{frame}
+% \begin{frame}
+% 	\frametitle{Equilibria - $1\times2$}
+% 	\begin{align*}
+% 		\begin{array}{ll}
+% 			\dfrac{dN_1}{dt} = N_1\cdot \overline{Y}_1(\overline{m}, \overline{n}_1, M, N_1) &\ \ \ \ \ \ \dfrac{d\overline{n}_1}{dt} = \beta_{G1}^2\dfrac{\partial \overline{Y}_1}{\partial \overline{n}_1} \\[.3cm]
+% 			\dfrac{dN_2}{dt} = N_2\cdot \overline{Y}_2(\overline{m}, \overline{n}_2, M, N_2) &\ \ \ \ \ \ \dfrac{d\overline{n}_2}{dt} = \beta_{G2}^2\dfrac{\partial \overline{Y}_2}{\partial \overline{n}_2} \\[.3cm]
+% 			\dfrac{dM}{dt} = M\cdot \overline{W}(\overline{m}, \overline{n}_1, \overline{n}_2, N_1, N_2) & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2\dfrac{\partial \overline{W}}{\partial \overline{m}}
+% 		\end{array}
+% 	\end{align*}
+% 	\uncover<2->{{\bf Generalist Becomes Specialist}} \uncover<3->{$\boxed{\text{\it Stable under certain conditions???}}$}
+% 	\begin{align*}
+% 		\uncover<2->{&(N_1^*,N_2^*,M^*,\overline{n}_1^*,\overline{n}_2^*,\overline{m}^*) \\[.1cm]
+% 		=\ &(\dfrac{d\sqrt{A_1}}{e_1 \alpha_1 \tau_1}\ ,\ K_2\ ,\ \dfrac{r_1\sqrt{A_1}}{\alpha_1\tau_1}\left(1 - \dfrac{d\sqrt{A_1}}{K_1e_1\alpha_1\tau_1}\right)\ ,\ \mu_1^*\ ,\ \mu_2^*\ ,\ \mu_1^* - \theta_1)}
+% 	\end{align*}
+% 	\uncover<2->{where $A_1 = \sigma^2 + \beta_1^2 + \tau_1^2$, $\mu_1^*$ is an arbitrary value, and $\mu_2^*$ is sufficiently far from $\mu_1^* - \theta_1$.}
 
-\end{frame}
+% \end{frame}
 
-\begin{frame}
-	\frametitle{Figures - $1\times2$}
-	{\bf Generalist Becomes Specialist}
-	\Wider[6em]{
-	\includegraphics[scale=0.3175]{figures/1x2/densities_generalist_to_specialist.png}
-   	\hfill
-   	\includegraphics[scale=0.3175]{figures/1x2/traits_generalist_to_specialist.png}
-	}
-\end{frame}
-\begin{frame}
-	\frametitle{Figures - $1\times2$}
-	{\bf Unstable Coexistence}
-	\Wider[6em]{
-	\includegraphics[scale=0.3175]{figures/1x2/densities_unstable_coexistence.png}
-   	\hfill
-   	\includegraphics[scale=0.3175]{figures/1x2/traits_unstable_coexistence.png}
-	}
-\end{frame}
+% \begin{frame}
+% 	\frametitle{Figures - $1\times2$}
+% 	{\bf Generalist Becomes Specialist}
+% 	\Wider[6em]{
+% 	\includegraphics[scale=0.3175]{figures/1x2/densities_generalist_to_specialist.png}
+%    	\hfill
+%    	\includegraphics[scale=0.3175]{figures/1x2/traits_generalist_to_specialist.png}
+% 	}
+% \end{frame}
+% \begin{frame}
+% 	\frametitle{Figures - $1\times2$}
+% 	{\bf Unstable Coexistence}
+% 	\Wider[6em]{
+% 	\includegraphics[scale=0.3175]{figures/1x2/densities_unstable_coexistence.png}
+%    	\hfill
+%    	\includegraphics[scale=0.3175]{figures/1x2/traits_unstable_coexistence.png}
+% 	}
+% \end{frame}
 
 
 
