@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1430265116 "presentation.tex" "presentation.pdf" "presentation" 1430265120
+["pdflatex"] 1430283526 "presentation.tex" "presentation.pdf" "presentation" 1430283530
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/atbegshi.sty" 1335995445 24460 92f559a71aac869021852c227c704b38 ""
@@ -220,13 +220,13 @@
   "figures/1x2/densities_unstable_coexistence.png" 1426467997 45412 b506d03528e16876381d62b9f8afae7e ""
   "figures/1x2/traits_unstable_coexistence.png" 1426467997 38884 79f8d35c4eeed1e019eb8a021d5f88cd ""
   "figures/crab_eating_gastropod.jpg" 1426467997 41878 c57a08fb30fea0e5e8ac26dc902e6d2a ""
-  "presentation.aux" 1430265120 6991 1748537da68d86eafa711909b26f132e ""
-  "presentation.nav" 1430265120 4255 307953a65417d102e77dddf79f5471b8 ""
-  "presentation.out" 1430265120 482 a11c9241e951418b9cc97e63b1da02f6 ""
-  "presentation.tex" 1430265116 30235 27d8f34a2bc098b7a3268645c2da9986 ""
+  "presentation.aux" 1430283530 6986 a1de4385b99c31d1540a6bc0118f24fd ""
+  "presentation.nav" 1430283530 4216 a2823f50d2bcf5b032cd0a307f3a7cd9 ""
+  "presentation.out" 1430283530 472 9e41e5718405f091e6cb25f2be368fcb ""
+  "presentation.tex" 1430283526 30629 d604a236601a9f4ef4e742a27ff5ad1f ""
   (generated)
-  "presentation.aux"
   "presentation.out"
-  "presentation.pdf"
-  "presentation.log"
   "presentation.nav"
+  "presentation.pdf"
+  "presentation.aux"
+  "presentation.log"

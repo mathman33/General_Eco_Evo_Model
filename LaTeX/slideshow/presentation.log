@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  28 APR 2015 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  28 APR 2015 21:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1308,6 +1308,9 @@ line 44.
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
+Overfull \vbox (0.67538pt too high) detected at line 58
+ []
+
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 58.
@@ -1317,7 +1320,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 ]
 [2
 
-] <figures/crab_eating_gastropod.jpg, id=137, 126.4725pt x 105.87555pt>
+] <figures/crab_eating_gastropod.jpg, id=141, 126.4725pt x 105.87555pt>
 File: figures/crab_eating_gastropod.jpg Graphic file (type jpg)
 
 <use figures/crab_eating_gastropod.jpg>
@@ -1336,31 +1339,19 @@ Package pdftex.def Info: figures/crab_eating_gastropod.jpg used on input line 9
 
 ] [8
 
-]
-Overfull \hbox (10.57893pt too wide) in paragraph at lines 210--210
-[]  
- []
-
-
-Overfull \hbox (19.91231pt too wide) in paragraph at lines 210--210
-[]  
- []
-
-[9
+] [9
 
 ]
-Overfull \hbox (10.57893pt too wide) in paragraph at lines 210--210
-[]  
- []
-
-
-Overfull \hbox (19.91231pt too wide) in paragraph at lines 210--210
-[]  
+Overfull \vbox (0.65413pt too high) detected at line 233
  []
 
 [10
 
-] [11
+]
+Overfull \vbox (0.65413pt too high) detected at line 233
+ []
+
+[11
 
 ] [12
 
@@ -1375,15 +1366,15 @@ Overfull \hbox (19.91231pt too wide) in paragraph at lines 210--210
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 385.
+(hyperref)                removing `math shift' on input line 382.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 385.
+(hyperref)                removing `\times' on input line 382.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 385.
+(hyperref)                removing `math shift' on input line 382.
 
 [17
 
@@ -1400,57 +1391,57 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 ] [23
 
 ]
-<figures/1x1/densities_exclusion.png, id=835, 578.16pt x 433.62pt>
+<figures/1x1/densities_exclusion.png, id=830, 578.16pt x 433.62pt>
 File: figures/1x1/densities_exclusion.png Graphic file (type png)
 
 <use figures/1x1/densities_exclusion.png>
 Package pdftex.def Info: figures/1x1/densities_exclusion.png used on input line
- 435.
+ 432.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_exclusion.png, id=837, 578.16pt x 433.62pt>
+<figures/1x1/traits_exclusion.png, id=832, 578.16pt x 433.62pt>
 File: figures/1x1/traits_exclusion.png Graphic file (type png)
 
 <use figures/1x1/traits_exclusion.png>
 Package pdftex.def Info: figures/1x1/traits_exclusion.png used on input line 43
-5.
+2.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
  [24
 
  <./figures/1x1/densities_exclusion.png> <./figures/1x1/traits_exclusion.png>]
-<figures/1x1/densities_stable_coexistence.png, id=871, 578.16pt x 433.62pt>
+<figures/1x1/densities_stable_coexistence.png, id=867, 578.16pt x 433.62pt>
 File: figures/1x1/densities_stable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/densities_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/densities_stable_coexistence.png used on i
-nput line 444.
+nput line 441.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_stable_coexistence.png, id=872, 578.16pt x 433.62pt>
+<figures/1x1/traits_stable_coexistence.png, id=868, 578.16pt x 433.62pt>
 File: figures/1x1/traits_stable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/traits_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/traits_stable_coexistence.png used on inpu
-t line 444.
+t line 441.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
  [25
 
  <./figures/1x1/densities_stable_coexistence.png> <./figures/1x1/traits_stable_
 coexistence.png>]
-<figures/1x1/densities_unstable_coexistence.png, id=908, 578.16pt x 433.62pt>
+<figures/1x1/densities_unstable_coexistence.png, id=905, 578.16pt x 433.62pt>
 File: figures/1x1/densities_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/densities_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/densities_unstable_coexistence.png used on
- input line 453.
+ input line 450.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/traits_unstable_coexistence.png, id=909, 578.16pt x 433.62pt>
+<figures/1x1/traits_unstable_coexistence.png, id=906, 578.16pt x 433.62pt>
 File: figures/1x1/traits_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x1/traits_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/traits_unstable_coexistence.png used on in
-put line 453.
+put line 450.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
  [26
 
@@ -1466,7 +1457,11 @@ ble_coexistence.png>]
 
 ] [31
 
-] [32
+]
+Overfull \vbox (1.0246pt too high) detected at line 563
+ []
+
+[32
 
 ] [33
 
@@ -1486,45 +1481,44 @@ ble_coexistence.png>]
 
 ] [41
 
-]
-[42
+] [42
 
 ] [43
 
 ]
-<figures/1x2/densities_generalist_to_specialist.png, id=1470, 578.16pt x 433.62
+<figures/1x2/densities_generalist_to_specialist.png, id=1485, 578.16pt x 433.62
 pt>
 File: figures/1x2/densities_generalist_to_specialist.png Graphic file (type png
 )
  <use figures/1x2/densities_generalist_to_specialist.png>
 Package pdftex.def Info: figures/1x2/densities_generalist_to_specialist.png use
-d on input line 678.
+d on input line 675.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x2/traits_generalist_to_specialist.png, id=1471, 578.16pt x 433.62pt>
+<figures/1x2/traits_generalist_to_specialist.png, id=1486, 578.16pt x 433.62pt>
 File: figures/1x2/traits_generalist_to_specialist.png Graphic file (type png)
 <use figures/1x2/traits_generalist_to_specialist.png>
 Package pdftex.def Info: figures/1x2/traits_generalist_to_specialist.png used o
-n input line 678.
+n input line 675.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
  [44
 
  <./figures/1x2/densities_generalist_to_specialist.png> <./figures/1x2/traits_g
 eneralist_to_specialist.png>]
-<figures/1x2/densities_unstable_coexistence.png, id=1503, 578.16pt x 433.62pt>
+<figures/1x2/densities_unstable_coexistence.png, id=1519, 578.16pt x 433.62pt>
 File: figures/1x2/densities_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/densities_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x2/densities_unstable_coexistence.png used on
- input line 687.
+ input line 684.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x2/traits_unstable_coexistence.png, id=1504, 578.16pt x 433.62pt>
+<figures/1x2/traits_unstable_coexistence.png, id=1520, 578.16pt x 433.62pt>
 File: figures/1x2/traits_unstable_coexistence.png Graphic file (type png)
 
 <use figures/1x2/traits_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x2/traits_unstable_coexistence.png used on in
-put line 687.
+put line 684.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
  [45
 
@@ -1539,26 +1533,26 @@ ble_coexistence.png>]
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 693.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 693.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 690.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 690.
 
 (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 693.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 693.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 690.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 690.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: A11C9241E951418B9CC97E63B1DA02F6;482.
+(rerunfilecheck)             Checksum: 9E41E5718405F091E6CB25F2BE368FCB;472.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 693.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 690.
  ) 
 Here is how much of TeX's memory you used:
- 30295 strings out of 493117
+ 30296 strings out of 493117
  718566 string characters out of 6135433
  904200 words of memory out of 5000000
- 33003 multiletter control sequences out of 15000+600000
+ 33004 multiletter control sequences out of 15000+600000
  21392 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,22n,78p,738b,1042s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1584,10 +1578,10 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
 ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/
 2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on presentation.pdf (45 pages, 698809 bytes).
+Output written on presentation.pdf (45 pages, 699390 bytes).
 PDF statistics:
- 1633 PDF objects out of 1728 (max. 8388607)
- 1509 compressed objects within 16 object streams
+ 1650 PDF objects out of 1728 (max. 8388607)
+ 1525 compressed objects within 16 object streams
  99 named destinations out of 1000 (max. 500000)
  204 words of extra memory for PDF output out of 10000 (max. 10000000)
 
