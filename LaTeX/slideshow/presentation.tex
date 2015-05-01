@@ -37,9 +37,9 @@
 \setcounter{section}{-1}
 %\setlength{\jot}{30pt}
 
-\title{The Ecological Effects of Trait Variation in a $u$-Predator, $v$-Prey System}
-\author{Sam Fleischer, Pablo Chavarria}
-\date{May 3, 2015}
+\title{The Effects of Intraspecific Genetic Variation on the Dynamic of Predator-Prey Ecological Communities}
+\author{\vspace{-15pt} Sam Fleischer, Pablo Chavarria}
+\date{\vspace{-5pt} May 3, 2015}
 
 \begin{document}
 
@@ -60,45 +60,48 @@
 \begin{frame}
 	\frametitle{Overview}
 	\begin{itemize}
-		\item Motivation / Observations in Nature
-		\item Model Formulation
+		\item Motivation
 		\begin{itemize}
-			\item Classical Lotka-Volterra Predator-Prey Model
-			\item Schreiber, B\"urger, and Bolnick's Extension
-			\item Our Extension
+			\item Observations in Nature
+			\item Previous Models
 		\end{itemize}
-		\item Preliminary Results
-		\item Future Work
+		\item Our Expansions
+		\begin{itemize}
+			\item Gaussian Attack Rate under Coevolution
+			\item Introduce Stabilizing Selection
+			\item General Ditrophic Expansion
+		\end{itemize}
+		\item Discussion
 	\end{itemize}
 \end{frame}
 
-\section{Motivation / Observations in Nature}
+\section{Motivation}
+\subsection{Observations in Nature}
 \begin{frame}
-	\frametitle{Motivation / Observations in Nature}
-\begin{minipage}{0.65\textwidth}
-	\begin{itemize}
-		\item Predator/Prey interactions are prevalent in nature
+	\frametitle{Observations in Nature}
+	\begin{minipage}{0.65\textwidth}
 		\begin{itemize}
-			\item Crab vs. gastropod {\tiny[Saloniemi, 1993]}
-			\item Protist vs. bacteria {\tiny[terHorst]}
+			\item Predator/Prey interactions are prevalent in nature
+			\begin{itemize}
+				\item Crab vs. gastropod {\tiny[Saloniemi, 1993]}
+				\item Protist vs. bacteria {\tiny[terHorst]}
+			\end{itemize}
+			\item There is trait variation within species
+			\begin{itemize}
+				\item Thickness of plant cuticula {\tiny[Saloniemi, 1993]}
+				\item Strength of gastropod shell {\tiny[Saloniemi, 1993]}
+			\end{itemize}
+			\item Incorporating trait variation provides {\bf richer dynamics} than classical Lotka-Volterra models
 		\end{itemize}
-		\item There is trait variation within species
-		\begin{itemize}
-			\item Thickness of plant cuticula {\tiny[Saloniemi, 1993]}
-			\item Strength of gastropod shell {\tiny[Saloniemi, 1993]}
-		\end{itemize}
-		\item Incorporating trait variation provides {\bf richer dynamics} than classical Lotka-Volterra models
-	\end{itemize}
 	\end{minipage}
 	\begin{minipage}{0.25\textwidth}
-	\begin{figure}
-	\includegraphics[width=0.95\textwidth]{figures/crab_eating_gastropod.jpg}
-	\end{figure}
+		\begin{figure}
+			\includegraphics[width=0.95\textwidth]{figures/crab_eating_gastropod.jpg}
+		\end{figure}
 	\end{minipage}
 \end{frame}
 
-\section{Model Formulation}
-\subsection{Lotka-Volterra}
+\subsection{Previous Models}
 \begin{frame}
 	\frametitle{Classical Lotka-Volterra Model}
 	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
@@ -138,9 +141,9 @@
 		\end{column}
 	\end{columns}
 \end{frame}
-\subsection{Schreiber, B\"urger, and Bolnick}
+
 \begin{frame}
-	\frametitle{Schreiber, B\"urger, and Bolnick's Extension}
+	\frametitle{Schreiber, B\"urger, and Bolnick's Expansion}
 	{\bf Assume the {\color{red}Predator Species} has a normally distributed trait value.}
 	\begin{align*}
 		p({\color{red}m}, \overline{m}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{({\color{red}m} - \overline{m})^2}{2\sigma^2}}\right]
@@ -168,7 +171,8 @@
 		\end{column}
 	\end{columns}
 \end{frame}
-\subsection*{Our Extension}
+
+\section{Our Expansions}
 \begin{frame}
 	\frametitle{Normally Distributed Trait Values}
 	{\bf Assume {\color{blue}Prey} and {\color{red}Predator} have normally distributed trait values.}

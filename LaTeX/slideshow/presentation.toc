@@ -1,8 +1,8 @@
 \beamer@endinputifotherversion {3.33pt}
-\beamer@sectionintoc {0}{Motivation / Observations in Nature}{3}{0}{1}
-\beamer@sectionintoc {1}{Model Formulation}{4}{0}{2}
-\beamer@subsectionintoc {1}{1}{Lotka-Volterra}{4}{0}{2}
-\beamer@subsectionintoc {1}{2}{Schreiber, B\"urger, and Bolnick}{6}{0}{2}
+\beamer@sectionintoc {0}{Motivation}{3}{0}{1}
+\beamer@subsectionintoc {0}{1}{Observations in Nature}{3}{0}{1}
+\beamer@subsectionintoc {0}{2}{Previous Models}{4}{0}{1}
+\beamer@sectionintoc {1}{Our Expansions}{9}{0}{2}
 \beamer@sectionintoc {2}{Preliminary Results}{34}{0}{3}
 \beamer@subsectionintoc {2}{1}{$1 \times 1$}{34}{0}{3}
 \beamer@sectionintoc {3}{Future Work}{50}{0}{4}
