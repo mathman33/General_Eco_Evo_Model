@@ -73,7 +73,10 @@
 		\item Predator/Prey interactions are prevalent in nature
 		\begin{itemize}
 			\item Crab vs. gastropod {\tiny[Saloniemi, 1993]}
-			\item Classical Lotka-Volterra model \\ (Next Slide)
+			\item Classical Lotka-Volterra model
+			\begin{itemize}
+				\item Genetic adaptation is insignificant
+			\end{itemize}
 		\end{itemize} \vspace{15pt}
 		\uncover<2->{\item There is trait variation within species, which causes {\bf variation in fundametal model parameters}
 		\begin{itemize}
@@ -106,11 +109,16 @@
 		(2)		edge node {$dM$} (output);
 	\end{tikzpicture}\vskip0.75cm
 	\begin{columns}
-    		\begin{column}{0.35\textwidth}
+    		\begin{column}{0.4\textwidth}
 			\begin{align*}
 				\frac{dN}{dt} &= N({\color{blue}r} - {\color{red}\alpha} M)\\[.1cm]
 				\frac{dM}{dt} &= M(e{\color{red}\alpha} N - d)
 			\end{align*}
+    		\begin{itemize}
+    			\item \footnotesize Prey Exponential Growth
+    			\item Predator Exponential Decay
+    			\item Linear Functional Response
+    		\end{itemize}
    		 \end{column}
 		 \begin{column}{0.60\textwidth}
 			{\bf Variables}
