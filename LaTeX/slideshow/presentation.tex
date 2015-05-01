@@ -133,12 +133,67 @@
 \begin{frame}
 	\frametitle{Normally Distributed Trait Values}
 	{\bf Assume {\color{blue}Prey} and {\color{red}Predator} have normally distributed trait values.}
-	\begin{align*}
-		p({\color{blue}n}, {\color{blue}\overline{n}}) &= \frac{1}{\sqrt{2\pi\beta^2}}\exp\left[{-\frac{({\color{blue}n} - {\color{blue}\overline{n}})^2}{2\beta^2}}\right]
-	\end{align*}
-	\begin{align*}
-		p({\color{red}m}, {\color{red}\overline{m}}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{({\color{red}m} - {\color{red}\overline{m}})^2}{2\sigma^2}}\right]
-	\end{align*}
+	\begin{columns}
+		\begin{column}{0.50\textwidth}
+			\begin{align*}
+				p({\color{blue}n}, {\color{blue}\overline{n}}) &= \frac{1}{\sqrt{2\pi\beta^2}}\exp\left[{-\frac{({\color{blue}n} - {\color{blue}\overline{n}})^2}{2\beta^2}}\right]
+			\end{align*}
+			\begin{tikzpicture}[thick,scale=0.5, every node/.style={scale=0.5}]
+			\begin{axis}[
+				no markers, 
+				domain=0:6, 
+				samples=100,
+				axis lines*=left, 
+				every axis y label/.style={at=(current axis.above origin),anchor=south},
+			 	every axis x label/.style={at=(current axis.right of origin),anchor=west},
+				height=5cm, 
+				width=12cm,
+				xtick=\empty, 
+				ytick=\empty,
+				enlargelimits=false, 
+				clip=false, 
+				axis on top,
+				grid = major
+				]
+
+				\addplot [very thick,blue!50!black] {gauss(3, 1)};
+				\draw [yshift=1.4cm, latex-latex](axis cs:3.1, 0.05) -- node [fill=white] {\Huge$\beta$} (axis cs:4, 0.05);
+				\draw [yshift=0.1cm, latex-latex](axis cs:3, 0) -- node [] {} (axis cs:3, 0.38);
+			\end{axis}
+			\node[below] at (5.2, 0)  {\Huge{\color{blue}$\overline{n}$}}; 
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.50\textwidth}
+			\begin{align*}
+				p({\color{red}m}, {\color{red}\overline{m}}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{({\color{red}m} - {\color{red}\overline{m}})^2}{2\sigma^2}}\right]
+			\end{align*}
+			\begin{tikzpicture}[thick,scale=0.5, every node/.style={scale=0.5}]
+			\begin{axis}[
+				no markers, 
+				domain=0:6, 
+				samples=100,
+				axis lines*=left, 
+				every axis y label/.style={at=(current axis.above origin),anchor=south},
+			 	every axis x label/.style={at=(current axis.right of origin),anchor=west},
+				height=5cm, 
+				width=12cm,
+				xtick=\empty, 
+				ytick=\empty,
+				enlargelimits=false, 
+				clip=false, 
+				axis on top,
+				grid = major
+				]
+
+				\addplot [very thick,red!50!black] {gauss(3, 1)};
+				\draw [yshift=1.4cm, latex-latex](axis cs:3.1, 0.05) -- node [fill=white] {\Huge$\sigma$} (axis cs:4, 0.05);
+				\draw [yshift=0.1cm, latex-latex](axis cs:3, 0) -- node [] {} (axis cs:3, 0.38);
+			\end{axis}
+			\node[below] at (5.2, 0)  {\Huge{\color{red}$\overline{m}$}}; 
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+	\vspace{10pt}
 	\begin{columns}
 		\begin{column}{0.50\textwidth}
 			{\bf Variables}
@@ -564,7 +619,7 @@
 	\end{align*}
 	\uncover<4->{{\bf Necessary Conditions for Local Asymptotically Stable Exclusion:}}
 	\begin{itemize}
-		\item \uncover<4->{$d > e\overline{a}(\overline{m}^*, \overline{n}^*)K$}
+		\item \uncover<4->{$d > e\overline{a}(\overline{n}^*, \overline{m}^*)K$}
 		\item \uncover<4->{$((\overline{m}^* - \overline{n}^*) - \theta)^2 < \sigma^2 + \beta^2 + \tau^2$}
 	\end{itemize}
 \end{frame}
