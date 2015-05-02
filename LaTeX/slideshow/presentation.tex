@@ -350,8 +350,8 @@
 		\item The evolution of the mean trait value is always \underline{in the direction} \underline{which increases the mean fitness in the population}. {\tiny[Lande, 1976]}
 	\end{itemize}
 	\begin{align*}
-		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}\\[.1cm]
-		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}\\[.1cm]
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
 	\end{align*}
 	\vskip.25cm
 	\begin{columns}
@@ -377,13 +377,13 @@
 	\frametitle{The Complete $1\times1$ Model \\ (One Predator Species, One Prey Species)}
 	{\bf Ecological Components}
 	\begin{align*}
-		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)}\ \ =\ N{\color{blue}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
-		\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(\overline{m}, \overline{n}, N)}\ \ \ \ \ =\ M{\color{red}\left[eN\overline{a}(\overline{m}, \overline{n}) - d\right]}
+		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})}\ \ =\ N{\color{blue}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
+		\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})}\ \ \ \ \ =\ M{\color{red}\left[eN\overline{a}(\overline{m}, \overline{n}) - d\right]}
 	\end{align*}
 	{\bf Evolutionary Components}
 	\begin{align*}
-		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}\\[.1cm]
-		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}\\[.1cm]
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
 	\end{align*}
 \end{frame}
 
@@ -391,8 +391,8 @@
 	\frametitle{Equilibria - $1\times1$}
 	\begin{align*}
 		\begin{array}{ll}
-			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(\overline{m}, \overline{n}, N)} & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
+			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
+			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
 		\end{array}
 	\end{align*}
 	{\bf Extinction} \uncover<2->{$\boxed{\text{\it Unstable}}$}
@@ -412,8 +412,8 @@
 	\frametitle{Equilibria - $1\times1$}
 	\begin{align*}
 		\begin{array}{ll}
-			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(\overline{m}, \overline{n}, N)} & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
+			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
+			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
 		\end{array}
 	\end{align*}
 	{\bf Coexistence} \uncover<2->{$\boxed{\text{\it Stable under certain conditions}}$}
@@ -594,7 +594,7 @@
 % 	\end{itemize}
 % 	\begin{align*}
 % 		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
-% 		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+% 		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
 % 	\end{align*}
 % 	\vskip.25cm
 % 	\begin{columns}
@@ -629,7 +629,7 @@
 	{\bf Evolutionary Components}
 	\begin{align*}
 		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
-		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
 	\end{align*}
 \end{frame}
 
