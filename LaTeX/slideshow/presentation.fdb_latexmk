@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1430521544 "presentation.tex" "presentation.pdf" "presentation" 1430521549
+["pdflatex"] 1430537614 "presentation.tex" "presentation.pdf" "presentation" 1430537619
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/atbegshi.sty" 1335995445 24460 92f559a71aac869021852c227c704b38 ""
@@ -215,6 +215,11 @@
   "figures/1x1/constant_growth/densities_unstable_coexistence.png" 1430354705 43737 48e8fa6f22f033cf92cc66dc2d063a56 ""
   "figures/1x1/constant_growth/traits_stable_coexistence.png" 1430354705 28888 9956dab8fb735a5eabe103cc53928a11 ""
   "figures/1x1/constant_growth/traits_unstable_coexistence.png" 1430354705 32232 580f2f57996922201b1b8606e3c09913 ""
+  "figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.png" 1430535962 52804 166826fe85b6574387f5b0a5df540092 ""
+  "figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png" 1430535967 46203 e5dcb22fae10e57ef586af63f94b8adb ""
+  "figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png" 1430534672 67980 ae56623de28b9d6dd23c1db1f77e6cfc ""
+  "figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.png" 1430535962 58763 e62e81d011a4b271200361bb709dba78 ""
+  "figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png" 1430535967 65192 118a3d00bb8371b803c3dc6ab1c0aefa ""
   "figures/1x1/variable_growth/stable_coexistence/densities.png" 1430354705 40691 751ed3766158f9e65c548c517cf03594 ""
   "figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png" 1430354705 53460 274934fe4fa26ee15fa309f2721eafaf ""
   "figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png" 1430354705 37745 00dfee771367c66c1b74d1e7e202f2c4 ""
@@ -228,13 +233,13 @@
   "figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png" 1430354705 27718 d823c131c420c9225cb068c6dc4a7ec8 ""
   "figures/1x1/variable_growth/stable_exclusion/traits.png" 1430354705 28381 6b965b0864a35ae769a724eaeca82133 ""
   "figures/crab_eating_gastropod.jpg" 1426467997 41878 c57a08fb30fea0e5e8ac26dc902e6d2a ""
-  "presentation.aux" 1430521549 7566 c2c8c97881567a81ef7e00d8ce9b2cee ""
-  "presentation.nav" 1430521549 4724 0117ab3755ed27aa4bb98784722e136b ""
-  "presentation.out" 1430521549 382 ebe0a5dead69cd9644e9b417e72c23f3 ""
-  "presentation.tex" 1430521540 41527 4d5bcc82d849c134f5b1ba63a22d7f3b ""
+  "presentation.aux" 1430537619 8914 3e0434b928740a1a641993eab3228d17 ""
+  "presentation.nav" 1430537619 5706 e515694c6dca486dd5921b539e047122 ""
+  "presentation.out" 1430537619 617 c2acf553849ff27350d352cceb416966 ""
+  "presentation.tex" 1430537614 44039 41e9442946dff18ff3e36ae8d4e76f3c ""
   (generated)
-  "presentation.aux"
   "presentation.pdf"
-  "presentation.nav"
   "presentation.out"
   "presentation.log"
+  "presentation.nav"
+  "presentation.aux"
