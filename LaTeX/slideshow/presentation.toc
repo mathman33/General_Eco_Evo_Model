@@ -1,9 +1,9 @@
 \beamer@endinputifotherversion {3.33pt}
 \beamer@sectionintoc {0}{Motivation}{3}{0}{1}
 \beamer@subsectionintoc {0}{1}{Observations in Nature}{3}{0}{1}
-\beamer@subsectionintoc {0}{2}{Previous Models}{4}{0}{1}
-\beamer@sectionintoc {1}{Our Expansions}{9}{0}{2}
-\beamer@subsectionintoc {1}{1}{Coevolution Model}{9}{0}{2}
+\beamer@subsectionintoc {0}{2}{Previous Models}{5}{0}{1}
+\beamer@sectionintoc {1}{Our Expansions}{10}{0}{2}
+\beamer@subsectionintoc {1}{1}{Coevolution Model}{10}{0}{2}
 \beamer@subsectionintoc {1}{2}{Stabilizing Selection}{27}{0}{2}
 \beamer@sectionintoc {2}{Discussion}{45}{0}{3}
 \beamer@subsectionintoc {2}{1}{Summary of the $1\times 1$ model}{45}{0}{3}

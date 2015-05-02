@@ -84,19 +84,22 @@
 			\item Predator/Prey interactions are prevalent in nature
 			\begin{itemize}
 				\item Crab vs. gastropod {\tiny[Saloniemi, 1993]}
-				\item Protist vs. bacteria {\tiny[terHorst]}
-			\end{itemize}
-			\item There is trait variation within species
+				\item Classical Lotka-Volterra model
+				\begin{itemize}
+					\item Genetic adaptation is insignificant
+				\end{itemize}
+			\end{itemize} \vspace{15pt}
+			\uncover<2->{\item There is trait variation within species, which causes {\bf variation in fundametal model parameters}
 			\begin{itemize}
-				\item Thickness of plant cuticula {\tiny[Saloniemi, 1993]}
-				\item Strength of gastropod shell {\tiny[Saloniemi, 1993]}
-			\end{itemize}
-			\item Incorporating trait variation provides {\bf richer dynamics} than classical Lotka-Volterra models
+				% \item Thickness of plant cuticula {\tiny[Saloniemi, 1993]}
+				\item Relative strength of crab claw vs. gastropod shell {\tiny[Saloniemi, 1993]}
+				\item Incorporating trait variation provides {\bf richer dynamics} than classical Lotka-Volterra models
+			\end{itemize}}
 		\end{itemize}
 	\end{minipage}
 	\begin{minipage}{0.25\textwidth}
 		\begin{figure}
-			\includegraphics[width=0.95\textwidth]{figures/crab_eating_gastropod.jpg}
+			\includegraphics[width=1.5\textwidth]{figures/crab_eating_gastropod.jpg}
 		\end{figure}
 	\end{minipage}
 \end{frame}
@@ -302,10 +305,11 @@
 \end{frame}
 \begin{frame}
 	\frametitle{Ecological Components}
+	\vspace{-10pt}
 	\begin{align*}
 		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})}\ = N{\color{blue}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})\right]}\\[.1cm]
 		\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} = M{\color{red}\left[eN\overline{a}(\overline{n}, \overline{m}) - d\right]}
-	\end{align*}\vskip0.15cm
+	\end{align*}
 	\begin{center}
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
 	
@@ -316,13 +320,12 @@
 			\node (output) [right of=2] {};
 	
 			\path[every node/.style={font=\sffamily\small}]
-			(input)	edge node {{\color{blue}$rN(1 - \frac{N}{K})$}} (1)
+			(input)	edge node {{\color{blue}$rN\left(1 - \dfrac{N}{K}\right)$}} (1)
 			(1)		edge node {{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (midpt)
 			(midpt)	edge node {{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (2)
 			(2)		edge node {{\color{red}$dM$}} (output);
 		\end{tikzpicture}\vskip0.35cm
 	\end{center}
-	\vskip.25cm
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			{\bf Variables}
@@ -382,48 +385,33 @@
 	\end{align*}
 	{\bf Evolutionary Components}
 	\begin{align*}
-		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}\\[.1cm]
-		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
+		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}\\[.1cm]
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
 	\end{align*}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Equilibria - $1\times1$}
-	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
-		\end{array}
-	\end{align*}
 	{\bf Extinction} \uncover<2->{$\boxed{\text{\it Unstable}}$}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (0, 0, \underline{\ \ }, \underline{\ \ })
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = ({\color{blue}0}, {\color{red}0}, {\color{cyan}\underline{\ \ }}, {\color{magenta}\underline{\ \ }})
 	\end{align*}
-	{\bf Exclusion} \uncover<3->{$\boxed{\text{\it Stable under certain conditions}}$}
+	\uncover<3->{{\bf Exclusion}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (K, 0, \mu^*, \mu^* + \theta)\ \ \ \ \ \text{where $\mu^*$ is arbitrary}
-	\end{align*}
-	\uncover<4->{{\bf Necessary Condition for Stable Exclusion:}}
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = ({\color{blue}K}, {\color{red}0}, {\color{cyan}\mu^*}, {\color{magenta}\mu^* + \theta})\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{where $\mu^*$ is arbitrary}
+	\end{align*}}
+	\uncover<4->{$\boxed{\text{\it Necessary Condition for Stable Exclusion:}}$}
 	\begin{itemize}
-		\item \uncover<4->{$d > \dfrac{Ke\alpha\tau}{\sqrt{A}}$ \ \ \ \ \ \ \ \ where $A = \sigma^2 + \beta^2 + \tau^2$.}
+		\item \uncover<4->{$d > \dfrac{Ke\alpha\tau}{\sqrt{A}}$ \hfill where $A = \sigma^2 + \beta^2 + \tau^2$.}
 	\end{itemize}
-\end{frame}
-\begin{frame}
-	\frametitle{Equilibria - $1\times1$}
+	\vspace{1pt}
+	\uncover<5->{{\bf Coexistence}
 	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
-		\end{array}
-	\end{align*}
-	{\bf Coexistence} \uncover<2->{$\boxed{\text{\it Stable under certain conditions}}$}
-	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (\dfrac{d\sqrt{A}}{e \alpha \tau}\ ,\ \dfrac{r\sqrt{A}}{\alpha\tau}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\ ,\ \mu^*\ ,\ \mu^* + \theta) \\[.1cm]
-		\text{where $A = \sigma^2 + \beta^2 + \tau^2$ and $\mu^*$ is an arbitrary value.}
-	\end{align*}
-	\uncover<3->{{\bf Necessary Condition for Stable Coexistence:}}
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = ({\color{blue}\dfrac{d\sqrt{A}}{e \alpha \tau}}\ ,\ {\color{red}\dfrac{r\sqrt{A}}{\alpha\tau}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)}\ ,\ {\color{cyan}\mu^*}\ ,\ {\color{magenta}\mu^* + \theta})
+		\end{align*}}
+	\uncover<6->{$\boxed{\text{\it Necessary Condition for Stable Coexistence:}}$}
 	\begin{itemize}
-		\item \uncover<3->{$\dfrac{\sigma_G^2}{\beta_G^2} > \dfrac{r}{d}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)$}
+		\item \uncover<6->{$\dfrac{\sigma_G^2}{\beta_G^2} > \dfrac{r}{d}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)$}
 	\end{itemize}
 \end{frame}
 
@@ -652,11 +640,11 @@
 	\end{align*}
 	{\bf Extinction} \uncover<2->{$\boxed{\text{\it Unstable}}$}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (0, 0, \underline{\ \ }, \underline{\ \ })
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = (0, 0, \underline{\ \ }, \underline{\ \ })
 	\end{align*}
 	{\bf Exclusion} \uncover<3->{$\boxed{\text{\it Locally stable under certain conditions}}$}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (K, 0, \mu^*, \mu^* + \theta)\ \ \ \ \ \text{where $\mu^*$ is arbitrary}
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = (K, 0, \mu^*, \mu^* + \theta)\ \ \ \ \ \text{where $\mu^*$ is arbitrary}
 	\end{align*}
 	\uncover<4->{{\bf Necessary Conditions for Locally Stable Exclusion:}}
 	\uncover<4->{{\bf Necessary Condition for Stable Exclusion:}}
@@ -674,7 +662,7 @@
 	\end{align*}
 	{\bf Coexistence} \uncover<2->{$\boxed{\text{\it Locally stable under certain conditions}}$}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (\dfrac{d\sqrt{A}}{e \alpha \tau}\ ,\ \dfrac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\ ,\ \phi\ ,\ \theta + \phi) \\[.1cm]
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = (\dfrac{d\sqrt{A}}{e \alpha \tau}\ ,\ \dfrac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\ ,\ \phi\ ,\ \theta + \phi) \\[.1cm]
 		\text{where $A = \sigma^2 + \beta^2 + \tau^2$ and $B = \beta^2 + \gamma^2$}
 	\end{align*}
 	\uncover<3->{{\bf Necessary Condition for Locally Stable Coexistence:}}

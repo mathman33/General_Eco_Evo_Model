@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  2 MAY 2015 15:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  2 MAY 2015 16:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1322,8 +1322,13 @@ File: figures/crab_eating_gastropod.jpg Graphic file (type jpg)
 
 <use figures/crab_eating_gastropod.jpg>
 Package pdftex.def Info: figures/crab_eating_gastropod.jpg used on input line 1
-02.
-(pdftex.def)             Requested size: 72.9811pt x 61.09605pt.
+05.
+(pdftex.def)             Requested size: 115.23369pt x 96.46967pt.
+
+Overfull \hbox (38.41122pt too wide) in paragraph at lines 105--105
+ [] 
+ []
+
 
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
  [][][][]  
@@ -1332,6 +1337,18 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [3
 
  <./figures/crab_eating_gastropod.jpg>]
+File: figures/crab_eating_gastropod.jpg Graphic file (type jpg)
+
+<use figures/crab_eating_gastropod.jpg>
+Package pdftex.def Info: figures/crab_eating_gastropod.jpg used on input line 1
+05.
+(pdftex.def)             Requested size: 115.23369pt x 96.46967pt.
+
+Overfull \hbox (38.41122pt too wide) in paragraph at lines 105--105
+ [] 
+ []
+
+
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1430,6 +1447,10 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [17
 
 ]
+Overfull \vbox (1.26329pt too high) detected at line 416
+ []
+
+
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1437,6 +1458,10 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [18
 
 ]
+Overfull \vbox (1.26329pt too high) detected at line 416
+ []
+
+
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1444,6 +1469,10 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [19
 
 ]
+Overfull \vbox (1.26329pt too high) detected at line 416
+ []
+
+
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1451,6 +1480,10 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [20
 
 ]
+Overfull \vbox (1.26329pt too high) detected at line 416
+ []
+
+
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1458,6 +1491,10 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [21
 
 ]
+Overfull \vbox (1.26329pt too high) detected at line 416
+ []
+
+
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1465,6 +1502,10 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [22
 
 ]
+Overfull \vbox (1.26329pt too high) detected at line 416
+ []
+
+
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1472,20 +1513,20 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [23
 
 ]
-<figures/1x1/constant_growth/densities_exclusion.png, id=816, 578.16pt x 433.62
+<figures/1x1/constant_growth/densities_exclusion.png, id=817, 578.16pt x 433.62
 pt>
 File: figures/1x1/constant_growth/densities_exclusion.png Graphic file (type pn
 g)
  <use figures/1x1/constant_growth/densities_exclusion.png>
 Package pdftex.def Info: figures/1x1/constant_growth/densities_exclusion.png us
-ed on input line 437.
+ed on input line 425.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/constant_growth/traits_exclusion.png, id=818, 578.16pt x 433.62pt>
+<figures/1x1/constant_growth/traits_exclusion.png, id=819, 578.16pt x 433.62pt>
 File: figures/1x1/constant_growth/traits_exclusion.png Graphic file (type png)
 <use figures/1x1/constant_growth/traits_exclusion.png>
 Package pdftex.def Info: figures/1x1/constant_growth/traits_exclusion.png used 
-on input line 437.
+on input line 425.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
@@ -1496,23 +1537,23 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 
  <./figures/1x1/constant_growth/densities_exclusion.png> <./figures/1x1/constan
 t_growth/traits_exclusion.png>]
-<figures/1x1/constant_growth/densities_stable_coexistence.png, id=852, 578.16pt
+<figures/1x1/constant_growth/densities_stable_coexistence.png, id=853, 578.16pt
  x 433.62pt>
 File: figures/1x1/constant_growth/densities_stable_coexistence.png Graphic file
  (type png)
 
 <use figures/1x1/constant_growth/densities_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/densities_stable_coexisten
-ce.png used on input line 445.
+ce.png used on input line 433.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/constant_growth/traits_stable_coexistence.png, id=853, 578.16pt x 
+<figures/1x1/constant_growth/traits_stable_coexistence.png, id=854, 578.16pt x 
 433.62pt>
 File: figures/1x1/constant_growth/traits_stable_coexistence.png Graphic file (t
 ype png)
  <use figures/1x1/constant_growth/traits_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/traits_stable_coexistence.
-png used on input line 445.
+png used on input line 433.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
@@ -1523,23 +1564,23 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 
  <./figures/1x1/constant_growth/densities_stable_coexistence.png> <./figures/1x
 1/constant_growth/traits_stable_coexistence.png>]
-<figures/1x1/constant_growth/densities_unstable_coexistence.png, id=887, 578.16
+<figures/1x1/constant_growth/densities_unstable_coexistence.png, id=888, 578.16
 pt x 433.62pt>
 File: figures/1x1/constant_growth/densities_unstable_coexistence.png Graphic fi
 le (type png)
 
 <use figures/1x1/constant_growth/densities_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/densities_unstable_coexist
-ence.png used on input line 453.
+ence.png used on input line 441.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-<figures/1x1/constant_growth/traits_unstable_coexistence.png, id=888, 578.16pt 
+<figures/1x1/constant_growth/traits_unstable_coexistence.png, id=889, 578.16pt 
 x 433.62pt>
 File: figures/1x1/constant_growth/traits_unstable_coexistence.png Graphic file 
 (type png)
  <use figures/1x1/constant_growth/traits_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/traits_unstable_coexistenc
-e.png used on input line 453.
+e.png used on input line 441.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
@@ -1627,45 +1668,45 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [37
 
 ]
-<figures/1x1/variable_growth/stable_exclusion/densities.png, id=1268, 578.16pt 
+<figures/1x1/variable_growth/stable_exclusion/densities.png, id=1269, 578.16pt 
 x 433.62pt>
 File: figures/1x1/variable_growth/stable_exclusion/densities.png Graphic file (
 type png)
  <use figures/1x1/variable_growth/stable_exclusion/densities.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/densities
-.png used on input line 700.
+.png used on input line 688.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-<figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png, id=1269,
+<figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png, id=1270,
  578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png Grap
 hic file (type png)
 
 <use figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/density_p
-hase_plane.png used on input line 700.
+hase_plane.png used on input line 688.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-<figures/1x1/variable_growth/stable_exclusion/traits.png, id=1270, 578.16pt x 4
+<figures/1x1/variable_growth/stable_exclusion/traits.png, id=1271, 578.16pt x 4
 33.62pt>
 File: figures/1x1/variable_growth/stable_exclusion/traits.png Graphic file (typ
 e png)
  <use figures/1x1/variable_growth/stable_exclusion/traits.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/traits.pn
-g used on input line 700.
+g used on input line 688.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-<figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png, id=1271, 5
+<figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png, id=1272, 5
 78.16pt x 433.62pt>
 File: figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png Graphi
 c file (type png)
 
 <use figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/trait_pha
-se_plane.png used on input line 700.
+se_plane.png used on input line 688.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-Overfull \vbox (4.72643pt too high) detected at line 700
+Overfull \vbox (4.72643pt too high) detected at line 688
  []
 
 
@@ -1679,46 +1720,46 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 variable_growth/stable_exclusion/density_phase_plane.png> <./figures/1x1/variab
 le_growth/stable_exclusion/traits.png> <./figures/1x1/variable_growth/stable_ex
 clusion/trait_phase_plane.png>]
-<figures/1x1/variable_growth/stable_coexistence/densities.png, id=1307, 578.16p
+<figures/1x1/variable_growth/stable_coexistence/densities.png, id=1308, 578.16p
 t x 433.62pt>
 File: figures/1x1/variable_growth/stable_coexistence/densities.png Graphic file
  (type png)
 
 <use figures/1x1/variable_growth/stable_coexistence/densities.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/densiti
-es.png used on input line 715.
+es.png used on input line 703.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
 <figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png, id=130
-8, 578.16pt x 433.62pt>
+9, 578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png Gr
 aphic file (type png)
 
 <use figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/density
-_phase_plane.png used on input line 715.
+_phase_plane.png used on input line 703.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-<figures/1x1/variable_growth/stable_coexistence/traits.png, id=1309, 578.16pt x
+<figures/1x1/variable_growth/stable_coexistence/traits.png, id=1310, 578.16pt x
  433.62pt>
 File: figures/1x1/variable_growth/stable_coexistence/traits.png Graphic file (t
 ype png)
  <use figures/1x1/variable_growth/stable_coexistence/traits.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/traits.
-png used on input line 715.
+png used on input line 703.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-<figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png, id=1310,
+<figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png, id=1311,
  578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png Grap
 hic file (type png)
 
 <use figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/trait_p
-hase_plane.png used on input line 715.
+hase_plane.png used on input line 703.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-Overfull \vbox (4.72643pt too high) detected at line 715
+Overfull \vbox (4.72643pt too high) detected at line 703
  []
 
 
@@ -1732,45 +1773,45 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 1/variable_growth/stable_coexistence/density_phase_plane.png> <./figures/1x1/va
 riable_growth/stable_coexistence/traits.png> <./figures/1x1/variable_growth/sta
 ble_coexistence/trait_phase_plane.png>]
-<figures/1x1/variable_growth/stable_cycles/densities.png, id=1347, 578.16pt x 4
+<figures/1x1/variable_growth/stable_cycles/densities.png, id=1348, 578.16pt x 4
 33.62pt>
 File: figures/1x1/variable_growth/stable_cycles/densities.png Graphic file (typ
 e png)
  <use figures/1x1/variable_growth/stable_cycles/densities.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/densities.pn
-g used on input line 730.
+g used on input line 718.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-<figures/1x1/variable_growth/stable_cycles/density_phase_plane.png, id=1348, 57
+<figures/1x1/variable_growth/stable_cycles/density_phase_plane.png, id=1349, 57
 8.16pt x 433.62pt>
 File: figures/1x1/variable_growth/stable_cycles/density_phase_plane.png Graphic
  file (type png)
 
 <use figures/1x1/variable_growth/stable_cycles/density_phase_plane.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/density_phas
-e_plane.png used on input line 730.
+e_plane.png used on input line 718.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-<figures/1x1/variable_growth/stable_cycles/traits.png, id=1349, 578.16pt x 433.
+<figures/1x1/variable_growth/stable_cycles/traits.png, id=1350, 578.16pt x 433.
 62pt>
 File: figures/1x1/variable_growth/stable_cycles/traits.png Graphic file (type p
 ng)
  <use figures/1x1/variable_growth/stable_cycles/traits.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/traits.png u
-sed on input line 730.
+sed on input line 718.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-<figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png, id=1350, 578.
+<figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png, id=1351, 578.
 16pt x 433.62pt>
 File: figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png Graphic f
 ile (type png)
 
 <use figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/trait_phase_
-plane.png used on input line 730.
+plane.png used on input line 718.
 (pdftex.def)             Requested size: 142.26357pt x 106.69768pt.
 
-Overfull \vbox (4.72643pt too high) detected at line 730
+Overfull \vbox (4.72643pt too high) detected at line 718
  []
 
 
@@ -1798,17 +1839,17 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [42
 
 ]
-<figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png, id=1450
+<figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png, id=1451
 , 578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png Gra
 phic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/tau_ratio_15
-0417_125636.png used on input line 753.
+0417_125636.png used on input line 741.
 (pdftex.def)             Requested size: 199.16547pt x 142.26135pt.
 
-Overfull \vbox (7.4816pt too high) detected at line 753
+Overfull \vbox (7.4816pt too high) detected at line 741
  []
 
 
@@ -1820,48 +1861,48 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 
  <./figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png>]
 <figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.png,
- id=1484, 578.16pt x 433.62pt>
+ id=1485, 578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle
 .png Graphic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.
 png>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/density_phas
-e_plane_limit_cycle.png used on input line 772.
+e_plane_limit_cycle.png used on input line 760.
 (pdftex.def)             Requested size: 142.26357pt x 101.00748pt.
 
 <figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.png, i
-d=1485, 578.16pt x 433.62pt>
+d=1486, 578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.p
 ng Graphic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.pn
 g>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/trait_phase_
-plane_limit_cycle.png used on input line 772.
+plane_limit_cycle.png used on input line 760.
 (pdftex.def)             Requested size: 142.26357pt x 101.00748pt.
 
 <figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png, id=148
-6, 578.16pt x 433.62pt>
+7, 578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png Gr
 aphic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/density_phas
-e_plane_node.png used on input line 772.
+e_plane_node.png used on input line 760.
 (pdftex.def)             Requested size: 142.26357pt x 101.00748pt.
 
-<figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png, id=1487,
+<figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png, id=1488,
  578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png Grap
 hic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/trait_phase_
-plane_node.png used on input line 772.
+plane_node.png used on input line 760.
 (pdftex.def)             Requested size: 142.26357pt x 101.00748pt.
 
-Overfull \vbox (9.15553pt too high) detected at line 772
+Overfull \vbox (9.15553pt too high) detected at line 760
  []
 
 
@@ -1877,15 +1918,15 @@ png> <./figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png>
  <./figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 775.
+(hyperref)                removing `math shift' on input line 763.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 775.
+(hyperref)                removing `\times' on input line 763.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 775.
+(hyperref)                removing `math shift' on input line 763.
 
 
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
@@ -1896,19 +1937,19 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 
 ]
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
@@ -1920,19 +1961,19 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 
 ]
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
@@ -1944,19 +1985,19 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 
 ]
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 795.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 783.
 
 
 
@@ -1974,7 +2015,7 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 [49
 
 ]
-Overfull \vbox (5.91736pt too high) detected at line 822
+Overfull \vbox (5.91736pt too high) detected at line 810
  []
 
 
@@ -1994,27 +2035,27 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 857.
+(hyperref)                removing `math shift' on input line 845.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 857.
+(hyperref)                removing `\times' on input line 845.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 857.
+(hyperref)                removing `math shift' on input line 845.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 857.
+(hyperref)                removing `math shift' on input line 845.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 857.
+(hyperref)                removing `\times' on input line 845.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 857.
+(hyperref)                removing `math shift' on input line 845.
 
 
 Overfull \hbox (65.47855pt too wide) has occurred while \output is active
@@ -2047,56 +2088,57 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 950.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 950.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 938.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 938.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 950.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 950.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 938.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 938.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: C2ACF553849FF27350D352CCEB416966;617.
+(rerunfilecheck)             Checksum: F877379D4AA5F22BC1DB715C5E62372C;618.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 950.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 938.
  ) 
 Here is how much of TeX's memory you used:
- 30405 strings out of 493117
- 723678 string characters out of 6135433
+ 30436 strings out of 493117
+ 724756 string characters out of 6135433
  903200 words of memory out of 5000000
- 33081 multiletter control sequences out of 15000+600000
- 22044 words of font info for 79 fonts, out of 8000000 for 9000
+ 33112 multiletter control sequences out of 15000+600000
+ 22338 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,22n,78p,738b,1042s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.
-pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi17.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on presentation.pdf (54 pages, 1249445 bytes).
+pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cmextra/cme
+x9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.
+pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pf
+b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi17.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on presentation.pdf (54 pages, 1256830 bytes).
 PDF statistics:
- 1967 PDF objects out of 2073 (max. 8388607)
- 1804 compressed objects within 19 object streams
+ 1971 PDF objects out of 2073 (max. 8388607)
+ 1807 compressed objects within 19 object streams
  120 named destinations out of 1000 (max. 500000)
  285 words of extra memory for PDF output out of 10000 (max. 10000000)
 
