@@ -149,7 +149,7 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
 
 
 ### 1x1 HARD-CODED PHASE PLANE FUNCTION
-def plot_densities_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+def plot_1x1_densities_phase_plane(system, phase_plane_file, text, display_parameters, combine):
     plt.figure()
 
     if display_parameters and not combine:
@@ -178,8 +178,41 @@ def plot_densities_phase_plane(system, phase_plane_file, text, display_parameter
     print GRAPH_SAVED % phase_plane_file
 
 
+### 1x2 HARD-CODED PHASE PLANE FUNCTION
+def plot_1x2_densities_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+    plt.figure()
+
+    if display_parameters and not combine:
+        plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
+
+    xlimit = 1.1*max(system.M["1"])
+    ylimit = 1.1*max(system.N["1"])
+    zlimit = 1.1*max(system.N["2"])
+
+    plt.xlim(-1., xlimit)
+    plt.ylim(-1., ylimit)
+    plt.zlim(-1., zlimit)
+    plt.xlabel('Predator 1 Density')
+    plt.ylabel('Prey 1 Density')
+
+    if display_parameters and not combine:
+        for index, text_line in enumerate(text):
+            plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
+
+    plt.plot(system.M["1"], system.N["1"], lw=1)
+    plt.plot(system.M["1"][0], system.N["1"][0], 'gD', label="TIME=0.0")
+    plt.plot(system.M["1"][-1], system.N["1"][-1], 'rD', label="TIME=%.1f" % system.tf)
+    plt.legend(loc=0)
+
+    plt.savefig(phase_plane_file, format='png')
+    plt.close()
+    garbage.collect()
+    print GRAPH_SAVED % phase_plane_file
+
+
+
 ### 1x1 HARD-CODED PHASE PLANE FUNCTION
-def plot_traits_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+def plot_1x1_traits_phase_plane(system, phase_plane_file, text, display_parameters, combine):
     plt.figure()
 
     if display_parameters and not combine:
@@ -631,7 +664,7 @@ def main():
             ts = default_timer()
 
             density_phase_plane_file = "%s/density_phase_plane_%03d.png" % (current_directory, step)
-            plot_densities_phase_plane(system, density_phase_plane_file, text, args.display_parameters, args.combine)
+            plot_1x1_densities_phase_plane(system, density_phase_plane_file, text, args.display_parameters, args.combine)
             data_time = default_timer() - ts
             print "Time taken for this data: %.03f\n" % (data_time)
             time += data_time
@@ -639,7 +672,7 @@ def main():
             ts = default_timer()
 
             trait_phase_plane_file = "%s/trait_phase_plane_%03d.png" % (current_directory, step)
-            plot_traits_phase_plane(system, trait_phase_plane_file, text, args.display_parameters, args.combine)
+            plot_1x1_traits_phase_plane(system, trait_phase_plane_file, text, args.display_parameters, args.combine)
             data_time = default_timer() - ts
             print "Time taken for this data: %.03f\n" % (data_time)
             time += data_time

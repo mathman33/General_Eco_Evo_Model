@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1430619999 "presentation.tex" "presentation.pdf" "presentation" 1430620004
+["pdflatex"] 1430620234 "presentation.tex" "presentation.pdf" "presentation" 1430620239
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/atbegshi.sty" 1335995445 24460 92f559a71aac869021852c227c704b38 ""
@@ -213,6 +213,7 @@
   "figures/1x1/constant_growth/densities_exclusion.png" 1430354705 31783 0282113dda3eeea042fbd06e7aaedc4f ""
   "figures/1x1/constant_growth/densities_stable_coexistence.png" 1430354705 40675 714a5de76280f5d4739d1602a64d7337 ""
   "figures/1x1/constant_growth/densities_unstable_coexistence.png" 1430354705 43737 48e8fa6f22f033cf92cc66dc2d063a56 ""
+  "figures/1x1/constant_growth/traits_exclusion.png" 1430354705 24790 ec3d90ba9ed09a677d3bd84a25033293 ""
   "figures/1x1/constant_growth/traits_stable_coexistence.png" 1430354705 28888 9956dab8fb735a5eabe103cc53928a11 ""
   "figures/1x1/constant_growth/traits_unstable_coexistence.png" 1430354705 32232 580f2f57996922201b1b8606e3c09913 ""
   "figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.png" 1430607476 52804 166826fe85b6574387f5b0a5df540092 ""
@@ -233,13 +234,13 @@
   "figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png" 1430354705 27718 d823c131c420c9225cb068c6dc4a7ec8 ""
   "figures/1x1/variable_growth/stable_exclusion/traits.png" 1430354705 28381 6b965b0864a35ae769a724eaeca82133 ""
   "figures/crab_eating_gastropod.jpg" 1426467997 41878 c57a08fb30fea0e5e8ac26dc902e6d2a ""
-  "presentation.aux" 1430620004 8925 89b195430e0ae9a9a8073aa1dcbd6eb9 ""
-  "presentation.nav" 1430620004 5715 49cf91e898ac60b114020db7eff0fb08 ""
-  "presentation.out" 1430620004 618 4ad10526c07c7e5938c0376d6cd842a0 ""
-  "presentation.tex" 1430619994 43516 50f2d5823f20fefce695e41a9afbd65c ""
+  "presentation.aux" 1430620239 9259 f398402f2b75682ffa1b24afd86d861a ""
+  "presentation.nav" 1430620239 5977 afaf59d79fbcf567dedc7bf54b505bdf ""
+  "presentation.out" 1430620239 618 d03540201126c55a14a9b3e06c7a8529 ""
+  "presentation.tex" 1430620229 44318 6b105364311756005701a0d676ad3392 ""
   (generated)
-  "presentation.log"
   "presentation.nav"
   "presentation.pdf"
-  "presentation.aux"
   "presentation.out"
+  "presentation.log"
+  "presentation.aux"
