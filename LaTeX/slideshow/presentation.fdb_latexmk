@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1430619310 "presentation.tex" "presentation.pdf" "presentation" 1430619316
+["pdflatex"] 1430619999 "presentation.tex" "presentation.pdf" "presentation" 1430620004
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/atbegshi.sty" 1335995445 24460 92f559a71aac869021852c227c704b38 ""
@@ -233,13 +233,13 @@
   "figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png" 1430354705 27718 d823c131c420c9225cb068c6dc4a7ec8 ""
   "figures/1x1/variable_growth/stable_exclusion/traits.png" 1430354705 28381 6b965b0864a35ae769a724eaeca82133 ""
   "figures/crab_eating_gastropod.jpg" 1426467997 41878 c57a08fb30fea0e5e8ac26dc902e6d2a ""
-  "presentation.aux" 1430619315 8925 f4b9898c1baabafd8a9f5b222d801eea ""
-  "presentation.nav" 1430619315 5715 7386885531f2f21dc95261a495dba1a4 ""
-  "presentation.out" 1430619315 618 f877379d4aa5f22bc1db715c5e62372c ""
-  "presentation.tex" 1430619310 42777 f94b7880ca81109fbad0c50fd4a85321 ""
+  "presentation.aux" 1430620004 8925 89b195430e0ae9a9a8073aa1dcbd6eb9 ""
+  "presentation.nav" 1430620004 5715 49cf91e898ac60b114020db7eff0fb08 ""
+  "presentation.out" 1430620004 618 4ad10526c07c7e5938c0376d6cd842a0 ""
+  "presentation.tex" 1430619994 43516 50f2d5823f20fefce695e41a9afbd65c ""
   (generated)
   "presentation.log"
-  "presentation.out"
   "presentation.nav"
   "presentation.pdf"
   "presentation.aux"
+  "presentation.out"
