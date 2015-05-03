@@ -283,16 +283,16 @@
 	&= {\color{red}eN\overline{a}(\overline{n}, \overline{m}) - d}
 	\end{align*}
 	\begin{columns}
-		\begin{column}{0.45\textwidth}
+		\begin{column}{0.5\textwidth}
 			{\bf Variables}
 			\begin{itemize}
 				\item \footnotesize{\color{blue}$N \equiv $ Prey Density}
 				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
 				\item {\color{red}$M \equiv $ Predator Density}
-				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait \hphantom{$\overline{m} \equiv $} Value}
+				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait Value}
 			\end{itemize}
 		\end{column}
-		\begin{column}{0.55\textwidth}
+		\begin{column}{0.5\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
 				\item \footnotesize$\overline{r} \equiv $ Intrinsic Prey Growth Rate
@@ -361,7 +361,7 @@
 		\begin{column}{0.5\textwidth}
 			{\bf Variables}
 			\begin{itemize}
-				\item $N \equiv $ Prey Density
+				\item \footnotesize$N \equiv $ Prey Density
 				\item $\overline{n} \equiv $ Mean Prey Character
 				\item $M \equiv $ Predator Density
 				\item $\overline{m} \equiv $ Mean Predator Character
@@ -370,7 +370,7 @@
 		\begin{column}{0.5\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item $\beta_G^2 \equiv $ Prey genetic variance
+				\item \footnotesize$\beta_G^2 \equiv $ Prey genetic variance
 				\item $\sigma_G^2 \equiv $ Predator genetic variance
 			\end{itemize}
 		\end{column}
@@ -657,7 +657,7 @@
 		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = \left({\color{blue}\dfrac{d\sqrt{A}}{e \alpha \tau}}\ ,\ {\color{red}\dfrac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)}\ ,\ {\color{cyan}\phi}\ ,\ {\color{magenta}\theta + \phi}\right) \\[.1cm]
 		\text{where $A = \sigma^2 + \beta^2 + \tau^2$ and $B = \beta^2 + \gamma^2$}
 	\end{align*}
-	\uncover<3->{{\it Necessary Condition for Asymptotically $\boxed{Stable}$ Coexistence:}
+	\uncover<2->{{\it Necessary Condition for Asymptotically $\boxed{Stable}$ Coexistence:}
 	\begin{align*}
 		\dfrac{\sigma_G^2}{\beta_G^2} > \dfrac{\rho\gamma}{d\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \dfrac{A}{B}\right)
 	\end{align*}}
@@ -708,16 +708,18 @@
 		\end{column}
 	\end{columns}
 \end{frame}
-\begin{frame}
-	\LARGE \vspace{-20pt}
-	\begin{center}
-		\underline{\it Question}\\
-		What happens when the exclusion {\bf AND} coexistence stability criterion are {\bf NOT} met? \\ \vspace{15pt}
-		\uncover<2->{
-		\underline{\it Answer}\\
-		{\bf Stable Limit Cycles}}
-	\end{center}
-\end{frame}
+
+% \begin{frame}
+% 	\LARGE \vspace{-20pt}
+% 	\begin{center}
+% 		\underline{\it Question}\\
+% 		What happens when the exclusion {\bf AND} coexistence stability criterion are {\bf NOT} met? \\ \vspace{15pt}
+% 		\uncover<2->{
+% 		\underline{\it Answer}\\
+% 		{\bf Stable Limit Cycles}}
+% 	\end{center}
+% \end{frame}
+
 \begin{frame}
 	\frametitle{Contour Plot - Coexistence Asymptotic Stability Criterion}
 	\vspace{-5pt}
@@ -955,6 +957,36 @@
 		\frac{d\overline{m_1}}{dt} &= \sigma_{G1}^2{\color{magenta}\frac{\partial\overline{W_1}}{\partial\overline{m_1}}} = \sigma_{G1}^2{\color{magenta}\left[\frac{e_{1}N(\theta_{1} - (\overline{m_1} - \overline{n}))}{\sigma_1^2 + \beta^2 + \tau_{1}^2} \overline{a_1}(\overline{n}, \overline{m_1})\right]} \\
 		\frac{d\overline{m_2}}{dt} &= \sigma_{G1}^2{\color{magenta}\frac{\partial\overline{W_2}}{\partial\overline{m_2}}} = \sigma_{G1}^2{\color{magenta}\left[\frac{e_{2}N(\theta_{2} - (\overline{m_2} - \overline{n}))}{\sigma_2^2 + \beta^2 + \tau_{2}^2} \overline{a_2}(\overline{n}, \overline{m_2})\right]}
 	\end{align*}}%
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $1\times2$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/densities_slow_prey_evo.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/density_phase_plane_slow_prey_evo.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/traits_slow_prey_evo.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/trait_phase_plane_slow_prey_evo.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $1\times2$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/densities_fast_prey_evo.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/density_phase_plane_fast_prey_evo.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/traits_fast_prey_evo.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/trait_phase_plane_fast_prey_evo.png}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \subsection{Future Work}

@@ -212,6 +212,39 @@ def plot_1x2_densities_phase_plane(system, phase_plane_file, text, display_param
     print GRAPH_SAVED % phase_plane_file
 
 
+### 2x1 HARD-CODED PHASE PLANE FUNCTION
+def plot_2x1_densities_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+    fig = plt.figure()
+
+    if display_parameters and not combine:
+        plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
+
+    if display_parameters and not combine:
+        for index, text_line in enumerate(text):
+            plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
+
+    ax = fig.gca(projection='3d')
+
+    xlimit = 1.1*max(system.M["1"])
+    ylimit = 1.1*max(system.M["2"])
+    zlimit = 1.1*max(system.N["1"])
+
+    ax.set_xlim3d(0, xlimit)
+    ax.set_ylim3d(0, ylimit)
+    ax.set_zlim3d(0, zlimit)
+
+    ax.set_xlabel('Predator 1 Density')
+    ax.set_ylabel('Predator 2 Density')
+    ax.set_zlabel('Prey 1 Density')
+
+    ax.plot(system.M["1"], system.M["2"], system.N["1"])
+
+    plt.savefig(phase_plane_file, format='png')
+    plt.close()
+    garbage.collect()
+    print GRAPH_SAVED % phase_plane_file
+
+
 ### 1x1 HARD-CODED PHASE PLANE FUNCTION
 def plot_1x1_traits_phase_plane(system, phase_plane_file, text, display_parameters, combine):
     plt.figure()
@@ -279,6 +312,45 @@ def plot_1x2_traits_phase_plane(system, phase_plane_file, text, display_paramete
     ax.set_zlabel('Prey 2 Character')
 
     ax.plot(system.m["1"], system.n["1"], system.n["2"])
+
+    plt.savefig(phase_plane_file, format='png')
+    plt.close()
+    garbage.collect()
+    print GRAPH_SAVED % phase_plane_file
+
+
+### 2x1 HARD-CODED PHASE PLANE FUNCTION
+def plot_2x1_traits_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+    fig = plt.figure()
+
+    if display_parameters and not combine:
+        plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
+
+    if display_parameters and not combine:
+        for index, text_line in enumerate(text):
+            x_diff = m_max - m_min
+            plt.text(m_min-.25*x_diff, n_max*(1-(.05*index)), text_line)
+
+    ax = fig.gca(projection='3d')
+
+    m1_min = min(system.m["1"])
+    m1_max = max(system.m["1"])
+
+    m2_min = min(system.m["2"])
+    m2_max = max(system.m["2"])
+
+    n_min = min(system.n["1"])
+    n_max = max(system.n["1"])
+
+    ax.set_xlim3d(m1_min, m1_max)
+    ax.set_ylim3d(m2_min, m2_max)
+    ax.set_zlim3d(n_min, n_max)
+
+    ax.set_xlabel('Predator 1 Character')
+    ax.set_ylabel('Predator 2 Character')
+    ax.set_zlabel('Prey 1 Character')
+
+    ax.plot(system.m["1"], system.m["2"], system.n["1"])
 
     plt.savefig(phase_plane_file, format='png')
     plt.close()
@@ -718,7 +790,7 @@ def main():
                 print "Time taken for this data: %.03f\n" % (data_time)
                 time += data_time
 
-            else:
+            elif dimension == "1x2":
                 density_phase_plane_file = "%s/density_phase_plane_%03d.png" % (current_directory, step)
                 plot_1x2_densities_phase_plane(system, density_phase_plane_file, text, args.display_parameters, args.combine)
                 data_time = default_timer() - ts
@@ -729,6 +801,21 @@ def main():
 
                 trait_phase_plane_file = "%s/trait_phase_plane_%03d.png" % (current_directory, step)
                 plot_1x2_traits_phase_plane(system, trait_phase_plane_file, text, args.display_parameters, args.combine)
+                data_time = default_timer() - ts
+                print "Time taken for this data: %.03f\n" % (data_time)
+                time += data_time
+
+            elif dimension == "2x1":
+                density_phase_plane_file = "%s/density_phase_plane_%03d.png" % (current_directory, step)
+                plot_2x1_densities_phase_plane(system, density_phase_plane_file, text, args.display_parameters, args.combine)
+                data_time = default_timer() - ts
+                print "Time taken for this data: %.03f\n" % (data_time)
+                time += data_time
+
+                ts = default_timer()
+
+                trait_phase_plane_file = "%s/trait_phase_plane_%03d.png" % (current_directory, step)
+                plot_2x1_traits_phase_plane(system, trait_phase_plane_file, text, args.display_parameters, args.combine)
                 data_time = default_timer() - ts
                 print "Time taken for this data: %.03f\n" % (data_time)
                 time += data_time
