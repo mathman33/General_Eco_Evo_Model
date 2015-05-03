@@ -377,7 +377,7 @@
 	\end{columns}
 \end{frame}
 \begin{frame}
-	\frametitle{The Complete $1\times1$ Model \\ (One Predator Species, One Prey Species)}
+	\frametitle{The Complete $1\times1$ Model \\ (One Prey Species, One Predator Species)}
 	{\bf Ecological Components}
 	\begin{align*}
 		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})}\ \ =\ N{\color{blue}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
@@ -612,7 +612,7 @@
 % 	\end{columns}
 % \end{frame}
 \begin{frame}
-	\frametitle{The Complete $1\times1$ Model \\ (One Predator Species, One Prey Species)}
+	\frametitle{The Complete $1\times1$ Model \\ (One Prey Species, One Predator Species)}
 	{\bf Ecological Components}
 	\begin{align*}
 		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})}\ = N{\color{blue}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})\right]}\\[.1cm]
@@ -806,30 +806,30 @@
 	\begin{align*}
 		{\color{blue}\overline{Y}_j(N_j, \overline{n_j}, [M_i]_{i=1}^{u}, }&{\color{blue}[\overline{m_i}]_{i=1}^{u})} \\
 		&= \int\limits_{\mathbb{R}^{u+1}} Y_j \cdot \prod\limits_{i=1}^{u}\Big[p_i(m_i, \overline{m_i})\Big] \cdot p(n, \overline{n}) \prod\limits_{i=1}^{u}\Big[dm_i\Big] dn_j\\
-		&= {\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}
+		&= {\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a_{ij}}(\overline{n_j}, \overline{m_i})}
 	\end{align*}
 	\begin{align*}
 		{\color{red}\overline{W}_i(N_j, \overline{n_j}, [M_i]_{i=1}^{u}, }&{\color{red}[\overline{m_i}]_{i=1}^{u})} \\
-		&= \int\limits_{\mathbb{R}^{u+1}} W_i \cdot p_i(m_i, \overline{m_i}) \cdot \prod\limits_{j=1}^{v}\Big[p(n_j, \overline{n}_j)\Big] dm_i \prod\limits_{j=1}^{v}\Big[dn_j\Big]\\
-		&= {\color{red}\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)\Big] - d_i}
+		&= \int\limits_{\mathbb{R}^{u+1}} W_i \cdot p_i(m_i, \overline{m_i}) \cdot \prod\limits_{j=1}^{v}\Big[p(n_j, \overline{n_j})\Big] dm_i \prod\limits_{j=1}^{v}\Big[dn_j\Big]\\
+		&= {\color{red}\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a_{ij}}(\overline{n_j}, \overline{m_i})\Big] - d_i}
 	\end{align*}
 \end{frame}
 \begin{frame}
-	\frametitle{The Complete $u\times v$ Model - \normalsize($u$ Predator Species, $v$ Prey Species)}
+	\frametitle{The Complete $v\times u$ Model - \normalsize($v$ Prey Species, $u$ Predator Species)}
 	{\bf Ecological Components}
 	\begin{align*}
-		\frac{dN_j}{dt} &= N_j{\color{blue}\overline{Y_j}} = N_j {\color{blue}\left[{\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}\right]} \\
-		\frac{dM_i}{dt} &= M_i{\color{red}\overline{W_i}} = M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\Big] - d_i\right]}
+		\frac{dN_j}{dt} &= N_j{\color{blue}\overline{Y_j}} = N_j {\color{blue}\left[{\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a_{ij}}(\overline{n_j}, \overline{m_i})}\right]} \\
+		\frac{dM_i}{dt} &= M_i{\color{red}\overline{W_i}} = M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a_{ij}}(\overline{n_j}, \overline{m_i})\Big] - d_i\right]}
 	\end{align*}
 	{\bf Evolutionary Components}
 	\begin{align*}
-		\frac{d\overline{n}_j}{dt} &= \beta_{Gj}^2{\color{cyan}\frac{\partial \overline{Y_j}}{\partial \overline{n_j}}} = \beta_{Gj}^2{\color{cyan}\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{(\phi_j - \overline{n_j})}{\beta_j^2 + \gamma_j^2}\right.}
-		\\&\hphantom{\text{mmmmmmmmmmm}}{\left.\color{cyan}+ \sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]\right]}\\
-		\frac{d\overline{m}_i}{dt} &= \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}
+		\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2{\color{cyan}\frac{\partial \overline{Y_j}}{\partial \overline{n_j}}} = \beta_{Gj}^2{\color{cyan}\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{(\phi_j - \overline{n_j})}{\beta_j^2 + \gamma_j^2}\right.}
+		\\&\hphantom{\text{mmmmmmmmmmm}}{\left.\color{cyan}+ \sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a_{ij}}(\overline{n_j}, \overline{m_i})\right]\right]}\\
+		\frac{d\overline{m_i}}{dt} &= \sigma_{Gi}^2{\color{magenta}\frac{\partial\overline{W_i}}{\partial\overline{m_i}}} = \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a_{ij}}(\overline{n_j}, \overline{m_i})\right]}
 	\end{align*}
 \end{frame}
 \begin{frame}
-	\frametitle{The Complete $u\times v$ Model - \normalsize($u$ Predator Species, $v$ Prey Species)}
+	\frametitle{The Complete $v\times u$ Model - \normalsize($v$ Prey Species, $u$ Predator Species)}
 	\Wider[6em]{
 	\begin{center}
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
@@ -864,23 +864,98 @@
 \end{frame}
 
 \subsection{$2\times 1$ and $1\times 2$ Simulations}
+
+\begin{frame}
+	\frametitle{The Complete $2\times 1$ Model - \normalsize($2$ Prey Species, $1$ Predator Species)}
+	{\bf Ecological Components}
+	{\footnotesize\begin{align*}
+		\frac{dN_1}{dt} &= N_1{\color{blue}\overline{Y_1}} = N_1 {\color{blue}\left[{\color{blue}\overline{r_1}(\overline{n_1})\left(1 - \frac{N_1}{K_1}\right) - M\overline{a_1}(\overline{n_1}, \overline{m})}\right]} \\
+		\frac{dN_2}{dt} &= N_2{\color{blue}\overline{Y_2}} = N_2 {\color{blue}\left[{\color{blue}\overline{r_2}(\overline{n_2})\left(1 - \frac{N_2}{K_2}\right) - M\overline{a_2}(\overline{n_2}, \overline{m})}\right]} \\
+		\frac{dM}{dt} &= M{\color{red}\overline{W}} = M {\color{red}\left[\sum\limits_{j = 1}^{2}\Big[e_{j}N_j\overline{a_j}(\overline{n_j}, \overline{m})\Big] - d\right]}
+	\end{align*}}%
+	{\bf Evolutionary Components}
+	{\footnotesize\begin{align*}
+		\frac{d\overline{n_1}}{dt} &= \beta_{G1}^2{\color{cyan}\frac{\partial \overline{Y_1}}{\partial \overline{n_1}}} = \beta_{G1}^2{\color{cyan}\left[\overline{r_1}(\overline{n_1})\left(1 - \frac{N_1}{K_1}\right)\frac{(\phi_1 - \overline{n_1})}{\beta_1^2 + \gamma_1^2} + \frac{M(\theta_{1} - (\overline{m} - \overline{n_1}))}{\sigma^2 + \beta_1^2 + \tau_{1}^2} \overline{a_1}(\overline{n_1}, \overline{m})\right]}\\
+		\frac{d\overline{n_2}}{dt} &= \beta_{G1}^2{\color{cyan}\frac{\partial \overline{Y_2}}{\partial \overline{n_2}}} = \beta_{G2}^2{\color{cyan}\left[\overline{r_2}(\overline{n_2})\left(1 - \frac{N_2}{K_2}\right)\frac{(\phi_2 - \overline{n_2})}{\beta_2^2 + \gamma_2^2} + \frac{M(\theta_{2} - (\overline{m} - \overline{n_2}))}{\sigma^2 + \beta_2^2 + \tau_{2}^2} \overline{a_2}(\overline{n_2}, \overline{m})\right]}\\
+		\frac{d\overline{m}}{dt} &= \sigma_{G}^2{\color{magenta}\frac{\partial\overline{W}}{\partial\overline{m}}} = \sigma_{G}^2{\color{magenta}\sum\limits_{j=1}^{2}\left[\frac{e_{j}N_j(\theta_{j} - (\overline{m} - \overline{n_j}))}{\sigma^2 + \beta_j^2 + \tau_{j}^2} \overline{a_j}(\overline{n_j}, \overline{m})\right]}
+	\end{align*}}%
+\end{frame}
 \begin{frame}
 	\frametitle{Figures - $2\times1$}
-	\Wider[6em]{
-	\includegraphics[scale=0.3175]{figures/1x1/constant_growth/densities_exclusion.png}
-   	\hfill
-   	\includegraphics[scale=0.3175]{figures/1x1/constant_growth/traits_exclusion.png}
-	}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/densities_cyclic_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/density_phase_plane_cyclic_domination.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/traits_cyclic_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/trait_phase_plane_cyclic_domination.png}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}
-	\frametitle{Figures - $1\times2$}
-	\Wider[6em]{
-	\includegraphics[scale=0.3175]{figures/1x1/constant_growth/densities_stable_coexistence.png}
-   	\hfill
-   	\includegraphics[scale=0.3175]{figures/1x1/constant_growth/traits_stable_coexistence.png}
-	}
+	\frametitle{Figures - $2\times1$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/densities_stable_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/density_phase_plane_stable_domination.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/traits_stable_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/trait_phase_plane_stable_domination.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $2\times1$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/densities_random_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/density_phase_plane_random_domination.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/traits_random_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/trait_phase_plane_random_domination.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $2\times1$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/densities_RQD.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/density_phase_plane_RQD.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/traits_RQD.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/trait_phase_plane_RQD.png}
+		\end{column}
+	\end{columns}
 \end{frame}
 
+\begin{frame}
+	\frametitle{The Complete $1\times 2$ Model - \normalsize($1$ Prey Species, $2$ Predator Species)}
+	{\bf Ecological Components}
+	{\footnotesize\begin{align*}
+		\frac{dN}{dt} &= N{\color{blue}\overline{Y}} = N {\color{blue}\left[{\color{blue}\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \sum\limits_{i=1}^2M_i\overline{a_i}(\overline{n}, \overline{m_i})}\right]} \\
+		\frac{dM_1}{dt} &= M_1{\color{red}\overline{W}} = M_1 {\color{red}\Big[e_{1}N\overline{a_1}(\overline{n}, \overline{m_1}) - d_1\Big]} \\
+		\frac{dM_2}{dt} &= M_2{\color{red}\overline{W}} = M_2 {\color{red}\Big[e_{2}N\overline{a_2}(\overline{n}, \overline{m_2}) - d_2\Big]}
+	\end{align*}}%
+	{\bf Evolutionary Components}
+	{\footnotesize\begin{align*}
+		\frac{d\overline{n}}{dt} &= \beta_{G}^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_{G}^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \sum\limits_{i=1}^{2}\left[\frac{M_i(\theta_{i} - (\overline{m_i} - \overline{n}))}{\sigma_i^2 + \beta^2 + \tau_{i}^2} \overline{a_{i}}(\overline{n}, \overline{m_i})\right]\right]}\\
+		\frac{d\overline{m_1}}{dt} &= \sigma_{G1}^2{\color{magenta}\frac{\partial\overline{W_1}}{\partial\overline{m_1}}} = \sigma_{G1}^2{\color{magenta}\left[\frac{e_{1}N(\theta_{1} - (\overline{m_1} - \overline{n}))}{\sigma_1^2 + \beta^2 + \tau_{1}^2} \overline{a_1}(\overline{n}, \overline{m_1})\right]} \\
+		\frac{d\overline{m_2}}{dt} &= \sigma_{G1}^2{\color{magenta}\frac{\partial\overline{W_2}}{\partial\overline{m_2}}} = \sigma_{G1}^2{\color{magenta}\left[\frac{e_{2}N(\theta_{2} - (\overline{m_2} - \overline{n}))}{\sigma_2^2 + \beta^2 + \tau_{2}^2} \overline{a_2}(\overline{n}, \overline{m_2})\right]}
+	\end{align*}}%
+\end{frame}
 
 \subsection{Future Work}
 \begin{frame}

@@ -14,7 +14,7 @@ from time import sleep
 from subprocess import Popen, PIPE
 from datetime import datetime
 
-AVG_TIME_PER_GRAPH = 0.389
+AVG_TIME_PER_GRAPH = 0.583
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 if DIRECTORY.endswith("/bin"):
     DIRECTORY = DIRECTORY[:-4]
@@ -186,21 +186,24 @@ def plot_1x2_densities_phase_plane(system, phase_plane_file, text, display_param
     if display_parameters and not combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
 
-    # xlimit = 1.1*max(system.M["1"])
-    # ylimit = 1.1*max(system.N["1"])
-    # zlimit = 1.1*max(system.N["2"])
-
-    # plt.xlim(-1., xlimit)
-    # plt.ylim(-1., ylimit)
-    # plt.zlim(-1., zlimit)
-    # plt.xlabel('Predator 1 Density')
-    # plt.ylabel('Prey 1 Density')
-
     if display_parameters and not combine:
         for index, text_line in enumerate(text):
             plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
 
     ax = fig.gca(projection='3d')
+
+    xlimit = 1.1*max(system.M["1"])
+    ylimit = 1.1*max(system.N["1"])
+    zlimit = 1.1*max(system.N["2"])
+
+    ax.set_xlim3d(0, xlimit)
+    ax.set_ylim3d(0, ylimit)
+    ax.set_zlim3d(0, zlimit)
+
+    ax.set_xlabel('Predator Density')
+    ax.set_ylabel('Prey 1 Density')
+    ax.set_zlabel('Prey 2 Density')
+
     ax.plot(system.M["1"], system.N["1"], system.N["2"])
 
     plt.savefig(phase_plane_file, format='png')
@@ -251,24 +254,30 @@ def plot_1x2_traits_phase_plane(system, phase_plane_file, text, display_paramete
     if display_parameters and not combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
 
-    # m_min = min(system.m["1"])
-    # m_max = max(system.m["1"])
-
-    # n_min = min(system.n["1"])
-    # n_max = max(system.n["1"])
-
-    # plt.xlim(m_min, m_max)
-    # plt.ylim(n_min, n_max)
-
-    # plt.xlabel('Predator 1 Character')
-    # plt.ylabel('Prey 1 Character')
-
     if display_parameters and not combine:
         for index, text_line in enumerate(text):
             x_diff = m_max - m_min
             plt.text(m_min-.25*x_diff, n_max*(1-(.05*index)), text_line)
 
     ax = fig.gca(projection='3d')
+
+    m_min = min(system.m["1"])
+    m_max = max(system.m["1"])
+
+    n1_min = min(system.n["1"])
+    n1_max = max(system.n["1"])
+
+    n2_min = min(system.n["2"])
+    n2_max = max(system.n["2"])
+
+    ax.set_xlim3d(m_min, m_max)
+    ax.set_ylim3d(n1_min, n1_max)
+    ax.set_zlim3d(n2_min, n2_max)
+
+    ax.set_xlabel('Predator Character')
+    ax.set_ylabel('Prey 1 Character')
+    ax.set_zlabel('Prey 2 Character')
+
     ax.plot(system.m["1"], system.n["1"], system.n["2"])
 
     plt.savefig(phase_plane_file, format='png')

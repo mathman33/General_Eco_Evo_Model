@@ -1,7 +1,7 @@
 {
     "system_parameters": [
         {
-            "final_time": 2000, 
+            "final_time": 10000, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
@@ -47,8 +47,8 @@
             "predator": {
                 "death_rates": {
                     "1": {
-                        "start": 0.15, 
-                        "stop": 0.15
+                        "start": 0.05, 
+                        "stop": 0.2
                     }
                 }, 
                 "initial_values": {
@@ -87,8 +87,8 @@
                         "stop": 200
                     }, 
                     "2": {
-                        "start": 100, 
-                        "stop": 300
+                        "start": 200, 
+                        "stop": 200
                     }
                 }, 
                 "cost_variances": {
@@ -104,12 +104,12 @@
                 "initial_values": {
                     "densities": {
                         "1": {
-                            "start": 100, 
-                            "stop": 100
+                            "start": 50, 
+                            "stop": 50
                         }, 
                         "2": {
-                            "start": 200, 
-                            "stop": 200
+                            "start": 50, 
+                            "stop": 50
                         }
                     }, 
                     "traits": {

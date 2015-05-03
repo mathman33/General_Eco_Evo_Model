@@ -87,13 +87,19 @@
 \headcommand {\beamer@framepages {55}{55}}
 \headcommand {\slideentry {2}{3}{3}{56/56}{$2\times 1$ and $1\times 2$ Simulations}{0}}
 \headcommand {\beamer@framepages {56}{56}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{57}{Future Work}}\headcommand {\beamer@subsectionpages {54}{56}}
-\headcommand {\slideentry {2}{4}{1}{57/57}{Future Work}{0}}
+\headcommand {\slideentry {2}{3}{4}{57/57}{$2\times 1$ and $1\times 2$ Simulations}{0}}
 \headcommand {\beamer@framepages {57}{57}}
-\headcommand {\slideentry {2}{4}{2}{58/58}{Future Work}{0}}
+\headcommand {\slideentry {2}{3}{5}{58/58}{$2\times 1$ and $1\times 2$ Simulations}{0}}
 \headcommand {\beamer@framepages {58}{58}}
-\headcommand {\beamer@partpages {1}{58}}
-\headcommand {\beamer@subsectionpages {57}{58}}
-\headcommand {\beamer@sectionpages {45}{58}}
-\headcommand {\beamer@documentpages {58}}
-\headcommand {\def \inserttotalframenumber {38}}
+\headcommand {\slideentry {2}{3}{6}{59/59}{$2\times 1$ and $1\times 2$ Simulations}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{60}{Future Work}}\headcommand {\beamer@subsectionpages {54}{59}}
+\headcommand {\slideentry {2}{4}{1}{60/60}{Future Work}{0}}
+\headcommand {\beamer@framepages {60}{60}}
+\headcommand {\slideentry {2}{4}{2}{61/61}{Future Work}{0}}
+\headcommand {\beamer@framepages {61}{61}}
+\headcommand {\beamer@partpages {1}{61}}
+\headcommand {\beamer@subsectionpages {60}{61}}
+\headcommand {\beamer@sectionpages {45}{61}}
+\headcommand {\beamer@documentpages {61}}
+\headcommand {\def \inserttotalframenumber {41}}
