@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  2 MAY 2015 23:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  3 MAY 2015 07:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1279,7 +1279,7 @@ your preamble.
  on input line 44.
 
 (./presentation.nav)
-Overfull \hbox (65.47855pt too wide) in paragraph at lines 44--44
+Overfull \hbox (67.51503pt too wide) in paragraph at lines 44--44
  [][][][]  
  []
 
@@ -1304,14 +1304,14 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 58.
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1330,7 +1330,7 @@ Overfull \hbox (38.41122pt too wide) in paragraph at lines 105--105
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1349,140 +1349,140 @@ Overfull \hbox (38.41122pt too wide) in paragraph at lines 105--105
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [4
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [5
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [6
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [7
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [8
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [9
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [10
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [11
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [12
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [13
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [14
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [15
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [16
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [17
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [18
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [19
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [20
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [21
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [22
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1505,7 +1505,7 @@ Package pdftex.def Info: figures/1x1/constant_growth/traits_exclusion.png used
 on input line 429.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1532,7 +1532,7 @@ Package pdftex.def Info: figures/1x1/constant_growth/traits_stable_coexistence.
 png used on input line 437.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1559,7 +1559,7 @@ Package pdftex.def Info: figures/1x1/constant_growth/traits_unstable_coexistenc
 e.png used on input line 445.
 (pdftex.def)             Requested size: 183.56816pt x 137.67612pt.
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1567,70 +1567,70 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 
  <./figures/1x1/constant_growth/densities_unstable_coexistence.png> <./figures/
 1x1/constant_growth/traits_unstable_coexistence.png>]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [27
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [28
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [29
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [30
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [31
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [32
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [33
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [34
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [35
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1679,7 +1679,7 @@ Overfull \vbox (4.72643pt too high) detected at line 680
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1732,7 +1732,7 @@ Overfull \vbox (4.72643pt too high) detected at line 695
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1784,7 +1784,7 @@ Overfull \vbox (4.72643pt too high) detected at line 710
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1808,7 +1808,7 @@ Overfull \vbox (2.4816pt too high) detected at line 736
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1861,7 +1861,7 @@ Overfull \vbox (9.15553pt too high) detected at line 757
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1884,21 +1884,21 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 760.
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [42
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [43
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1922,7 +1922,7 @@ LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 805.
 
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1946,7 +1946,7 @@ LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 805.
 
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1970,14 +1970,14 @@ LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 805.
 
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [47
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1988,14 +1988,14 @@ Overfull \vbox (5.91736pt too high) detected at line 832
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [49
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2027,7 +2027,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 868.
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2076,7 +2076,7 @@ Overfull \vbox (4.72643pt too high) detected at line 899
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2128,7 +2128,7 @@ Overfull \vbox (4.72643pt too high) detected at line 914
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2180,7 +2180,7 @@ Overfull \vbox (4.72643pt too high) detected at line 929
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2228,7 +2228,7 @@ Overfull \vbox (4.72643pt too high) detected at line 944
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2237,7 +2237,7 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
  <./figures/1x2/variable_growth/densities_RQD.png> <./figures/1x2/variable_grow
 th/density_phase_plane_RQD.png> <./figures/1x2/variable_growth/traits_RQD.png> 
 <./figures/1x2/variable_growth/trait_phase_plane_RQD.png>]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2286,7 +2286,7 @@ Overfull \vbox (4.72643pt too high) detected at line 975
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2338,7 +2338,7 @@ Overfull \vbox (4.72643pt too high) detected at line 990
  []
 
 
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2348,14 +2348,14 @@ Overfull \hbox (65.47855pt too wide) has occurred while \output is active
 iable_growth/density_phase_plane_fast_prey_evo.png> <./figures/2x1/variable_gro
 wth/traits_fast_prey_evo.png> <./figures/2x1/variable_growth/trait_phase_plane_
 fast_prey_evo.png>]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [59
 
 ]
-Overfull \hbox (65.47855pt too wide) has occurred while \output is active
+Overfull \hbox (67.51503pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -2389,7 +2389,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1080.
 Here is how much of TeX's memory you used:
  30573 strings out of 493117
  731737 string characters out of 6135433
- 907200 words of memory out of 5000000
+ 907199 words of memory out of 5000000
  33213 multiletter control sequences out of 15000+600000
  19731 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2419,7 +2419,7 @@ l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/
 texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texl
 ive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on presentation.pdf (60 pages, 2948216 bytes).
+Output written on presentation.pdf (60 pages, 2948153 bytes).
 PDF statistics:
  2228 PDF objects out of 2487 (max. 8388607)
  2008 compressed objects within 21 object streams
