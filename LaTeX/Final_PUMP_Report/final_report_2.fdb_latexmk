@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1430799010 "final_report_2.tex" "final_report_2.pdf" "final_report_2" 1430799012
+["pdflatex"] 1430848012 "final_report_2.tex" "final_report_2.pdf" "final_report_2" 1430848013
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -45,12 +45,11 @@
   "figures/1x1/variable_growth/stable_cycles/traits.png" 1430795966 51102 11ffb4a0ab326ac9274fd9c95d0eee5e ""
   "figures/1x1/variable_growth/stable_exclusion/densities.png" 1430795966 32365 7e312ca9e77b285edb2d5e93df7b2f8c ""
   "figures/1x1/variable_growth/stable_exclusion/traits.png" 1430795966 28381 6b965b0864a35ae769a724eaeca82133 ""
-  "final_report_2.aux" 1430799012 4632 f3b994c86905462a70799809453c9575 ""
-  "final_report_2.tex" 1430799010 42674 bad9397280f0e23872d8d7dfebabadac ""
-  "placeholder.jpg" 1360029096 20279 2c3b3984e263aa5f7146ef59d3f89f8c ""
+  "final_report_2.aux" 1430848013 4110 12ce104519d6470a779328535773a984 ""
+  "final_report_2.tex" 1430848012 34718 132f1e49eebc04bf42cc5f86ede544b9 ""
   "pnastwo.cls" 1398448550 100142 16aaef93c406df61dc844dd3ab4e8b94 ""
   (generated)
   "final_report_2.out"
-  "final_report_2.aux"
-  "final_report_2.pdf"
   "final_report_2.log"
+  "final_report_2.pdf"
+  "final_report_2.aux"

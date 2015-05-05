@@ -217,7 +217,7 @@ These variances have genetic and environmental components:
 \label{prey_variance}
 \beta_i^2 = \beta_{Gi}^2 + \beta_{Ei}^2
 \end{equation}
-Assuming predator $i$ has a linear functional response, converts consumed prey $j$ into offspring with efficiencies $e_{ij} = e_{ij}(m_i, n_j)$, and experiences a per-capita mortality rate $d_i(m_i)$, then the fitness of a predator with phenotype $m_i$ is
+Assuming predator $i$ has a linear functional response with attack rate $a_{ij} = a_{ij}(m_i, n_j)$, converts consumed prey $j$ into offspring with efficiencies $e_{ij} = e_{ij}(m_i, n_j)$, and experiences a per-capita mortality rate $d_i(m_i)$, then the fitness of a predator with phenotype $m_i$ is
 \begin{equation}
 	\label{predator_fitness}
 	\begin{aligned}
@@ -263,10 +263,10 @@ Thus the complete ditrophic model of $v$ predator species and $u$ prey species i
 		\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\frac{\partial \overline{Y_j}}{\partial \overline{n_j}}
 	\end{align}
 \end{subequations}
-Lande derived {\bf [\ref{eq:general_model_c}]} and {\bf [\ref{eq:general_model_d}]} under the assumption that the distribution of phenotypes remains Gaussian.
+Lande derived {\bf [\ref{eq:general_model_c}]} and {\bf [\ref{eq:general_model_d}]} under the assumption that the distribution of phenotypes remains Gaussian.  {\bf [\ref{general_model}]} is a special case of Kindrik and Kondrashov's general model of coevolution \cite{Kindrik_1997}.  The defining feature of our model is the distinction between trophic levels, of which we are assuming there are two.  In the following sections we derive two manifestations of {\bf [\ref{general_model}]} by explicitly defining the parameter functions.
 
 \subsubsection{Model 1}
-This first model is a coevolutionary analog of Schreiber, B\"urger, and Bolnick's model.  We assume $r_j$, $K_j$, $d_i$, and $e_{ij}$ are constant, but an individual predator's attack rate on an individual prey $a_{ij}(m_i, n_j)$ is maximal at an optimal trait difference, $m_i - n_j = \theta_{ij}$, and decreases away from this optimal trait difference in a Gaussian manner, i.e.,
+This first example is a coevolutionary analog of Schreiber, B\"urger, and Bolnick's apparent competition model \cite{Schreiber_2011}.  Assume the prey growth rates and carrying capacities, $r_j$ and $K_j$, and the predator death rates and efficiencies, $d_i$, and $e_{ij}$, are constant, but let an individual predator's attack rate on an individual prey, $a_{ij}(m_i, n_j)$, be maximal at an optimal trait difference, $m_i - n_j = \theta_{ij}$, and decrease away from this optimal trait difference in a Gaussian manner, i.e.,
 \begin{equation}
 \label{attack_rate}
 a_{ij}(m_i, n_j) = \alpha_{ij}\exp{\left[-\frac{((m_i - n_j) - \theta_{ij})^2}{2\tau_{ij}^2}\right]}
@@ -279,7 +279,7 @@ where $\alpha_{ij}$ is the maximal attack and $\tau_{ij}$ determines how steeply
 		&= \frac{\alpha_{ij}\tau_{ij}}{\sqrt{A_{ij}}}\exp{\left[-\frac{((m_i - n_j) - \theta_{ij})^2}{2A_{ij}}\right]}
 	\end{aligned}
 \end{equation}
-where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$.  Explicit formulas for $\overline{W_i}$ and $\overline{Y_j}$ can be found:
+where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$.  {\bf [\ref{avg_predator_fitness}]} and {\bf [\ref{avg_prey_fitness}]} yield eplicit formulas for $\overline{W_i}$ and $\overline{Y_j}$:
 \begin{equation}
 	\label{model_1_avg_pred_fitness}
 	\overline{W_i} = \sum\limits_{j = 1}^{u}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i
@@ -297,7 +297,7 @@ The right-hand sides of {\bf [\ref{eq:general_model_c}]} and {\bf [\ref{eq:gener
 	\label{model_1_prey_fitness_partial}
 	\frac{\partial \overline{Y_j}}{\partial \overline{n_j}} = \sum\limits_{i = 1}^{v}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
 \end{equation}
-Thus {\bf [\ref{general_model}]} is simplified to:
+Thus {\bf [\ref{general_model}]} simplifies:
 \begin{subequations}
 	\label{model1}
 	\begin{align}
@@ -311,7 +311,7 @@ Thus {\bf [\ref{general_model}]} is simplified to:
 		\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\sum\limits_{i = 1}^{v}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
 	\end{align}
 \end{subequations}
-If there is only one predator species and one prey species, then {\bf [\ref{model1}]} is simplified to
+If there is only one predator species and one prey species, then {\bf [\ref{model1}]} simplifies:
 \begin{subequations}
 	\label{MODEL1}
 	\begin{align}
@@ -332,7 +332,7 @@ This second model introduces stabilizing selection to Model 1 by assuming each p
 	\label{growth_rate}
 	r_j(n_j) = \rho_j\exp{\left[-\frac{(n_j - \phi_j)^2}{2\gamma_j^2}\right]}
 \end{equation}
-where $\rho$ is the maximal growth rate and $\gamma_j$ determines how steeply the growth rate declines with distance from the optimal trait value $\phi_j$.  In effect, $\gamma_j$ determines how dependent prey $j$ is on its optimal trait value.  Under these assumptions, the average growth rate of prey species $j$ is
+where $\rho$ is the maximal growth rate and $\gamma_j$ determines how steeply the growth rate declines with distance from the optimal trait value $\phi_j$.  In effect, $\gamma_j$ determines how far prey $j$ can deviate from its optimal trait value while still maintaining an adequate growth rate.  Under these assumptions, the average growth rate of prey species $j$ is
 \begin{equation}
 	\label{average_growth_rate}
 	\begin{aligned}
@@ -340,8 +340,7 @@ where $\rho$ is the maximal growth rate and $\gamma_j$ determines how steeply th
 		&= \frac{\rho_j\gamma_j}{\sqrt{B_j}}\exp\left[-\frac{(\overline{n_j} - \phi_j)^2}{2B_j}\right]
 	\end{aligned}
 \end{equation}
-where $B_j = \beta_j^2 + \gamma_j^2$.  Since $\overline{W_i}$ does not include $r_j$, it still given by {\bf [\ref{model_1_avg_pred_fitness}]}, but $\overline{Y_j}$ must be recalculated.
-
+where $B_j = \beta_j^2 + \gamma_j^2$.  Since $\overline{W_i}$ is not dependent on $r_j$, {\bf [\ref{model_1_avg_pred_fitness}]} suffices, but since $\overline{Y_j}$ is dependent on $r_j$, it must be recalculated. {\bf [\ref{avg_prey_fitness}]} yields
 \begin{equation}
 	\label{model_2_avg_prey_fitness}
 	\overline{Y_j} = \overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{v}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
@@ -355,7 +354,7 @@ Since $\overline{W_i}$ did not change from Model 1, {\bf [\ref{eq:model1_c}]} is
 		+ &\sum\limits_{i = 1}^{v}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
 	\end{aligned}
 \end{equation}
-Thus {\bf [\ref{general_model}]} is simplified to:
+Thus {\bf [\ref{general_model}]} simplifies:
 \begin{subequations}
 	\label{model2}
 	\begin{align}
@@ -372,7 +371,7 @@ Thus {\bf [\ref{general_model}]} is simplified to:
 		\end{split}
 	\end{align}
 \end{subequations}
-If there is only one predator species and one prey species, then {\bf [\ref{model2}]} is simplified to
+If there is only one predator species and one prey species, then {\bf [\ref{model2}]} simplifies:
 \begin{subequations}
 	\label{MODEL2}
 	\begin{align}
@@ -395,7 +394,7 @@ If there is only one predator species and one prey species, then {\bf [\ref{mode
 \section{Results}
 \subsection{Model 1}
 \subsubsection{Pairwise Predator-Prey Dynamics}
-There are three classifications of equilibrium of system {\bf [\ref{MODEL1}]}: extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for each of these three classifications.  Extinction equilibria are given by
+There are three classifications of equilibrium of {\bf [\ref{MODEL1}]}: extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for each of these three classifications.  Extinction equilibria are given by
 \begin{equation}
 	\label{extinction_MODEL1}
 	(M^*, N^*, \overline{m}^*, \overline{n}^*) = (0, 0, \mu^*, \nu^*)
@@ -425,11 +424,11 @@ and coexistence equilibria are asymptotically stable if
 \end{equation}
 Intuitively, exclusion is stable if the predator death rate is high enough.  Note that if {\bf [\ref{exclusion_stability_MODEL1}]} holds then {\bf [\ref{coexistence_MODEL1}]} is not biologically feasible ($M^* < 0$), and so even though {\bf [\ref{coexistence_stability_MODEL1}]} would hold, it would be irrelevant.  Since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then intuitively, coexistence is stable if the predator is ``fast'' enough at evolving in comparison to the prey.  If this happens, the predator trait value ``catches up'' to the prey trait value.  Figure \ref{fig:constant_growth_exclusion} displays a simulation that results in stable exclusion, and figure \ref{fig:constant_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
 
-Since {\bf [\ref{exclusion_stability_MODEL1}]} and {\bf [\ref{coexistence_stability_MODEL1}]} are not equal and opposite conditions, there is at least one type of non-equilibrium coexistence dynamic.  We currently cannot analytically determine exactly what this dynamic is, but numerical simulations provide intuition - see figure \ref{fig:constant_growth_non-equilibrium_coexistence}.
+Since {\bf [\ref{exclusion_stability_MODEL1}]} and {\bf [\ref{coexistence_stability_MODEL1}]} are not equal and opposite conditions, there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics (Figure \ref{fig:constant_growth_non-equilibrium_coexistence}).  This simulation depicts an evolutionary ``arms race'' between the predator and prey.  The prey has no particular optimal value, and the predator is not fast enough at evolving to catch up to the prey, so they continuously evolve in a linear fashion.
 
 \subsection{Model 2}
 \subsubsection{Pairwise Predator-Prey Dynamics}
-Similarly to {\bf [\ref{MODEL1}]}, there are three classifications of equilibrium of system {\bf [\ref{MODEL2}]}: extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for the extinction and exclusion classifications, but a single equilibrium point for the coexistence equilibrium.  Extinction equilibria are given by {\bf [\ref{extinction_MODEL1}]}, and exclusion equilibria are given by {\bf [\ref{exclusion_MODEL1}]}.  The coexistence equilibrium is given by
+Similarly to {\bf [\ref{MODEL1}]}, there are three classifications of equilibrium of system {\bf [\ref{MODEL2}]}: extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for the extinction and exclusion classifications, but stabilizing selection provides a unique equilibrium point for coexistence.  Extinction equilibria are given by {\bf [\ref{extinction_MODEL1}]}, and exclusion equilibria are given by {\bf [\ref{exclusion_MODEL1}]}.  The coexistence equilibrium is given by
 \begin{equation}
 	\label{coexistence_MODEL2}
 	\begin{aligned}
@@ -442,90 +441,10 @@ Local stability analysis yields that all extinction equilibria are unstable, exc
 	\label{coexistence_stability_MODEL2}
 	\frac{\sigma_G^2}{\beta_G^2} > \frac{\rho\gamma}{d\sqrt{B}}\left(1 - \frac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \frac{A}{B}\right)
 \end{equation}
-Intuitively, exclusion is stable if the predator death rate is high enough.  Note that if {\bf [\ref{exclusion_stability_MODEL1}]} holds then {\bf [\ref{coexistence_MODEL2}]} is not biologically feasible ($M^* < 0$), and so even though {\bf [\ref{coexistence_stability_MODEL2}]} may hold, it would be irrelevant.  Since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then intuitively, coexistence is stable if the predator is ``fast'' enough at evolving in comparison to the prey.  If this happens, the predator trait value ``catches up'' to the prey trait value.  Figure \ref{fig:constant_growth_exclusion} displays a simulation that results in stable exclusion, and figure \ref{fig:constant_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
+Intuitively, exclusion is stable if the predator death rate is high enough.  Similar to Model 1, if {\bf [\ref{exclusion_stability_MODEL1}]} holds then {\bf [\ref{coexistence_MODEL2}]} is not biologically feasible ($M^* < 0$), and so even though {\bf [\ref{coexistence_stability_MODEL2}]} may hold, it would be irrelevant.  Again, since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then coexistence is stable only if the predator is ``fast'' enough at evolving in comparison to the prey.  Figure \ref{fig:variable_growth_exclusion} displays a simulation that results in stable exclusion, and Figure \ref{fig:variable_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
 
-Since {\bf [\ref{exclusion_stability_MODEL1}]} and {\bf [\ref{coexistence_stability_MODEL2}]} are not equal and opposite conditions, there is at least one type of non-equilibrium coexistence dynamic.  We currently cannot analytically determine exactly what this dynamic is, but numerical simulations provide intuition - see figure \ref{fig:constant_growth_non-equilibrium_coexistence}.
+{\bf [\ref{exclusion_stability_MODEL1}]} and {\bf [\ref{coexistence_stability_MODEL2}]} are not equal and opposite conditions, so there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics (Figure \ref{fig:variable_growth_stable_cycles}).
 
-
-\subsection{Simulations}
-
-\subsubsection{Simulation 1}
-
-Vivamus magna enim, aliquet id cursus a, pharetra ut purus. Phasellus suscipit nisi iaculis mi vulputate id interdum velit dictum. Nam ullamcorper elit in lectus ultrices vitae volutpat massa gravida. Etiam sagittis commodo neque eget placerat. Sed et nisi faucibus metus interdum adipiscing id nec lacus. Donec ipsum diam, malesuada at euismod consectetur, placerat quis diam. Phasellus cursus semper viverra. Proin magna tortor, blandit in ultricies id, facilisis at nibh. Proin eu neque est. Etiam euismod auctor ante. Mauris mauris sem, tincidunt a placerat rutrum, porta id est. Aenean non velit porta eros condimentum facilisis at in nibh. Etiam cursus purus ut orci rhoncus sit amet semper eros porttitor. Etiam ac leo at ipsum tincidunt consequat ac non sapien. Aenean sed leo diam, venenatis pharetra odio.
-
-\subsubsection{Simulation 2}
-
-Suspendisse viverra eleifend nulla at facilisis. Nullam eget tellus orci. Cras sit amet lorem velit. Maecenas rhoncus pellentesque orci eget vulputate. Phasellus massa nisi, mattis nec elementum accumsan, blandit non neque. In ac enim elit, sit amet luctus ante. Cras feugiat commodo lectus, vitae convallis dui sagittis id. In in tellus lacus, sed lobortis eros. Phasellus sit amet eleifend velit. Duis ornare dapibus porttitor. Maecenas eros velit, dignissim at egestas in, tincidunt lacinia erat. Proin elementum mi vel lectus suscipit fringilla. Mauris justo est, ullamcorper in rutrum interdum, accumsan eget mi. Maecenas ut massa aliquet purus eleifend vehicula in a nisi. Fusce molestie cursus lacinia.
-
-\subsection{Real Data}
-
-Aliquam interdum pellentesque scelerisque. Sed tincidunt suscipit purus, id aliquet nulla vehicula quis. Duis sed nisl lorem. Vivamus erat ante, dignissim et aliquam vel, adipiscing vitae magna. Cras id dapibus metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin ut lectus ut nisi congue ullamcorper. Ut ac turpis ligula. Sed faucibus bibendum nunc eget gravida.
-
-%------------------------------------------------
-
-\section{Discussion}
-
-Nam fermentum sapien at enim varius consectetur. Quisque lobortis imperdiet mauris, et accumsan libero vulputate vitae. Integer lacinia purus vel metus tempus suscipit. Curabitur ac sapien quis mauris euismod commodo. Sed pharetra sem elit. Fusce ultrices, mauris eu fermentum tempor, tellus sem ornare lectus, in convallis nunc urna id dolor. Donec convallis ligula vitae sem viverra fermentum. Mauris in ullamcorper erat. Donec ultrices tempus nibh quis vestibulum.
-
-Praesent volutpat, nibh in dignissim commodo, tellus justo consequat erat, vel consequat mi arcu vel lectus. Aliquam a tellus nec felis sagittis consequat. Quisque convallis imperdiet neque a tempor. Nulla non erat urna. Mauris vel lorem magna, tristique auctor ipsum. Aliquam pharetra eleifend massa. Donec porttitor sagittis luctus. Aliquam pretium luctus leo quis congue. Morbi vel felis mi. Suspendisse viverra tortor pretium orci lacinia eleifend. Phasellus aliquam, nunc eu cursus feugiat, erat odio porttitor libero, quis accumsan orci ipsum ut lorem. Vestibulum pharetra malesuada egestas. Sed non orci sit amet erat suscipit fringilla in et diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ut rhoncus nulla. Aenean porta rhoncus suscipit.
-
-Vivamus magna enim, aliquet id cursus a, pharetra ut purus. Phasellus suscipit nisi iaculis mi vulputate id interdum velit dictum. Nam ullamcorper elit in lectus ultrices vitae volutpat massa gravida. Etiam sagittis commodo neque eget placerat. Sed et nisi faucibus metus interdum adipiscing id nec lacus. Donec ipsum diam, malesuada at euismod consectetur, placerat quis diam. Phasellus cursus semper viverra. Proin magna tortor, blandit in ultricies id, facilisis at nibh. Proin eu neque est. Etiam euismod auctor ante. Mauris mauris sem, tincidunt a placerat rutrum, porta id est. Aenean non velit porta eros condimentum facilisis at in nibh. Etiam cursus purus ut orci rhoncus sit amet semper eros porttitor. Etiam ac leo at ipsum tincidunt consequat ac non sapien. Aenean sed leo diam, venenatis pharetra odio.
-
-Suspendisse viverra eleifend nulla at facilisis. Nullam eget tellus orci. Cras sit amet lorem velit. Maecenas rhoncus pellentesque orci eget vulputate. Phasellus massa nisi, mattis nec elementum accumsan, blandit non neque. In ac enim elit, sit amet luctus ante. Cras feugiat commodo lectus, vitae convallis dui sagittis id. In in tellus lacus, sed lobortis eros. Phasellus sit amet eleifend velit. Duis ornare dapibus porttitor. Maecenas eros velit, dignissim at egestas in, tincidunt lacinia erat. Proin elementum mi vel lectus suscipit fringilla. Mauris justo est, ullamcorper in rutrum interdum, accumsan eget mi. Maecenas ut massa aliquet purus eleifend vehicula in a nisi. Fusce molestie cursus lacinia.
-
-%----------------------------------------------------------------------------------------
-%	MATERIALS AND METHODS
-%----------------------------------------------------------------------------------------
-
-%% Optional Materials and Methods Section
-%% The Materials and Methods section header will be added automatically.
-
-\begin{materials}
-Suspendisse viverra eleifend nulla at facilisis. Nullam eget tellus orci. Cras sit amet lorem velit. Maecenas rhoncus pellentesque orci eget vulputate. Phasellus massa nisi, mattis nec elementum accumsan, blandit non neque. In ac enim elit, sit amet luctus ante. Cras feugiat commodo lectus, vitae convallis dui sagittis id. In in tellus lacus, sed lobortis eros. Phasellus sit amet eleifend velit. Duis ornare dapibus porttitor. Maecenas eros velit, dignissim at egestas in, tincidunt lacinia erat. Proin elementum mi vel lectus suscipit fringilla. Mauris justo est, ullamcorper in rutrum interdum, accumsan eget mi. Maecenas ut massa aliquet purus eleifend vehicula in a nisi. Fusce molestie cursus lacinia.
-
-\begin{definition}
-A bounded function $\theta$ is a weak solution of QG if for any
-$\phi\,\epsilon\,
-C_0^{\infty}(\fdb\times\mathbb{R}\times[0,\vep])$ we have
-\begin{eqnarray}
-&&  \int_{\mathbb{R}^+\times\fd\times\mathbb{R}} \hspace{-25pt}
- \theta(x,y,t)\, \pr_t \phi
-\,(x,y,t) dy dx dt+\nonumber\\
-  & +&\int_{\mathbb{R}^+\times\fd\times\mathbb{R}}
-\hspace{-26pt} \theta\,(x,y,t) u(x,y,t)\cdot\nabla\phi\,(x,y,t)
-dydxdt = 0 \label{weaksol} \end{eqnarray}
-where $u$ is determined previously.
-\end{definition}
-
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris eu sapien nunc, sit amet accumsan dui. Nulla ac diam ut nunc placerat semper eget et libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras hendrerit ullamcorper sapien vitae luctus. Quisque vel diam massa. Vestibulum dui nibh, facilisis vel vestibulum eu, viverra in quam.
-
-\begin{theorem}
-If the active scalar $\theta$ satisfies
-the equation \eqref{weaksol}, then $\varphi$ satisfies the equation
-\begin{eqnarray}
-\mfrac{\pr \varphi}{\pr t}(x,t)&=&\hspace{-2pt}\dst
-\int_{\fd}\mfrac{\mfrac{\pr \varphi}{\pr x}(x,t)-\mfrac{\pr
-\varphi}{\pr
-u}(u,t)}{[(x-u)^{2}+(\varphi(x,t)-\varphi(u,t))^{2}]^{\f12}}\nonumber\\
-&&
-\chi(x-u,\varphi(x,t)-\varphi(u,t)) du \hspace{3pt} +
-\nonumber\\
-&+&\dst \int_{\fd} \Big{[}\mfrac{\pr \varphi} {\pr
-x}(x,t)-\mfrac{\pr \varphi}{\pr u} (u,t)\Big{]}
-\nonumber\\&&
-\eta(x-u,\varphi(x,t)-\varphi(u,t)) du + Error
-\end{eqnarray}
-with $|Error|\leq C\, \delta | log\delta| $ where $C$ depends only
-on $\|\theta\|_{L^{\infty}}$ and $\|
-\nabla\varphi\|_{L^{\infty}}$.
-\end{theorem}
-
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer accumsan ornare tortor at varius. Phasellus ullamcorper blandit dolor sit amet tempus. Curabitur ligula urna, ultrices in iaculis eu, eleifend vel urna. Praesent ullamcorper imperdiet purus, ut interdum sem interdum dictum. Proin euismod volutpat eros ac mattis. Quisque sit amet massa ac tortor cursus malesuada at vitae nisi. Nam quis neque et nunc vehicula cursus sit amet at tellus.
-\end{materials}
-
-%----------------------------------------------------------------------------------------
-%	APPENDICES (OPTIONAL)
-%----------------------------------------------------------------------------------------
 
 \appendix
 An appendix without a title.
@@ -538,7 +457,7 @@ An appendix with a title.
 %----------------------------------------------------------------------------------------
 
 \begin{acknowledgments}
-This work was partially supported by a grant from the Spanish Ministry of Science and Technology.
+This work was supported by a grant from the Pacific Math Alliance, the National Math Alliance, and the National Science Foundation.
 \end{acknowledgments}
 
 %----------------------------------------------------------------------------------------
@@ -685,11 +604,6 @@ Z.~Zhang and H.~Zha, {\em Principal manifolds and nonlinear dimension
 %% \caption{Almost Sharp Front}\label{afoto}
 %% \end{figure}
 
-\begin{figure}[h]
-\centerline{\includegraphics[width=0.4\linewidth]{placeholder.jpg}}
-\caption{Figure caption}\label{placeholder}
-\end{figure}
-
 %% For Tables, put caption above table
 %%
 %% Table caption should start with a capital letter, continue with lower case
@@ -704,57 +618,44 @@ Z.~Zhang and H.~Zha, {\em Principal manifolds and nonlinear dimension
 %% \end{tabular}
 %% \end{table}
 
-\begin{table}[h]
-\caption{Table caption}\label{sampletable}
-\begin{tabular}{l l l}
-\hline
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\hline
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\hline
-\end{tabular}
-\end{table}
-
 
 \begin{centering}
-	\begin{figure}[H]
-		\label{fig:variable_growth_exclusion}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_exclusion/densities.png}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_exclusion/traits.png}
-		\caption{Model 2: Exclusion Equilibrium}
-	\end{figure}
-	\begin{figure}[H]
-		\label{fig:variable_growth_stable_coexistence}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_coexistence/densities.png}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_coexistence/traits.png}
-		\caption{Model 2: Coexistence Equilibrium}
-	\end{figure}
-	\begin{figure}[H]
-		\label{fig:variable_growth_stable_cycles}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_cycles/densities.png}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_cycles/traits.png}
-		\caption{Model 2: Non-Equilibrium, Cyclic Coexistence}
-	\end{figure}
-	\begin{figure}[H]
-		\label{fig:constant_growth_exclusion}
+	\begin{figure}[h]
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_exclusion.png}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_exclusion.png}
 		\caption{Model 1: Exclusion Equilibrium}
+		\label{fig:constant_growth_exclusion}
 	\end{figure}
-\begin{figure}[H]
-\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_stable_coexistence.png}
-\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_stable_coexistence.png}
-\caption{Model 1: Coexistence Equilibrium}
-\label{fig:constant_growth_coexistence_equilibrium}
-\end{figure}
-\begin{figure}[H]
-\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_unstable_coexistence.png}
-\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_unstable_coexistence.png}
-\caption{Model 1: Non-Equilibrium Coexistence}
-\label{fig:constant_growth_non-equilibrium_coexistence}
-\end{figure}
+	\begin{figure}[h]
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_stable_coexistence.png}
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_stable_coexistence.png}
+		\caption{Model 1: Coexistence Equilibrium}
+		\label{fig:constant_growth_coexistence_equilibrium}
+	\end{figure}
+	\begin{figure}[h]
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_unstable_coexistence.png}
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_unstable_coexistence.png}
+		\caption{Model 1: Non-Equilibrium Coexistence}
+		\label{fig:constant_growth_non-equilibrium_coexistence}
+	\end{figure}
+	\begin{figure}[h]
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_exclusion/densities.png}
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_exclusion/traits.png}
+		\caption{Model 2: Exclusion Equilibrium}
+		\label{fig:variable_growth_exclusion}
+	\end{figure}
+	\begin{figure}[h]
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_coexistence/densities.png}
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_coexistence/traits.png}
+		\caption{Model 2: Coexistence Equilibrium}
+		\label{fig:variable_growth_coexistence_equilibrium}
+	\end{figure}
+	\begin{figure}[h]
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_cycles/densities.png}
+		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_cycles/traits.png}
+		\caption{Model 2: Non-Equilibrium, Cyclic Coexistence}
+		\label{fig:variable_growth_stable_cycles}
+	\end{figure}
 \end{centering}
 %% For two column figures and tables, use the following:
 
