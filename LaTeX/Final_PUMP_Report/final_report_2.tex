@@ -167,7 +167,7 @@ Pablo Chavarria\affil{1}{Califronia State University, Northridge}}
 %----------------------------------------------------------------------------------------
 
 \begin{abstract}
-Recent ecological models have incorporated evolutionary variables in order to further understand predator/prey and competitive dynamics.  General classifications of possible dynamics exist, but no previous model has provided enough flexibility to generate all dynamics.  We propose a coevolutionary ditrophic model and provide realistic ecologic parameters that produce all dynamics.
+Predator-prey interactions are ubiquitous in nature and have captured the attention of ecologists and mathematicians.  Previous studies have focused on coexistence dynamics without taking into account phenotypic and genetic variation within a species.  Recent ecological models have incorporated evolutionary variables in order to further understand predator/prey and competitive dynamics.  General classifications of possible dynamics exist, but no previous model has provided enough flexibility to generate all dynamics.  We formulate new models for coevolution in generalized ditrophic predator-prey systems by incorporating quantitative characters relevant to predation in both prey and predator.  We study the impact of such trait variation by means of theoretical analysis and numerical simulations.
 \end{abstract}
 
 %------------------------------------------------
@@ -193,63 +193,63 @@ Recent ecological models have incorporated evolutionary variables in order to fu
 
 \section{Introduction}
 
-\dropcap{N}atural populations differ in size, morphology, physiology, and behavior.  This genetic variation is a central and organizing theme of evolutionary biology \cite{Schreiber_2011}.
+\dropcap{N}atural populations differ in size, morphology, physiology, and behavior.  This genetic variation is a central and organizing theme of evolutionary biology \cite{Schreiber_2011}.  Recent ecological models have incorporated evolutionary themes in various ways.  Abrams and Matsuda introduced vulnerability as an evolutionary variable for a prey species.  This model results in chaotic, cyclic, and stable dynamics under various conditions \cite{Abrams_Matsuda_1997}.  Saloniemi introduced quantitative traits in a coevolutionary model.  Attack rate was defined as a linear function of these trait values \cite{Saloniemi_1993}.  This model also produces chaotic dynamics under certain conditions.  More recently, Schreiber, B\"urger, and Bolnick proposed an apparent competition model with Gaussian attack rate functions for an evolving generalist predator on two non-evolving prey populations \cite{Schreiber_2011}.  In contrast with classical apparent competition theory, this model provided evidence that apparent competition can give rise to stable facilitation between under certain conditions.  The variety of dynamics produced by incorporating evolutionary variables into purely ecological models is both ecologically and mathematically relevant.
+
+All of the afformentioned models can be considered specific manifestations of Kindrik and Kondrashov's General Model of Coevolution \cite{Kindrik_Kondrashov_1997}, which describes a multitrophic ecological system of species, each of which may have a number of quantitative traits which affect each species' fitness.  As derived by \cite{Lande_1976}, if these evolutionary variables stay normally distributed, their evolution is proportional to the partial derivative of the fitness function with respect to that variable.  In other words, evolution is always in the direction which increases the mean fitness of the population.  Since community genetical changes occur over many generations, the constant of proportionality is small, and so the evolutionary variables are considered to be ``slow'' variables.  In contrast, ecological changes may happen within a single generation, and so the ecological variables (each species' population densities) are considered to be ``fast'' variables.  These differing timescales allow us to consider the General Model of Coevolution as two separate subsystems, the ecological and the evolutionary.  In the context of the ecological subsystem, the evolutionary variables can be viewed as slowly changing parameters.
 
 %------------------------------------------------
 
 \section{Model and Methods}
 
-We consider the ditrophic dynamics of $v$ predator populations with densities $M_i = M_i(t)$, consuming $u$ prey populations with densities $N_j = N_j(t)$, respectively ($i = 1, \dots, v$, and $j = 1, \dots, u$).  Ecological parameters will be defined as functions of predator phenotypic values, $m_i$, and prey phenotypic values, $n_j$, of quantitative traits.  Predator traits are normally distributed with mean $\overline{m_i} = \overline{m_i}(t)$ and constant variances $\sigma_i^2$, and prey traits are normally distributed with mean $\overline{n_j} = \overline{n_j}(t)$ and constant variances $\beta_j^2$, i.e., their distributions are given by
+Consider the ditrophic dynamics of $u$ predator populations with densities $M_i = M_i(t)$, consuming $v$ prey populations with densities $N_j = N_j(t)$, respectively ($i = 1, \dots, u$, and $j = 1, \dots, v$).  Ecological parameters will be defined as functions of predator phenotypic values, $m_i$, and prey phenotypic values, $n_j$, of quantitative traits.  We assume these traits can be measured in the same unit, or can be transformed into the same unit \cite{Saloniemi_1993}.  Assume predator traits are normally distributed with mean $\overline{m_i} = \overline{m_i}(t)$ and constant variances $\sigma_i^2$, and prey traits are normally distributed with mean $\overline{n_j} = \overline{n_j}(t)$ and constant variances $\beta_j^2$, i.e., their distributions are given by
 \begin{equation}
-\label{pred_dists}
-p(m_i, \overline{m_i}) = \frac{1}{\sqrt{2\pi\sigma_i^2}}\exp\left[-\frac{(m_i - \overline{m_i})^2}{2\sigma_i^2}\right]
-\end{equation}
-\begin{equation}
-\label{prey_dists}
-p(n_j, \overline{n_j}) = \frac{1}{\sqrt{2\pi\beta_j^2}}\exp\left[-\frac{(n_j - \overline{n_j})^2}{2\beta_j^2}\right]
+	\label{distributions}
+	\begin{aligned}
+		p(m_i, \overline{m_i}) &= \frac{1}{\sqrt{2\pi\sigma_i^2}}\exp\left[-\frac{(m_i - \overline{m_i})^2}{2\sigma_i^2}\right] \\
+		p(n_j, \overline{n_j}) &= \frac{1}{\sqrt{2\pi\beta_j^2}}\exp\left[-\frac{(n_j - \overline{n_j})^2}{2\beta_j^2}\right]
+	\end{aligned}
 \end{equation}
 These variances have genetic and environmental components:
 \begin{equation}
-\label{pred_variance}
-\sigma_i^2 = \sigma_{Gi}^2 + \sigma_{Ei}^2
+	\label{variances}
+	\begin{aligned}
+		\sigma_i^2 = \sigma_{Gi}^2 + \sigma_{Ei}^2 \\
+		\beta_i^2 = \beta_{Gi}^2 + \beta_{Ei}^2
+	\end{aligned}
 \end{equation}
-\begin{equation}
-\label{prey_variance}
-\beta_i^2 = \beta_{Gi}^2 + \beta_{Ei}^2
-\end{equation}
-Assuming predator $i$ has a linear functional response with attack rate $a_{ij} = a_{ij}(m_i, n_j)$, converts consumed prey $j$ into offspring with efficiencies $e_{ij} = e_{ij}(m_i, n_j)$, and experiences a per-capita mortality rate $d_i(m_i)$, then the fitness of a predator with phenotype $m_i$ is
+Assuming predator $i$ has a linear functional response with attack rate $a_{ij} = a_{ij}(m_i, n_j)$ on prey $j$, converts consumed prey $j$ into offspring with efficiencies $e_{ij} = e_{ij}(m_i, n_j)$, and experiences a per-capita mortality rate $d_i(m_i)$, then the fitness of a predator with phenotype $m_i$ is
 \begin{equation}
 	\label{predator_fitness}
 	\begin{aligned}
-		W_i(N_1, \dots, N_u, &M_i, n_1, \dots, n_v, m_i) \\
-		&= \sum\limits_{j = 1}^{u}\left[e_{ij}(m_i, n_j)a_{ij}(m_i, n_j)N_i\right] - d_i(m_i)
+		W_i(N_1, \dots, &N_u, M_i, n_1, \dots, n_v, m_i) \\
+		&= \sum\limits_{j = 1}^{v}\left[e_{ij}(m_i, n_j)a_{ij}(m_i, n_j)N_i\right] - d_i(m_i)
 	\end{aligned}
 \end{equation}
-and the mean fitness of the predator population is
+and the mean fitness of the $i$\textsuperscript{th} predator population is
 \begin{equation}
 	\label{avg_predator_fitness}
 	\begin{aligned}
-		\overline{W_i}&(N_1, \dots, N_u, M_i, \overline{n_1}, \dots, \overline{n_v}, \overline{m_i}) \\
-		&= \int\limits_{\mathbb{R}^{u+1}}^{}W_ip(m_i, \overline{m_i})\prod\limits_{j = 1}^{u}p(n_j, \overline{n_j})dm_i\prod\limits_{j = 1}^{u}dn_j
+		\overline{W_i}(N_1, &\dots, N_u, M_i, \overline{n_1}, \dots, \overline{n_v}, \overline{m_i}) \\
+		&= \int\limits_{\mathbb{R}^{v+1}}^{}W_ip(m_i, \overline{m_i})\prod\limits_{j = 1}^{v}p(n_j, \overline{n_j})dm_i\prod\limits_{j = 1}^{v}dn_j
 	\end{aligned}
 \end{equation}
-In the absence of any predators, each prey species experiences logistic-type growth with growth rates $r_j = r_j(n_j)$ and carrying capacities $K_j = K_j(n_j)$.  Under these assumptions, the fitness of a prey individual with phenotype $n_j$ is
+Assume in the absence of any predators, each prey species experiences logistic-type growth with growth rates $r_j = r_j(n_j)$ and carrying capacities $K_j = K_j(n_j)$.  Under these assumptions, the fitness of a prey individual with phenotype $n_j$ is
 \begin{equation}
 	\label{prey_fitness}
 	\begin{aligned}
-		Y_j(&N_j, M_1, \dots, M_v, n_j, m_1, \dots, m_v) \\
-		&= r_j(n_j)\left(1 - \frac{N_j}{K_j(n_j)}\right) - \sum\limits_{i = 1}^{v}\left[a_{ij}(m_i, n_j)M_i\right]
+		Y_j(N_j, &M_1, \dots, M_v, n_j, m_1, \dots, m_v) \\
+		&= r_j(n_j)\left(1 - \frac{N_j}{K_j(n_j)}\right) - \sum\limits_{i = 1}^{u}\left[a_{ij}(m_i, n_j)M_i\right]
 	\end{aligned}
 \end{equation}
-and the mean fitness of the prey population is
+and the mean fitness of the $j$\textsuperscript{th} prey population is
 \begin{equation}
 	\label{avg_prey_fitness}
 	\begin{aligned}
-		\overline{Y_j}&(N_j, M_1, \dots, M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) \\
-		&= \int\limits_{\mathbb{R}^{v+1}}^{}Y_jp(n_j, \overline{n_j})\prod\limits_{i = 1}^{v}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{v}dm_i
+		\overline{Y_j}(N_j, M_1, &\dots, M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) \\
+		&= \int\limits_{\mathbb{R}^{v+1}}^{}Y_jp(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i
 	\end{aligned}
 \end{equation}
-Thus the complete ditrophic model of $v$ predator species and $u$ prey species is given by
+The complete ditrophic model of $u$ predator species and $v$ prey species is given by
 \begin{subequations}
 	\label{general_model}
 	\begin{align}
@@ -263,54 +263,107 @@ Thus the complete ditrophic model of $v$ predator species and $u$ prey species i
 		\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\frac{\partial \overline{Y_j}}{\partial \overline{n_j}}
 	\end{align}
 \end{subequations}
-Lande derived {\bf [\ref{eq:general_model_c}]} and {\bf [\ref{eq:general_model_d}]} under the assumption that the distribution of phenotypes remains Gaussian.  {\bf [\ref{general_model}]} is a special case of Kindrik and Kondrashov's general model of coevolution \cite{Kindrik_1997}.  The defining feature of our model is the distinction between trophic levels, of which we are assuming there are two.  In the following sections we derive two manifestations of {\bf [\ref{general_model}]} by explicitly defining the parameter functions.
+where $i = 1, \dots, u$ and $j = 1, \dots, v$.
+% Lande derived {\bf [\ref{eq:general_model_c}]} and {\bf [\ref{eq:general_model_d}]} under the assumption that the distribution of phenotypes remains Gaussian \cite{Lande_1976}.  {\bf [\ref{general_model}]} is a special case of Kindrik and Kondrashov's general model of coevolution \cite{Kindrik_Kondrashov_1997}.  The defining feature of our model is the distinction between trophic levels, of which we are assuming there are two.  In the following sections we derive two manifestations of {\bf [\ref{general_model}]} by explicitly defining the parameter functions.
 
 \subsubsection{Model 1}
 This first example is a coevolutionary analog of Schreiber, B\"urger, and Bolnick's apparent competition model \cite{Schreiber_2011}.  Assume the prey growth rates and carrying capacities, $r_j$ and $K_j$, and the predator death rates and efficiencies, $d_i$, and $e_{ij}$, are constant, but let an individual predator's attack rate on an individual prey, $a_{ij}(m_i, n_j)$, be maximal at an optimal trait difference, $m_i - n_j = \theta_{ij}$, and decrease away from this optimal trait difference in a Gaussian manner, i.e.,
 \begin{equation}
-\label{attack_rate}
-a_{ij}(m_i, n_j) = \alpha_{ij}\exp{\left[-\frac{((m_i - n_j) - \theta_{ij})^2}{2\tau_{ij}^2}\right]}
+	\label{attack_rate}
+	a_{ij}(m_i, n_j) = \alpha_{ij}\exp{\left[-\frac{((m_i - n_j) - \theta_{ij})^2}{2\tau_{ij}^2}\right]}
 \end{equation}
 where $\alpha_{ij}$ is the maximal attack and $\tau_{ij}$ determines how steeply the attack rate declines with distance from the optimal trait difference $\theta_{ij}$.  In effect, $\tau_{ij}$ determines how phenotypically specialized predator $i$ must be to use prey $j$.  Under these assumptions, the average attack rate of predator species $i$ on prey species $j$ is
 \begin{equation}
 	\label{average_attack_rate}
 	\begin{aligned}
 		\overline{a_{ij}}(\overline{m_i}, \overline{n_j}) &= \int\limits_{\mathbb{R}^2}a_{ij}(m_i, n_j)p(m_i, \overline{m_i})p(n_j, \overline{n_j})dm_idn_j \\
-		&= \frac{\alpha_{ij}\tau_{ij}}{\sqrt{A_{ij}}}\exp{\left[-\frac{((m_i - n_j) - \theta_{ij})^2}{2A_{ij}}\right]}
+		&= \frac{\alpha_{ij}\tau_{ij}}{\sqrt{A_{ij}}}\exp{\left[-\frac{((\overline{m_i} - \overline{n_j}) - \theta_{ij})^2}{2A_{ij}}\right]}
 	\end{aligned}
 \end{equation}
-where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$.  {\bf [\ref{avg_predator_fitness}]} and {\bf [\ref{avg_prey_fitness}]} yield eplicit formulas for $\overline{W_i}$ and $\overline{Y_j}$:
+where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$.  {\bf [\ref{avg_predator_fitness}]}, and {\bf [\ref{avg_prey_fitness}]} now yield eplicit formulas for $\overline{W_i}$ and $\overline{Y_j}$ in terms of {\bf [\ref{average_attack_rate}]}:
 \begin{equation}
 	\label{model_1_avg_pred_fitness}
-	\overline{W_i} = \sum\limits_{j = 1}^{u}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i
+	\overline{W_i} = \sum\limits_{j = 1}^{v}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i
 \end{equation}
 \begin{equation}
 	\label{model_1_avg_prey_fitness}
-	\overline{Y_j} = r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{v}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
+	\overline{Y_j} = r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
 \end{equation}
-The right-hand sides of {\bf [\ref{eq:general_model_c}]} and {\bf [\ref{eq:general_model_d}]} can also be found:
+Relavent partial derivatives of {\bf [\ref{model_1_avg_pred_fitness}]} and {\bf [\ref{model_1_avg_prey_fitness}]} are easily computable:
 \begin{equation}
 	\label{model_1_pred_fitness_partial}
-	\frac{\partial \overline{W_i}}{\partial \overline{m_i}} = \sum\limits_{j = 1}^{u}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
+	\frac{\partial \overline{W_i}}{\partial \overline{m_i}} = \sum\limits_{j = 1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
 \end{equation}
 \begin{equation}
 	\label{model_1_prey_fitness_partial}
-	\frac{\partial \overline{Y_j}}{\partial \overline{n_j}} = \sum\limits_{i = 1}^{v}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
+	\frac{\partial \overline{Y_j}}{\partial \overline{n_j}} = \sum\limits_{i = 1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
 \end{equation}
 Thus {\bf [\ref{general_model}]} simplifies:
 \begin{subequations}
 	\label{model1}
 	\begin{align}
 		\label{eq:model1_a}
-		\frac{dM_i}{dt} &= M_i\left[\sum\limits_{j = 1}^{u}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i\right] \\[5px]
+		\frac{dM_i}{dt} &= M_i\left[\sum\limits_{j = 1}^{v}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i\right] \\[5px]
 		\label{eq:model1_b}
-		\frac{dN_j}{dt} &= N_j\left[r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{v}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]\right] \\[5px]
+		\frac{dN_j}{dt} &= N_j\left[r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]\right] \\[5px]
 		\label{eq:model1_c}
-		\frac{d\overline{m_i}}{dt} &= \sigma_{Gi}^2\sum\limits_{j = 1}^{u}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right] \\[5px]
+		\frac{d\overline{m_i}}{dt} &= \sigma_{Gi}^2\sum\limits_{j = 1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right] \\[5px]
 		\label{eq:model1_d}
-		\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\sum\limits_{i = 1}^{v}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
+		\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\sum\limits_{i = 1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
 	\end{align}
 \end{subequations}
+
+\subsubsection{Model 2}
+This second model introduces stabilizing selection to Model 1 by assuming each prey species has an optimal trait value by which growth rate is maximized, and decreases away from the optimal trait value in a Gaussian manner, i.e.
+\begin{equation}
+	\label{growth_rate}
+	r_j(n_j) = \rho_j\exp{\left[-\frac{(n_j - \phi_j)^2}{2\gamma_j^2}\right]}
+\end{equation}
+where $\rho_j$ is the maximal growth rate of the $j$\textsuperscript{th} prey species and $\gamma_j$ determines how steeply the growth rate declines with distance from the optimal trait value $\phi_j$.  In effect, $\gamma_j$ determines how far prey $j$ can deviate from its optimal trait value while still maintaining an adequate growth rate.  Under these assumptions, the average growth rate of prey species $j$ is
+\begin{equation}
+	\label{average_growth_rate}
+	\begin{aligned}
+		\overline{r_j}(\overline{n_j}) &= \int\limits_{\mathbb{R}}^{}r_j(n_j)p(n_j, \overline{n_j})dn_j \\
+		&= \frac{\rho_j\gamma_j}{\sqrt{B_j}}\exp\left[-\frac{(\overline{n_j} - \phi_j)^2}{2B_j}\right]
+	\end{aligned}
+\end{equation}
+where $B_j = \beta_j^2 + \gamma_j^2$.  Since $\overline{W_i}$ is not dependent on $r_j$, {\bf [\ref{model_1_avg_pred_fitness}]} suffices, but $\overline{Y_j}$ must be recalculated since it is dependent on $r_j$.  {\bf [\ref{avg_prey_fitness}]} yields an explicit formula in terms of {\bf [\ref{average_attack_rate}]} and {\bf [\ref{average_growth_rate}]}:
+\begin{equation}
+	\label{model_2_avg_prey_fitness}
+	\overline{Y_j} = \overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
+\end{equation}
+Since $\overline{W_i}$ did not change from Model 1, {\bf [\ref{eq:model1_c}]} is sufficient for the right hand side of {\bf [\ref{eq:general_model_c}]}.  However, the right hand side of {\bf [\ref{eq:general_model_d}]} must be recalculated.
+
+\begin{equation}
+	\label{model_2_prey_fitness_partial}
+	\begin{aligned}
+		\frac{\partial \overline{Y_j}}{\partial \overline{n_j}} = \overline{r_j}(\overline{n_j})&\left(1 - \frac{N_j}{K_j}\right)\frac{\phi_j - \overline{n_j}}{B_j}\\
+		+ &\sum\limits_{i = 1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
+	\end{aligned}
+\end{equation}
+Thus {\bf [\ref{general_model}]} simplifies:
+\begin{subequations}
+	\label{model2}
+	\begin{align}
+		\label{eq:model2_a}
+		\frac{dM_i}{dt} &= M_i\left[\sum\limits_{j = 1}^{v}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i\right] \\[5px]
+		\label{eq:model2_b}
+		\frac{dN_j}{dt} &= N_j\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]\right] \\[5px]
+		\label{eq:model2_c}
+		\frac{d\overline{m_i}}{dt} &= \sigma_{Gi}^2\sum\limits_{j = 1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right] \\[5px]
+		\label{eq:model2_d}
+		\begin{split}
+			\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\Bigg[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{\phi_j - \overline{n_j}}{B_j} \\
+			&\ \ \ \ \ \ \ + \sum\limits_{i = 1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]\Bigg]
+		\end{split}
+	\end{align}
+\end{subequations}
+
+%------------------------------------------------
+
+\section{Results}
+\subsection{Pairwise Predator-Prey Dynamics}
+\subsubsection{Model 1}
 If there is only one predator species and one prey species, then {\bf [\ref{model1}]} simplifies:
 \begin{subequations}
 	\label{MODEL1}
@@ -325,76 +378,7 @@ If there is only one predator species and one prey species, then {\bf [\ref{mode
 		\frac{d\overline{n_j}}{dt} &= \beta_{G}^2\frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})
 	\end{align}
 \end{subequations}
-
-\subsubsection{Model 2}
-This second model introduces stabilizing selection to Model 1 by assuming each prey species has an optimal trait value by which growth rate is maximized, and decreases away from the optimal trait value in a Gaussian manner, i.e.
-\begin{equation}
-	\label{growth_rate}
-	r_j(n_j) = \rho_j\exp{\left[-\frac{(n_j - \phi_j)^2}{2\gamma_j^2}\right]}
-\end{equation}
-where $\rho$ is the maximal growth rate and $\gamma_j$ determines how steeply the growth rate declines with distance from the optimal trait value $\phi_j$.  In effect, $\gamma_j$ determines how far prey $j$ can deviate from its optimal trait value while still maintaining an adequate growth rate.  Under these assumptions, the average growth rate of prey species $j$ is
-\begin{equation}
-	\label{average_growth_rate}
-	\begin{aligned}
-		\overline{r_j}(\overline{n_j}) &= \int\limits_{\mathbb{R}}^{}r_j(n_j)p(n_j, \overline{n_j})dn_j \\
-		&= \frac{\rho_j\gamma_j}{\sqrt{B_j}}\exp\left[-\frac{(\overline{n_j} - \phi_j)^2}{2B_j}\right]
-	\end{aligned}
-\end{equation}
-where $B_j = \beta_j^2 + \gamma_j^2$.  Since $\overline{W_i}$ is not dependent on $r_j$, {\bf [\ref{model_1_avg_pred_fitness}]} suffices, but since $\overline{Y_j}$ is dependent on $r_j$, it must be recalculated. {\bf [\ref{avg_prey_fitness}]} yields
-\begin{equation}
-	\label{model_2_avg_prey_fitness}
-	\overline{Y_j} = \overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{v}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
-\end{equation}
-Since $\overline{W_i}$ did not change from Model 1, {\bf [\ref{eq:model1_c}]} is sufficient for the right hand side of {\bf [\ref{eq:general_model_c}]}.  However, the right hand side of {\bf [\ref{eq:general_model_d}]} must be recalculated.
-
-\begin{equation}
-	\label{model_2_prey_fitness_partial}
-	\begin{aligned}
-		\frac{\partial \overline{Y_j}}{\partial \overline{n_j}} = \overline{r_j}(\overline{n_j})&\left(1 - \frac{N_j}{K_j}\right)\frac{\phi_j - \overline{n_j}}{B_j}\\
-		+ &\sum\limits_{i = 1}^{v}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
-	\end{aligned}
-\end{equation}
-Thus {\bf [\ref{general_model}]} simplifies:
-\begin{subequations}
-	\label{model2}
-	\begin{align}
-		\label{eq:model2_a}
-		\frac{dM_i}{dt} &= M_i\left[\sum\limits_{j = 1}^{u}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i\right] \\[5px]
-		\label{eq:model2_b}
-		\frac{dN_j}{dt} &= N_j\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{v}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]\right] \\[5px]
-		\label{eq:model2_c}
-		\frac{d\overline{m_i}}{dt} &= \sigma_{Gi}^2\sum\limits_{j = 1}^{u}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right] \\[5px]
-		\label{eq:model2_d}
-		\begin{split}
-			\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\Bigg[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{\phi_j - \overline{n_j}}{B_j} \\
-			&\ \ \ \ \ \ \ + \sum\limits_{i = 1}^{v}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]\Bigg]
-		\end{split}
-	\end{align}
-\end{subequations}
-If there is only one predator species and one prey species, then {\bf [\ref{model2}]} simplifies:
-\begin{subequations}
-	\label{MODEL2}
-	\begin{align}
-		\label{eq:MODEL2_A}
-		\frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
-		\label{eq:MODEL2_B}
-		\frac{dN}{dt} &= N\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
-		\label{eq:MODEL2_C}
-		\frac{d\overline{m_i}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
-		\label{eq:MODEL2_D}
-		\begin{split}
-			\frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} \\
-			&\ \ \ \ \ \ \ \ \ \ \ \ + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
-		\end{split}
-	\end{align}
-\end{subequations}
-
-%------------------------------------------------
-
-\section{Results}
-\subsection{Model 1}
-\subsubsection{Pairwise Predator-Prey Dynamics}
-There are three classifications of equilibrium of {\bf [\ref{MODEL1}]}: extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for each of these three classifications.  Extinction equilibria are given by
+There are three classifications of equilibria of {\bf [\ref{MODEL1}]}: extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for each of these three classifications.  Extinction equilibria are given by
 \begin{equation}
 	\label{extinction_MODEL1}
 	(M^*, N^*, \overline{m}^*, \overline{n}^*) = (0, 0, \mu^*, \nu^*)
@@ -412,7 +396,7 @@ where $\mu^*$ is an arbitrary value.  Coexistence equilibria are given by
 		&\left(\frac{r\sqrt{A}}{\alpha\tau}\left(1 - \frac{N^*}{K}\right), \frac{d\sqrt{A}}{e\alpha\tau}, \mu^* + \theta, \mu^*\right)
 	\end{aligned}
 \end{equation}
-where $\mu^*$ is an arbitrary value.  Local stability analysis yields that all extinction equilibria are unstable, exclusion equilibria are asymptotically stable if
+where $\mu^*$ is an arbitrary value.  Local stability analysis (Appendix II) yields that all extinction equilibria are unstable, exclusion equilibria are asymptotically stable if
 \begin{equation}
 	\label{exclusion_stability_MODEL1}
 	d > \frac{Ke\alpha\tau}{\sqrt{A}}
@@ -422,13 +406,29 @@ and coexistence equilibria are asymptotically stable if
 	\label{coexistence_stability_MODEL1}
 	\frac{\sigma_G^2}{\beta_G^2} > \frac{r}{d}\left(1 - \frac{d\sqrt{A}}{Ke\alpha\tau}\right)
 \end{equation}
-Intuitively, exclusion is stable if the predator death rate is high enough.  Note that if {\bf [\ref{exclusion_stability_MODEL1}]} holds then {\bf [\ref{coexistence_MODEL1}]} is not biologically feasible ($M^* < 0$), and so even though {\bf [\ref{coexistence_stability_MODEL1}]} would hold, it would be irrelevant.  Since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then intuitively, coexistence is stable if the predator is ``fast'' enough at evolving in comparison to the prey.  If this happens, the predator trait value ``catches up'' to the prey trait value.  Figure \ref{fig:constant_growth_exclusion} displays a simulation that results in stable exclusion, and figure \ref{fig:constant_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
+Intuitively, exclusion is stable if the predator death rate is high enough.  Note that if {\bf [\ref{exclusion_stability_MODEL1}]} holds then {\bf [\ref{coexistence_MODEL1}]} is not biologically feasible ($M^* < 0$), and so even though {\bf [\ref{coexistence_stability_MODEL1}]} would hold (since all parameters are assumed to be positive), it would be irrelevant.  Since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then intuitively, coexistence is stable if the predator is ``fast'' enough at evolving in comparison to the prey.  If this happens, the predator trait value ``catches up'' to the prey trait value.  Figure \ref{fig:constant_growth_exclusion} displays a simulation that results in stable exclusion, and Figure \ref{fig:constant_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
 
-Since {\bf [\ref{exclusion_stability_MODEL1}]} and {\bf [\ref{coexistence_stability_MODEL1}]} are not equal and opposite conditions, there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics (Figure \ref{fig:constant_growth_non-equilibrium_coexistence}).  This simulation depicts an evolutionary ``arms race'' between the predator and prey.  The prey has no particular optimal value, and the predator is not fast enough at evolving to catch up to the prey, so they continuously evolve in a linear fashion.
+Since {\bf [\ref{exclusion_stability_MODEL1}]} and {\bf [\ref{coexistence_stability_MODEL1}]} are not equal and opposite conditions, however, there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics.  Figure \ref{fig:constant_growth_non-equilibrium_coexistence} depicts an evolutionary ``arms race'' between the predator and prey.  The prey has no particular optimal value, and the predator is not fast enough at evolving to catch up to the prey, so they continuously evolve in a linear fashion.  There is no stabilizing selection in this model - the prey species has no reason to stop evolving, and the predator species has no reason to stop chasing it.
 
-\subsection{Model 2}
-\subsubsection{Pairwise Predator-Prey Dynamics}
-Similarly to {\bf [\ref{MODEL1}]}, there are three classifications of equilibrium of system {\bf [\ref{MODEL2}]}: extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for the extinction and exclusion classifications, but stabilizing selection provides a unique equilibrium point for coexistence.  Extinction equilibria are given by {\bf [\ref{extinction_MODEL1}]}, and exclusion equilibria are given by {\bf [\ref{exclusion_MODEL1}]}.  The coexistence equilibrium is given by
+\subsubsection{Model 2}
+If there is only one predator species and one prey species, then {\bf [\ref{model2}]} simplifies:
+\begin{subequations}
+	\label{MODEL2}
+	\begin{align}
+		\label{eq:MODEL2_A}
+		\frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
+		\label{eq:MODEL2_B}
+		\frac{dN}{dt} &= N\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
+		\label{eq:MODEL2_C}
+		\frac{d\overline{m_i}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+		\label{eq:MODEL2_D}
+		\begin{split}
+			\frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} \\
+			&\ \ \ \ \ \ \ \ \ \ \ \ + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
+		\end{split}
+	\end{align}
+\end{subequations}
+Similarly to {\bf [\ref{MODEL1}]}, there are three classifications of equilibrium of system {\bf [\ref{MODEL2}]}: extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for the extinction and exclusion classifications, but stabilizing selection provides a unique coexistence equilibrium point.  Extinction equilibria are given by {\bf [\ref{extinction_MODEL1}]}, and exclusion equilibria are given by {\bf [\ref{exclusion_MODEL1}]}.  The coexistence equilibrium point is given by
 \begin{equation}
 	\label{coexistence_MODEL2}
 	\begin{aligned}
@@ -436,21 +436,100 @@ Similarly to {\bf [\ref{MODEL1}]}, there are three classifications of equilibriu
 		&\left(\frac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \frac{N^*}{K}\right), \frac{d\sqrt{A}}{e\alpha\tau}, \phi + \theta, \phi\right)
 	\end{aligned}
 \end{equation}
-Local stability analysis yields that all extinction equilibria are unstable, exclusion equilibria are asymptotically stable if {\bf [\ref{exclusion_stability_MODEL1}]} holds, and the coexistence equilibrium is asymptotically stable if
+Local stability analysis for extinction and exclusion equilibria is nearly identical to Model 1 - all extinction equilibria are unstable and exclusion equilibria are asymptotically stable if {\bf [\ref{exclusion_stability_MODEL1}]} holds.  The coexistence equilibrium is asymptotically stable if
 \begin{equation}
 	\label{coexistence_stability_MODEL2}
 	\frac{\sigma_G^2}{\beta_G^2} > \frac{\rho\gamma}{d\sqrt{B}}\left(1 - \frac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \frac{A}{B}\right)
 \end{equation}
-Intuitively, exclusion is stable if the predator death rate is high enough.  Similar to Model 1, if {\bf [\ref{exclusion_stability_MODEL1}]} holds then {\bf [\ref{coexistence_MODEL2}]} is not biologically feasible ($M^* < 0$), and so even though {\bf [\ref{coexistence_stability_MODEL2}]} may hold, it would be irrelevant.  Again, since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then coexistence is stable only if the predator is ``fast'' enough at evolving in comparison to the prey.  Figure \ref{fig:variable_growth_exclusion} displays a simulation that results in stable exclusion, and Figure \ref{fig:variable_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
+Similar to Model 1, exclusion is stable if the predator death rate is high enough, and if {\bf [\ref{exclusion_stability_MODEL1}]} holds then {\bf [\ref{coexistence_MODEL2}]} is not biologically feasible ($M^* < 0$), and so even though {\bf [\ref{coexistence_stability_MODEL2}]} may hold, it would be irrelevant.  Again, since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then coexistence is stable only if the predator is ``fast'' enough at evolving in comparison to the prey.  Figure \ref{fig:variable_growth_exclusion} displays a simulation that results in stable exclusion, and Figure \ref{fig:variable_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
 
-{\bf [\ref{exclusion_stability_MODEL1}]} and {\bf [\ref{coexistence_stability_MODEL2}]} are not equal and opposite conditions, so there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics (Figure \ref{fig:variable_growth_stable_cycles}).
+{\bf [\ref{exclusion_stability_MODEL1}]} and {\bf [\ref{coexistence_stability_MODEL2}]} are not equal and opposite conditions, so there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics.  Figure \ref{fig:variable_growth_stable_cycles}) depicts long-term stable oscillatory dynamics.  We conjecture a unique stable limit cycle exists if neither {\bf [\ref{exclusion_stability_MODEL1}]} nor {\bf [\ref{coexistence_stability_MODEL2}]} hold.
 
+We can intuitively understand these dynamics by considering the inverse effects that the evolution of the prey trait has on its own fitness.  At the same time the prey evolves its own trait value away from the predator trait value (to minimize attack rate), it must also stay close enough to its optimal trait value $\phi_j$ to maintain an adequate growth rate.  These effects nullify each other whenever the prey trait value reaches a maximum or minimum.  Immediately after the prey trait value reverses direction, the prey has double incentive to evolve toward $\phi_j$: it increases its growth rate while minimizing the predator's attack rate.  Immediately after passing through $\phi_j$, however, the inverse effects take hold, and the cycle begins again.
 
-\appendix
-An appendix without a title.
+\appendix[Derivation of Models 1 and 2]
+\subsubsection{Derivation of {\bf [\ref{average_attack_rate}]}}
+First note the following fact:
+\begin{align*}
+	\int\limits_{\mathbb{R}}\exp\left[-(ax^2 + bx + c)\right] = \sqrt{\frac{\pi}{a}}\exp\left[\frac{b^2}{4a} - c\right]
+\end{align*}
+\begin{align*}
+	&\int\limits_{\mathbb{R}^2}a_{ij}(m_i, n_j)p(m_i, \overline{m_i})p(n_j, \overline{n_j})dm_idn_j \\
+	&= \frac{\alpha_{ij}}{2\pi\sigma_i\beta_j}\int\limits_{\mathbb{R}^2}\exp\Bigg[-\frac{((m_i - n_j) - \theta_{ij})^2}{2\tau_{ij}^2} \\
+	&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ - \frac{(m_i - \overline{m_i})^2}{2\sigma_i^2} - \frac{(n_j - \overline{n_j})^2}{2\beta_j^2}\Bigg]dm_idn_j \\
+	&= \frac{\alpha_{ij}}{2\pi\sigma_i\beta_j}\int\limits_{\mathbb{R}}\exp\left[-\frac{(n_j - \overline{n_j})^2}{2\beta_j^2}\right]\int\limits_{\mathbb{R}}\exp\Bigg[\\
+	&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -(am_i^2 + bm_i + c)\Bigg]dm_idn_j
+\end{align*}
+where
+\begin{align*}
+	a &= \frac{\sigma_i^2 + \tau_{ij}^2}{2\sigma_i^2\tau_{ij}^2} \\
+	b &= -\left(\frac{\sigma_i^2(n + \theta_{ij}) + \tau_{ij}^2\overline{m}}{\tau_{ij}^2\sigma_i^2}\right) \\
+	c &= \frac{\sigma_i^2(n_j + \theta_{ij})^2 + \tau_{ij}^2\overline{m}^2}{2\sigma_i^2\tau_{ij}^2} \\[2px]
+	\implies \sqrt{\frac{\pi}{a}}&\exp\left[\frac{b^2}{4a} - c\right]\\
+	= \frac{\sigma_i\tau_{ij}\sqrt{2\pi}}{\sqrt{\sigma_i^2 + \tau_{ij}^2}}&\exp\left[-\frac{((\overline{m} - n) - \theta_{ij})^2}{2(\sigma_i^2 + \tau_{ij}^2)}\right]
+\end{align*}
+Thus
+\begin{align*}
+	&\int\limits_{\mathbb{R}^2}a_{ij}(m_i, n_j)p(m_i, \overline{m_i})p(n_j, \overline{n_j})dm_idn_j \\
+	&= \frac{\alpha_{ij}\tau_{ij}}{\beta_j\sqrt{2\pi}\sqrt{\sigma_i^2 + \tau_{ij^2}}}\int\limits_{\mathbb{R}}\exp\Bigg[-\frac{((\overline{m_i} - n_j) - \theta_{ij})^2}{2(\sigma_i^2 + \tau_{ij}^2)} \\
+	&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ - \frac{(n_j - \overline{n_j})^2}{2\beta_j^2}\Bigg]dn_j \\
+	&= \frac{\alpha_{ij}\tau_{ij}}{\beta_j\sqrt{2\pi}\sqrt{\sigma_i^2 + \tau_{ij^2}}}\int\limits_{\mathbb{R}}\exp\left[-(am_i^2 + bm_i + c)\right]dn_j
+\end{align*}
+where
+\begin{align*}
+	a &= \frac{\tau_{ij}^2 + \sigma_i^2 + \beta_j^2}{2\beta_j^2(\sigma_i^2 + \tau_{ij}^2)} \\
+	b &= -\frac{(\overline{m_i} - \theta_{ij})^2\beta_j^2 + (\sigma_i^2 + \tau_{ij}^2)\overline{n_j}}{\beta_j^2(\sigma_i^2 + \tau_{ij}^2)} \\
+	c &= \frac{(\overline{m_i} - \theta_{ij})^2\beta_j^2 + \overline{n}^2(\sigma_i^2 + \tau_{ij}^2)^2}{2\beta_j^2(\sigma_i^2 + \tau_{ij}^2)} \\
+	\implies \sqrt{\frac{\pi}{a}}&\exp\left[\frac{b^2}{4a} - c\right]\\
+	= \frac{\beta_j\sqrt{2\pi}\sqrt{\sigma_i^2 + \tau_{ij}^2}}{\sqrt{\beta_j^2 + \sigma_i^2 + \tau_{ij}^2}}&\exp\left[-\frac{((\overline{m} - \overline{n}) - \theta_{ij})^2}{2(\beta_j^2 + \sigma_i^2 + \tau_{ij}^2)}\right]
+\end{align*}
+Thus
+\begin{align*}
+	&\int\limits_{\mathbb{R}^2}a_{ij}(m_i, n_j)p(m_i, \overline{m_i})p(n_j, \overline{n_j})dm_idn_j \\
+	&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = \frac{\alpha_{ij}\tau_{ij}}{\sqrt{A_{ij}}}\exp{\left[-\frac{((\overline{m_i} - \overline{n_j}) - \theta_{ij})^2}{2A_{ij}}\right]}
+\end{align*}
+where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$. \hfill $\square$
+\subsubsection{Derivation of {\bf [\ref{model_1_avg_pred_fitness}]}}
+\begin{align*}
+	\overline{W_i} = \sum\limits_{j = 1}^{v}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i
+\end{align*}
+\subsubsection{Derivation of {\bf [\ref{model_1_avg_prey_fitness}]}}
+\begin{align*}
+	\overline{Y_j} = r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
+\end{align*}
+\subsubsection{Derivation of {\bf [\ref{average_growth_rate}]}}
+\begin{align*}
+	\overline{r_j}(\overline{n_j}) &= \int\limits_{\mathbb{R}}^{}r_j(n_j)p(n_j, \overline{n_j})dn_j \\
+	&= \frac{\rho_j\gamma_j}{\sqrt{B_j}}\exp\left[-\frac{(\overline{n_j} - \phi_j)^2}{2B_j}\right]
+\end{align*}
+\subsubsection{Derivation of {\bf [\ref{model_2_avg_prey_fitness}]}}
+\begin{align*}
+	\overline{Y_j} = \overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
+\end{align*}
 
-\appendix[Appendix title]
-An appendix with a title.
+\appendix[Equilibria and Local Stability Analysis of Models 1 and 2]
+\subsubsection{Derivation of Equilibria of {\bf [\ref{MODEL1}]}}
+\begin{align*}
+	\frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
+	\frac{dN}{dt} &= N\left[r\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
+	\frac{d\overline{m_i}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{d\overline{n_j}}{dt} &= \beta_{G}^2\frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})
+\end{align*}
+\subsubsection{Derivation of Stability Criterion for Equilibrium Points of {\bf [\ref{MODEL1}]}}
+Lots of matrices....
+
+\subsubsection{Derivation of Equilibria of {\bf [\ref{MODEL2}]}}
+\begin{align*}
+	\frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
+	\frac{dN}{dt} &= N\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
+	\frac{d\overline{m_i}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\begin{split}
+		\frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} \\
+		&\ \ \ \ \ \ \ \ \ \ \ \ + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
+	\end{split}
+\end{align*}
+
+\subsubsection{Derivation of Stability Criterion for Equilibrium Points of {\bf [\ref{MODEL2}]}}
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
@@ -496,7 +575,11 @@ This work was supported by a grant from the Pacific Math Alliance, the National 
 
 \bibitem{Abrams_1994}
 
-\bibitem{Kindrik_1997}
+\bibitem{Lande_1976}
+
+\bibitem{Abrams_Matsuda_1997}
+
+\bibitem{Kindrik_Kondrashov_1997}
 
 \bibitem{Saloniemi_1993}
 
