@@ -439,7 +439,7 @@ Thus,
 \end{align*}
 
 \section*{Appendix B: Equilibria and Local Stability Analysis of Models 1 and 2}
-\subsection*{Derivation of Equilibria of (\ref{MODEL1})}
+\subsection*{Derivation of Equilibria and Local Stability Criteria of (\ref{MODEL1})}
 \begin{align*}
 	f_1 = \frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
 	f_2 = \frac{dN}{dt} &= N\left[r\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
@@ -454,39 +454,97 @@ Thus,
 		f_4 = 0 \implies& M = 0 \ \ \ &\text{or}&\ \ \ \overline{m} - \overline{n} = \theta
 	\end{array}
 \end{align*}
-Clearly, $M = N = 0$ satisfies equilibrium, and $\overline{m}$ and $\overline{n}$ are arbitrary.  This gives the extinction equilibria.  Suppose $M = 0$ but $N \neq 0$.  Then $f_2 = 0 \implies N = K$ and $f_3 = 0 \implies \overline{m} - \overline{n} = \theta$.  This gives the exclusion equilibria.  Supposing $M \neq 0$ and $N \neq 0$, then $f_3 = f_4 = 0 \implies \overline{m} - \overline{n} = \theta \implies \overline{a}(\overline{m}, \overline{n}) = \frac{\alpha\tau}{A} \implies N = \frac{d\sqrt{A}}{e\alpha\tau} \implies M = \frac{r\sqrt{A}}{\alpha\tau}\left(1 - \frac{\sqrt{A}}{Ke\alpha\tau}\right)$.  By exhaustion, this gives the only other set of equilibria.
+Clearly, $M = N = 0$ satisfies equilibrium, and $\overline{m}$ and $\overline{n}$ are arbitrary.  This gives the extinction equilibria.  Suppose $M = 0$ but $N \neq 0$.  Then $f_2 = 0 \implies N = K$ and $f_3 = 0 \implies \overline{m} - \overline{n} = \theta$.  This gives the exclusion equilibria.  Supposing $M \neq 0$ and $N \neq 0$, then $f_3 = f_4 = 0 \implies \overline{m} - \overline{n} = \theta \implies \overline{a}(\overline{m}, \overline{n}) = \frac{\alpha\tau}{A} \implies N = \frac{d\sqrt{A}}{e\alpha\tau} \implies M = \frac{r\sqrt{A}}{\alpha\tau}\left(1 - \frac{\sqrt{A}}{Ke\alpha\tau}\right)$.  By exhaustion, this gives the only other set of equilibria: the coexistence equilibria.
 
-\subsection*{Derivation of Stability Criterion for Equilibrium Points of (\ref{MODEL1})}
-To solve for local stability conditions, we find the eigenvalues of the community matrix evaluated at each equilbrium point.  First, note the following calculations:
-\begin{align*}
-	\frac{\partial \overline{a}}{\partial \overline{m}} &= \frac{\theta - (\overline{m} - \overline{n})}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
-	\frac{\partial \overline{a}}{\partial \overline{n}} &= \frac{(\overline{m} - \overline{n}) - \theta}{A}\overline{a}(\overline{m}, \overline{n})
-\end{align*}
-Now, the partial derivatives of $f_1$, \dots, $f_4$:
+To solve for local stability conditions, we find the eigenvalues of the community matrix evaluated at each equilbrium point.  First, note the partial derivatives of $f_1$, $f_2$, $f_3$, and $f_4$:
 \begin{align*}
 	\frac{\partial f_1}{\partial M} &= e\overline{a}(\overline{m}, \overline{n})N - d\\[5px]
 	\frac{\partial f_1}{\partial N} &= Me\overline{a}(\overline{m}, \overline{n})\\[5px]
-	\frac{\partial f_1}{\partial \overline{m}} &= MNe\frac{\partial \overline{a}}{\partial \overline{m}} \\[5px]
-	\frac{\partial f_1}{\partial \overline{n}} &= MNe\frac{\partial \overline{a}}{\partial \overline{n}}
-\end{align*}
-\begin{align*}
+	\frac{\partial f_1}{\partial \overline{m}} &= \frac{MNe(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{\partial f_1}{\partial \overline{n}} &= \frac{MNe((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
 	\frac{\partial f_2}{\partial M} &= -N\overline{a}(\overline{m}, \overline{n}) \\[5px]
 	\frac{\partial f_2}{\partial N} &= r\left(1 - \frac{2N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\\[5px]
-	\frac{\partial f_2}{\partial \overline{m}} &= -MN\frac{\partial \overline{a}}{\partial \overline{m}} \\[5px]
-	\frac{\partial f_2}{\partial \overline{n}} &= -MN\frac{\partial \overline{a}}{\partial \overline{n}}
-\end{align*}
-\begin{align*}
+	\frac{\partial f_2}{\partial \overline{m}} &= -\frac{MN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{\partial f_2}{\partial \overline{n}} &= -\frac{MN((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
 	\frac{\partial f_3}{\partial M} &= 0 \\[5px]
-	\frac{\partial f_3}{\partial N} &= \sigma_{G}^2\frac{e(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{\partial f_3}{\partial N} &= \frac{\sigma_{G}^2e}{A}\overline{a}(\overline{m}, \overline{n})(\theta - (\overline{m} - \overline{n})) \\[5px]
 	\frac{\partial f_3}{\partial \overline{m}} &= \frac{\sigma_G^2eN}{A}\overline{a}(\overline{m}, \overline{n})\left(\frac{(\theta - (\overline{m} - \overline{n}))^2}{A} - 1\right)\\[5px]
-	\frac{\partial f_3}{\partial \overline{n}} &= \frac{\sigma_G^2eN}{A}\overline{a}(\overline{m}, \overline{n})\left(1 - \frac{(\theta - (\overline{m} - \overline{n}))^2}{A}\right)
-\end{align*}
-\begin{align*}
-	\frac{\partial f_4}{\partial M} &= \beta_{G}^2\frac{(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{\partial f_3}{\partial \overline{n}} &= \frac{\sigma_G^2eN}{A}\overline{a}(\overline{m}, \overline{n})\left(1 - \frac{(\theta - (\overline{m} - \overline{n}))^2}{A}\right) \\[5px]
+	\frac{\partial f_4}{\partial M} &= \frac{\beta_{G}^2}{A}\overline{a}(\overline{m}, \overline{n})(\theta - (\overline{m} - \overline{n})) \\[5px]
 	\frac{\partial f_4}{\partial N} &= 0 \\[5px]
 	\frac{\partial f_4}{\partial \overline{m}} &= \frac{\beta_G^2M}{A}\overline{a}(\overline{m}, \overline{n})\left(\frac{(\theta - (\overline{m} - \overline{n}))^2}{A} - 1\right)\\[5px]
 	\frac{\partial f_4}{\partial \overline{n}} &= \frac{\beta_G^2M}{A}\overline{a}(\overline{m}, \overline{n})\left(1 - \frac{(\theta - (\overline{m} - \overline{n}))^2}{A}\right)
 \end{align*}
+Let $E_{\text{ext}} = (0, 0, \mu^*, \nu^*)$, $E_{\text{excl}} = (0, K, \mu^* + \theta, \mu^*)$, and $E_{\text{coex}} = (\frac{r\sqrt{A}}{\alpha\tau}\left(1 - \frac{\sqrt{A}}{Ke\alpha\tau}\right), \frac{d\sqrt{A}}{e\alpha\tau}, \mu^* + \theta, \mu^*)$ be the extinction, exclusion, and coexistence equilibrium points, respectively.  Then denote $J^*|_{E_{\text{ext}}}$, $J^*|_{E_{\text{excl}}}$, and $J^*|_{E_{\text{coex}}}$ as the community matrices evaluated at those points.
+\begin{align*}
+	J^*|_{E_{\text{ext}}} &= \left(\begin{array}{cccc}
+		\dfrac{\partial f_1}{\partial M}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_1}{\partial N}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_1}{\partial \overline{m}}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_1}{\partial \overline{n}}\Big|_{E_{\text{ext}}} \\[10px]
+		\dfrac{\partial f_2}{\partial M}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_2}{\partial N}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_2}{\partial \overline{m}}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_2}{\partial \overline{n}}\Big|_{E_{\text{ext}}} \\[10px]
+		\dfrac{\partial f_3}{\partial M}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_3}{\partial N}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_3}{\partial \overline{m}}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_3}{\partial \overline{n}}\Big|_{E_{\text{ext}}} \\[10px]
+		\dfrac{\partial f_4}{\partial M}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_4}{\partial N}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_4}{\partial \overline{m}}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_4}{\partial \overline{n}}\Big|_{E_{\text{ext}}}
+	\end{array}\right) \\
+	&= \left(\begin{array}{cccc}
+		-d & 0 & 0 & 0 \\
+		0 & r & 0 & 0 \\
+		0 & \frac{\sigma_{G}^2e(\theta - (\mu^* - \nu^*))}{A}\overline{a}(\mu^*, \nu^*) & 0 & 0 \\
+		\frac{\beta_{G}^2(\theta - (\mu^* - \nu^*))}{A}\overline{a}(\mu^*, \nu^*) & 0 & 0 & 0
+	\end{array}\right)
+\end{align*}
+This is an upper-triangular matrix, and thus the eigenvalues are the entries on the main diagonal: $-d$, $r$, and $0$.  Since one of the eigenvalues, namely $r$, is positive, the $E_{\text{ext}}$ is locally unstable.
+\begin{align*}
+	J^*|_{E_{\text{excl}}} &= \left(\begin{array}{cccc}
+		\dfrac{\partial f_1}{\partial M}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_1}{\partial N}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_1}{\partial \overline{m}}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_1}{\partial \overline{n}}\Big|_{E_{\text{excl}}} \\[10px]
+		\dfrac{\partial f_2}{\partial M}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_2}{\partial N}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_2}{\partial \overline{m}}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_2}{\partial \overline{n}}\Big|_{E_{\text{excl}}} \\[10px]
+		\dfrac{\partial f_3}{\partial M}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_3}{\partial N}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_3}{\partial \overline{m}}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_3}{\partial \overline{n}}\Big|_{E_{\text{excl}}} \\[10px]
+		\dfrac{\partial f_4}{\partial M}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_4}{\partial N}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_4}{\partial \overline{m}}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_4}{\partial \overline{n}}\Big|_{E_{\text{excl}}}
+	\end{array}\right) \\
+	&= \left(\begin{array}{cccc}
+		\frac{Ke\alpha\tau}{\sqrt{A}} - d & 0 & 0 & 0 \\
+		-\frac{K\alpha\tau}{\sqrt{A}} & -r & 0 & 0 \\
+		0 & 0 & -\frac{\sigma_G^2Ke\alpha\tau}{A^{3/2}} & \frac{\sigma_G^2Ke\alpha\tau}{A^{3/2}} \\
+		0 & 0 & 0 & 0
+	\end{array}\right)
+\end{align*}
+The eigenvalues are $\frac{Ke\alpha\tau}{\sqrt{A}} - d$, $-r$ and $-\frac{\sigma_G^2Ke\alpha\tau}{A^{3/2}}$, $0$.  (The eigenvalues are easily computable by swapping the third and fourth rows and columns to obtain an upper-triangular matrix).  All of these are non-positive if (\ref{exclusion_stability_MODEL1}) holds.
+\begin{align*}
+	J^*|_{E_{\text{coex}}} &= \left(\begin{array}{cccc}
+		\dfrac{\partial f_1}{\partial M}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_1}{\partial N}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_1}{\partial \overline{m}}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_1}{\partial \overline{n}}\Big|_{E_{\text{coex}}} \\[10px]
+		\dfrac{\partial f_2}{\partial M}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_2}{\partial N}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_2}{\partial \overline{m}}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_2}{\partial \overline{n}}\Big|_{E_{\text{coex}}} \\[10px]
+		\dfrac{\partial f_3}{\partial M}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_3}{\partial N}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_3}{\partial \overline{m}}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_3}{\partial \overline{n}}\Big|_{E_{\text{coex}}} \\[10px]
+		\dfrac{\partial f_4}{\partial M}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_4}{\partial N}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_4}{\partial \overline{m}}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_4}{\partial \overline{n}}\Big|_{E_{\text{coex}}}
+	\end{array}\right) \\
+	&= \left(\begin{array}{cccc}
+		0 & er\left(1 - \frac{N^*}{K}\right) & 0 & 0 \\
+		-\frac{d}{e} & -\frac{rN^*}{K} & 0 & 0 \\
+		0 & 0 & -\frac{\sigma_G^2d}{A} & \frac{\sigma_G^2d}{A} \\
+		0 & 0 & -\frac{\beta_G^2r}{A}\left(1 - \frac{N^*}{K}\right) & \frac{\beta_G^2r}{A}\left(1 - \frac{N^*}{K}\right)
+	\end{array}\right)
+\end{align*}
+This is a block diagonal matrix, and so the eigenvalues can be calculated by finding the eigenvalues of each block.
+\begin{align*}
+	J_1 = \left(\begin{array}{cc}
+		0 & er\left(1 - \frac{N^*}{K}\right)\\
+		-\frac{d}{e} & -\frac{rN^*}{K}
+	\end{array}\right)\ \ \ \ \text{and}\ \ \ \ J_2 = \left(\begin{array}{cc}
+		-\frac{\sigma_G^2d}{A} & \frac{\sigma_G^2d}{A} \\
+        -\frac{\beta_G^2r}{A}\left(1 - \frac{N^*}{K}\right) & \frac{\beta_G^2r}{A}\left(1 - \frac{N^*}{K}\right)
+	\end{array}\right)
+\end{align*}
+The eigenvalues of $J_1$ are
+\begin{align*}
+	\lambda_{1,2} = \frac{1}{2}\left[-\frac{rN^*}{K} \pm \sqrt{\left(\frac{rN^*}{K}\right)^2 - 4rd\left(1 - \frac{N^*}{K}\right)}\ \right]
+\end{align*}
+Since $N^* < K$, $\sqrt{\left(\frac{rN^*}{K}\right)^2 - 4rd\left(1 - \frac{N^*}{K}\right)} < \left|\frac{rN^*}{K}\right|$, and thus $\text{Re}(\lambda_{1,2}) < 0$. \\
+
+\noindent The eigenvalues of $J_2$ are
+\begin{align*}
+	\lambda_{3,4} = \frac{1}{2}\left[-\left(\frac{d\sigma_G^2 - r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{A}\right) \pm \sqrt{\Delta}\right]
+\end{align*}
+where
+\begin{align*}
+	\Delta = \left(\frac{d\sigma_G^2 - r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{A}\right)^2 - \left(\frac{4rd\sigma_G^2\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{A^2}\right)
+\end{align*}
+Again, since $N^* < K$, $\sqrt{\Delta} < \left|\frac{d\sigma_G^2 - r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{A}\right|$, and thus $\text{Re}(\lambda_{3,4}) < 0$ if and only if (\ref{coexistence_stability_MODEL1}) holds.
 
 \subsection*{Derivation of Equilibria of (\ref{MODEL2})}
 \begin{align*}
@@ -494,8 +552,7 @@ Now, the partial derivatives of $f_1$, \dots, $f_4$:
 	\frac{dN}{dt} &= N\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
 	\frac{d\overline{m_i}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
 	\begin{split}
-		\frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} \\
-		&\ \ \ \ \ \ \ \ \ \ \ \ + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
+		\frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
 	\end{split}
 \end{align*}
 
