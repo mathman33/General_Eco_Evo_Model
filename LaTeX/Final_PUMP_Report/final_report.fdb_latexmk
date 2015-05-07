@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1431020973 "final_report.tex" "final_report.pdf" "final_report" 1431020981
+["pdflatex"] 1431031129 "final_report.tex" "final_report.pdf" "final_report" 1431031130
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -40,10 +40,9 @@
   "figures/1x1/variable_growth/stable_cycles/traits.png" 1430795966 51102 11ffb4a0ab326ac9274fd9c95d0eee5e ""
   "figures/1x1/variable_growth/stable_exclusion/densities.png" 1430795966 32365 7e312ca9e77b285edb2d5e93df7b2f8c ""
   "figures/1x1/variable_growth/stable_exclusion/traits.png" 1430795966 28381 6b965b0864a35ae769a724eaeca82133 ""
-  "final_report.aux" 1431020980 7187 07288c8c5399d3d4a64f735960022be1 ""
-  "final_report.tex" 1431020972 63150 afb3ca67a485b28b561ae710c779fd27 ""
-  "lion.png" 1412961104 14848 03aea4a00da11fd0cb69b384b3655503 ""
+  "final_report.aux" 1431031130 5613 8eaa2539903dd8ff277c3a9941cddda1 ""
+  "final_report.tex" 1431031127 69203 4add5bcfff62a12ebdcce26af71051d0 ""
   (generated)
-  "final_report.aux"
   "final_report.log"
   "final_report.pdf"
+  "final_report.aux"

@@ -40,6 +40,9 @@
     \fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
   }%
 }
+\allowdisplaybreaks
+
+
 
 \begin{document}
 
@@ -304,9 +307,7 @@ If there is only one predator species and one prey species, then (\ref{model2}) 
 		\label{eq:MODEL2_C}
 		\frac{d\overline{m_i}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
 		\label{eq:MODEL2_D}
-		\begin{split}
-			\frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
-		\end{split}
+		\frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
 	\end{align}
 \end{subequations}
 Similarly to (\ref{MODEL1}), there are three classifications of equilibrium of system (\ref{MODEL2}): extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for the extinction and exclusion classifications, but stabilizing selection provides a unique coexistence equilibrium point.  Extinction equilibria are given by (\ref{extinction_MODEL1}), and exclusion equilibria are given by (\ref{exclusion_MODEL1}).  The coexistence equilibrium point is given by
@@ -327,6 +328,7 @@ Similar to Model 1, exclusion is stable if the predator death rate is high enoug
 
 We can intuitively understand these dynamics by considering the inverse effects that the evolution of the prey trait has on its own fitness.  At the same time the prey evolves its own trait value away from the predator trait value (to minimize attack rate), it must also stay close enough to its optimal trait value $\phi_j$ to maintain an adequate growth rate.  These effects nullify each other whenever the prey trait value reaches a maximum or minimum.  Immediately after the prey trait value reverses direction, the prey has double incentive to evolve toward $\phi_j$: it increases its growth rate while minimizing the predator's attack rate.  Immediately after passing through $\phi_j$, however, the inverse effects take hold, and the cycle begins again.
 
+\pagebreak
 \section*{Appendix A: Derivation of Models 1 and 2}
 \subsection*{Derivation of (\ref{average_attack_rate})}
 First note the following:
@@ -438,13 +440,13 @@ Thus,
 	\overline{Y_j}(N_j, M_1, \dots, &M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) = \overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
 \end{align*}
 
-\section*{Appendix B: Equilibria and Local Stability Analysis of Models 1 and 2}
-\subsection*{Derivation of Equilibria and Local Stability Criteria of (\ref{MODEL1})}
+\pagebreak
+\section*{Appendix B: Equilibria and Local Stability Analysis of (\ref{MODEL1})}
 \begin{align*}
 	f_1 = \frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
 	f_2 = \frac{dN}{dt} &= N\left[r\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
-	f_3 = \frac{d\overline{m_i}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
-	f_4 = \frac{d\overline{n_j}}{dt} &= \beta_{G}^2\frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})
+	f_3 = \frac{d\overline{m}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	f_4 = \frac{d\overline{n}}{dt} &= \beta_{G}^2\frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})
 \end{align*}
 \begin{align*}
 	\begin{array}{ccccc}
@@ -454,28 +456,40 @@ Thus,
 		f_4 = 0 \implies& M = 0 \ \ \ &\text{or}&\ \ \ \overline{m} - \overline{n} = \theta
 	\end{array}
 \end{align*}
-Clearly, $M = N = 0$ satisfies equilibrium, and $\overline{m}$ and $\overline{n}$ are arbitrary.  This gives the extinction equilibria.  Suppose $M = 0$ but $N \neq 0$.  Then $f_2 = 0 \implies N = K$ and $f_3 = 0 \implies \overline{m} - \overline{n} = \theta$.  This gives the exclusion equilibria.  Supposing $M \neq 0$ and $N \neq 0$, then $f_3 = f_4 = 0 \implies \overline{m} - \overline{n} = \theta \implies \overline{a}(\overline{m}, \overline{n}) = \frac{\alpha\tau}{A} \implies N = \frac{d\sqrt{A}}{e\alpha\tau} \implies M = \frac{r\sqrt{A}}{\alpha\tau}\left(1 - \frac{\sqrt{A}}{Ke\alpha\tau}\right)$.  By exhaustion, this gives the only other set of equilibria: the coexistence equilibria.
+Clearly, $M = N = 0$ satisfies equilibrium, and $\overline{m}$ and $\overline{n}$ are arbitrary.  This gives the extinction equilibria.  Suppose $M = 0$ but $N \neq 0$.  Then $f_2 = 0 \implies N = K$ and $f_3 = 0 \implies \overline{m} - \overline{n} = \theta$.  This gives the exclusion equilibria.  Supposing $M \neq 0$ and $N \neq 0$, then $f_3 = f_4 = 0 \implies \overline{m} - \overline{n} = \theta \implies \overline{a}(\overline{m}, \overline{n}) = \frac{\alpha\tau}{\sqrt{A}} \implies N = \frac{d\sqrt{A}}{e\alpha\tau} \implies M = \frac{r\sqrt{A}}{\alpha\tau}\left(1 - \frac{\sqrt{A}}{Ke\alpha\tau}\right)$.  By exhaustion, this gives the only other set of equilibria: the coexistence equilibria.
 
 To solve for local stability conditions, we find the eigenvalues of the community matrix evaluated at each equilbrium point.  First, note the partial derivatives of $f_1$, $f_2$, $f_3$, and $f_4$:
 \begin{align*}
 	\frac{\partial f_1}{\partial M} &= e\overline{a}(\overline{m}, \overline{n})N - d\\[5px]
 	\frac{\partial f_1}{\partial N} &= Me\overline{a}(\overline{m}, \overline{n})\\[5px]
 	\frac{\partial f_1}{\partial \overline{m}} &= \frac{MNe(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
-	\frac{\partial f_1}{\partial \overline{n}} &= \frac{MNe((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{\partial f_1}{\partial \overline{n}} &= \frac{MNe((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n})
+\end{align*}
+\begin{align*}
 	\frac{\partial f_2}{\partial M} &= -N\overline{a}(\overline{m}, \overline{n}) \\[5px]
 	\frac{\partial f_2}{\partial N} &= r\left(1 - \frac{2N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\\[5px]
 	\frac{\partial f_2}{\partial \overline{m}} &= -\frac{MN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
-	\frac{\partial f_2}{\partial \overline{n}} &= -\frac{MN((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{\partial f_2}{\partial \overline{n}} &= -\frac{MN((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n})
+\end{align*}
+\begin{align*}
 	\frac{\partial f_3}{\partial M} &= 0 \\[5px]
 	\frac{\partial f_3}{\partial N} &= \frac{\sigma_{G}^2e}{A}\overline{a}(\overline{m}, \overline{n})(\theta - (\overline{m} - \overline{n})) \\[5px]
 	\frac{\partial f_3}{\partial \overline{m}} &= \frac{\sigma_G^2eN}{A}\overline{a}(\overline{m}, \overline{n})\left(\frac{(\theta - (\overline{m} - \overline{n}))^2}{A} - 1\right)\\[5px]
-	\frac{\partial f_3}{\partial \overline{n}} &= \frac{\sigma_G^2eN}{A}\overline{a}(\overline{m}, \overline{n})\left(1 - \frac{(\theta - (\overline{m} - \overline{n}))^2}{A}\right) \\[5px]
+	\frac{\partial f_3}{\partial \overline{n}} &= \frac{\sigma_G^2eN}{A}\overline{a}(\overline{m}, \overline{n})\left(1 - \frac{(\theta - (\overline{m} - \overline{n}))^2}{A}\right)
+\end{align*}
+\begin{align*}
 	\frac{\partial f_4}{\partial M} &= \frac{\beta_{G}^2}{A}\overline{a}(\overline{m}, \overline{n})(\theta - (\overline{m} - \overline{n})) \\[5px]
 	\frac{\partial f_4}{\partial N} &= 0 \\[5px]
 	\frac{\partial f_4}{\partial \overline{m}} &= \frac{\beta_G^2M}{A}\overline{a}(\overline{m}, \overline{n})\left(\frac{(\theta - (\overline{m} - \overline{n}))^2}{A} - 1\right)\\[5px]
 	\frac{\partial f_4}{\partial \overline{n}} &= \frac{\beta_G^2M}{A}\overline{a}(\overline{m}, \overline{n})\left(1 - \frac{(\theta - (\overline{m} - \overline{n}))^2}{A}\right)
 \end{align*}
-Let $E_{\text{ext}} = (0, 0, \mu^*, \nu^*)$, $E_{\text{excl}} = (0, K, \mu^* + \theta, \mu^*)$, and $E_{\text{coex}} = (\frac{r\sqrt{A}}{\alpha\tau}\left(1 - \frac{\sqrt{A}}{Ke\alpha\tau}\right), \frac{d\sqrt{A}}{e\alpha\tau}, \mu^* + \theta, \mu^*)$ be the extinction, exclusion, and coexistence equilibrium points, respectively.  Then denote $J^*|_{E_{\text{ext}}}$, $J^*|_{E_{\text{excl}}}$, and $J^*|_{E_{\text{coex}}}$ as the community matrices evaluated at those points.
+Let the extinction, exclusion, and coexistence equilibrium be denoted as
+\begin{align*}
+	E_{\text{ext}} = (M^*, N^*, \overline{m}^*, \overline{n}^*) &= (0, 0, \mu^*, \nu^*) \\
+	E_{\text{excl}} = (M^*, N^*, \overline{m}^*, \overline{n}^*) &= (0, K, \mu^* + \theta, \mu^*) \\
+	E_{\text{coex}} = (M^*, N^*, \overline{m}^*, \overline{n}^*) &= \left(\frac{r\sqrt{A}}{\alpha\tau}\left(1 - \frac{N^*}{K}\right), \frac{d\sqrt{A}}{e\alpha\tau}, \mu^* + \theta, \mu^*\right)
+\end{align*}
+Then denote $J^*|_{E_{\text{ext}}}$, $J^*|_{E_{\text{excl}}}$, and $J^*|_{E_{\text{coex}}}$ as the community matrices evaluated at those points.
 \begin{align*}
 	J^*|_{E_{\text{ext}}} &= \left(\begin{array}{cccc}
 		\dfrac{\partial f_1}{\partial M}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_1}{\partial N}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_1}{\partial \overline{m}}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_1}{\partial \overline{n}}\Big|_{E_{\text{ext}}} \\[10px]
@@ -544,19 +558,179 @@ where
 \begin{align*}
 	\Delta = \left(\frac{d\sigma_G^2 - r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{A}\right)^2 - \left(\frac{4rd\sigma_G^2\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{A^2}\right)
 \end{align*}
-Again, since $N^* < K$, $\sqrt{\Delta} < \left|\frac{d\sigma_G^2 - r\beta_G^2\left(1 - \dfrac{N^*}{K}\right)}{A}\right|$, and thus $\text{Re}(\lambda_{3,4}) < 0$ if and only if (\ref{coexistence_stability_MODEL1}) holds.
+Again, since $N^* < K$, $\sqrt{\Delta} < \left|\dfrac{d\sigma_G^2 - r\beta_G^2\left(1 - \frac{N^*}{K}\right)}{A}\right|$, and thus $\text{Re}(\lambda_{3,4}) < 0$ if and only if (\ref{coexistence_stability_MODEL1}) holds.
 
-\subsection*{Derivation of Equilibria of (\ref{MODEL2})}
+\pagebreak
+\section*{Appendix C: Equilibria and Local Stability Analysis of (\ref{MODEL2})}
 \begin{align*}
-	\frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
-	\frac{dN}{dt} &= N\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
-	\frac{d\overline{m_i}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
-	\begin{split}
-		\frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
-	\end{split}
+	f_1 = \frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
+	f_2 = \frac{dN}{dt} &= N\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
+	f_3 = \frac{d\overline{m}}{dt} &= \sigma_{G}^2\frac{eN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	f_4 = \frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
 \end{align*}
+\begin{align*}
+	\begin{array}{cccrl}
+		f_1 = 0 \implies& M = 0 \ \ \ &\text{or}&\ \ \ N &= \dfrac{d}{e\overline{a}(\overline{m}, \overline{n})} \\[10px]
+		f_2 = 0 \implies& N = 0 \ \ \ &\text{or}&\ \ \ M &= \dfrac{\overline{r}(\overline{n})}{\overline{a}(\overline{m}, \overline{n})}\left(1 - \dfrac{N}{K}\right) \\[10px]
+		f_3 = 0 \implies& N = 0 \ \ \ &\text{or}&\ \ \ \overline{m} - \overline{n} &= \theta \\[10px]
+		f_4 = 0 \implies& M = 0 \ \ \ &\text{or}&\ \ \ \overline{r}(\overline{n})\left(1 - \dfrac{N}{K}\right)\dfrac{\phi - \overline{n}}{B} &= \dfrac{M((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n})
+	\end{array}
+\end{align*}
+Clearly, $M = N = 0$ satisfies equilibrium, and $\overline{m}$ and $\overline{n}$ are arbitrary.  This gives the extinction equilibria.  Suppose $M = 0$ but $N \neq 0$.  Then $f_2 = 0 \implies N = K$ and $f_3 = 0 \implies \overline{m} - \overline{n} = \theta$.  This gives the exclusion equilibria.  Supposing $M \neq 0$ and $N \neq 0$, then $f_3 = 0 \implies \overline{m} - \overline{n} = \theta \implies \overline{a}(\overline{m}, \overline{n}) = \frac{\alpha\tau}{\sqrt{A}} \implies N = \frac{d\sqrt{A}}{e\alpha\tau}$.  Since $\overline{m} - \overline{n} = \theta$, then $f_4 = 0 \implies \overline{n} = \phi$ or $N = K$.  But if $N = K$, then $f_2 = 0 \implies M = 0$, a contradiction.  Thus $\overline{n} = \phi$, which implies $\overline{m} = \phi + \theta$ and $M = \frac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \frac{\sqrt{A}}{Ke\alpha\tau}\right)$.  By exhaustion, this gives the only other equilibrium: the coexistence equilibrium point.
 
-\subsection*{Derivation of Stability Criterion for Equilibrium Points of (\ref{MODEL2})}
+To solve for local stability conditions, we find the eigenvalues of the community matrix evaluated at each equilbrium point.  First, note the partial derivatives of $f_1$, $f_2$, $f_3$, and $f_4$:
+\begin{align*}
+	\frac{\partial f_1}{\partial M} &= e\overline{a}(\overline{m}, \overline{n})N - d\\[5px]
+	\frac{\partial f_1}{\partial N} &= Me\overline{a}(\overline{m}, \overline{n})\\[5px]
+	\frac{\partial f_1}{\partial \overline{m}} &= \frac{MNe(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{\partial f_1}{\partial \overline{n}} &= \frac{MNe((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n})
+\end{align*}
+\begin{align*}
+	\frac{\partial f_2}{\partial M} &= -N\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{\partial f_2}{\partial N} &= \overline{r}(\overline{n})\left(1 - \frac{2N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\\[5px]
+	\frac{\partial f_2}{\partial \overline{m}} &= -\frac{MN(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n}) \\[5px]
+	\frac{\partial f_2}{\partial \overline{n}} &= N\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B}- \frac{M((\overline{m} - \overline{n}) - \theta)}{A}\overline{a}(\overline{m}, \overline{n})\right]
+\end{align*}
+\begin{align*}
+	\frac{\partial f_3}{\partial M} &= 0 \\[5px]
+	\frac{\partial f_3}{\partial N} &= \frac{\sigma_{G}^2e}{A}\overline{a}(\overline{m}, \overline{n})(\theta - (\overline{m} - \overline{n})) \\[5px]
+	\frac{\partial f_3}{\partial \overline{m}} &= \frac{\sigma_G^2eN}{A}\overline{a}(\overline{m}, \overline{n})\left(\frac{(\theta - (\overline{m} - \overline{n}))^2}{A} - 1\right)\\[5px]
+	\frac{\partial f_3}{\partial \overline{n}} &= \frac{\sigma_G^2eN}{A}\overline{a}(\overline{m}, \overline{n})\left(1 - \frac{(\theta - (\overline{m} - \overline{n}))^2}{A}\right)
+\end{align*}
+\begin{align*}
+	\frac{\partial f_4}{\partial M} &= \frac{\beta_{G}^2}{A}\overline{a}(\overline{m}, \overline{n})(\theta - (\overline{m} - \overline{n})) \\[5px]
+	\frac{\partial f_4}{\partial N} &= -\frac{\beta_G^2\overline{r}(\overline{n})}{K}\cdot\frac{\phi - \overline{n}}{B} \\[5px]
+	\frac{\partial f_4}{\partial \overline{m}} &= \frac{\beta_G^2M}{A}\overline{a}(\overline{m}, \overline{n})\left(\frac{(\theta - (\overline{m} - \overline{n}))^2}{A} - 1\right)\\[5px]
+	\frac{\partial f_4}{\partial \overline{n}} &= \beta_G^2\left[\frac{\overline{r}(\overline{n})}{B}\left(1 - \frac{N}{K}\right)\left(\frac{(\phi - \overline{n})^2}{B} - 1\right) + \frac{M}{A}\overline{a}(\overline{m}, \overline{n})\left(1 - \frac{(\theta - (\overline{m} - \overline{n}))^2}{A}\right)\right]
+\end{align*}
+Let the extinction, exclusion, and coexistence equilibria be denoted as
+\begin{align*}
+	E_{\text{ext}} = (M^*, N^*, \overline{m}^*, \overline{n}^*) &= (0, 0, \mu^*, \nu^*)\\
+	E_{\text{excl}} = (M^*, N^*, \overline{m}^*, \overline{n}^*) &= (0, K, \mu^* + \theta, \mu^*) \\
+	E_{\text{coex}} = (M^*, N^*, \overline{m}^*, \overline{n}^*) &= \left(\frac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \frac{N^*}{K}\right), \frac{d\sqrt{A}}{e\alpha\tau}, \phi + \theta, \phi\right)
+\end{align*}
+Then denote $J^*|_{E_{\text{ext}}}$, $J^*|_{E_{\text{excl}}}$, and $J^*|_{E_{\text{coex}}}$ as the community matrices evaluated at those points.
+\begin{align*}
+	J^*|_{E_{\text{ext}}} &= \left(\begin{array}{cccc}
+		\dfrac{\partial f_1}{\partial M}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_1}{\partial N}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_1}{\partial \overline{m}}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_1}{\partial \overline{n}}\Big|_{E_{\text{ext}}} \\[10px]
+		\dfrac{\partial f_2}{\partial M}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_2}{\partial N}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_2}{\partial \overline{m}}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_2}{\partial \overline{n}}\Big|_{E_{\text{ext}}} \\[10px]
+		\dfrac{\partial f_3}{\partial M}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_3}{\partial N}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_3}{\partial \overline{m}}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_3}{\partial \overline{n}}\Big|_{E_{\text{ext}}} \\[10px]
+		\dfrac{\partial f_4}{\partial M}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_4}{\partial N}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_4}{\partial \overline{m}}\Big|_{E_{\text{ext}}} & \dfrac{\partial f_4}{\partial \overline{n}}\Big|_{E_{\text{ext}}}
+	\end{array}\right) \\
+	&= \left(\begin{array}{cccc}
+		-d & 0 & 0 & 0 \\[5px]
+		0 & \frac{\rho\gamma}{\sqrt{B}} & 0 & 0 \\[5px]
+		0 & \frac{\sigma_{G}^2e(\theta - (\mu^* - \nu^*))\overline{a}(\mu^*, \nu^*)}{A} & 0 & 0 \\[5px]
+		\frac{\beta_{G}^2(\theta - (\mu^* - \nu^*))\overline{a}(\mu^*, \nu^*)}{A} & -\frac{\beta_G^2\overline{r}(\nu^*)}{K}\cdot\frac{\phi - \nu^*}{B} & 0 & \beta_G^2\frac{\overline{r}(\overline{n})}{B}\left(\frac{(\phi - \overline{n})^2}{B} - 1\right)
+	\end{array}\right)
+\end{align*}
+This is an upper-triangular matrix, and thus the eigenvalues are the entries on the main diagonal: $-d$, $\frac{\rho\gamma}{\sqrt{B}}$, $0$, and $\beta_G^2\frac{\overline{r}(\overline{n})}{B}\left(\frac{(\phi - \overline{n})^2}{B} - 1\right)$.  Since one of the eigenvalues, namely $\frac{\rho\gamma}{\sqrt{B}}$, is positive, the $E_{\text{ext}}$ is locally unstable.
+\begin{align*}
+	J^*|_{E_{\text{excl}}} &= \left(\begin{array}{cccc}
+		\dfrac{\partial f_1}{\partial M}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_1}{\partial N}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_1}{\partial \overline{m}}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_1}{\partial \overline{n}}\Big|_{E_{\text{excl}}} \\[10px]
+		\dfrac{\partial f_2}{\partial M}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_2}{\partial N}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_2}{\partial \overline{m}}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_2}{\partial \overline{n}}\Big|_{E_{\text{excl}}} \\[10px]
+		\dfrac{\partial f_3}{\partial M}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_3}{\partial N}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_3}{\partial \overline{m}}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_3}{\partial \overline{n}}\Big|_{E_{\text{excl}}} \\[10px]
+		\dfrac{\partial f_4}{\partial M}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_4}{\partial N}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_4}{\partial \overline{m}}\Big|_{E_{\text{excl}}} & \dfrac{\partial f_4}{\partial \overline{n}}\Big|_{E_{\text{excl}}}
+	\end{array}\right) \\
+	&= \left(\begin{array}{cccc}
+		\frac{Ke\alpha\tau}{\sqrt{A}} - d & 0 & 0 & 0 \\
+		-\frac{K\alpha\tau}{\sqrt{A}} & -\frac{\rho\gamma}{\sqrt{B}} & 0 & 0 \\
+		0 & 0 & -\frac{\sigma_G^2Ke\alpha\tau}{A^{3/2}} & \frac{\sigma_G^2Ke\alpha\tau}{A^{3/2}} \\
+		0 & -\frac{\beta_G^2\rho\gamma}{K\sqrt{B}}\cdot\frac{\phi - \mu^*}{B} & 0 & 0
+	\end{array}\right)
+\end{align*}
+The eigenvalues are $\frac{Ke\alpha\tau}{\sqrt{A}} - d$, $-\frac{\rho\gamma}{\sqrt{B}}$ and $-\frac{\sigma_G^2Ke\alpha\tau}{A^{3/2}}$, $0$.  (The eigenvalues are easily computable by swapping the third and fourth rows and columns to obtain an upper-triangular matrix).  All of these are non-positive if (\ref{exclusion_stability_MODEL1}) holds.
+\begin{align*}
+	J^*|_{E_{\text{coex}}} &= \left(\begin{array}{cccc}
+		\dfrac{\partial f_1}{\partial M}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_1}{\partial N}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_1}{\partial \overline{m}}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_1}{\partial \overline{n}}\Big|_{E_{\text{coex}}} \\[10px]
+		\dfrac{\partial f_2}{\partial M}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_2}{\partial N}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_2}{\partial \overline{m}}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_2}{\partial \overline{n}}\Big|_{E_{\text{coex}}} \\[10px]
+		\dfrac{\partial f_3}{\partial M}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_3}{\partial N}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_3}{\partial \overline{m}}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_3}{\partial \overline{n}}\Big|_{E_{\text{coex}}} \\[10px]
+		\dfrac{\partial f_4}{\partial M}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_4}{\partial N}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_4}{\partial \overline{m}}\Big|_{E_{\text{coex}}} & \dfrac{\partial f_4}{\partial \overline{n}}\Big|_{E_{\text{coex}}}
+	\end{array}\right) \\
+	&= \left(\begin{array}{cccc}
+		0 & \frac{e\rho\gamma}{\sqrt{B}}\left(1 - \frac{N^*}{K}\right) & 0 & 0 \\
+		-\frac{d}{e} & -\frac{\rho\gamma N^*}{K\sqrt{B}} & 0 & 0 \\
+		0 & 0 & -\frac{\sigma_G^2d}{A} & \frac{\sigma_G^2d}{A} \\
+		0 & 0 & -\frac{\beta_G^2\rho\gamma}{A\sqrt{B}}\left(1 - \frac{N^*}{K}\right) & \frac{\beta_G^2\rho\gamma}{\sqrt{B}}\left(1 - \frac{N^*}{K}\right)\left(\frac{1}{A} - \frac{1}{B}\right)
+	\end{array}\right)
+\end{align*}
+This is a block diagonal matrix, and so the eigenvalues can be calculated by finding the eigenvalues of each block.
+\begin{align*}
+	J_1 = \left(\begin{array}{cc}
+		0 & \frac{e\rho\gamma}{\sqrt{B}}\left(1 - \frac{N^*}{K}\right)\\
+		-\frac{d}{e} & -\frac{\rho\gamma N^*}{K\sqrt{B}}
+	\end{array}\right)\ \ \ \ \text{and}\ \ \ \ J_2 = \left(\begin{array}{cc}
+		-\frac{\sigma_G^2d}{A} & \frac{\sigma_G^2d}{A} \\
+        -\frac{\beta_G^2\rho\gamma}{A\sqrt{B}}\left(1 - \frac{N^*}{K}\right) & \frac{\beta_G^2\rho\gamma}{\sqrt{B}}\left(1 - \frac{N^*}{K}\right)\left(\frac{1}{A} - \frac{1}{B}\right)
+	\end{array}\right)
+\end{align*}
+The eigenvalues of $J_1$ are
+\begin{align*}
+	\lambda_{1,2} = \frac{1}{2}\left[-\frac{\rho\gamma N^*}{K\sqrt{B}} \pm \sqrt{\left(\frac{\rho\gamma N^*}{K\sqrt{B}}\right)^2 - 4\rho\gamma d\left(1 - \frac{N^*}{K}\right)}\ \right]
+\end{align*}
+Since $N^* < K$, $\sqrt{\left(\frac{\rho\gamma N^*}{K\sqrt{B}}\right)^2 - 4\rho\gamma d\left(1 - \frac{N^*}{K}\right)} < \left|\frac{\rho\gamma N^*}{K\sqrt{B}}\right|$, and thus $\text{Re}(\lambda_{1,2}) < 0$. \\
+
+\noindent For simplicity, let
+\begin{align*}
+	C &= \frac{d\sigma_G^2}{A} \\
+	\text{and} \ \ \ D &= \frac{\beta_G^2\rho\gamma}{\sqrt{B}}\left(1 - \frac{N^*}{K}\right)
+\end{align*}
+then the eigenvalues of $J_2$ are
+\begin{align*}
+	\lambda_{3,4} = \frac{1}{2}\left[-\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right) \pm \sqrt{\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)^2 - \left(\frac{4CD}{B}\right)}\right]
+\end{align*}
+Again, $N^* < K \implies D > 0 \implies \sqrt{\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)^2 - \left(\frac{4CD}{B}\right)} < \left|\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)\right|$, and thus $\text{Re}(\lambda_{3,4}) < 0$ if and only if (\ref{coexistence_stability_MODEL2}) holds.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
@@ -630,37 +804,37 @@ Again, since $N^* < K$, $\sqrt{\Delta} < \left|\frac{d\sigma_G^2 - r\beta_G^2\le
 
 
 \begin{centering}
-	\begin{figure}[h]
+	\begin{figure}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_exclusion.png}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_exclusion.png}
 		\caption{Model 1: Exclusion Equilibrium}
 		\label{fig:constant_growth_exclusion}
 	\end{figure}
-	\begin{figure}[h]
+	\begin{figure}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_stable_coexistence.png}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_stable_coexistence.png}
 		\caption{Model 1: Coexistence Equilibrium}
 		\label{fig:constant_growth_coexistence_equilibrium}
 	\end{figure}
-	\begin{figure}[h]
+	\begin{figure}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_unstable_coexistence.png}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_unstable_coexistence.png}
 		\caption{Model 1: Non-Equilibrium Coexistence}
 		\label{fig:constant_growth_non-equilibrium_coexistence}
 	\end{figure}
-	\begin{figure}[h]
+	\begin{figure}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_exclusion/densities.png}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_exclusion/traits.png}
 		\caption{Model 2: Exclusion Equilibrium}
 		\label{fig:variable_growth_exclusion}
 	\end{figure}
-	\begin{figure}[h]
+	\begin{figure}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_coexistence/densities.png}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_coexistence/traits.png}
 		\caption{Model 2: Coexistence Equilibrium}
 		\label{fig:variable_growth_coexistence_equilibrium}
 	\end{figure}
-	\begin{figure}[h]
+	\begin{figure}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_cycles/densities.png}
 		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_cycles/traits.png}
 		\caption{Model 2: Non-Equilibrium, Cyclic Coexistence}
@@ -683,224 +857,7 @@ Again, since $N^* < K$, $\sqrt{\Delta} < \left|\frac{d\sigma_G^2 - r\beta_G^2\le
 %----------------------------------------------------------------------------------------
 
 % \end{document}
-
-\section*{This is an unnumbered first-level section head}
-This is an example of an unnumbered first-level heading.
-
-%% The correct journal style for \specialsection is all uppercase; a known bug
-%% in amsart.cls prevents this, so input must be uppercase until it is fixed.
-%\specialsection*{This is a Special Section Head}
-\specialsection*{THIS IS A SPECIAL SECTION HEAD}
-This is an example of a special section head%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\footnote{Here is an example of a footnote. Notice that this footnote
-text is running on so that it can stand as an example of how a footnote
-with separate paragraphs should be written.
-\par
-And here is the beginning of the second paragraph.}%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-.
-
-\section{This is a numbered first-level section head}
-This is an example of a numbered first-level heading.
-
-\subsection{This is a numbered second-level section head}
-This is an example of a numbered second-level heading.
-
-\subsection*{This is an unnumbered second-level section head}
-This is an example of an unnumbered second-level heading.
-
-\subsubsection{This is a numbered third-level section head}
-This is an example of a numbered third-level heading.
-
-\subsubsection*{This is an unnumbered third-level section head}
-This is an example of an unnumbered third-level heading.
-
-\begin{lemma}
-Let $f, g\in  A(X)$ and let $E$, $F$ be cozero
-sets in $X$.
-\begin{enumerate}
-\item If $f$ is $E$-regular and $F\subseteq E$, then $f$ is $F$-regular.
-
-\item If $f$ is $E$-regular and $F$-regular, then $f$ is $E\cup
-F$-regular.
-
-\item If $f(x)\ge c>0$ for all $x\in E$, then $f$ is $E$-regular.
-
-\end{enumerate}
-\end{lemma}
-
-The following is an example of a proof.
-
-\begin{proof} Set $j(\nu)=\max(I\backslash a(\nu))-1$. Then we have
-\[
-\sum_{i\notin a(\nu)}t_i\sim t_{j(\nu)+1}
-  =\prod^{j(\nu)}_{j=0}(t_{j+1}/t_j).
-\]
-Hence we have
-\begin{equation}
-\begin{split}
-\prod_\nu\biggl(\sum_{i\notin
-  a(\nu)}t_i\biggr)^{\abs{a(\nu-1)}-\abs{a(\nu)}}
-&\sim\prod_\nu\prod^{j(\nu)}_{j=0}
-  (t_{j+1}/t_j)^{\abs{a(\nu-1)}-\abs{a(\nu)}}\\
-&=\prod_{j\ge 0}(t_{j+1}/t_j)^{
-  \sum_{j(\nu)\ge j}(\abs{a(\nu-1)}-\abs{a(\nu)})}.
-\end{split}
-\end{equation}
-By definition, we have $a(\nu(j))\supset c(j)$. Hence, $\abs{c(j)}=n-j$
-implies (5.4). If $c(j)\notin a$, $a(\nu(j))c(j)$ and hence
-we have (5.5).
-\end{proof}
-
-\begin{quotation}
-This is an example of an `extract'. The magnetization $M_0$ of the Ising
-model is related to the local state probability $P(a):M_0=P(1)-P(-1)$.
-The equivalences are shown in Table~\ref{eqtable}.
-\end{quotation}
-
-\begin{table}[ht]
-\caption{}\label{eqtable}
-\renewcommand\arraystretch{1.5}
-\noindent\[
-\begin{array}{|c|c|c|}
-\hline
-&{-\infty}&{+\infty}\\
-\hline
-{f_+(x,k)}&e^{\sqrt{-1}kx}+s_{12}(k)e^{-\sqrt{-1}kx}&s_{11}(k)e^
-{\sqrt{-1}kx}\\
-\hline
-{f_-(x,k)}&s_{22}(k)e^{-\sqrt{-1}kx}&e^{-\sqrt{-1}kx}+s_{21}(k)e^{\sqrt
-{-1}kx}\\
-\hline
-\end{array}
-\]
-\end{table}
-
-\begin{definition}
-This is an example of a `definition' element.
-For $f\in A(X)$, we define
-\begin{equation}
-\mathcal{Z} (f)=\{E\in Z[X]: \text{$f$ is $E^c$-regular}\}.
-\end{equation}
-\end{definition}
-
-\begin{remark}
-This is an example of a `remark' element.
-For $f\in A(X)$, we define
-\begin{equation}
-\mathcal{Z} (f)=\{E\in Z[X]: \text{$f$ is $E^c$-regular}\}.
-\end{equation}
-\end{remark}
-
-\begin{example}
-This is an example of an `example' element.
-For $f\in A(X)$, we define
-\begin{equation}
-\mathcal{Z} (f)=\{E\in Z[X]: \text{$f$ is $E^c$-regular}\}.
-\end{equation}
-\end{example}
-
-\begin{xca}
-This is an example of the \texttt{xca} environment. This environment is
-used for exercises which occur within a section.
-\end{xca}
-
-The following is an example of a numbered list.
-
-\begin{enumerate}
-\item First item.
-In the case where in $G$ there is a sequence of subgroups
-\[
-G = G_0, G_1, G_2, \dots, G_k = e
-\]
-such that each is an invariant subgroup of $G_i$.
-
-\item Second item.
-Its action on an arbitrary element $X = \lambda^\alpha X_\alpha$ has the
-form
-\begin{equation}\label{eq:action}
-[e^\alpha X_\alpha, X] = e^\alpha \lambda^\beta
-[X_\alpha X_\beta] = e^\alpha c^\gamma_{\alpha \beta}
- \lambda^\beta X_\gamma,
-\end{equation}
-
-\begin{enumerate}
-\item First subitem.
-\[
-- 2\psi_2(e) =  c_{\alpha \gamma}^\delta c_{\beta \delta}^\gamma
-e^\alpha e^\beta.
-\]
-
-\item Second subitem.
-\begin{enumerate}
-\item First subsubitem.
-In the case where in $G$ there is a sequence of subgroups
-\[
-G = G_0, G_1, G_2, \ldots, G_k = e
-\]
-such that each subgroup $G_{i+1}$ is an invariant subgroup of $G_i$ and
-each quotient group $G_{i+1}/G_{i}$ is abelian, the group $G$ is called
-\textit{solvable}.
-
-\item Second subsubitem.
-\end{enumerate}
-\item Third subitem.
-\end{enumerate}
-\item Third item.
-\end{enumerate}
-
-Here is an example of a cite. See \cite{A}.
-
-\begin{theorem}
-This is an example of a theorem.
-\end{theorem}
-
-\begin{theorem}[Marcus Theorem]
-This is an example of a theorem with a parenthetical note in the
-heading.
-\end{theorem}
-
-\begin{figure}[tb]
-%\blankbox{.6\columnwidth}{5pc}
-\includegraphics{lion.png}
-\caption{This is an example of a figure caption with text.}
-\label{firstfig}
-\end{figure}
-
-\begin{figure}[tb]
-%\blankbox{.75\columnwidth}{3pc}
-\includegraphics{lion.png}
-\caption{}\label{otherfig}
-\end{figure}
-
-\section{Some more list types}
-This is an example of a bulleted list.
-
-\begin{itemize}
-\item $\mathcal{J}_g$ of dimension $3g-3$;
-\item $\mathcal{E}^2_g=\{$Pryms of double covers of $C=\openbox$ with
-normalization of $C$ hyperelliptic of genus $g-1\}$ of dimension $2g$;
-\item $\mathcal{E}^2_{1,g-1}=\{$Pryms of double covers of
-$C=\openbox^H_{P^1}$ with $H$ hyperelliptic of genus $g-2\}$ of
-dimension $2g-1$;
-\item $\mathcal{P}^2_{t,g-t}$ for $2\le t\le g/2=\{$Pryms of double
-covers of $C=\openbox^{C'}_{C''}$ with $g(C')=t-1$ and $g(C'')=g-t-1\}$
-of dimension $3g-4$.
-\end{itemize}
-
-This is an example of a `description' list.
-
-\begin{description}
-\item[Zero case] $\rho(\Phi) = \{0\}$.
-
-\item[Rational case] $\rho(\Phi) \ne \{0\}$ and $\rho(\Phi)$ is
-contained in a line through $0$ with rational slope.
-
-\item[Irrational case] $\rho(\Phi) \ne \{0\}$ and $\rho(\Phi)$ is
-contained in a line through $0$ with irrational slope.
-\end{description}
-
+\pagebreak
 \bibliographystyle{amsplain}
 \begin{thebibliography}{10}
 
