@@ -153,8 +153,8 @@ The complete ditrophic model of $u$ predator species and $v$ prey species is giv
 where $i = 1, \dots, u$ and $j = 1, \dots, v$.
 % Lande derived (\ref{eq:general_model_c}) and (\ref{eq:general_model_d}) under the assumption that the distribution of phenotypes remains Gaussian \cite{Lande_1976}.  (\ref{general_model}) is a special case of Kindrik and Kondrashov's general model of coevolution \cite{Kindrik_Kondrashov_1997}.  The defining feature of our model is the distinction between trophic levels, of which we are assuming there are two.  In the following sections we derive two manifestations of (\ref{general_model}) by explicitly defining the parameter functions.
 
-\subsubsection{Model 1}
-This first example is a coevolutionary analog of Schreiber, B\"urger, and Bolnick's apparent competition model \cite{Schreiber_2011}.  Assume the prey growth rates and carrying capacities, $r_j$ and $K_j$, and the predator death rates and efficiencies, $d_i$, and $e_{ij}$, are constant, but let an individual predator's attack rate on an individual prey, $a_{ij}(m_i, n_j)$, be maximal at an optimal trait difference, $m_i - n_j = \theta_{ij}$, and decrease away from this optimal trait difference in a Gaussian manner, i.e.,
+\subsection{Model 1}
+This first model is a coevolutionary analog of Schreiber, B\"urger, and Bolnick's apparent competition model \cite{Schreiber_2011}.  Assume the prey growth rates and carrying capacities, $r_j$ and $K_j$, and the predator death rates and efficiencies, $d_i$, and $e_{ij}$, are constant, but let an individual predator's attack rate on an individual prey, $a_{ij}(m_i, n_j)$, be maximal at an optimal trait difference, $m_i - n_j = \theta_{ij}$, and decrease away from this optimal trait difference in a Gaussian manner, i.e.,
 \begin{equation}
 	\label{attack_rate}
 	a_{ij}(m_i, n_j) = \alpha_{ij}\exp{\left[-\frac{((m_i - n_j) - \theta_{ij})^2}{2\tau_{ij}^2}\right]}
@@ -200,7 +200,7 @@ Thus (\ref{general_model}) simplifies:
 	\end{align}
 \end{subequations}
 
-\subsubsection{Model 2}
+\subsection{Model 2}
 This second model introduces stabilizing selection to Model 1 by assuming each prey species has an optimal trait value by which growth rate is maximized, and decreases away from the optimal trait value in a Gaussian manner, i.e.
 \begin{equation}
 	\label{growth_rate}
@@ -248,8 +248,29 @@ Thus (\ref{general_model}) simplifies:
 %------------------------------------------------
 
 \section{Results}
-\subsection{Pairwise Predator-Prey Dynamics}
-\subsubsection{Model 1}
+\subsection{Pairwise Predator-Prey Dynamics of Model 1}
+\begin{centering}
+	\begin{figure}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/constant_growth/densities_exclusion.png}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/constant_growth/traits_exclusion.png}
+		\caption{Model 1: Exclusion Equilibrium}
+		\label{fig:constant_growth_exclusion}
+	\end{figure}
+	\begin{figure}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/constant_growth/densities_stable_coexistence.png}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/constant_growth/traits_stable_coexistence.png}
+		\caption{Model 1: Coexistence Equilibrium}
+		\label{fig:constant_growth_coexistence_equilibrium}
+	\end{figure}
+	\begin{figure}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/constant_growth/densities_unstable_coexistence.png}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/constant_growth/traits_unstable_coexistence.png}
+		\caption{Model 1: Non-Equilibrium Coexistence}
+		\label{fig:constant_growth_non-equilibrium_coexistence}
+	\end{figure}
+\end{centering}
+
+
 If there is only one predator species and one prey species, then (\ref{model1}) simplifies:
 \begin{subequations}
 	\label{MODEL1}
@@ -295,7 +316,7 @@ Intuitively, exclusion is stable if the predator death rate is high enough.  Not
 
 Since (\ref{exclusion_stability_MODEL1}) and (\ref{coexistence_stability_MODEL1}) are not equal and opposite conditions, however, there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics.  Figure \ref{fig:constant_growth_non-equilibrium_coexistence} depicts an evolutionary ``arms race'' between the predator and prey.  The prey has no particular optimal value, and the predator is not fast enough at evolving to catch up to the prey, so they continuously evolve in a linear fashion.  There is no stabilizing selection in this model - the prey species has no reason to stop evolving, and the predator species has no reason to stop chasing it.
 
-\subsubsection{Model 2}
+\subsection{Pairwise Predator-Prey Dynamics of Model 2}
 If there is only one predator species and one prey species, then (\ref{model2}) simplifies:
 \begin{subequations}
 	\label{MODEL2}
@@ -311,6 +332,26 @@ If there is only one predator species and one prey species, then (\ref{model2}) 
 	\end{align}
 \end{subequations}
 Similarly to (\ref{MODEL1}), there are three classifications of equilibrium of system (\ref{MODEL2}): extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for the extinction and exclusion classifications, but stabilizing selection provides a unique coexistence equilibrium point.  Extinction equilibria are given by (\ref{extinction_MODEL1}), and exclusion equilibria are given by (\ref{exclusion_MODEL1}).  The coexistence equilibrium point is given by
+\begin{centering}
+	\begin{figure}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/variable_growth/stable_exclusion/densities.png}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/variable_growth/stable_exclusion/traits.png}
+		\caption{Model 2: Exclusion Equilibrium}
+		\label{fig:variable_growth_exclusion}
+	\end{figure}
+	\begin{figure}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/variable_growth/stable_coexistence/densities.png}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/variable_growth/stable_coexistence/traits.png}
+		\caption{Model 2: Coexistence Equilibrium}
+		\label{fig:variable_growth_coexistence_equilibrium}
+	\end{figure}
+	\begin{figure}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/variable_growth/stable_cycles/densities.png}
+		\includegraphics[width=6cm,height=4cm]{figures/1x1/variable_growth/stable_cycles/traits.png}
+		\caption{Model 2: Non-Equilibrium, Cyclic Coexistence}
+		\label{fig:variable_growth_stable_cycles}
+	\end{figure}
+\end{centering}
 \begin{equation}
 	\label{coexistence_MODEL2}
 	\begin{aligned}
@@ -329,8 +370,9 @@ Similar to Model 1, exclusion is stable if the predator death rate is high enoug
 We can intuitively understand these dynamics by considering the inverse effects that the evolution of the prey trait has on its own fitness.  At the same time the prey evolves its own trait value away from the predator trait value (to minimize attack rate), it must also stay close enough to its optimal trait value $\phi_j$ to maintain an adequate growth rate.  These effects nullify each other whenever the prey trait value reaches a maximum or minimum.  Immediately after the prey trait value reverses direction, the prey has double incentive to evolve toward $\phi_j$: it increases its growth rate while minimizing the predator's attack rate.  Immediately after passing through $\phi_j$, however, the inverse effects take hold, and the cycle begins again.
 
 \pagebreak
-\section*{Appendix A: Derivation of Models 1 and 2}
-\subsection*{Derivation of (\ref{average_attack_rate})}
+\section{Appendices}
+\subsection{Appendix 1: Derivation of Models 1 and 2}
+\subsubsection{Derivation of (\ref{average_attack_rate})}
 First note the following:
 \begin{align*}
 	\int\limits_{\mathbb{R}}\exp\left[-(ax^2 + bx + c)\right] = \sqrt{\frac{\pi}{a}}\exp\left[\frac{b^2}{4a} - c\right]
@@ -358,7 +400,7 @@ Thus
 \begin{align*}
 	&\int\limits_{\mathbb{R}^2}a_{ij}(m_i, n_j)p(m_i, \overline{m_i})p(n_j, \overline{n_j})dm_idn_j = \frac{\alpha_{ij}\tau_{ij}}{\sqrt{\tau_{ij}^2 + \sigma_i^2 + \beta_j^2}}\exp{\left[-\frac{((\overline{m_i} - \overline{n_j}) - \theta_{ij})^2}{2(\tau_{ij}^2 + \sigma_i^2 + \beta_j^2)}\right]}
 \end{align*}
-\subsection*{Derivation of (\ref{model_1_avg_pred_fitness})}
+\subsubsection{Derivation of (\ref{model_1_avg_pred_fitness})}
 \begin{align*}
 	\overline{W_i}(N_1, \dots, &N_u, M_i, \overline{n_1}, \dots, \overline{n_v}, \overline{m_i}) = \int\limits_{\mathbb{R}^{v+1}}^{}W_ip(m_i, \overline{m_i})\prod\limits_{j = 1}^{v}p(n_j, \overline{n_j})dm_i\prod\limits_{j = 1}^{v}dn_j \\
 	&= \int\limits_{\mathbb{R}^{v+1}}^{}\left[\sum\limits_{j = 1}^{v}\left[e_{ij}a_{ij}(m_i, n_j)N_i\right] - d_i\right]p(m_i, \overline{m_i})\prod\limits_{j = 1}^{v}p(n_j, \overline{n_j})dm_i\prod\limits_{j = 1}^{v}dn_j \\
@@ -387,7 +429,7 @@ Thus,
 \begin{align*}
 	\overline{W_i}(N_1, \dots, &N_u, M_i, \overline{n_1}, \dots, \overline{n_v}, \overline{m_i}) = \sum\limits_{j = 1}^{v}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i
 \end{align*}
-\subsection*{Derivation of (\ref{model_1_avg_prey_fitness})}
+\subsubsection{Derivation of (\ref{model_1_avg_prey_fitness})}
 \begin{align*}
 	\overline{Y_j}(N_j, M_1, \dots, &M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) = \int\limits_{\mathbb{R}^{u+1}}^{}Y_jp(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
 	&= \int\limits_{\mathbb{R}^{u+1}}\left[r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[a_{ij}(m_i, n_j)M_i\right]\right]p(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
@@ -406,7 +448,7 @@ Thus,
 \begin{align*}
 	\overline{Y_j}(N_j, M_1, \dots, &M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) = r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
 \end{align*}
-\subsection*{Derivation of (\ref{average_growth_rate})}
+\subsubsection{Derivation of (\ref{average_growth_rate})}
 \begin{align*}
 	\overline{r_j}(\overline{n_j}) &= \int\limits_{\mathbb{R}}^{}r_j(n_j)p(n_j, \overline{n_j})dn_j \\
 	&= \int\limits_{\mathbb{R}}\left(\rho_j\exp\left[-\frac{(n_j - \phi_j)^2}{2\gamma_j^2}\right]\right)\left(\frac{1}{\sqrt{2\pi\beta_j^2}}\exp\left[-\frac{(n_j - \overline{n_j})^2}{2\beta_j^2}\right]\right)dn_j \\
@@ -417,7 +459,7 @@ where $a = \dfrac{\beta_j^2 + \gamma_j^2}{2\beta_j^2\gamma_j^2}$, $b = -\left(\d
 	\implies \sqrt{\frac{\pi}{a}}\exp\left[\frac{b^2}{4a} - c\right] &= \frac{\beta_j\gamma_j\sqrt{2\pi}}{\sqrt{\beta_j^2 + \gamma_j^2}}\exp\left[-\frac{(\overline{n_j} - \phi_j)^2}{2(\beta_j^2 + \gamma_j^2)}\right] \\
 	\implies \overline{r_j}(n_j) &= \frac{\rho_j\gamma_j}{\sqrt{B_j}}\exp\left[-\frac{(\overline{n_j} - \phi_j)^2}{2B_j}\right]
 \end{align*}
-\subsection*{Derivation of (\ref{model_2_avg_prey_fitness})}
+\subsubsection{Derivation of (\ref{model_2_avg_prey_fitness})}
 \begin{align*}
 	\overline{Y_j}(N_j, M_1, \dots, &M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) = \int\limits_{\mathbb{R}^{u+1}}^{}Y_jp(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
 	&= \int\limits_{\mathbb{R}^{u+1}}\left[r_j(n_j)\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[a_{ij}(m_i, n_j)M_i\right]\right]p(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
@@ -441,7 +483,7 @@ Thus,
 \end{align*}
 
 \pagebreak
-\section*{Appendix B: Equilibria and Local Stability Analysis of (\ref{MODEL1})}
+\subsection{Appendix 2: Equilibria and Local Stability Analysis of (\ref{MODEL1})}
 \begin{align*}
 	f_1 = \frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
 	f_2 = \frac{dN}{dt} &= N\left[r\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
@@ -561,7 +603,7 @@ where
 Again, since $N^* < K$, $\sqrt{\Delta} < \left|\dfrac{d\sigma_G^2 - r\beta_G^2\left(1 - \frac{N^*}{K}\right)}{A}\right|$, and thus $\text{Re}(\lambda_{3,4}) < 0$ if and only if (\ref{coexistence_stability_MODEL1}) holds.
 
 \pagebreak
-\section*{Appendix C: Equilibria and Local Stability Analysis of (\ref{MODEL2})}
+\subsection{Appendix 3: Equilibria and Local Stability Analysis of (\ref{MODEL2})}
 \begin{align*}
 	f_1 = \frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
 	f_2 = \frac{dN}{dt} &= N\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
@@ -803,44 +845,6 @@ Again, $N^* < K \implies D > 0 \implies \sqrt{\left(C + D\left[\frac{1}{B} - \fr
 %% \end{table}
 
 
-\begin{centering}
-	\begin{figure}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_exclusion.png}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_exclusion.png}
-		\caption{Model 1: Exclusion Equilibrium}
-		\label{fig:constant_growth_exclusion}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_stable_coexistence.png}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_stable_coexistence.png}
-		\caption{Model 1: Coexistence Equilibrium}
-		\label{fig:constant_growth_coexistence_equilibrium}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/densities_unstable_coexistence.png}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/constant_growth/traits_unstable_coexistence.png}
-		\caption{Model 1: Non-Equilibrium Coexistence}
-		\label{fig:constant_growth_non-equilibrium_coexistence}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_exclusion/densities.png}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_exclusion/traits.png}
-		\caption{Model 2: Exclusion Equilibrium}
-		\label{fig:variable_growth_exclusion}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_coexistence/densities.png}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_coexistence/traits.png}
-		\caption{Model 2: Coexistence Equilibrium}
-		\label{fig:variable_growth_coexistence_equilibrium}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_cycles/densities.png}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/stable_cycles/traits.png}
-		\caption{Model 2: Non-Equilibrium, Cyclic Coexistence}
-		\label{fig:variable_growth_stable_cycles}
-	\end{figure}
-\end{centering}
 %% For two column figures and tables, use the following:
 
 %% \begin{figure*}
@@ -861,114 +865,32 @@ Again, $N^* < K \implies D > 0 \implies \sqrt{\left(C + D\left[\frac{1}{B} - \fr
 \bibliographystyle{amsplain}
 \begin{thebibliography}{10}
 
-\bibitem {A} T. Aoki, \textit{Calcul exponentiel des op\'erateurs
-microdifferentiels d'ordre infini.} I, Ann. Inst. Fourier (Grenoble)
-\textbf{33} (1983), 227--250.
-
-\bibitem {B} R. Brown, \textit{On a conjecture of Dirichlet},
-Amer. Math. Soc., Providence, RI, 1993.
-
-\bibitem {D} R. A. DeVore, \textit{Approximation of functions},
-Proc. Sympos. Appl. Math., vol. 36,
-Amer. Math. Soc., Providence, RI, 1986, pp. 34--56.
-
-
 \bibitem{Schreiber_2011}
+Schreiber, S.~J., B$\ddot{\mbox{u}}$rger,  R., and Bolnick,  D.~I.
+The Community Effects of Phenotypic and Genetic Variation within a Predator Population.
+\emph{Ecology}
+2011,  92(8):526-543. 
 
 \bibitem{Abrams_1994}
 
 \bibitem{Lande_1976}
 
 \bibitem{Abrams_Matsuda_1997}
+Abrams, P.~A. and Matsuda, H.
+Prey Adaptation as a Cause of Predator-Prey Cycles.
+\emph{Evolution}
+1997, 51:1742-1750.
 
 \bibitem{Kindrik_Kondrashov_1997}
 
 \bibitem{Saloniemi_1993}
+Saloniemi, I.
+A Coevolutionary Predator-Prey Model with Quantitative Characters.
+\emph{American Naturalist}
+1993, 141:880-896.
 
 \bibitem{Brauer_2011}
 
-\bibitem{BN}
-M.~Belkin and P.~Niyogi, {\em Using manifold structure for partially
-  labelled classification}, Advances in NIPS, 15 (2003).
-
-\bibitem{BBG:EmbeddingRiemannianManifoldHeatKernel}
-P.~B\'erard, G.~Besson, and S.~Gallot, {\em Embedding {R}iemannian
-  manifolds by their heat kernel}, Geom. and Fun. Anal., 4 (1994),
-  pp.~374--398.
-
-\bibitem{CLAcha1}
-R.R.~Coifman and S.~Lafon, {\em Diffusion maps}, Appl. Comp. Harm. Anal.,
-  21 (2006), pp.~5--30.
-
-\bibitem{DiffusionPNAS}
-R.R.~Coifman, S.~Lafon, A.~Lee, M.~Maggioni, B.~Nadler, F.~Warner, and
-  S.~Zucker, {\em Geometric diffusions as a tool for harmonic analysis and
-  structure definition of data. {P}art {I}: Diffusion maps}, Proc. of Nat.
-  Acad. Sci.,  (2005), pp.~7426--7431.
-
-\bibitem{Clementi:LowDimensionaFreeEnergyLandscapesProteinFolding}
-P.~Das, M.~Moll, H.~Stamati, L.~Kavraki, and C.~Clementi, {\em
-  Low-dimensional, free-energy landscapes of protein-folding reactions by
-  nonlinear dimensionality reduction}, P.N.A.S., 103 (2006), pp.~9885--9890.
-
-\bibitem{DoGri}
-D.~Donoho and C.~Grimes, {\em Hessian eigenmaps: new locally linear
-  embedding techniques for high-dimensional data}, Proceedings of the National
-  Academy of Sciences, 100 (2003), pp.~5591--5596.
-
-\bibitem{DoGri:WhenDoesIsoMap}
-D.~L. Donoho and C.~Grimes, {\em When does isomap recover natural
-  parameterization of families of articulated images?}, Tech. Report Tech. Rep.
-  2002-27, Department of Statistics, Stanford University, August 2002.
-
-\bibitem{GruterWidman:GreenFunction}
-M.~Gr\"uter and K.-O. Widman, {\em The {G}reen function for uniformly
-  elliptic equations}, Man. Math., 37 (1982), pp.~303--342.
-
-\bibitem{Simon:NeumannEssentialSpectrum}
-R.~Hempel, L.~Seco, and B.~Simon, {\em The essential spectrum of neumann
-  laplacians on some bounded singular domains}, 1991.
-
-\bibitem{1}
-Kadison, R.\ V.\ and Singer, I.\ M.\ (1959)
-Extensions of pure states, {\it Amer.\ J.\ Math.\ \bf
-81}, 383-400.
-
-\bibitem{2}
-Anderson, J.\ (1981) A conjecture concerning the pure states of
-$B(H)$ and a related theorem. in {\it Topics in Modern Operator
-Theory}, Birkha\"user, pp.\ 27-43.
-
-\bibitem{3}
-Anderson, J.\ (1979) Extreme points in sets of
-positive linear maps on $B(H)$. {\it J.\ Funct.\
-Anal.\
-\bf 31}, 195-217.
-
-\bibitem{4}
-Anderson, J.\ (1979) Pathology in the Calkin algebra. {\it J.\
-Operator Theory \bf 2}, 159-167.
-
-\bibitem{5}
-Johnson, B.\ E.\ and Parrott, S.\ K.\ (1972) Operators commuting
-with a von Neumann algebra modulo the set of compact operators.
-{\it J.\ Funct.\ Anal.\ \bf 11}, 39-61.
-
-\bibitem{6}
-Akemann, C.\ and Weaver, N.\ (2004) Consistency of a
-counterexample to Naimark's problem. {\it Proc.\ Nat.\ Acad.\
-Sci.\ USA \bf 101}, 7522-7525.
-
-\bibitem{TSL}
-J.~Tenenbaum, V.~de~Silva, and J.~Langford, {\em A global geometric
-  framework for nonlinear dimensionality reduction}, Science, 290 (2000),
-  pp.~2319--2323.
-
-\bibitem{ZhaZha}
-Z.~Zhang and H.~Zha, {\em Principal manifolds and nonlinear dimension
-  reduction via local tangent space alignement}, Tech. Report CSE-02-019,
-  Department of computer science and engineering, Pennsylvania State
-  University, 2002.
 \end{thebibliography}
 
 \end{document}
