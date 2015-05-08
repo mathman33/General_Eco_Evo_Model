@@ -53,17 +53,21 @@
 
 \begin{document}
 
-\title[]{The Effects of Intraspecific Genetic Variation on the Dynamics of Predator-Prey Ecological Communities}
+\title[]{The Effects of Intraspecific Genetic Variation on the Dynamics of Predator-Prey Ecological Communities\textsuperscript{\tiny *}}
 
 %    Information for first author
-\author{Samuel R. Fleischer, Pablo Chavarria}
+\author{Samuel R. Fleischer}
+\email{samuel.fleischer.746@my.csun.edu}
+
+\author{Pablo Chavarria}
+\email{pablo.chavarria.189@my.csun.edu}
+
 %    Address of record for the research reported here
 \address{Department of Mathematics, California State University, Northridge}
 %    Current address
 \curraddr{}
-\email{samuel.fleischer.746@my.csun.edu\\pablo.chavarria.189@my.csun.edu}
 %    \thanks will become a 1st page footnote.
-\thanks{Partially supported by the National Science Foundation grant DMS-1247679}
+\thanks{\textsuperscript{\tiny *}Partially supported by the National Science Foundation grant DMS-1247679}
 \date{\today}
 
 %    Information for second author
@@ -78,7 +82,7 @@
 
 % \dedicatory{This paper is dedicated to our advisors.}
 
-\keywords{Evolutionary Ecology, Eco-Evo Feedback}
+\keywords{Mathematical Evolutionary Ecology, Eco-Evo Feedback, Coevolution}
 
 
 
@@ -133,11 +137,24 @@ Predator-prey interactions are ubiquitous in nature and have captured the attent
 
 \section{Introduction}
 
-Natural populations differ in size, morphology, physiology, and behavior.  This genetic variation is a central and organizing theme of evolutionary biology \cite{Schreiber_2011}.  Recent ecological models have incorporated evolutionary themes in various ways.  Abrams and Matsuda introduced vulnerability as an evolutionary variable for a prey species.  This model results in chaotic, cyclic, and stable dynamics under various conditions \cite{Abrams_Matsuda_1997}.  Saloniemi introduced quantitative traits in a coevolutionary model.  Attack rate was defined as a linear function of these trait values \cite{Saloniemi_1993}.  This model also produces chaotic dynamics under certain conditions.  More recently, Schreiber, B\"urger, and Bolnick proposed an apparent competition model with Gaussian attack rate functions for an evolving generalist predator on two non-evolving prey populations \cite{Schreiber_2011}.  In contrast with classical apparent competition theory, this model provided evidence that apparent competition can give rise to stable facilitation between under certain conditions.  The variety of dynamics produced by incorporating evolutionary variables into purely ecological models is both ecologically and mathematically relevant.
+Trait variation plays an important role in understanding the variety of dynamics of predator-prey interactions seen in nature.  Evidence shows that species evolve over time but this is ignored in most classical mathematical ecological models.  Models for purely ecological predator-prey interactions with different functional responses are well understood to an extent.  Several recent studies have incorporated trait variation into these traditional ecological models in a variety of ways.  All of them have demonstrated much richer dynamics compared to the classical models.
 
-All of the afformentioned models can be considered specific manifestations of Khibnik and Kondrashov's General Model of Coevolution \cite{Khibnik_Kondrashov_1997}, which describes a multitrophic ecological system of species, each of which may have a number of quantitative traits which affect each species' fitness.  As derived by Lande \cite{Lande_1976}, if these evolutionary variables stay normally distributed, their evolution is proportional to the partial derivative of the fitness function with respect to that variable.  In other words, evolution is always in the direction which increases the mean fitness of the population.
+In particular, Abrams and Matsuda introduced vulnerability as an evolutionary variable for a prey species.  This model results in chaotic, cyclic, and stable dynamics under various conditions \cite{Abrams_Matsuda_1997}.  Saloniemi introduced quantitative traits in a coevolutionary model.  Attack rate was defined as a linear function of both predator and prey trait values.  This model also produces chaotic dynamics under certain conditions \cite{Saloniemi_1993}.  More recently, Schreiber et. al. proposed an apparent competition model with Gaussian attack rate functions for an evolving generalist predator on two non-evolving prey populations.  In contrast with classical apparent competition theory, this model provided evidence that apparent competition can give rise to stable facilitation between under certain conditions \cite{Schreiber_2011}.
 
-Since community genetic changes occur over many generations, the constant of proportionality is small, and so the evolutionary variables are considered to be ``slow'' variables.  In contrast, ecological changes may happen within a single generation, and so the ecological variables (each species' population densities) are considered to be ``fast'' variables.  These differing timescales allow us to consider the General Model of Coevolution as two separate subsystems, the ecological and the evolutionary.  In the context of the ecological subsystem, the evolutionary variables can be viewed as slowly changing parameters.
+The variety of dynamics produced by incorporating evolutionary variables into purely ecological models is both ecologically and mathematically relevant.  The modified models and results have drawn attention from theoretical ecologists and applied mathematicians.  Our work was motivated by both Schreiber et. al. and Saloniemi.  In particular, we combine the coevolutionary dynamics of Saloniemi's work with the Gaussian attack rate and density-dependent prey growth rate from Schreiber et. al. \cite{Schreiber_2011}, \cite{Saloniemi_1993}.
+
+We build a general ditrophic model of $u$ predator populations and $v$ prey populations by assuming
+\begin{itemize}
+	\item[-] predator exponential decay in the absence of prey
+	\item[-] prey logicistic density-dependent growth in the absence of predator
+	\item[-] linear functional response
+	\item[-] all ecological parameters are dependent on evoloving genetic quantitative traits of both predator and prey
+\end{itemize}
+
+We then provide two specific manifestations of the general model.  In the first model, we assume the attack rate is a Gaussian function of both their trait values.  The second model is an expansion of the first model; we incorporate stabilizing selection in the form of a Gaussian growth rate function of the prey trait value.
+
+Section 2 describes the formulation of the general ditrophic model, and the two specific models described above.  Section 3 describes the analytical results of the reduction of the two specific models to one predator and one prey.  Section 4 summarizes the work, and section 5 discusses its implications and future work.
+
 
 %------------------------------------------------
 
@@ -173,7 +190,7 @@ Since community genetic changes occur over many generations, the constant of pro
 
 
 
-\section{Model and Methods}
+\section{Models and Methods}
 
 Consider the ditrophic dynamics of $u$ predator populations with densities $M_i = M_i(t)$, consuming $v$ prey populations with densities $N_j = N_j(t)$, respectively ($i = 1, \dots, u$, and $j = 1, \dots, v$).  Ecological parameters will be defined as functions of predator phenotypic values, $m_i$, and prey phenotypic values, $n_j$, of quantitative traits.  We assume these traits can be measured in the same unit, or can be transformed into the same unit \cite{Saloniemi_1993}.  Assume predator traits are normally distributed with mean $\overline{m_i} = \overline{m_i}(t)$ and constant variances $\sigma_i^2$, and prey traits are normally distributed with mean $\overline{n_j} = \overline{n_j}(t)$ and constant variances $\beta_j^2$, i.e., their distributions are given by
 \begin{equation}
@@ -225,6 +242,17 @@ and the mean fitness of the $j$\textsuperscript{th} prey population is
 		&= \int\limits_{\mathbb{R}^{v+1}}^{}Y_jp(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i
 	\end{aligned}
 \end{equation}
+Thus, the ecological components of this model are
+\begin{align*}
+	\frac{dM_i}{dt} &= M_i\overline{W_i} \\[5px]
+	\frac{dN_j}{dt} &= N_j\overline{Y_j}
+\end{align*}
+
+Assuming the evolutionary variables stay normally distributed, then their evolution is proportional to the partial derivative of the fitness function with respect to that variable.  In other words, evolution is always in the direction which increases the mean fitness of the population \cite{Lande_1976}.  This gives rise to the evolutionary components of this model:
+\begin{align*}
+	\frac{d\overline{m_i}}{dt} &= \sigma_{Gi}^2\frac{\partial \overline{W_i}}{\partial \overline{m_i}} \\[5px]
+	\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\frac{\partial \overline{Y_j}}{\partial \overline{n_j}}
+\end{align*}
 The complete ditrophic model of $u$ predator species and $v$ prey species is given by
 \begin{subequations}
 	\label{general_model}
@@ -241,9 +269,15 @@ The complete ditrophic model of $u$ predator species and $v$ prey species is giv
 \end{subequations}
 where $i = 1, \dots, u$ and $j = 1, \dots, v$. \\
 
-The general idea of this model is that all ecological parameters can be defined as functions in terms of the evolutionary variables, which themselves change in proportion to the fitness.  The ecological-evolutionary feedback (``Eco-Evo Feedback'') is what drives the vast array of dynamics the model displays.
+The general idea of this model is that all ecological parameters can be defined as functions of the evolutionary variables, which themselves change in proportion to the change in fitness.  This ecological-evolutionary feedback, ``Eco-Evo Feedback'', is what drives the vast array of dynamics produced.
 
-In the following two sections we provide two particular manifestations of (\ref{general_model}).  In the first, all ecological parameters are constant except the attack rate, which we define as a function of the evolutionary variables.  The second is an extension of the first, in which growth rate is defined as a function of the prey's evolutionary variable.
+This model is a branch of Khibnik and Kondrashov's General Model of Coevolution \cite{Khibnik_Kondrashov_1997}, which describes a multitrophic ecological system of species, each of which may have a number of quantitative traits which affect each species' fitness.
+
+Since community genetic changes occur over many generations, evolutionary variables are considered to be ``slow'' variables.  Their speeds are parameters in model given by $\sigma_{Gi}^2$ and $\beta_{Gi}^2$; they are the constants of proportionality between the change in the trait value and the change in fitness.  In contrast, ecological changes may happen within a single generation, and so the ecological variables are considered to be ``fast'' variables.  These differing timescales allow us to consider the coevolution models as two separate subsystems, the ecological and the evolutionary.  In the context of the ecological subsystem, the evolutionary variables can be viewed as slowly changing parameters.
+
+In the following two sections we provide two particular manifestations of (\ref{general_model}).  In the first model, all ecological parameters are constant except the attack rate, which we define as a function of the evolutionary variables.  The second is an extension of the first, in which a prey's growth rate is defined as a function of its evolutionary variable.
+
+
 
 
 
@@ -278,7 +312,7 @@ where $\alpha_{ij}$ is the maximal attack and $\tau_{ij}$ determines how steeply
 		&= \frac{\alpha_{ij}\tau_{ij}}{\sqrt{A_{ij}}}\exp{\left[-\frac{((\overline{m_i} - \overline{n_j}) - \theta_{ij})^2}{2A_{ij}}\right]}
 	\end{aligned}
 \end{equation}
-where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$.  (\ref{avg_predator_fitness}), and (\ref{avg_prey_fitness}) now yield eplicit formulas for $\overline{W_i}$ and $\overline{Y_j}$ in terms of (\ref{average_attack_rate}):
+where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$.  (See the appendix for the derivation of (\ref{average_attack_rate})).  (\ref{avg_predator_fitness}), and (\ref{avg_prey_fitness}) now yield eplicit formulas for $\overline{W_i}$ and $\overline{Y_j}$ in terms of (\ref{average_attack_rate}):
 \begin{equation}
 	\label{model_1_avg_pred_fitness}
 	\overline{W_i} = \sum\limits_{j = 1}^{v}\left[e_{ij}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})N_i\right] - d_i
@@ -288,7 +322,7 @@ where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$.  (\ref{avg_predator_fitne
 	\overline{Y_j} = r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
 \end{equation}
 
-Relavent partial derivatives of (\ref{model_1_avg_pred_fitness}) and (\ref{model_1_avg_prey_fitness}) are easily computable:
+(See the appendix for the derivations of (\ref{model_1_avg_pred_fitness}) and (\ref{model_1_avg_prey_fitness})).  Relavent partial derivatives of (\ref{model_1_avg_pred_fitness}) and (\ref{model_1_avg_prey_fitness}) are easily computable:
 \begin{equation}
 	\label{model_1_pred_fitness_partial}
 	\frac{\partial \overline{W_i}}{\partial \overline{m_i}} = \sum\limits_{j = 1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
@@ -311,8 +345,7 @@ Thus (\ref{general_model}) simplifies:
 		\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\sum\limits_{i = 1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
 	\end{align}
 \end{subequations}
-
-Refer to Table \ref{parameter_table_model_1} for parameters and their contextual meanings.
+Refer to Table 1 for parameters and their contextual meanings.
 
 
 
@@ -343,13 +376,13 @@ where $\rho_j$ is the maximal growth rate of the $j$\textsuperscript{th} prey sp
 		&= \frac{\rho_j\gamma_j}{\sqrt{B_j}}\exp\left[-\frac{(\overline{n_j} - \phi_j)^2}{2B_j}\right]
 	\end{aligned}
 \end{equation}
-where $B_j = \beta_j^2 + \gamma_j^2$.  Since $\overline{W_i}$ is not dependent on $r_j$, (\ref{model_1_avg_pred_fitness}) suffices, but $\overline{Y_j}$ must be recalculated since it is dependent on $r_j$.  (\ref{avg_prey_fitness}) yields an explicit formula in terms of (\ref{average_attack_rate}) and (\ref{average_growth_rate}):
+where $B_j = \beta_j^2 + \gamma_j^2$.  (See the appendix for the derivation of (\ref{average_growth_rate})).  Since $\overline{W_i}$ is not dependent on $r_j$, (\ref{model_1_avg_pred_fitness}) suffices, but $\overline{Y_j}$ must be recalculated since it is dependent on $r_j$.  (\ref{avg_prey_fitness}) yields an explicit formula in terms of (\ref{average_attack_rate}) and (\ref{average_growth_rate}):
 \begin{equation}
 	\label{model_2_avg_prey_fitness}
 	\overline{Y_j} = \overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
 \end{equation}
 
-Since $\overline{W_i}$ did not change from Model 1, (\ref{eq:model1_c}) is sufficient for the right hand side of (\ref{eq:general_model_c}).  However, the right hand side of (\ref{eq:general_model_d}) must be recalculated.
+(See the appendix for the derivation of (\ref{model_2_avg_prey_fitness})).  Since $\overline{W_i}$ did not change from Model 1, (\ref{eq:model1_c}) is sufficient for the right hand side of (\ref{eq:general_model_c}).  However, the right hand side of (\ref{eq:general_model_d}) must be recalculated.
 \begin{equation}
 	\label{model_2_prey_fitness_partial}
 	\begin{aligned}
@@ -373,8 +406,7 @@ Thus (\ref{general_model}) simplifies:
 		\end{split}
 	\end{align}
 \end{subequations}
-
-Refer to Tables \ref{parameter_table_model_1} and \ref{parameter_table_model_2} for parameters and their contextual meanings.
+Refer to Tables 1 and 2 for parameters and their contextual meanings.
 
 
 
@@ -454,11 +486,11 @@ and coexistence equilibria are locally asymptotically stable if
 	\frac{\sigma_G^2}{\beta_G^2} > \frac{r}{d}\left(1 - \frac{d\sqrt{A}}{Ke\alpha\tau}\right)
 \end{equation}
 
-In nature, (\ref{exclusion_stability_MODEL1}) is consistent with the fact that exclusion is possible if the predator death rate is high.  Figure \ref{fig:constant_growth_exclusion} displays a simulation that results in stable exclusion.
+(See the appendix for the derivation of the equilibria and local stability conditions.)  In nature, (\ref{exclusion_stability_MODEL1}) is consistent with the fact that exclusion is possible if the predator death rate is high.  Figure \ref{fig:constant_growth_exclusion} displays a simulation that results in stable exclusion.
 
 Note that if (\ref{exclusion_stability_MODEL1}) holds then (\ref{coexistence_MODEL1}) is not biologically feasible ($M^* < 0$), implying that coexistent states do not exist, and so even though (\ref{coexistence_stability_MODEL1}) would hold (since all parameters are assumed to be positive), it would be irrelevant.  Since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then intuitively, coexistence is stable if the predator is ``fast'' enough at evolving in comparison to the prey.  If this happens, the predator trait value ``catches up'' to the prey trait value.  Figure \ref{fig:constant_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
 
-Since (\ref{exclusion_stability_MODEL1}) and (\ref{coexistence_stability_MODEL1}) are not equal and opposite conditions, the possibility remains that neither conditon holds.  A natural question is what dynamics appear in these circumstances.  Numerical simulations provide insight into these dynamics.  Figure \ref{fig:constant_growth_arms_race_coexistence} depicts an evolutionary ``arms race'' between the predator and prey.  The prey has no particular optimal value, and the predator is not fast enough at evolving to catch up to the prey, so they continuously evolve in a linear fashion.  The ``arms race'' is due to that fact that there is no stabilizing selection in this model - the prey species has no reason to stop evolving, and the predator species has no reason to stop chasing the prey.  The next model shows just one of many possible ways to introduce stabilizing selection for the purpose of avoiding an ``arms race''.
+Since (\ref{exclusion_stability_MODEL1}) and (\ref{coexistence_stability_MODEL1}) are not equal and opposite conditions, the possibility remains that neither conditon holds.  A natural question is what dynamics appear in these circumstances.  Numerical simulations provide insight into these dynamics.  Figure \ref{fig:constant_growth_arms_race_coexistence} depicts an evolutionary ``arms race'' between the predator and prey.  The prey has no particular optimal value, and the predator is not fast enough at evolving to catch up to the prey, so they continuously evolve in a linear fashion.  The ``arms race'' is due to that fact that there is no stabilizing selection in this model; the prey species has no reason to stop evolving, and the predator species has no reason to stop chasing the prey.  The next model shows one of many possible ways to introduce stabilizing selection for the purpose of avoiding an ``arms race''.
 
 
 
@@ -524,20 +556,99 @@ Local stability analysis for extinction and exclusion equilibria is nearly ident
 	\frac{\sigma_G^2}{\beta_G^2} > \frac{\rho\gamma}{d\sqrt{B}}\left(1 - \frac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \frac{A}{B}\right)
 \end{equation}
 
-Similar to Model 1, exclusion is stable if the predator death rate is high enough, and if (\ref{exclusion_stability_MODEL1}) holds then (\ref{coexistence_MODEL2}) is not biologically feasible ($M^* < 0$), and so even though (\ref{coexistence_stability_MODEL2}) may hold, it would be irrelevant.  Again, since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then coexistence is stable only if the predator is ``fast'' enough at evolving in comparison to the prey.  Figure \ref{fig:variable_growth_exclusion} displays a simulation that results in stable exclusion, and Figure \ref{fig:variable_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
+(See the appendix for the derivation of the equilibria and local stability conditions.)  Similar to Model 1, exclusion is stable if the predator death rate is high enough, and if (\ref{exclusion_stability_MODEL1}) holds then (\ref{coexistence_MODEL2}) is not biologically feasible ($M^* < 0$), and so even though (\ref{coexistence_stability_MODEL2}) may hold, it would be irrelevant.  Again, since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then coexistence is stable only if the predator is ``fast'' enough at evolving in comparison to the prey.  Figure \ref{fig:variable_growth_exclusion} displays a simulation that results in stable exclusion, and Figure \ref{fig:variable_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
 
-(\ref{exclusion_stability_MODEL1}) and (\ref{coexistence_stability_MODEL2}) are not equal and opposite conditions, so there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics.  Figure \ref{fig:variable_growth_stable_cycles} depicts long-term stable oscillatory dynamics.  We conjecture a unique stable limit cycle exists if neither (\ref{exclusion_stability_MODEL1}) nor (\ref{coexistence_stability_MODEL2}) hold.
+(\ref{exclusion_stability_MODEL1}) and (\ref{coexistence_stability_MODEL2}) are not equal and opposite conditions, so there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics.  Figure \ref{fig:variable_growth_stable_cycles} depicts long-term stable oscillatory behavior.  We can intuitively understand these dynamics by considering the inverse effects that the evolution of the prey trait has on its own fitness.  At the same time the prey evolves its own trait value away from the predator trait value (to minimize attack rate), it must also stay close enough to its optimal trait value $\phi_j$ to maintain an adequate growth rate.  These effects nullify each other whenever the prey trait value reaches a maximum or minimum.  Immediately after the prey trait value reverses direction, the prey has double incentive to evolve toward $\phi_j$: it increases its growth rate while minimizing the predator's attack rate.  Immediately after passing through $\phi_j$, however, the inverse effects take hold, and the cycle begins again.
 
-We can intuitively understand these dynamics by considering the inverse effects that the evolution of the prey trait has on its own fitness.  At the same time the prey evolves its own trait value away from the predator trait value (to minimize attack rate), it must also stay close enough to its optimal trait value $\phi_j$ to maintain an adequate growth rate.  These effects nullify each other whenever the prey trait value reaches a maximum or minimum.  Immediately after the prey trait value reverses direction, the prey has double incentive to evolve toward $\phi_j$: it increases its growth rate while minimizing the predator's attack rate.  Immediately after passing through $\phi_j$, however, the inverse effects take hold, and the cycle begins again.
-
-Analytically, Hopf Bifurcation occurs under various conditions, as explained in Appendix 3.  This proves the existence of a limit cycle.  Figure \ref{fig:contour_plot} shows one such condition, which compares $\frac{\sigma_G}{\beta_G}$ (the ratio of evolution ``speeds'' of predator and prey) vs. $\tau$ (the specialization constant).  The values seen on this plot are found by solving (\ref{coexistence_stability_MODEL2}) for zero, i.e.
+Analytically, a Hopf Bifurcation occurs as parameters are changed in such a way that does not alter the dissatisfaction of (\ref{exclusion_stability_MODEL1}) but simply dissatisfies (\ref{coexistence_stability_MODEL2}).  This can happen under a number of conditions, as explained in the appendix.  Figure \ref{fig:contour_plot} shows one such condition, which compares $\frac{\sigma_G}{\beta_G}$ (the ratio of evolution ``speeds'' of predator and prey) vs. $\tau$ (the specialization constant).  The values seen on this plot are found by solving (\ref{coexistence_stability_MODEL2}) for zero, i.e.
 \begin{equation}
 	f\left(\frac{\sigma_G}{\beta_G}, \rho, \gamma, d, A, B, \alpha, \tau, e, K\right) = \frac{\sigma_G^2}{\beta_G^2} - \frac{\rho\gamma}{d\sqrt{B}}\left(1 - \frac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \frac{A}{B}\right)
 \end{equation}
 
-Note $f > 0$ implies stable coexistence but $f < 0$ does not imply stable exclusion.
+This proves the existence of a limit cycle.  Note $f > 0$ implies stable coexistence but $f < 0$ does not imply stable exclusion.  A detailed discussion of the Hopf Bifurcation analysis will be investigated as one of the future works.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Summary}
+The novelty of our model resides in the incorporation of coevolutionary dynamics with realistic and natural Gaussian functions and density-dependent prey growth rates.  The attack rate, in contrast to that of Schreiber et. al., is dependent on both predator and prey trait values.  In addition, prey growth rate is a Gaussian function dependent of the prey's trait value.
+
+Outline of the paper.........
+
+In the first model, possible dynamics include the extinction of both predator and prey, exclusion of the predator, a coexistence state, and an ``arms race'' dynamic.  We note that in order to for the exclusion state to be stable, the predator death rate must be high enough (see (\ref{exclusion_stability_MODEL1})).  For coexistence, we see that the predator must be ``fast'' enough at evolving in order for it to have any chance of survival.  The ``arms race'' coexistence dynamic is not found in classical ecological models, and can possibly be interpreted as speciation.
+
+The second model's dynamics include the extinction of both predator and prey, exclusion of predator, and a coexistence state.  The conditions for stability of both exclusion and coexistence are parallel to that of the first model.  In contrast to the first model, the non-stable coexistence dynamic shows cyclic behavior.  The introduction of stabilizing selection for the prey prevented the evolutionary ``arms'' race.  Instead, the second model provides long-term Red Queen Dynamics \cite{Khibnik_Kondrashov_1997} and possibly unique, stable limit cycles.
+% Discuss the novelty of our work
+
+% Summary of the outline of the paper
+
+% Summary of the results for model 1
+
+% Summary of the results for model 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Discussion}
+
+% Implications of the Model
+	% Our model demonstrates a richer array of dynamics
+The implications of our work are......
+
+Our future work includes proving Hopf Bifurcation for the second model, the expansion of analytical results for more complex predator and prey interactions (intraguild, apparent competition, direct competition), and the incorporation of direct competition between prey for resources.
 
 
 
@@ -582,10 +693,10 @@ Note $f > 0$ implies stable coexistence but $f < 0$ does not imply stable exclus
     $\alpha_{ij}$ & maximum value of the Gaussian attack rate function; maximum successful attack rate of predator $i$ on prey $j$ & $(0, 1)$ \\\hline
     $\tau_{ij}$   & variance of the Gaussian attack rate function; determines how specialized predator $i$ must be to use prey $j$ & $(0, 1)$ \\\hline
     $\theta_{ij}$ & mean value of the Gaussian attack rate function; trait difference that maximizes attack rate of predator $i$ and prey $j$; ``optimal'' difference with respect to the predator & $\mathbb{R}$ \\\hline\hline
-    $\sigma_i$ & trait distribution variance of predator $i$; $\sigma_i = \sigma_{Gi} + \sigma_{Ei}$ & $\mathbb{R}^{+}$ \\\hline
+    $\sigma_i$ & trait distribution variance of predator $i$; $\sigma_i^2 = \sigma_{Gi}^2 + \sigma_{Ei}^2$ & $\mathbb{R}^{+}$ \\\hline
     $\sigma_{Gi}$ & genetic portion of $\sigma_i$; determines the ``speed'' of evolution of predator $i$ & $(0, \sigma_i)$ \\\hline
     $\sigma_{Ei}$ & environmental portion of $\sigma_i$ & $(0, \sigma_i)$ \\\hline\hline
-    $\beta_j$ & trait distribution variance of prey $j$; $\beta_j = \beta_{Gj} + \beta_{Ej}$ & $\mathbb{R}^{+}$ \\\hline
+    $\beta_j$ & trait distribution variance of prey $j$; $\beta_j^2 = \beta_{Gj}^2 + \beta_{Ej}^2$ & $\mathbb{R}^{+}$ \\\hline
     $\beta_{Gj}$ & genetic portion of $\beta_j$; determines the ``speed'' of evolution of prey $j$ & $(0, \beta_j)$ \\\hline
     $\beta_{Ej}$ & environmental portion of $\beta_j$ & $(0, \beta_j)$ \\\hline\hline
     \end{tabular}
@@ -797,7 +908,7 @@ A Coevolutionary Predator-Prey Model with Quantitative Characters.
 \pagebreak
 \section{Appendices}
 \subsection{Appendix 1: Derivation of Models 1 and 2}
-\subsubsection{Derivation of (\ref{average_attack_rate})}
+\subsubsection{\textbf{\textit{Derivation of (\ref{average_attack_rate})}}}
 First note the following:
 \begin{align*}
 	\int\limits_{\mathbb{R}}\exp\left[-(ax^2 + bx + c)\right] = \sqrt{\frac{\pi}{a}}\exp\left[\frac{b^2}{4a} - c\right]
@@ -837,7 +948,7 @@ Thus
 
 
 
-\subsubsection{Derivation of (\ref{model_1_avg_pred_fitness})}
+\subsubsection{\textbf{\textit{Derivation of (\ref{model_1_avg_pred_fitness})}}}
 \begin{align*}
 	\overline{W_i}(N_1, \dots, &N_u, M_i, \overline{n_1}, \dots, \overline{n_v}, \overline{m_i}) = \int\limits_{\mathbb{R}^{v+1}}^{}W_ip(m_i, \overline{m_i})\prod\limits_{j = 1}^{v}p(n_j, \overline{n_j})dm_i\prod\limits_{j = 1}^{v}dn_j \\
 	&= \int\limits_{\mathbb{R}^{v+1}}^{}\left[\sum\limits_{j = 1}^{v}\left[e_{ij}a_{ij}(m_i, n_j)N_i\right] - d_i\right]p(m_i, \overline{m_i})\prod\limits_{j = 1}^{v}p(n_j, \overline{n_j})dm_i\prod\limits_{j = 1}^{v}dn_j \\
@@ -882,7 +993,7 @@ Thus,
 
 
 
-\subsubsection{Derivation of (\ref{model_1_avg_prey_fitness})}
+\subsubsection{\textbf{\textit{Derivation of (\ref{model_1_avg_prey_fitness})}}}
 \begin{align*}
 	\overline{Y_j}(N_j, M_1, \dots, &M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) = \int\limits_{\mathbb{R}^{u+1}}^{}Y_jp(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
 	&= \int\limits_{\mathbb{R}^{u+1}}\left[r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[a_{ij}(m_i, n_j)M_i\right]\right]p(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
@@ -916,7 +1027,7 @@ Thus,
 
 
 
-\subsubsection{Derivation of (\ref{average_growth_rate})}
+\subsubsection{\textbf{\textit{Derivation of (\ref{average_growth_rate})}}}
 \begin{align*}
 	\overline{r_j}(\overline{n_j}) &= \int\limits_{\mathbb{R}}^{}r_j(n_j)p(n_j, \overline{n_j})dn_j \\
 	&= \int\limits_{\mathbb{R}}\left(\rho_j\exp\left[-\frac{(n_j - \phi_j)^2}{2\gamma_j^2}\right]\right)\left(\frac{1}{\sqrt{2\pi\beta_j^2}}\exp\left[-\frac{(n_j - \overline{n_j})^2}{2\beta_j^2}\right]\right)dn_j \\
@@ -942,7 +1053,7 @@ where $a = \dfrac{\beta_j^2 + \gamma_j^2}{2\beta_j^2\gamma_j^2}$, $b = -\left(\d
 
 
 
-\subsubsection{Derivation of (\ref{model_2_avg_prey_fitness})}
+\subsubsection{\textbf{\textit{Derivation of (\ref{model_2_avg_prey_fitness})}}}
 \begin{align*}
 	\overline{Y_j}(N_j, M_1, \dots, &M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) = \int\limits_{\mathbb{R}^{u+1}}^{}Y_jp(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
 	&= \int\limits_{\mathbb{R}^{u+1}}\left[r_j(n_j)\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[a_{ij}(m_i, n_j)M_i\right]\right]p(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
@@ -1268,9 +1379,15 @@ Since $N^* < K$, $\sqrt{\left(\frac{\rho\gamma N^*}{K\sqrt{B}}\right)^2 - 4\rho\
 \end{align*}
 then the eigenvalues of $J_2$ are
 \begin{align*}
-	\lambda_{3,4} = \frac{1}{2}\left[-\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right) \pm \sqrt{\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)^2 - \left(\frac{4CD}{B}\right)}\ \right]
+	\lambda_{3,4} = \frac{1}{2}\left[-\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right) \pm \sqrt{\Delta}\ \right]
 \end{align*}
-Again, $N^* < K \implies D > 0 \implies \sqrt{\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)^2 - \left(\frac{4CD}{B}\right)} < \left|\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)\right|$, and thus $\text{Re}(\lambda_{3,4}) < 0$ if and only if (\ref{coexistence_stability_MODEL2}) holds.
+where
+\begin{align*}
+	\Delta = \left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)^2 - \left(\frac{4CD}{B}\right)
+\end{align*}
+Again, $N^* < K \implies D > 0$ implies that if $\sqrt{\Delta} \in \mathbb{R}$, then $\sqrt{\Delta} < \left|\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)\right|$, and thus $\text{Re}(\lambda_3) < 0$ if and only if $\text{Re}(\lambda_4) < 0$ if and only if (\ref{coexistence_stability_MODEL2}) holds.
+
+Note that a Hopf Bifurcation occurs when parameters are shifted in such a way that neither (\ref{coexistence_stability_MODEL2}) nor (\ref{exclusion_stability_MODEL1}) holds.  As certain parameters are shifted, both $\lambda_3$ and $\lambda_4$ may cross the complex axis from the negative real component of the complex plane to positive real component.
 
 
 
@@ -1307,9 +1424,16 @@ Again, $N^* < K \implies D > 0 \implies \sqrt{\left(C + D\left[\frac{1}{B} - \fr
 \pagebreak
 \section{Acknowledgements}
 \begin{itemize}
-	\item[$\star$] Dr. Jing Li, our mentor and advisor, for her unwavering support, constructive criticism, harsh truths, gentle guidance, and continuous excitement
-	\item[$\star$] Dr. Casey terHorst, our Biology consultant, for his intuition and insight, and for introducing us to the concept of Eco-Evo Feedback
-	\item[$\star$] Our friends and family, for their constant and consistent love
+	\item Dr. Jing Li, our mentor and advisor
+	\item Dr. Casey terHorst, out Biology consultant
+	\item Dr. Helena Noronha, PUMP organizer
+	\item The National Science Foundation
+	\item The National Math Alliance
+	\item The Pacific Math Alliance
+	\item California State University PUMP (Preparing Undergraduates through Mentoring toward PhDs)
+	% \item[$\star$] Dr. Jing Li, our mentor and advisor, for her unwavering support, constructive criticism, harsh truths, gentle guidance, and continuous excitement
+	% \item[$\star$] Dr. Casey terHorst, our Biology consultant, for his intuition and insight, and for introducing us to the concept of Eco-Evo Feedback
+	% \item[$\star$] Our friends and family, for their constant and consistent love
 \end{itemize}
 
 \end{document}
