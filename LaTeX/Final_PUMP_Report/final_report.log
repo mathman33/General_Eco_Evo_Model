@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  8 MAY 2015 01:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  8 MAY 2015 02:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -234,7 +234,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (8.90054pt too wide) in paragraph at lines 189--191
+Overfull \hbox (8.90054pt too wide) in paragraph at lines 191--193
 \OT1/cmr/m/n/10 Assuming preda-tor $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 has a l
 in-ear func-tional re-sponse with at-tack rate $\OML/cmm/m/it/10 a[] \OT1/cmr/m
 /n/10 = \OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m[]; n[]\OT1/cmr/
@@ -242,274 +242,267 @@ m/n/10 )$
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 234--237
+Underfull \hbox (badness 10000) in paragraph at lines 236--239
 
  []
 
-[3] [4]
-<figures/1x1/constant_growth/densities_exclusion.png, id=30, 578.16pt x 433.62p
+[3] [4] [5] [6]
+<figures/1x1/constant_growth/densities_exclusion.png, id=36, 578.16pt x 433.62p
 t>
 File: figures/1x1/constant_growth/densities_exclusion.png Graphic file (type pn
 g)
  <use figures/1x1/constant_growth/densities_exclusion.png>
 Package pdftex.def Info: figures/1x1/constant_growth/densities_exclusion.png us
-ed on input line 331.
+ed on input line 483.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/traits_exclusion.png, id=32, 578.16pt x 433.62pt>
+<figures/1x1/constant_growth/traits_exclusion.png, id=38, 578.16pt x 433.62pt>
 File: figures/1x1/constant_growth/traits_exclusion.png Graphic file (type png)
 
 <use figures/1x1/constant_growth/traits_exclusion.png>
 Package pdftex.def Info: figures/1x1/constant_growth/traits_exclusion.png used 
-on input line 332.
+on input line 484.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/densities_stable_coexistence.png, id=33, 578.16pt 
+<figures/1x1/constant_growth/densities_stable_coexistence.png, id=39, 578.16pt 
 x 433.62pt>
 File: figures/1x1/constant_growth/densities_stable_coexistence.png Graphic file
  (type png)
  <use figures/1x1/constant_growth/densities_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/densities_stable_coexisten
-ce.png used on input line 338.
+ce.png used on input line 490.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/traits_stable_coexistence.png, id=34, 578.16pt x 4
+<figures/1x1/constant_growth/traits_stable_coexistence.png, id=40, 578.16pt x 4
 33.62pt>
 File: figures/1x1/constant_growth/traits_stable_coexistence.png Graphic file (t
 ype png)
  <use figures/1x1/constant_growth/traits_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/traits_stable_coexistence.
-png used on input line 339.
+png used on input line 491.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/densities_unstable_coexistence.png, id=35, 578.16p
+<figures/1x1/constant_growth/densities_unstable_coexistence.png, id=41, 578.16p
 t x 433.62pt>
 File: figures/1x1/constant_growth/densities_unstable_coexistence.png Graphic fi
 le (type png)
 
 <use figures/1x1/constant_growth/densities_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/densities_unstable_coexist
-ence.png used on input line 345.
+ence.png used on input line 497.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/traits_unstable_coexistence.png, id=36, 578.16pt x
+<figures/1x1/constant_growth/traits_unstable_coexistence.png, id=42, 578.16pt x
  433.62pt>
 File: figures/1x1/constant_growth/traits_unstable_coexistence.png Graphic file 
 (type png)
  <use figures/1x1/constant_growth/traits_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/traits_unstable_coexistenc
-e.png used on input line 346.
+e.png used on input line 498.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-[5 <./figures/1x1/constant_growth/densities_exclusion.png> <./figures/1x1/const
-ant_growth/traits_exclusion.png>] [6 <./figures/1x1/constant_growth/densities_s
+[7] [8 <./figures/1x1/constant_growth/densities_exclusion.png> <./figures/1x1/c
+onstant_growth/traits_exclusion.png> <./figures/1x1/constant_growth/densities_s
 table_coexistence.png> <./figures/1x1/constant_growth/traits_stable_coexistence
-.png> <./figures/1x1/constant_growth/densities_unstable_coexistence.png> <./fig
-ures/1x1/constant_growth/traits_unstable_coexistence.png>]
-<figures/1x1/variable_growth/stable_exclusion/densities.png, id=52, 578.16pt x 
-433.62pt>
-File: figures/1x1/variable_growth/stable_exclusion/densities.png Graphic file (
-type png)
- <use figures/1x1/variable_growth/stable_exclusion/densities.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/densities
-.png used on input line 424.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_exclusion/traits.png, id=53, 578.16pt x 433
-.62pt>
-File: figures/1x1/variable_growth/stable_exclusion/traits.png Graphic file (typ
-e png)
- <use figures/1x1/variable_growth/stable_exclusion/traits.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/traits.pn
-g used on input line 425.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png, id=54, 5
-78.16pt x 433.62pt>
-File: figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png Grap
-hic file (type png)
-
-<use figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/density_p
-hase_plane.png used on input line 426.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png, id=55, 578
-.16pt x 433.62pt>
-File: figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png Graphi
-c file (type png)
-
-<use figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/trait_pha
-se_plane.png used on input line 427.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_coexistence/densities.png, id=56, 578.16pt 
-x 433.62pt>
-File: figures/1x1/variable_growth/stable_coexistence/densities.png Graphic file
- (type png)
- <use figures/1x1/variable_growth/stable_coexistence/densities.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/densiti
-es.png used on input line 433.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_coexistence/traits.png, id=57, 578.16pt x 4
-33.62pt>
-File: figures/1x1/variable_growth/stable_coexistence/traits.png Graphic file (t
-ype png)
- <use figures/1x1/variable_growth/stable_coexistence/traits.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/traits.
-png used on input line 434.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png, id=58,
- 578.16pt x 433.62pt>
-File: figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png Gr
-aphic file (type png)
-
-<use figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/density
-_phase_plane.png used on input line 435.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png, id=59, 5
-78.16pt x 433.62pt>
-File: figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png Grap
-hic file (type png)
-
-<use figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/trait_p
-hase_plane.png used on input line 436.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_cycles/densities.png, id=60, 578.16pt x 433
-.62pt>
-File: figures/1x1/variable_growth/stable_cycles/densities.png Graphic file (typ
-e png)
- <use figures/1x1/variable_growth/stable_cycles/densities.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/densities.pn
-g used on input line 442.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_cycles/traits.png, id=61, 578.16pt x 433.62
-pt>
-File: figures/1x1/variable_growth/stable_cycles/traits.png Graphic file (type p
-ng)
- <use figures/1x1/variable_growth/stable_cycles/traits.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/traits.png u
-sed on input line 443.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_cycles/density_phase_plane.png, id=62, 578.
-16pt x 433.62pt>
-File: figures/1x1/variable_growth/stable_cycles/density_phase_plane.png Graphic
- file (type png)
-
-<use figures/1x1/variable_growth/stable_cycles/density_phase_plane.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/density_phas
-e_plane.png used on input line 444.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-<figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png, id=63, 578.16
-pt x 433.62pt>
-File: figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png Graphic f
-ile (type png)
-
-<use figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png>
-Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/trait_phase_
-plane.png used on input line 445.
-(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
-
-Underfull \vbox (badness 1735) has occurred while \output is active []
-
- [7]
-[8 <./figures/1x1/variable_growth/stable_exclusion/densities.png> <./figures/1x
-1/variable_growth/stable_exclusion/traits.png> <./figures/1x1/variable_growth/s
-table_exclusion/density_phase_plane.png> <./figures/1x1/variable_growth/stable_
-exclusion/trait_phase_plane.png> <./figures/1x1/variable_growth/stable_coexiste
-nce/densities.png> <./figures/1x1/variable_growth/stable_coexistence/traits.png
-> <./figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png> <.
-/figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png>]
-[9 <./figures/1x1/variable_growth/stable_cycles/densities.png> <./figures/1x1/v
-ariable_growth/stable_cycles/traits.png> <./figures/1x1/variable_growth/stable_
-cycles/density_phase_plane.png> <./figures/1x1/variable_growth/stable_cycles/tr
-ait_phase_plane.png>]
-<figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png, id=87, 
+.png>]
+<figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png, id=58, 
 578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png Gra
 phic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/tau_ratio_15
-0417_125636.png used on input line 583.
+0417_125636.png used on input line 556.
 (pdftex.def)             Requested size: 256.06737pt x 170.71892pt.
 
 <figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.png,
- id=88, 578.16pt x 433.62pt>
+ id=59, 578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle
 .png Graphic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.
 png>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/density_phas
-e_plane_limit_cycle.png used on input line 589.
+e_plane_limit_cycle.png used on input line 562.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png, id=89,
+<figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png, id=60,
  578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png Gr
 aphic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/density_phas
-e_plane_node.png used on input line 590.
+e_plane_node.png used on input line 563.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
 <figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.png, i
-d=90, 578.16pt x 433.62pt>
+d=61, 578.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.p
 ng Graphic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.pn
 g>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/trait_phase_
-plane_limit_cycle.png used on input line 591.
+plane_limit_cycle.png used on input line 564.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png, id=91, 5
+<figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png, id=62, 5
 78.16pt x 433.62pt>
 File: figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png Grap
 hic file (type png)
 
 <use figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png>
 Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/trait_phase_
-plane_node.png used on input line 592.
+plane_node.png used on input line 565.
 (pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-[10] [11 <./figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.p
-ng> <./figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycl
-e.png> <./figures/1x1/variable_growth/contour_plots/density_phase_plane_node.pn
-g> <./figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.p
-ng> <./figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png>]
-Underfull \vbox (badness 4582) has occurred while \output is active []
+[9 <./figures/1x1/constant_growth/densities_unstable_coexistence.png> <./figure
+s/1x1/constant_growth/traits_unstable_coexistence.png> <./figures/1x1/variable_
+growth/contour_plots/tau_ratio_150417_125636.png>] [10 <./figures/1x1/variable_
+growth/contour_plots/density_phase_plane_limit_cycle.png> <./figures/1x1/variab
+le_growth/contour_plots/density_phase_plane_node.png> <./figures/1x1/variable_g
+rowth/contour_plots/trait_phase_plane_limit_cycle.png> <./figures/1x1/variable_
+growth/contour_plots/trait_phase_plane_node.png>]
+<figures/1x1/variable_growth/stable_exclusion/densities.png, id=76, 578.16pt x 
+433.62pt>
+File: figures/1x1/variable_growth/stable_exclusion/densities.png Graphic file (
+type png)
+ <use figures/1x1/variable_growth/stable_exclusion/densities.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/densities
+.png used on input line 597.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
- [12]
+<figures/1x1/variable_growth/stable_exclusion/traits.png, id=77, 578.16pt x 433
+.62pt>
+File: figures/1x1/variable_growth/stable_exclusion/traits.png Graphic file (typ
+e png)
+ <use figures/1x1/variable_growth/stable_exclusion/traits.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/traits.pn
+g used on input line 598.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png, id=78, 5
+78.16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png Grap
+hic file (type png)
+
+<use figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/density_p
+hase_plane.png used on input line 599.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png, id=79, 578
+.16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png Graphi
+c file (type png)
+
+<use figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/trait_pha
+se_plane.png used on input line 600.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_coexistence/densities.png, id=80, 578.16pt 
+x 433.62pt>
+File: figures/1x1/variable_growth/stable_coexistence/densities.png Graphic file
+ (type png)
+ <use figures/1x1/variable_growth/stable_coexistence/densities.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/densiti
+es.png used on input line 606.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_coexistence/traits.png, id=81, 578.16pt x 4
+33.62pt>
+File: figures/1x1/variable_growth/stable_coexistence/traits.png Graphic file (t
+ype png)
+ <use figures/1x1/variable_growth/stable_coexistence/traits.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/traits.
+png used on input line 607.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png, id=82,
+ 578.16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png Gr
+aphic file (type png)
+
+<use figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/density
+_phase_plane.png used on input line 608.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png, id=83, 5
+78.16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png Grap
+hic file (type png)
+
+<use figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/trait_p
+hase_plane.png used on input line 609.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_cycles/densities.png, id=84, 578.16pt x 433
+.62pt>
+File: figures/1x1/variable_growth/stable_cycles/densities.png Graphic file (typ
+e png)
+ <use figures/1x1/variable_growth/stable_cycles/densities.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/densities.pn
+g used on input line 615.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_cycles/traits.png, id=85, 578.16pt x 433.62
+pt>
+File: figures/1x1/variable_growth/stable_cycles/traits.png Graphic file (type p
+ng)
+ <use figures/1x1/variable_growth/stable_cycles/traits.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/traits.png u
+sed on input line 616.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_cycles/density_phase_plane.png, id=86, 578.
+16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_cycles/density_phase_plane.png Graphic
+ file (type png)
+
+<use figures/1x1/variable_growth/stable_cycles/density_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/density_phas
+e_plane.png used on input line 617.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png, id=87, 578.16
+pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png Graphic f
+ile (type png)
+
+<use figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/trait_phase_
+plane.png used on input line 618.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+ [11 <./figures/1x1/variable_growth/stable_exclusion/densities.png> <./figures/
+1x1/variable_growth/stable_exclusion/traits.png> <./figures/1x1/variable_growth
+/stable_exclusion/density_phase_plane.png> <./figures/1x1/variable_growth/stabl
+e_exclusion/trait_phase_plane.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]
-Overfull \hbox (74.69685pt too wide) in paragraph at lines 741--743
+ [12 <./figures/1x1/variable_growth/stable_coexistence/densities.png> <./figure
+s/1x1/variable_growth/stable_coexistence/traits.png> <./figures/1x1/variable_gr
+owth/stable_coexistence/density_phase_plane.png> <./figures/1x1/variable_growth
+/stable_coexistence/trait_phase_plane.png>] [13 <./figures/1x1/variable_growth/
+stable_cycles/densities.png> <./figures/1x1/variable_growth/stable_cycles/trait
+s.png> <./figures/1x1/variable_growth/stable_cycles/density_phase_plane.png> <.
+/figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png>]
+Overfull \hbox (74.69685pt too wide) in paragraph at lines 744--746
 \OT1/cmr/m/n/10 where $\OML/cmm/m/it/10 a \OT1/cmr/m/n/10 = []$, $\OML/cmm/m/it
 /10 b \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@[]$\OT1/cmr/m/n/10 , and $\OML/cmm/
 m/it/10 c \OT1/cmr/m/n/10 = []$ 
  []
 
 
-Overfull \hbox (13.92749pt too wide) in paragraph at lines 749--749
+Overfull \hbox (13.92749pt too wide) in paragraph at lines 752--752
 [] 
  []
 
-[14]
-Overfull \hbox (1.49571pt too wide) in paragraph at lines 768--770
+
+Overfull \hbox (1.49571pt too wide) in paragraph at lines 771--773
 \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m[];
  n[]\OT1/cmr/m/n/10 )$ and $\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  n[]; []\OT1/cmr/m/n/10 )$ are in-de-pen-dent of $\OML/cmm/m/it/10 n[]$ \OT1/cm
@@ -517,44 +510,43 @@ r/m/n/10 for $\OML/cmm/m/it/10 k \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; [] ; n[]
 ; n[]; [] ; n[]$\OT1/cmr/m/n/10 ,
  []
 
-
-Overfull \hbox (36.43591pt too wide) in paragraph at lines 782--782
+[14]
+Overfull \hbox (36.43591pt too wide) in paragraph at lines 785--785
 [] 
  []
 
 
-Overfull \hbox (47.71098pt too wide) in paragraph at lines 813--813
+Overfull \hbox (47.71098pt too wide) in paragraph at lines 816--816
 [] 
  []
 
 [15]
-Overfull \hbox (65.7047pt too wide) in paragraph at lines 873--873
+Overfull \hbox (65.7047pt too wide) in paragraph at lines 876--876
+[] 
+ []
+
+
+LaTeX Warning: Command \j invalid in math mode on input line 877.
+
+
+LaTeX Warning: Command \j invalid in math mode on input line 877.
+
+
+Overfull \hbox (11.11293pt too wide) in paragraph at lines 883--883
 [] 
  []
 
 [16]
-
-LaTeX Warning: Command \j invalid in math mode on input line 874.
-
-
-LaTeX Warning: Command \j invalid in math mode on input line 874.
-
-
-Overfull \hbox (11.11293pt too wide) in paragraph at lines 880--880
-[] 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
 [18] [19]
-Overfull \hbox (1.26561pt too wide) in paragraph at lines 1026--1026
+Overfull \hbox (1.26561pt too wide) in paragraph at lines 1029--1029
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1030--1032
+Underfull \hbox (badness 10000) in paragraph at lines 1033--1035
 
  []
 
@@ -562,27 +554,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 1030--1032
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-Overfull \hbox (1.92079pt too wide) in paragraph at lines 1093--1093
+Overfull \hbox (1.92079pt too wide) in paragraph at lines 1096--1096
 [] 
  []
 
 [22]
-Overfull \hbox (19.39189pt too wide) in paragraph at lines 1141--1141
+Overfull \hbox (19.39189pt too wide) in paragraph at lines 1144--1144
 [] 
  []
 
 [23]
-Overfull \hbox (57.12843pt too wide) in paragraph at lines 1181--1181
+Overfull \hbox (57.12843pt too wide) in paragraph at lines 1184--1184
 [] 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1185--1187
+Underfull \hbox (badness 10000) in paragraph at lines 1188--1190
 
  []
 
 
-Overfull \hbox (21.12682pt too wide) in paragraph at lines 1196--1198
+Overfull \hbox (21.12682pt too wide) in paragraph at lines 1199--1201
 \OT1/cmr/m/n/10 Again, $\OML/cmm/m/it/10 N[] < K  \OT1/cmr/m/n/10 =[]\OMS/cmsy/
 m/n/10 )  \OML/cmm/m/it/10 D > \OT1/cmr/m/n/10 0  =[]\OMS/cmsy/m/n/10 )  [] \OM
 L/cmm/m/it/10 < []$\OT1/cmr/m/n/10 ,
@@ -596,11 +588,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Here is how much of TeX's memory you used:
  2879 strings out of 493117
  42981 string characters out of 6135433
- 119979 words of memory out of 5000000
+ 119970 words of memory out of 5000000
  6136 multiletter control sequences out of 15000+600000
  10215 words of font info for 40 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 37i,18n,32p,1309b,225s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,18n,32p,1302b,225s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
@@ -622,7 +614,7 @@ r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/
 local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/lo
 cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on final_report.pdf (26 pages, 1134431 bytes).
+Output written on final_report.pdf (26 pages, 1124144 bytes).
 PDF statistics:
  220 PDF objects out of 1000 (max. 8388607)
  123 compressed objects within 2 object streams

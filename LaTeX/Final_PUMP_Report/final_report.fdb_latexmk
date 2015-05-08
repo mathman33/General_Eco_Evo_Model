@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1431073477 "final_report.tex" "final_report.pdf" "final_report" 1431073480
+["pdflatex"] 1431078734 "final_report.tex" "final_report.pdf" "final_report" 1431078868
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -48,12 +48,12 @@
   "figures/1x1/variable_growth/stable_cycles/density_phase_plane.png" 1431069405 48816 d722f3189c047e78691730cd625de64e ""
   "figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png" 1431069405 33375 c00303522c9e4322e919f497d9617b09 ""
   "figures/1x1/variable_growth/stable_cycles/traits.png" 1431069405 51102 11ffb4a0ab326ac9274fd9c95d0eee5e ""
-  "figures/1x1/variable_growth/stable_exclusion/densities.png" 1431069405 32365 7e312ca9e77b285edb2d5e93df7b2f8c ""
-  "figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png" 1431069405 25224 5357221e704e4ae9236b5d6e9c4cbf92 ""
-  "figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png" 1431069405 27718 d823c131c420c9225cb068c6dc4a7ec8 ""
-  "figures/1x1/variable_growth/stable_exclusion/traits.png" 1431069405 28381 6b965b0864a35ae769a724eaeca82133 ""
-  "final_report.aux" 1431073480 7258 796cf12548c2cea244ec2bbd8123674f ""
-  "final_report.tex" 1431073474 72600 5c1e80e58b22f4ba80ddfe9cb6564978 ""
+  "figures/1x1/variable_growth/stable_exclusion/densities.png" 1431077735 30411 19b788536fa938844c43d9244579675d ""
+  "figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png" 1431077735 23762 165856ada3a82903ca863abc24d6e474 ""
+  "figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png" 1431077735 22905 4d7bc3252052f1f0a0563c36d4d2ebc6 ""
+  "figures/1x1/variable_growth/stable_exclusion/traits.png" 1431077735 21925 07cd4f850e2f9624927a27cdfcfd65f4 ""
+  "final_report.aux" 1431078736 8305 bee87b2b537ba0f2b9a20e1fac3a042a ""
+  "final_report.tex" 1431078867 73056 028f4c4c17e04f7f48ea842a09bd01e8 ""
   (generated)
   "final_report.pdf"
   "final_report.log"
