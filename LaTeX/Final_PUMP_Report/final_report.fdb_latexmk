@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1431078734 "final_report.tex" "final_report.pdf" "final_report" 1431078868
+["pdflatex"] 1431099034 "final_report.tex" "final_report.pdf" "final_report" 1431099037
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -27,6 +27,9 @@
   "/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty" 1335995445 7075 bd0c34fbf1ae8fd1debd2a554e41b2d5 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty" 1335995445 22417 c74ff4af6a1aa2b65d1924020edbbe11 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def" 1306616590 55368 3c8a0d99822330f2dfabc0dfb09ce897 ""
+  "/usr/local/texlive/2014/texmf-dist/tex/latex/placeins/placeins.sty" 1137110565 4087 636308456f60d2b31cbf97867db5708d ""
+  "/usr/local/texlive/2014/texmf-dist/tex/latex/subfigure/subfigure.cfg" 1167176009 2062 a0e7d66e09e508f51289a656aec06ed2 ""
+  "/usr/local/texlive/2014/texmf-dist/tex/latex/subfigure/subfigure.sty" 1167176009 15188 91281c7ddbccfa54a8e0c3b56ab5aa72 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/tools/array.sty" 1399675188 13073 a6e28ede26c83d406e124b12f368174f ""
   "amsart.cls" 1431069405 61068 95063d327b97e96350372631fd99a8c8 ""
   "figures/1x1/constant_growth/densities_exclusion.png" 1431069405 31783 0282113dda3eeea042fbd06e7aaedc4f ""
@@ -52,9 +55,9 @@
   "figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png" 1431077735 23762 165856ada3a82903ca863abc24d6e474 ""
   "figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png" 1431077735 22905 4d7bc3252052f1f0a0563c36d4d2ebc6 ""
   "figures/1x1/variable_growth/stable_exclusion/traits.png" 1431077735 21925 07cd4f850e2f9624927a27cdfcfd65f4 ""
-  "final_report.aux" 1431078736 8305 bee87b2b537ba0f2b9a20e1fac3a042a ""
-  "final_report.tex" 1431078867 73056 028f4c4c17e04f7f48ea842a09bd01e8 ""
+  "final_report.aux" 1431099036 13097 d1bba2e615ef0b96683c5dad29dafa29 ""
+  "final_report.tex" 1431099031 75201 ce46e5e47122937e8aafd0b5058d4eda ""
   (generated)
   "final_report.pdf"
-  "final_report.log"
   "final_report.aux"
+  "final_report.log"

@@ -18,6 +18,8 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
+\usepackage[hang]{subfigure}
+\usepackage{placeins}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -189,6 +191,7 @@ These variances have genetic and environmental components:
 		\beta_i^2 = \beta_{Gi}^2 + \beta_{Ei}^2
 	\end{aligned}
 \end{equation}
+
 Assuming predator $i$ has a linear functional response with attack rate $a_{ij} = a_{ij}(m_i, n_j)$ on prey $j$, converts consumed prey $j$ into offspring with efficiencies $e_{ij} = e_{ij}(m_i, n_j)$, and experiences a per-capita mortality rate $d_i(m_i)$, then the fitness of a predator with phenotype $m_i$ is
 \begin{equation}
 	\label{predator_fitness}
@@ -205,6 +208,7 @@ and the mean fitness of the $i$\textsuperscript{th} predator population is
 		&= \int\limits_{\mathbb{R}^{v+1}}^{}W_ip(m_i, \overline{m_i})\prod\limits_{j = 1}^{v}p(n_j, \overline{n_j})dm_i\prod\limits_{j = 1}^{v}dn_j
 	\end{aligned}
 \end{equation}
+
 Assume in the absence of any predators, each prey species experiences logistic-type growth with growth rates $r_j = r_j(n_j)$ and carrying capacities $K_j = K_j(n_j)$.  Under these assumptions, the fitness of a prey individual with phenotype $n_j$ is
 \begin{equation}
 	\label{prey_fitness}
@@ -261,26 +265,6 @@ In the following two sections we provide two particular manifestations of (\ref{
 
 \subsection{Model 1}
 
-\begin{table}
-	\label{parameter_table_model_1}
-	\caption{Parameter Table - Model 1}
-    \begin{tabular}{||c|L{7cm}|L{2.5cm}||}\hline\hline
-    {\bf Parameter} & {\bf Contextual Meaning} & {\bf Range of Biologically Meaningful Values} \\\hline\hline
-    $r_j$ & intrinsic growth rate of prey $j$ & $(0, 1)$ \\\hline
-    $K_j$ & carrying capacity of prey $j$ & $(1, \infty)$ \\\hline\hline
-    $e_{ij}$ & efficiency of predator $i$ to turn prey $j$ into offspring & $(0, 0.5)$ \\\hline\hline
-    $\alpha_{ij}$ & maximum value of the Gaussian attack rate function; maximum successful attack rate of predator $i$ on prey $j$ & $(0, 1)$ \\\hline
-    $\tau_{ij}$   & variance of the Gaussian attack rate function; determines how specialized predator $i$ must be to use prey $j$ & $(0, 1)$ \\\hline
-    $\theta_{ij}$ & mean value of the Gaussian attack rate function; trait difference that maximizes attack rate of predator $i$ and prey $j$; ``optimal'' difference with respect to the predator & $\mathbb{R}$ \\\hline\hline
-    $\sigma_i$ & trait distribution variance of predator $i$; $\sigma_i = \sigma_{Gi} + \sigma_{Ei}$ & $\mathbb{R}^{+}$ \\\hline
-    $\sigma_{Gi}$ & genetic portion of $\sigma_i$; determines the ``speed'' of evolution of predator $i$ & $(0, \sigma_i)$ \\\hline
-    $\sigma_{Ei}$ & environmental portion of $\sigma_i$ & $(0, \sigma_i)$ \\\hline\hline
-    $\beta_j$ & trait distribution variance of prey $j$; $\beta_j = \beta_{Gj} + \beta_{Ej}$ & $\mathbb{R}^{+}$ \\\hline
-    $\beta_{Gj}$ & genetic portion of $\beta_j$; determines the ``speed'' of evolution of prey $j$ & $(0, \beta_j)$ \\\hline
-    $\beta_{Ej}$ & environmental portion of $\beta_j$ & $(0, \beta_j)$ \\\hline\hline
-    \end{tabular}
-\end{table}
-
 This first model is a coevolutionary extension of Schreiber's et. al. apparent competition model in which the predator is assumed to have a quantitative trait and evolves in response to the ecological changes of two {\it non-evolving} prey species \cite{Schreiber_2011}.  In contrast to Schreiber et.~al., we assume an individual predator's attack rate on an individual prey is dependent on both trait values, is maximal at an optimal trait {\it difference}, $m_i - n_j = \theta_{ij}$, and decreases away from this optimal trait difference in a Gaussian manner, i.e.,
 \begin{equation}
 	\label{attack_rate}
@@ -303,6 +287,7 @@ where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$.  (\ref{avg_predator_fitne
 	\label{model_1_avg_prey_fitness}
 	\overline{Y_j} = r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
 \end{equation}
+
 Relavent partial derivatives of (\ref{model_1_avg_pred_fitness}) and (\ref{model_1_avg_prey_fitness}) are easily computable:
 \begin{equation}
 	\label{model_1_pred_fitness_partial}
@@ -326,6 +311,7 @@ Thus (\ref{general_model}) simplifies:
 		\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2\sum\limits_{i = 1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{A_{ij}}\overline{a_{ij}}(\overline{m_i}, \overline{n_j})\right]
 	\end{align}
 \end{subequations}
+
 Refer to Table \ref{parameter_table_model_1} for parameters and their contextual meanings.
 
 
@@ -343,16 +329,7 @@ Refer to Table \ref{parameter_table_model_1} for parameters and their contextual
 
 
 \subsection{Model 2}
-\begin{table}
-	\label{parameter_table_model_2}
-	\caption{Parameter Table - Model 2}
-    \begin{tabular}{||c|L{7cm}|L{2.5cm}||}\hline\hline
-    {\bf Parameter} & {\bf Contextual Meaning} & {\bf Range of Biologically Meaningful Values} \\\hline\hline
-    $\rho_j$ & maximum value of the Gaussian intrinsic growth rate function $j$ & $(0, 1)$ \\\hline
-    $\gamma_j$ & variance of the Gaussian intrinsic growth rate function $j$; determines how dependent prey $j$ is on its optimal value $\phi_j$ & $(0, 1)$ \\\hline
-    $\phi_j$ & mean value of the Gaussian intrinsic growth rate function $j$; ``optimal'' value with respect to the prey; maximizes the growth rate function & $(0, 1)$ \\\hline\hline
-    \end{tabular}
-\end{table}
+
 This second model introduces stabilizing selection to Model 1 by assuming each prey species has an optimal trait value by which growth rate is maximized, and decreases away from the optimal trait value in a Gaussian manner, i.e.
 \begin{equation}
 	\label{growth_rate}
@@ -371,8 +348,8 @@ where $B_j = \beta_j^2 + \gamma_j^2$.  Since $\overline{W_i}$ is not dependent o
 	\label{model_2_avg_prey_fitness}
 	\overline{Y_j} = \overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[\overline{a_{ij}}(\overline{m_i}, \overline{n_j})M_i\right]
 \end{equation}
-Since $\overline{W_i}$ did not change from Model 1, (\ref{eq:model1_c}) is sufficient for the right hand side of (\ref{eq:general_model_c}).  However, the right hand side of (\ref{eq:general_model_d}) must be recalculated.
 
+Since $\overline{W_i}$ did not change from Model 1, (\ref{eq:model1_c}) is sufficient for the right hand side of (\ref{eq:general_model_c}).  However, the right hand side of (\ref{eq:general_model_d}) must be recalculated.
 \begin{equation}
 	\label{model_2_prey_fitness_partial}
 	\begin{aligned}
@@ -396,7 +373,8 @@ Thus (\ref{general_model}) simplifies:
 		\end{split}
 	\end{align}
 \end{subequations}
-Refer to Tables \ref{parameter_table_model_1} and \ref{parameter_table_model_2} parameters and their contextual meanings.
+
+Refer to Tables \ref{parameter_table_model_1} and \ref{parameter_table_model_2} for parameters and their contextual meanings.
 
 
 
@@ -447,6 +425,7 @@ If there is only one predator species and one prey species, then (\ref{model1}) 
 		\frac{d\overline{n}}{dt} &= \beta_{G}^2\frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})
 	\end{align}
 \end{subequations}
+
 There are three classifications of equilibria of (\ref{MODEL1}): extinction, exclusion, and coexistence.  Although there are an infinite amount of equilibrium points for each of these three classifications, their {\it ecological} components are unique and are comparable with common ecological models.  Extinction equilibria are given by
 \begin{equation}
 	\label{extinction_MODEL1}
@@ -474,32 +453,12 @@ and coexistence equilibria are locally asymptotically stable if
 	\label{coexistence_stability_MODEL1}
 	\frac{\sigma_G^2}{\beta_G^2} > \frac{r}{d}\left(1 - \frac{d\sqrt{A}}{Ke\alpha\tau}\right)
 \end{equation}
-In nature, (\ref{exclusion_stability_MODEL1}) is consistent with the fact that exclusion is possible if the predator death rate is high.  Note that if (\ref{exclusion_stability_MODEL1}) holds then (\ref{coexistence_MODEL1}) is not biologically feasible ($M^* < 0$), implying that coexistent states do not exist, and so even though (\ref{coexistence_stability_MODEL1}) would hold (since all parameters are assumed to be positive), it would be irrelevant.  Since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then intuitively, coexistence is stable if the predator is ``fast'' enough at evolving in comparison to the prey.  If this happens, the predator trait value ``catches up'' to the prey trait value.  Figure \ref{fig:constant_growth_exclusion} displays a simulation that results in stable exclusion, and Figure \ref{fig:constant_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
+
+In nature, (\ref{exclusion_stability_MODEL1}) is consistent with the fact that exclusion is possible if the predator death rate is high.  Figure \ref{fig:constant_growth_exclusion} displays a simulation that results in stable exclusion.
+
+Note that if (\ref{exclusion_stability_MODEL1}) holds then (\ref{coexistence_MODEL1}) is not biologically feasible ($M^* < 0$), implying that coexistent states do not exist, and so even though (\ref{coexistence_stability_MODEL1}) would hold (since all parameters are assumed to be positive), it would be irrelevant.  Since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then intuitively, coexistence is stable if the predator is ``fast'' enough at evolving in comparison to the prey.  If this happens, the predator trait value ``catches up'' to the prey trait value.  Figure \ref{fig:constant_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
 
 Since (\ref{exclusion_stability_MODEL1}) and (\ref{coexistence_stability_MODEL1}) are not equal and opposite conditions, the possibility remains that neither conditon holds.  A natural question is what dynamics appear in these circumstances.  Numerical simulations provide insight into these dynamics.  Figure \ref{fig:constant_growth_arms_race_coexistence} depicts an evolutionary ``arms race'' between the predator and prey.  The prey has no particular optimal value, and the predator is not fast enough at evolving to catch up to the prey, so they continuously evolve in a linear fashion.  The ``arms race'' is due to that fact that there is no stabilizing selection in this model - the prey species has no reason to stop evolving, and the predator species has no reason to stop chasing the prey.  The next model shows just one of many possible ways to introduce stabilizing selection for the purpose of avoiding an ``arms race''.
-\begin{centering}
-	\begin{figure}
-		\title{\bf Model 1: Exclusion Equilibrium\\}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/constant_growth/densities_exclusion.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/constant_growth/traits_exclusion.png}
-		\caption{\footnotesize Parameters: $e = 0.05$, $d = 0.25$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 100$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.2$, $K = 225$, $r = 0.2$, $N_0 = 120$, $\overline{n}_0 = 0.2$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, the exclusion condition holds.}
-		\label{fig:constant_growth_exclusion}
-	\end{figure}
-	\begin{figure}
-		\title{\bf Model 1: Coexistence Equilibrium\\}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/constant_growth/densities_stable_coexistence.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/constant_growth/traits_stable_coexistence.png}
-		\caption{\footnotesize Parameters: $e = 0.2$, $d = 1$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 100$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.2$, $K = 225$, $r = 0.2$, $N_0 = 120$, $\overline{n}_0 = 0.2$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, the equilibrium condition holds.}
-		\label{fig:constant_growth_coexistence_equilibrium}
-	\end{figure}
-	\begin{figure}
-		\title{\bf Model 1: ``Arms Race'' Coexistence\\}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/constant_growth/densities_unstable_coexistence.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/constant_growth/traits_unstable_coexistence.png}
-		\caption{\footnotesize Parameters: $e = 0.5$, $d = 0.05$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 100$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.22$, $K = 225$, $r = 0.2$, $N_0 = 120$, $\overline{n}_0 = 0.2$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these condition, neither the coexistence of the exclusion stability criterion hold.}
-		\label{fig:constant_growth_arms_race_coexistence}
-	\end{figure}
-\end{centering}
 
 
 
@@ -550,23 +509,7 @@ If there is only one predator species and one prey species, then (\ref{model2}) 
 		\frac{d\overline{n}}{dt} &= \beta_{G}^2\Bigg[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{\phi - \overline{n}}{B} + \frac{M(\theta - (\overline{m} - \overline{n}))}{A}\overline{a}(\overline{m}, \overline{n})\Bigg]
 	\end{align}
 \end{subequations}
-\begin{centering}
-	\begin{figure}
-		\title{\bf Model 2: Contour Plot of Coexistence/Hopf Bifurcation Condition}
-		\includegraphics[width=9cm,height=6cm]{figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png}
-		\caption{\footnotesize Parameter Values: $d = 0.05$, $\beta = 0.2$, $\rho = 0.5$, $\alpha = 0.1$, $e = 0.1$, $\sigma = 0.2$, $\gamma = 0.3$.  At higher values and very low values of $\tau$, the ratio of speeds of evolution ($\sigma_G/\beta_G$) is irrelevant to determining stable coexistence.  At intermediate values of $\tau$, higher ratios of speeds of evolution are required to have stable coexistence, and lower ratios result in cyclic coexistence or even stable exclusion.}
-		\label{fig:contour_plot}
-	\end{figure}
-	\begin{figure}
-		\title{\bf Model 2: Non-Equilibrium, Cyclic Coexistence}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png}
-		\caption{\footnotesize Parameter Values: $d = 0.05$, $\beta = 0.2$, $\rho = 0.5$, $\alpha = 0.1$, $e = 0.1$, $\sigma = 0.2$, $\gamma = 0.3$, $\tau = 0.05$.  Left phase-planes: $\sigma_G/\beta_G = 1.3$, stable limit cycle.  Right phase-planes: $\sigma_G/\beta_G = 1.5$, stable node.}
-		\label{fig:hopf_bifurcation}
-	\end{figure}
-\end{centering}
+
 Similarly to (\ref{MODEL1}), there are three classifications of equilibrium of system (\ref{MODEL2}): extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for the extinction and exclusion classifications, but stabilizing selection provides a unique coexistence equilibrium point.  Extinction equilibria are given by (\ref{extinction_MODEL1}), and exclusion equilibria are given by (\ref{exclusion_MODEL1}).  The coexistence equilibrium point is given by
 \begin{equation}
 	\label{coexistence_MODEL2}
@@ -574,11 +517,13 @@ Similarly to (\ref{MODEL1}), there are three classifications of equilibrium of s
 		(M^*, N^*, \overline{m}^*, \overline{n}^*) = \left(\frac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \frac{N^*}{K}\right), \frac{d\sqrt{A}}{e\alpha\tau}, \phi + \theta, \phi\right)
 	\end{aligned}
 \end{equation}
+
 Local stability analysis for extinction and exclusion equilibria is nearly identical to Model 1 - all extinction equilibria are unstable and exclusion equilibria are asymptotically stable if (\ref{exclusion_stability_MODEL1}) holds.  The coexistence equilibrium is asymptotically stable if
 \begin{equation}
 	\label{coexistence_stability_MODEL2}
 	\frac{\sigma_G^2}{\beta_G^2} > \frac{\rho\gamma}{d\sqrt{B}}\left(1 - \frac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \frac{A}{B}\right)
 \end{equation}
+
 Similar to Model 1, exclusion is stable if the predator death rate is high enough, and if (\ref{exclusion_stability_MODEL1}) holds then (\ref{coexistence_MODEL2}) is not biologically feasible ($M^* < 0$), and so even though (\ref{coexistence_stability_MODEL2}) may hold, it would be irrelevant.  Again, since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then coexistence is stable only if the predator is ``fast'' enough at evolving in comparison to the prey.  Figure \ref{fig:variable_growth_exclusion} displays a simulation that results in stable exclusion, and Figure \ref{fig:variable_growth_coexistence_equilibrium} displays a simulation that results in stable coexistence.
 
 (\ref{exclusion_stability_MODEL1}) and (\ref{coexistence_stability_MODEL2}) are not equal and opposite conditions, so there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics.  Figure \ref{fig:variable_growth_stable_cycles} depicts long-term stable oscillatory dynamics.  We conjecture a unique stable limit cycle exists if neither (\ref{exclusion_stability_MODEL1}) nor (\ref{coexistence_stability_MODEL2}) hold.
@@ -589,36 +534,167 @@ Analytically, Hopf Bifurcation occurs under various conditions, as explained in 
 \begin{equation}
 	f\left(\frac{\sigma_G}{\beta_G}, \rho, \gamma, d, A, B, \alpha, \tau, e, K\right) = \frac{\sigma_G^2}{\beta_G^2} - \frac{\rho\gamma}{d\sqrt{B}}\left(1 - \frac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \frac{A}{B}\right)
 \end{equation}
+
 Note $f > 0$ implies stable coexistence but $f < 0$ does not imply stable exclusion.
-Refer to Tables \ref{parameter_table_model_1} and \ref{parameter_table_model_2} parameters and their contextual meanings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\FloatBarrier
+\pagebreak
+\section{Tables and Figures}
+
+\begin{table}[h]
+	\label{parameter_table_model_1}
+    \begin{tabular}{||c|L{7cm}|L{2.5cm}||}\hline\hline
+    {\bf Parameter} & {\bf Contextual Meaning} & {\bf Range of Biologically Meaningful Values} \\\hline\hline
+    $r_j$ & intrinsic growth rate of prey $j$ & $(0, 1)$ \\\hline
+    $K_j$ & carrying capacity of prey $j$ & $(1, \infty)$ \\\hline\hline
+    $e_{ij}$ & efficiency of predator $i$ to turn prey $j$ into offspring & $(0, 0.5)$ \\\hline\hline
+    $\alpha_{ij}$ & maximum value of the Gaussian attack rate function; maximum successful attack rate of predator $i$ on prey $j$ & $(0, 1)$ \\\hline
+    $\tau_{ij}$   & variance of the Gaussian attack rate function; determines how specialized predator $i$ must be to use prey $j$ & $(0, 1)$ \\\hline
+    $\theta_{ij}$ & mean value of the Gaussian attack rate function; trait difference that maximizes attack rate of predator $i$ and prey $j$; ``optimal'' difference with respect to the predator & $\mathbb{R}$ \\\hline\hline
+    $\sigma_i$ & trait distribution variance of predator $i$; $\sigma_i = \sigma_{Gi} + \sigma_{Ei}$ & $\mathbb{R}^{+}$ \\\hline
+    $\sigma_{Gi}$ & genetic portion of $\sigma_i$; determines the ``speed'' of evolution of predator $i$ & $(0, \sigma_i)$ \\\hline
+    $\sigma_{Ei}$ & environmental portion of $\sigma_i$ & $(0, \sigma_i)$ \\\hline\hline
+    $\beta_j$ & trait distribution variance of prey $j$; $\beta_j = \beta_{Gj} + \beta_{Ej}$ & $\mathbb{R}^{+}$ \\\hline
+    $\beta_{Gj}$ & genetic portion of $\beta_j$; determines the ``speed'' of evolution of prey $j$ & $(0, \beta_j)$ \\\hline
+    $\beta_{Ej}$ & environmental portion of $\beta_j$ & $(0, \beta_j)$ \\\hline\hline
+    \end{tabular}
+    \caption{\footnotesize{\bf Parameter Table - Model 1.}}
+\end{table}
+\begin{table}[h]
+	\label{parameter_table_model_2}
+    \begin{tabular}{||c|L{7cm}|L{2.5cm}||}\hline\hline
+    {\bf Parameter} & {\bf Contextual Meaning} & {\bf Range of Biologically Meaningful Values} \\\hline\hline
+    $\rho_j$ & maximum value of the Gaussian intrinsic growth rate function $j$ & $(0, 1)$ \\\hline
+    $\gamma_j$ & variance of the Gaussian intrinsic growth rate function $j$; determines how dependent prey $j$ is on its optimal value $\phi_j$ & $\mathbb{R}^{+}$ \\\hline
+    $\phi_j$ & mean value of the Gaussian intrinsic growth rate function $j$; ``optimal'' value with respect to the prey; maximizes the growth rate function & $\mathbb{R}$ \\\hline\hline
+    \end{tabular}
+    \caption{\footnotesize{\bf Parameter Table - Model 2.}}
+\end{table}
 \begin{centering}
-	\begin{figure}
-		\title{\bf Model 2: Exclusion Equilibrium\\}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_exclusion/densities.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_exclusion/traits.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png}
-		\caption{\footnotesize Parameters: $e = 0.05$, $d = 0.05$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.05$, $M_0 = 100$, $\overline{m}_0 = 1$, $\sigma = 0.25$, $\sigma_G = 0.1$, $K = 225$, $\rho = 0.5$, $\gamma = 0.3$, $\phi = 0.0$, $N_0 = 120$, $\overline{n}_0 = 1.0$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, the exclusion criterion holds.}
+	\begin{figure*}[h]
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator and Prey Densities vs. Time]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/constant_growth/densities_exclusion.png}}%
+			\subfigure[Predator and Prey Trait Values vs. Time]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/constant_growth/traits_exclusion.png}}%
+		}
+		\caption{\footnotesize {\bf Model 1: Exclusion Equilibrium.} Parameters: $e = 0.05$, $d = 0.25$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 100$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.2$, $K = 225$, $r = 0.2$, $N_0 = 120$, $\overline{n}_0 = 0.2$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, the exclusion condition holds.}
+		\label{fig:constant_growth_exclusion}
+	\end{figure*}
+	\begin{figure*}[h]
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator and Prey Densities vs. Time]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/constant_growth/densities_stable_coexistence.png}}%
+			\subfigure[Predator and Prey Trait Values vs. Time]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/constant_growth/traits_stable_coexistence.png}}%
+		}
+		\caption{\footnotesize {\bf Model 1: Coexistence Equilibrium.} Parameters: $e = 0.2$, $d = 1$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 100$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.2$, $K = 225$, $r = 0.2$, $N_0 = 120$, $\overline{n}_0 = 0.2$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, the equilibrium condition holds.}
+		\label{fig:constant_growth_coexistence_equilibrium}
+	\end{figure*}
+	\begin{figure*}[h]
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator and Prey Densities vs. Time]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/constant_growth/densities_unstable_coexistence.png}}%
+			\subfigure[Predator and Prey Trait Values vs. Time]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/constant_growth/traits_unstable_coexistence.png}}%
+		}
+		\caption{\footnotesize {\bf Model 1: ``Arms Race'' Coexistence.} Parameters: $e = 0.5$, $d = 0.05$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 100$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.22$, $K = 225$, $r = 0.2$, $N_0 = 120$, $\overline{n}_0 = 0.2$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these condition, neither the coexistence of the exclusion stability criterion hold.}
+		\label{fig:constant_growth_arms_race_coexistence}
+	\end{figure*}
+
+	\begin{figure*}[h]
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator and Prey Densities vs. Time]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_exclusion/densities.png}}%
+			\subfigure[Predator and Prey Trait Values vs. Time]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_exclusion/traits.png}}%
+		}
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator/Prey Density Phase Plane]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png}}%
+			\subfigure[Predator/Prey Trait Value Phase Plane]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png}}%
+		}
+		\caption{\footnotesize {\bf Model 2: Exclusion Equilibrium.} Parameters: $e = 0.05$, $d = 0.05$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.05$, $M_0 = 100$, $\overline{m}_0 = 1$, $\sigma = 0.25$, $\sigma_G = 0.1$, $K = 225$, $\rho = 0.5$, $\gamma = 0.3$, $\phi = 0.0$, $N_0 = 120$, $\overline{n}_0 = 1.0$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, the exclusion criterion holds.}
 		\label{fig:variable_growth_exclusion}
-	\end{figure}
-	\begin{figure}
-		\title{\bf Model 2: Coexistence Equilibrium\\}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_coexistence/densities.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_coexistence/traits.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png}
-		\caption{\footnotesize Parameters: $e = 0.5$, $d = 0.05$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 1$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.18$, $K = 225$, $\rho = 0.2$, $\gamma = 0.65$, $\phi = 0.0$, $N_0 = 120$, $\overline{n}_0 = 1$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, the coexistence criterion holds.}
+	\end{figure*}
+	\begin{figure*}[h]
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator and Prey Densities vs. Time]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_coexistence/densities.png}}%
+			\subfigure[Predator and Prey Trait Values vs. Time]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_coexistence/traits.png}}%
+		}
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator/Prey Density Phase Plane]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png}}%
+			\subfigure[Predator/Prey Trait Value Phase Plane]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png}}%
+		}
+		\caption{\footnotesize {\bf Model 2: Coexistence Equilibrium.} Parameters: $e = 0.5$, $d = 0.05$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 1$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.18$, $K = 225$, $\rho = 0.2$, $\gamma = 0.65$, $\phi = 0.0$, $N_0 = 120$, $\overline{n}_0 = 1$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, the coexistence criterion holds.}
 		\label{fig:variable_growth_coexistence_equilibrium}
-	\end{figure}
-	\begin{figure}
-		\title{\bf Model 2: Non-Equilibrium, Cyclic Coexistence\\}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_cycles/densities.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_cycles/traits.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_cycles/density_phase_plane.png}
-		\includegraphics[width=6cm,height=4.1cm]{figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png}
-		\caption{\footnotesize Parameters: $e = 0.5$, $d = 0.05$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 1$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.1$, $K = 225$, $\rho = 0.5$, $\gamma = 1.0$, $\phi = 0.0$, $N_0 = 120$, $\overline{n}_0 = 1$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, neither the exclusion nor coexistence stability criterion hold.}
+	\end{figure*}
+
+	\begin{figure*}[h]
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator and Prey Densities vs. Time]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_cycles/densities.png}}%
+			\subfigure[Predator and Prey Trait Values vs. Time]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_cycles/traits.png}}%
+		}
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator/Prey Density Phase Plane]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_cycles/density_phase_plane.png}}%
+			\subfigure[Predator/Prey Trait Value Phase Plane]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png}}%
+		}
+		\caption{\footnotesize {\bf Model 2: Non-Equilibrium, Cyclic Coexistence.} Parameters: $e = 0.5$, $d = 0.05$, $\alpha = 0.05$, $\theta = 0.1$, $\tau = 0.1$, $M_0 = 1$, $\overline{m}_0 = 0$, $\sigma = 0.25$, $\sigma_G = 0.1$, $K = 225$, $\rho = 0.5$, $\gamma = 1.0$, $\phi = 0.0$, $N_0 = 120$, $\overline{n}_0 = 1$, $\beta = 0.25$, $\beta_G = 0.1$.  Under these conditions, neither the exclusion nor coexistence stability criterion hold.}
 		\label{fig:variable_growth_stable_cycles}
-	\end{figure}
+	\end{figure*}
+	\begin{figure*}[h]
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator and Prey Densities vs. Time]{\label{fig:a}\includegraphics[width=1.2\textwidth]{figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png}}%
+		}
+		\caption{\footnotesize {\bf Model 2: Contour Plot of Coexistence/Hopf Bifurcation Condition.} Parameter Values: $d = 0.05$, $\beta = 0.2$, $\rho = 0.5$, $\alpha = 0.1$, $e = 0.1$, $\sigma = 0.2$, $\gamma = 0.3$.  At higher values and very low values of $\tau$, the ratio of speeds of evolution ($\sigma_G/\beta_G$) is irrelevant to determining stable coexistence.  At intermediate values of $\tau$, higher ratios of speeds of evolution are required to have stable coexistence, and lower ratios result in cyclic coexistence or even stable exclusion.}
+		\label{fig:contour_plot}
+	\end{figure*}
+	\begin{figure*}[h]
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator/Prey Density Phase Plane - $\sigma_G/\beta_G = 1.3$.]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.png}}%
+			\subfigure[Predator/Prey Density Phase Plane - $\sigma_G/\beta_G = 1.5$.]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png}}%
+		}
+		\makebox[\linewidth][c]{%
+			\centering
+			\subfigure[Predator/Prey Trait Value Phase Plane - $\sigma_G/\beta_G = 1.3$.]{\label{fig:a}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.png}}%
+			\subfigure[Predator/Prey Trait Value Phase Plane - $\sigma_G/\beta_G = 1.5$.]{\label{fig:b}\includegraphics[width=0.7\textwidth]{figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png}}%
+		}
+		\caption{\footnotesize {\bf Model 2: Non-Equilibrium, Cyclic Coexistence.} Parameter Values: $d = 0.05$, $\beta = 0.2$, $\rho = 0.5$, $\alpha = 0.1$, $e = 0.1$, $\sigma = 0.2$, $\gamma = 0.3$, $\tau = 0.05$.  Left phase-planes: $\sigma_G/\beta_G = 1.3$, stable limit cycle.  Right phase-planes: $\sigma_G/\beta_G = 1.5$, stable node.}
+		\label{fig:hopf_bifurcation}
+	\end{figure*}
 \end{centering}
 
 
@@ -647,9 +723,7 @@ Refer to Tables \ref{parameter_table_model_1} and \ref{parameter_table_model_2} 
 
 
 
-
-
-
+\FloatBarrier
 \pagebreak
 \bibliographystyle{amsplain}
 \begin{thebibliography}{10}
@@ -719,6 +793,7 @@ A Coevolutionary Predator-Prey Model with Quantitative Characters.
 
 
 
+\FloatBarrier
 \pagebreak
 \section{Appendices}
 \subsection{Appendix 1: Derivation of Models 1 and 2}
@@ -923,7 +998,6 @@ Thus,
 
 
 
-\pagebreak
 \subsection{Appendix 2: Equilibria and Local Stability Analysis of (\ref{MODEL1})}
 \begin{align*}
 	f_1 = \frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
@@ -1078,7 +1152,6 @@ Again, since $N^* < K$, $\sqrt{\Delta} < \left|\dfrac{d\sigma_G^2 - r\beta_G^2\l
 
 
 
-\pagebreak
 \subsection{Appendix 3: Equilibria and Local Stability Analysis of (\ref{MODEL2})}
 \begin{align*}
 	f_1 = \frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
@@ -1200,6 +1273,37 @@ then the eigenvalues of $J_2$ are
 Again, $N^* < K \implies D > 0 \implies \sqrt{\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)^2 - \left(\frac{4CD}{B}\right)} < \left|\left(C + D\left[\frac{1}{B} - \frac{1}{A} \right]\right)\right|$, and thus $\text{Re}(\lambda_{3,4}) < 0$ if and only if (\ref{coexistence_stability_MODEL2}) holds.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\FloatBarrier
 \pagebreak
 \section{Acknowledgements}
 \begin{itemize}
