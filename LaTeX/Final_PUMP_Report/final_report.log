@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  8 MAY 2015 12:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  8 MAY 2015 13:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,11 +770,6 @@ y/m/n/10 2 \U/msb/m/n/10 R$\OT1/cmr/m/n/10 , then $[] \OML/cmm/m/it/10 < []$\OT
 Underfull \vbox (badness 2435) has occurred while \output is active []
 
  [30]
-Overfull \hbox (4.3885pt too wide) in paragraph at lines 1433--1437
-[]\OT1/cmr/m/n/10 California State Uni-ver-sity PUMP (Prepar-ing Un-der-grad-u-
-ates through Men-
- []
-
 [31] (./final_report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
@@ -812,7 +807,7 @@ ist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2014/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2014/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on final_report.pdf (31 pages, 1158554 bytes).
+Output written on final_report.pdf (31 pages, 1159791 bytes).
 PDF statistics:
  248 PDF objects out of 1000 (max. 8388607)
  143 compressed objects within 2 object streams

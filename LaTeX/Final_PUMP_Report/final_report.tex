@@ -137,7 +137,7 @@ Predator-prey interactions are ubiquitous in nature and have captured the attent
 
 \section{Introduction}
 
-Trait variation plays an important role in understanding the variety of dynamics of predator-prey interactions seen in nature.  Evidence shows that species evolve over time but this is ignored in most classical mathematical ecological models.  Models for purely ecological predator-prey interactions with different functional responses are well understood to an extent.  Several recent studies have incorporated trait variation into these traditional ecological models in a variety of ways.  All of them have demonstrated much richer dynamics compared to the classical models.
+Trait variation plays an important role in understanding the variety of dynamics of predator-prey interactions seen in nature.  Evidence shows that species evolve over time but this is ignored in most classical mathematical ecological models.  Models for purely ecological predator-prey interactions with different functional responses are well understood to some extent.  Several recent studies have incorporated trait variation into these traditional ecological models in a variety of ways.  All of them have demonstrated much richer dynamics compared to the classical models.
 
 In particular, Abrams and Matsuda introduced vulnerability as an evolutionary variable for a prey species.  This model results in chaotic, cyclic, and stable dynamics under various conditions \cite{Abrams_Matsuda_1997}.  Saloniemi introduced quantitative traits in a coevolutionary model.  Attack rate was defined as a linear function of both predator and prey trait values.  This model also produces chaotic dynamics under certain conditions \cite{Saloniemi_1993}.  More recently, Schreiber et. al. proposed an apparent competition model with Gaussian attack rate functions for an evolving generalist predator on two non-evolving prey populations.  In contrast with classical apparent competition theory, this model provided evidence that apparent competition can give rise to stable facilitation between under certain conditions \cite{Schreiber_2011}.
 
@@ -596,13 +596,13 @@ This proves the existence of a limit cycle.  Note $f > 0$ implies stable coexist
 
 
 \section{Summary}
-The novelty of our model resides in the incorporation of coevolutionary dynamics with realistic and natural Gaussian functions and density-dependent prey growth rates.  The attack rate, in contrast to that of Schreiber et. al., is dependent on both predator and prey trait values.  In addition, prey growth rate is a Gaussian function dependent of the prey's trait value.
+The first part of section 2 describes the ditrophic model in general, without specifying the particular functions that govern the dynamics of the system.  The second part of section 2 describes two concrete manifestations of the general model by providing explicit functions for the ecological parameters.  Lastly, section 3 provides analytical results of the reduction of the two specific models to one predator and one prey.
 
-Outline of the paper.........
+The novelty of this model resides in the incorporation of coevolutionary dynamics with realistic and natural Gaussian functions and density-dependent prey growth rates.  In the first model, the attack rate is, in contrast to that of Schreiber et. al., dependent on both predator and prey trait values.  In the second model, prey growth rate is defined as a Gaussian function dependent on the prey's trait value.
 
-In the first model, possible dynamics include the extinction of both predator and prey, exclusion of the predator, a coexistence state, and an ``arms race'' dynamic.  We note that in order to for the exclusion state to be stable, the predator death rate must be high enough (see (\ref{exclusion_stability_MODEL1})).  For coexistence, we see that the predator must be ``fast'' enough at evolving in order for it to have any chance of survival.  The ``arms race'' coexistence dynamic is not found in classical ecological models, and can possibly be interpreted as speciation.
+The dynamics of the first model include the exclusion of the predator, a stable coexistence state, and an evolutionary ``arms race'' dynamic.  We note that in order to for the exclusion state to be stable, the predator death rate must be high enough, which matches with our biological intuition (see (\ref{exclusion_stability_MODEL1})).  For coexistence, we see that the predator must be ``fast'' enough at evolving in order for it to have any chance of survival.  The ``arms race'' coexistence dynamic is not found in classical ecological models, and can be interpreted as possible speciation.
 
-The second model's dynamics include the extinction of both predator and prey, exclusion of predator, and a coexistence state.  The conditions for stability of both exclusion and coexistence are parallel to that of the first model.  In contrast to the first model, the non-stable coexistence dynamic shows cyclic behavior.  The introduction of stabilizing selection for the prey prevented the evolutionary ``arms'' race.  Instead, the second model provides long-term Red Queen Dynamics \cite{Khibnik_Kondrashov_1997} and possibly unique, stable limit cycles.
+The second model's dynamics include the exclusion of predator, and a coexistence state.  The conditions for stability of both exclusion and coexistence are parallel to that of the first model.  In contrast to the first model, however, the non-constant coexistence dynamic shows cyclic behavior.  The introduction of stabilizing selection for the prey prevented the evolutionary ``arms race''.  Instead, the second model provides long-term Red Queen Dynamics \cite{Khibnik_Kondrashov_1997} and possibly unique, globally stable limit cycles.
 % Discuss the novelty of our work
 
 % Summary of the outline of the paper
@@ -646,9 +646,9 @@ The second model's dynamics include the extinction of both predator and prey, ex
 
 % Implications of the Model
 	% Our model demonstrates a richer array of dynamics
-The implications of our work are......
+Our model demonstrates that incorporating trait variation into ecological models is necessary in order to obtain the rich array of dynamics seen in nature.  Our work serves as further evidence that evolution plays a central role in determining the dynamics in predator-prey interactions.  Inclusion of evolution into more intricate and complex ecological models can provide insight into the true causes of exclusion and coexistence.
 
-Our future work includes proving Hopf Bifurcation for the second model, the expansion of analytical results for more complex predator and prey interactions (intraguild, apparent competition, direct competition), and the incorporation of direct competition between prey for resources.
+One of our immediate goals is to prove, for the second model, the existence of a globally stable unique limit cycle.  We would also like to expand our analytical results in general for more complex predator-prey interactions.  In particular, expanding Schreiber's et.~al.~apparent competition model by incorporating prey evolution ($1 \times 2$ system), exploring direct competition of two predator on one prey ($2 \times 1$ system), and possibly up to the general ditrophic $u \times v$ system.  Other expansions include multitrophic intraguid predation with coevolution, and prey resource competition.
 
 
 
@@ -1423,18 +1423,22 @@ Note that a Hopf Bifurcation occurs when parameters are shifted in such a way th
 \FloatBarrier
 \pagebreak
 \section{Acknowledgements}
-\begin{itemize}
-	\item Dr. Jing Li, our mentor and advisor
-	\item Dr. Casey terHorst, out Biology consultant
-	\item Dr. Helena Noronha, PUMP organizer
-	\item The National Science Foundation
-	\item The National Math Alliance
-	\item The Pacific Math Alliance
-	\item California State University PUMP (Preparing Undergraduates through Mentoring toward PhDs)
-	% \item[$\star$] Dr. Jing Li, our mentor and advisor, for her unwavering support, constructive criticism, harsh truths, gentle guidance, and continuous excitement
-	% \item[$\star$] Dr. Casey terHorst, our Biology consultant, for his intuition and insight, and for introducing us to the concept of Eco-Evo Feedback
-	% \item[$\star$] Our friends and family, for their constant and consistent love
-\end{itemize}
+This work could not be completed without the help and guidance of our research advisor and mentor, Dr. Jing Li, and our biology consultant, Dr. Casey terHorst.  This work was conducted as part of the Pacific Math Alliance's CSU PUMP (Preparing Undergraduates through Mentoring towards PhDs) program, directed by Dr. Helena Noronha.  Samuel R. Fleischer and Pablo Chavarria were partially supported by the National Science Foundation grant DMS-1247679.  
+\vfill
+
+
+% \begin{itemize}
+% 	% \item Dr. Jing Li, our mentor and advisor
+% 	% \item Dr. Casey terHorst, out Biology consultant
+% 	% \item Dr. Helena Noronha, PUMP organizer
+% 	% \item The National Science Foundation
+% 	% \item The National Math Alliance
+% 	% \item The Pacific Math Alliance
+% 	% \item California State University PUMP (Preparing Undergraduates through Mentoring toward PhDs)
+% 	% \item[$\star$] Dr. Jing Li, our mentor and advisor, for her unwavering support, constructive criticism, harsh truths, gentle guidance, and continuous excitement
+% 	% \item[$\star$] Dr. Casey terHorst, our Biology consultant, for his intuition and insight, and for introducing us to the concept of Eco-Evo Feedback
+% 	% \item[$\star$] Our friends and family, for their constant and consistent love
+% \end{itemize}
 
 \end{document}
 
