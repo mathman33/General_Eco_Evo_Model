@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  7 MAY 2015 14:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  7 MAY 2015 23:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -137,29 +137,37 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen114
 \Gin@req@width=\dimen115
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen116
+\extrarowheight=\dimen117
+\NC@list=\toks26
+\extratabsurround=\skip51
+\backup@length=\skip52
+)
 \c@theorem=\count100
 
 (./final_report.aux)
 \openout1 = `final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Try loading font information for U+msa on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Try loading font information for U+msa on input line 52.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 47.
+LaTeX Font Info:    Try loading font information for U+msb on input line 52.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -167,16 +175,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count101
-\scratchdimen=\dimen116
+\scratchdimen=\dimen118
 \scratchbox=\box29
 \nofMPsegments=\count102
 \nofMParguments=\count103
-\everyMPshowfont=\toks26
+\everyMPshowfont=\toks27
 \MPscratchCnt=\count104
-\MPscratchDim=\dimen117
+\MPscratchDim=\dimen119
 \MPnumerator=\count105
 \makeMPintoPDFobject=\count106
-\everyMPtoPDFconversion=\toks27
+\everyMPtoPDFconversion=\toks28
 ) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -226,147 +234,282 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (8.90054pt too wide) in paragraph at lines 106--108
+Overfull \hbox (8.90054pt too wide) in paragraph at lines 189--191
 \OT1/cmr/m/n/10 Assuming preda-tor $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 has a l
 in-ear func-tional re-sponse with at-tack rate $\OML/cmm/m/it/10 a[] \OT1/cmr/m
 /n/10 = \OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m[]; n[]\OT1/cmr/
 m/n/10 )$
  []
 
-[2] [3] [4]
-<figures/1x1/constant_growth/densities_exclusion.png, id=28, 578.16pt x 433.62p
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 234--237
+
+ []
+
+[3] [4]
+<figures/1x1/constant_growth/densities_exclusion.png, id=30, 578.16pt x 433.62p
 t>
 File: figures/1x1/constant_growth/densities_exclusion.png Graphic file (type pn
 g)
  <use figures/1x1/constant_growth/densities_exclusion.png>
 Package pdftex.def Info: figures/1x1/constant_growth/densities_exclusion.png us
-ed on input line 254.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+ed on input line 331.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/traits_exclusion.png, id=30, 578.16pt x 433.62pt>
+<figures/1x1/constant_growth/traits_exclusion.png, id=32, 578.16pt x 433.62pt>
 File: figures/1x1/constant_growth/traits_exclusion.png Graphic file (type png)
 
 <use figures/1x1/constant_growth/traits_exclusion.png>
 Package pdftex.def Info: figures/1x1/constant_growth/traits_exclusion.png used 
-on input line 255.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+on input line 332.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/densities_stable_coexistence.png, id=31, 578.16pt 
+<figures/1x1/constant_growth/densities_stable_coexistence.png, id=33, 578.16pt 
 x 433.62pt>
 File: figures/1x1/constant_growth/densities_stable_coexistence.png Graphic file
  (type png)
  <use figures/1x1/constant_growth/densities_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/densities_stable_coexisten
-ce.png used on input line 260.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+ce.png used on input line 338.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/traits_stable_coexistence.png, id=32, 578.16pt x 4
+<figures/1x1/constant_growth/traits_stable_coexistence.png, id=34, 578.16pt x 4
 33.62pt>
 File: figures/1x1/constant_growth/traits_stable_coexistence.png Graphic file (t
 ype png)
  <use figures/1x1/constant_growth/traits_stable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/traits_stable_coexistence.
-png used on input line 261.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+png used on input line 339.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/densities_unstable_coexistence.png, id=33, 578.16p
+<figures/1x1/constant_growth/densities_unstable_coexistence.png, id=35, 578.16p
 t x 433.62pt>
 File: figures/1x1/constant_growth/densities_unstable_coexistence.png Graphic fi
 le (type png)
 
 <use figures/1x1/constant_growth/densities_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/densities_unstable_coexist
-ence.png used on input line 266.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+ence.png used on input line 345.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/constant_growth/traits_unstable_coexistence.png, id=34, 578.16pt x
+<figures/1x1/constant_growth/traits_unstable_coexistence.png, id=36, 578.16pt x
  433.62pt>
 File: figures/1x1/constant_growth/traits_unstable_coexistence.png Graphic file 
 (type png)
  <use figures/1x1/constant_growth/traits_unstable_coexistence.png>
 Package pdftex.def Info: figures/1x1/constant_growth/traits_unstable_coexistenc
-e.png used on input line 267.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+e.png used on input line 346.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
 [5 <./figures/1x1/constant_growth/densities_exclusion.png> <./figures/1x1/const
 ant_growth/traits_exclusion.png>] [6 <./figures/1x1/constant_growth/densities_s
 table_coexistence.png> <./figures/1x1/constant_growth/traits_stable_coexistence
 .png> <./figures/1x1/constant_growth/densities_unstable_coexistence.png> <./fig
 ures/1x1/constant_growth/traits_unstable_coexistence.png>]
-<figures/1x1/variable_growth/stable_exclusion/densities.png, id=48, 578.16pt x 
+<figures/1x1/variable_growth/stable_exclusion/densities.png, id=49, 578.16pt x 
 433.62pt>
 File: figures/1x1/variable_growth/stable_exclusion/densities.png Graphic file (
 type png)
  <use figures/1x1/variable_growth/stable_exclusion/densities.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/densities
-.png used on input line 337.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+.png used on input line 424.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/variable_growth/stable_exclusion/traits.png, id=49, 578.16pt x 433
+<figures/1x1/variable_growth/stable_exclusion/traits.png, id=50, 578.16pt x 433
 .62pt>
 File: figures/1x1/variable_growth/stable_exclusion/traits.png Graphic file (typ
 e png)
  <use figures/1x1/variable_growth/stable_exclusion/traits.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/traits.pn
-g used on input line 338.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+g used on input line 425.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/variable_growth/stable_coexistence/densities.png, id=50, 578.16pt 
+<figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png, id=51, 5
+78.16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png Grap
+hic file (type png)
+
+<use figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/density_p
+hase_plane.png used on input line 426.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png, id=52, 578
+.16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png Graphi
+c file (type png)
+
+<use figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_exclusion/trait_pha
+se_plane.png used on input line 427.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_coexistence/densities.png, id=53, 578.16pt 
 x 433.62pt>
 File: figures/1x1/variable_growth/stable_coexistence/densities.png Graphic file
  (type png)
  <use figures/1x1/variable_growth/stable_coexistence/densities.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/densiti
-es.png used on input line 343.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+es.png used on input line 433.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/variable_growth/stable_coexistence/traits.png, id=51, 578.16pt x 4
+<figures/1x1/variable_growth/stable_coexistence/traits.png, id=54, 578.16pt x 4
 33.62pt>
 File: figures/1x1/variable_growth/stable_coexistence/traits.png Graphic file (t
 ype png)
  <use figures/1x1/variable_growth/stable_coexistence/traits.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/traits.
-png used on input line 344.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+png used on input line 434.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/variable_growth/stable_cycles/densities.png, id=52, 578.16pt x 433
+<figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png, id=55,
+ 578.16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png Gr
+aphic file (type png)
+
+<use figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/density
+_phase_plane.png used on input line 435.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png, id=56, 5
+78.16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png Grap
+hic file (type png)
+
+<use figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_coexistence/trait_p
+hase_plane.png used on input line 436.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_cycles/densities.png, id=57, 578.16pt x 433
 .62pt>
 File: figures/1x1/variable_growth/stable_cycles/densities.png Graphic file (typ
 e png)
  <use figures/1x1/variable_growth/stable_cycles/densities.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/densities.pn
-g used on input line 349.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
+g used on input line 442.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
 
-<figures/1x1/variable_growth/stable_cycles/traits.png, id=53, 578.16pt x 433.62
+<figures/1x1/variable_growth/stable_cycles/traits.png, id=58, 578.16pt x 433.62
 pt>
 File: figures/1x1/variable_growth/stable_cycles/traits.png Graphic file (type p
 ng)
  <use figures/1x1/variable_growth/stable_cycles/traits.png>
 Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/traits.png u
-sed on input line 350.
-(pdftex.def)             Requested size: 170.71451pt x 113.81041pt.
- [7 <./figures/1x1/variable_growth/stable_exclusion/densities.png> <./figures/1
-x1/variable_growth/stable_exclusion/traits.png>] [8 <./figures/1x1/variable_gro
-wth/stable_coexistence/densities.png> <./figures/1x1/variable_growth/stable_coe
-xistence/traits.png> <./figures/1x1/variable_growth/stable_cycles/densities.png
-> <./figures/1x1/variable_growth/stable_cycles/traits.png>]
+sed on input line 443.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_cycles/density_phase_plane.png, id=59, 578.
+16pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_cycles/density_phase_plane.png Graphic
+ file (type png)
+
+<use figures/1x1/variable_growth/stable_cycles/density_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/density_phas
+e_plane.png used on input line 444.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png, id=60, 578.16
+pt x 433.62pt>
+File: figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png Graphic f
+ile (type png)
+
+<use figures/1x1/variable_growth/stable_cycles/trait_phase_plane.png>
+Package pdftex.def Info: figures/1x1/variable_growth/stable_cycles/trait_phase_
+plane.png used on input line 445.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+Underfull \vbox (badness 6477) has occurred while \output is active []
+
+ [7]
+[8 <./figures/1x1/variable_growth/stable_exclusion/densities.png> <./figures/1x
+1/variable_growth/stable_exclusion/traits.png> <./figures/1x1/variable_growth/s
+table_exclusion/density_phase_plane.png> <./figures/1x1/variable_growth/stable_
+exclusion/trait_phase_plane.png> <./figures/1x1/variable_growth/stable_coexiste
+nce/densities.png> <./figures/1x1/variable_growth/stable_coexistence/traits.png
+> <./figures/1x1/variable_growth/stable_coexistence/density_phase_plane.png> <.
+/figures/1x1/variable_growth/stable_coexistence/trait_phase_plane.png>]
+[9 <./figures/1x1/variable_growth/stable_cycles/densities.png> <./figures/1x1/v
+ariable_growth/stable_cycles/traits.png> <./figures/1x1/variable_growth/stable_
+cycles/density_phase_plane.png> <./figures/1x1/variable_growth/stable_cycles/tr
+ait_phase_plane.png>]
+<figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png, id=84, 
+578.16pt x 433.62pt>
+File: figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png Gra
+phic file (type png)
+
+<use figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png>
+Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/tau_ratio_15
+0417_125636.png used on input line 583.
+(pdftex.def)             Requested size: 256.06737pt x 170.71892pt.
+
+<figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.png,
+ id=85, 578.16pt x 433.62pt>
+File: figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle
+.png Graphic file (type png)
+
+<use figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.
+png>
+Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/density_phas
+e_plane_limit_cycle.png used on input line 589.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png, id=86,
+ 578.16pt x 433.62pt>
+File: figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png Gr
+aphic file (type png)
+
+<use figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png>
+Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/density_phas
+e_plane_node.png used on input line 590.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.png, i
+d=87, 578.16pt x 433.62pt>
+File: figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.p
+ng Graphic file (type png)
+
+<use figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.pn
+g>
+Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/trait_phase_
+plane_limit_cycle.png used on input line 591.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+<figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png, id=88, 5
+78.16pt x 433.62pt>
+File: figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png Grap
+hic file (type png)
+
+<use figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png>
+Package pdftex.def Info: figures/1x1/variable_growth/contour_plots/trait_phase_
+plane_node.png used on input line 592.
+(pdftex.def)             Requested size: 170.71451pt x 116.6555pt.
+
+[10] [11 <./figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.p
+ng> <./figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycl
+e.png> <./figures/1x1/variable_growth/contour_plots/density_phase_plane_node.pn
+g> <./figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.p
+ng> <./figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png>]
+Underfull \vbox (badness 1810) has occurred while \output is active []
+
+ [12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]
-Overfull \hbox (74.69685pt too wide) in paragraph at lines 394--396
+ [13]
+Overfull \hbox (74.69685pt too wide) in paragraph at lines 741--743
 \OT1/cmr/m/n/10 where $\OML/cmm/m/it/10 a \OT1/cmr/m/n/10 = []$, $\OML/cmm/m/it
 /10 b \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@[]$\OT1/cmr/m/n/10 , and $\OML/cmm/
 m/it/10 c \OT1/cmr/m/n/10 = []$ 
  []
 
 
-Overfull \hbox (13.92749pt too wide) in paragraph at lines 402--402
+Overfull \hbox (13.92749pt too wide) in paragraph at lines 749--749
 [] 
  []
 
-[10]
-Overfull \hbox (1.49571pt too wide) in paragraph at lines 409--411
+[14]
+Overfull \hbox (1.49571pt too wide) in paragraph at lines 768--770
 \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m[];
  n[]\OT1/cmr/m/n/10 )$ and $\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  n[]; []\OT1/cmr/m/n/10 )$ are in-de-pen-dent of $\OML/cmm/m/it/10 n[]$ \OT1/cm
@@ -375,71 +518,71 @@ r/m/n/10 for $\OML/cmm/m/it/10 k \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; [] ; n[]
  []
 
 
-Overfull \hbox (36.43591pt too wide) in paragraph at lines 423--423
+Overfull \hbox (36.43591pt too wide) in paragraph at lines 782--782
 [] 
  []
 
 
-Overfull \hbox (47.71098pt too wide) in paragraph at lines 438--438
+Overfull \hbox (47.71098pt too wide) in paragraph at lines 813--813
 [] 
  []
 
-[11]
-Overfull \hbox (65.7047pt too wide) in paragraph at lines 468--468
+[15]
+Overfull \hbox (65.7047pt too wide) in paragraph at lines 873--873
 [] 
- []
-
-[12]
-
-LaTeX Warning: Command \j invalid in math mode on input line 469.
-
-
-LaTeX Warning: Command \j invalid in math mode on input line 469.
-
-
-Overfull \hbox (11.11293pt too wide) in paragraph at lines 475--475
-[] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13]
-[14] [15]
-Overfull \hbox (1.26561pt too wide) in paragraph at lines 588--588
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 592--594
-
  []
 
 [16]
+
+LaTeX Warning: Command \j invalid in math mode on input line 874.
+
+
+LaTeX Warning: Command \j invalid in math mode on input line 874.
+
+
+Overfull \hbox (11.11293pt too wide) in paragraph at lines 880--880
+[] 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-Overfull \hbox (8.0318pt too wide) in paragraph at lines 620--620
+[18] [19]
+Overfull \hbox (1.26561pt too wide) in paragraph at lines 1026--1026
 [] 
  []
 
-[18]
-Overfull \hbox (19.39189pt too wide) in paragraph at lines 668--668
-[] 
- []
 
-[19]
-Overfull \hbox (57.12843pt too wide) in paragraph at lines 708--708
-[] 
+Underfull \hbox (badness 10000) in paragraph at lines 1030--1032
+
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 712--714
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21]
+Overfull \hbox (1.92079pt too wide) in paragraph at lines 1093--1093
+[] 
+ []
+
+[22]
+Overfull \hbox (19.39189pt too wide) in paragraph at lines 1141--1141
+[] 
+ []
+
+[23]
+Overfull \hbox (57.12843pt too wide) in paragraph at lines 1181--1181
+[] 
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 1185--1187
 
  []
 
 
-Overfull \hbox (21.12682pt too wide) in paragraph at lines 723--725
+Overfull \hbox (21.12682pt too wide) in paragraph at lines 1196--1198
 \OT1/cmr/m/n/10 Again, $\OML/cmm/m/it/10 N[] < K  \OT1/cmr/m/n/10 =[]\OMS/cmsy/
 m/n/10 )  \OML/cmm/m/it/10 D > \OT1/cmr/m/n/10 0  =[]\OMS/cmsy/m/n/10 )  [] \OM
 L/cmm/m/it/10 < []$\OT1/cmr/m/n/10 ,
@@ -448,38 +591,41 @@ L/cmm/m/it/10 < []$\OT1/cmr/m/n/10 ,
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21]
-[22] (./final_report.aux) ) 
+ [25]
+[26] (./final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 2774 strings out of 493117
- 38795 string characters out of 6135433
- 119150 words of memory out of 5000000
- 6042 multiletter control sequences out of 15000+600000
+ 2879 strings out of 493117
+ 42987 string characters out of 6135433
+ 119976 words of memory out of 5000000
+ 6136 multiletter control sequences out of 15000+600000
  10215 words of font info for 40 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 37i,18n,32p,1309b,214s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,18n,32p,1309b,225s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmmi5.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr5.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-5.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
-fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><
+sfonts/cm/cmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr5.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
+.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pf
+b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pf
 b>
-Output written on final_report.pdf (22 pages, 669817 bytes).
+Output written on final_report.pdf (26 pages, 1123711 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
+ 216 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 words of extra memory for PDF output out of 10000 (max. 10000000)
 
