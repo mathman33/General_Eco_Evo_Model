@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1431118333 "final_report.tex" "final_report.pdf" "final_report" 1431118336
+["pdflatex"] 1431144821 "final_report.tex" "final_report.pdf" "final_report" 1431144824
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -55,8 +55,8 @@
   "figures/1x1/variable_growth/stable_exclusion/density_phase_plane.png" 1431077735 23762 165856ada3a82903ca863abc24d6e474 ""
   "figures/1x1/variable_growth/stable_exclusion/trait_phase_plane.png" 1431077735 22905 4d7bc3252052f1f0a0563c36d4d2ebc6 ""
   "figures/1x1/variable_growth/stable_exclusion/traits.png" 1431077735 21925 07cd4f850e2f9624927a27cdfcfd65f4 ""
-  "final_report.aux" 1431118335 13422 af5ddae03acdd060f2003f4da98cd304 ""
-  "final_report.tex" 1431118333 82863 71c49098466a538c09471f9f9a25e8c2 ""
+  "final_report.aux" 1431144824 13387 eff642f584989684ef7b3a9253d8e60b ""
+  "final_report.tex" 1431144819 82846 afc9505f49b24c503d4c7403cc80c81c ""
   (generated)
   "final_report.pdf"
   "final_report.aux"

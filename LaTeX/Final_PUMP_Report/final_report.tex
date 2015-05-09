@@ -834,46 +834,11 @@ One of our immediate goals is to prove, for the second model, the existence of a
 
 
 
+
 \FloatBarrier
 \pagebreak
-\bibliographystyle{amsplain}
-\begin{thebibliography}{10}
-
-\bibitem{Schreiber_2011}
-Schreiber, S.~J., B\"urger,  R., and Bolnick,  D.~I.
-The Community Effects of Phenotypic and Genetic Variation within a Predator Population.
-\emph{Ecology}
-2011,  92(8):526-543. 
-
-\bibitem{Lande_1976}
-Lande, R.
-Natural Selection and Random Genetic Drift in Phentypic Evolution.
-\emph{Society for the Study of Evolution}
-1976, 30(2):314-334.
-
-\bibitem{Abrams_Matsuda_1997}
-Abrams, P.~A. and Matsuda, H.
-Prey Adaptation as a Cause of Predator-Prey Cycles.
-\emph{Society for the Study of Evolution}
-1997, 51:1742-1750.
-
-\bibitem{Khibnik_Kondrashov_1997}
-Khibnik, A.~I. and Kondrashov, A.~S.
-Three Mechanisms of Red Queen Dynamics.
-\emph{Procedings of the Royal Society of London}
-1997, 264:1049-1056.
-
-\bibitem{Saloniemi_1993}
-Saloniemi, I.
-A Coevolutionary Predator-Prey Model with Quantitative Characters.
-\emph{The American Naturalist}
-1993, 141:880-896.
-
-\end{thebibliography}
-
-
-
-
+\section*{Acknowledgements}
+This work could not be completed without the help and guidance of our research advisor and mentor, Dr. Jing Li, and our biology consultant, Dr. Casey terHorst.  This work was conducted as part of the Pacific Math Alliance's CSU PUMP (Preparing Undergraduates through Mentoring towards PhDs) program, directed by Dr. Helena Noronha.  Samuel R. Fleischer and Pablo Chavarria were partially supported by the National Science Foundation grant DMS-1247679.
 
 
 
@@ -906,9 +871,9 @@ A Coevolutionary Predator-Prey Model with Quantitative Characters.
 
 \FloatBarrier
 \pagebreak
-\section{Appendices}
-\subsection{Appendix 1: Derivation of Models 1 and 2}
-\subsubsection{\textbf{\textit{Derivation of (\ref{average_attack_rate})}}}
+\section*{Appendices}
+\subsection*{Appendix 1: Derivation of Models 1 and 2}
+\subsubsection*{\textbf{\textit{Derivation of (\ref{average_attack_rate})}}}
 First note the following:
 \begin{align*}
 	\int\limits_{\mathbb{R}}\exp\left[-(ax^2 + bx + c)\right] = \sqrt{\frac{\pi}{a}}\exp\left[\frac{b^2}{4a} - c\right]
@@ -948,7 +913,7 @@ Thus
 
 
 
-\subsubsection{\textbf{\textit{Derivation of (\ref{model_1_avg_pred_fitness})}}}
+\subsubsection*{\textbf{\textit{Derivation of (\ref{model_1_avg_pred_fitness})}}}
 \begin{align*}
 	\overline{W_i}(N_1, \dots, &N_u, M_i, \overline{n_1}, \dots, \overline{n_v}, \overline{m_i}) = \int\limits_{\mathbb{R}^{v+1}}^{}W_ip(m_i, \overline{m_i})\prod\limits_{j = 1}^{v}p(n_j, \overline{n_j})dm_i\prod\limits_{j = 1}^{v}dn_j \\
 	&= \int\limits_{\mathbb{R}^{v+1}}^{}\left[\sum\limits_{j = 1}^{v}\left[e_{ij}a_{ij}(m_i, n_j)N_i\right] - d_i\right]p(m_i, \overline{m_i})\prod\limits_{j = 1}^{v}p(n_j, \overline{n_j})dm_i\prod\limits_{j = 1}^{v}dn_j \\
@@ -993,7 +958,7 @@ Thus,
 
 
 
-\subsubsection{\textbf{\textit{Derivation of (\ref{model_1_avg_prey_fitness})}}}
+\subsubsection*{\textbf{\textit{Derivation of (\ref{model_1_avg_prey_fitness})}}}
 \begin{align*}
 	\overline{Y_j}(N_j, M_1, \dots, &M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) = \int\limits_{\mathbb{R}^{u+1}}^{}Y_jp(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
 	&= \int\limits_{\mathbb{R}^{u+1}}\left[r_j\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[a_{ij}(m_i, n_j)M_i\right]\right]p(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
@@ -1027,7 +992,7 @@ Thus,
 
 
 
-\subsubsection{\textbf{\textit{Derivation of (\ref{average_growth_rate})}}}
+\subsubsection*{\textbf{\textit{Derivation of (\ref{average_growth_rate})}}}
 \begin{align*}
 	\overline{r_j}(\overline{n_j}) &= \int\limits_{\mathbb{R}}^{}r_j(n_j)p(n_j, \overline{n_j})dn_j \\
 	&= \int\limits_{\mathbb{R}}\left(\rho_j\exp\left[-\frac{(n_j - \phi_j)^2}{2\gamma_j^2}\right]\right)\left(\frac{1}{\sqrt{2\pi\beta_j^2}}\exp\left[-\frac{(n_j - \overline{n_j})^2}{2\beta_j^2}\right]\right)dn_j \\
@@ -1053,7 +1018,7 @@ where $a = \dfrac{\beta_j^2 + \gamma_j^2}{2\beta_j^2\gamma_j^2}$, $b = -\left(\d
 
 
 
-\subsubsection{\textbf{\textit{Derivation of (\ref{model_2_avg_prey_fitness})}}}
+\subsubsection*{\textbf{\textit{Derivation of (\ref{model_2_avg_prey_fitness})}}}
 \begin{align*}
 	\overline{Y_j}(N_j, M_1, \dots, &M_v, \overline{n_j}, \overline{m_1}, \dots, \overline{m_v}) = \int\limits_{\mathbb{R}^{u+1}}^{}Y_jp(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
 	&= \int\limits_{\mathbb{R}^{u+1}}\left[r_j(n_j)\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}\left[a_{ij}(m_i, n_j)M_i\right]\right]p(n_j, \overline{n_j})\prod\limits_{i = 1}^{u}p(m_i, \overline{m_i})dn_j\prod\limits_{i = 1}^{u}dm_i \\
@@ -1109,7 +1074,7 @@ Thus,
 
 
 
-\subsection{Appendix 2: Equilibria and Local Stability Analysis of (\ref{MODEL1})}
+\subsection*{Appendix 2: Equilibria and Local Stability Analysis of (\ref{MODEL1})}
 \begin{align*}
 	f_1 = \frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
 	f_2 = \frac{dN}{dt} &= N\left[r\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
@@ -1263,7 +1228,7 @@ Again, since $N^* < K$, $\sqrt{\Delta} < \left|\dfrac{d\sigma_G^2 - r\beta_G^2\l
 
 
 
-\subsection{Appendix 3: Equilibria and Local Stability Analysis of (\ref{MODEL2})}
+\subsection*{Appendix 3: Equilibria and Local Stability Analysis of (\ref{MODEL2})}
 \begin{align*}
 	f_1 = \frac{dM}{dt} &= M\left[e\overline{a}(\overline{m}, \overline{n})N - d\right] \\[5px]
 	f_2 = \frac{dN}{dt} &= N\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \overline{a}(\overline{m}, \overline{n})M\right] \\[5px]
@@ -1395,35 +1360,45 @@ Note that a Hopf Bifurcation occurs when parameters are shifted in such a way th
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \FloatBarrier
 \pagebreak
-\section{Acknowledgements}
-This work could not be completed without the help and guidance of our research advisor and mentor, Dr. Jing Li, and our biology consultant, Dr. Casey terHorst.  This work was conducted as part of the Pacific Math Alliance's CSU PUMP (Preparing Undergraduates through Mentoring towards PhDs) program, directed by Dr. Helena Noronha.  Samuel R. Fleischer and Pablo Chavarria were partially supported by the National Science Foundation grant DMS-1247679.  
+\bibliographystyle{amsplain}
+\begin{thebibliography}{10}
+
+\bibitem{Schreiber_2011}
+Schreiber, S.~J., B\"urger,  R., and Bolnick,  D.~I.
+The Community Effects of Phenotypic and Genetic Variation within a Predator Population.
+\emph{Ecology}
+2011,  92(8):526-543. 
+
+\bibitem{Lande_1976}
+Lande, R.
+Natural Selection and Random Genetic Drift in Phentypic Evolution.
+\emph{Society for the Study of Evolution}
+1976, 30(2):314-334.
+
+\bibitem{Abrams_Matsuda_1997}
+Abrams, P.~A. and Matsuda, H.
+Prey Adaptation as a Cause of Predator-Prey Cycles.
+\emph{Society for the Study of Evolution}
+1997, 51:1742-1750.
+
+\bibitem{Khibnik_Kondrashov_1997}
+Khibnik, A.~I. and Kondrashov, A.~S.
+Three Mechanisms of Red Queen Dynamics.
+\emph{Procedings of the Royal Society of London}
+1997, 264:1049-1056.
+
+\bibitem{Saloniemi_1993}
+Saloniemi, I.
+A Coevolutionary Predator-Prey Model with Quantitative Characters.
+\emph{The American Naturalist}
+1993, 141:880-896.
+
+\end{thebibliography}
+
+
+
 \vfill
 
 
