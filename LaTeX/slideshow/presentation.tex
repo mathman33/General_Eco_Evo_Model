@@ -37,9 +37,9 @@
 \setcounter{section}{-1}
 %\setlength{\jot}{30pt}
 
-\title{The Ecological Effects of Trait Variation in a $u$-Predator, $v$-Prey System}
-\author{Sam Fleischer, Pablo Chavarria}
-\date{May 3, 2015}
+\title{The Effects of Intraspecific Genetic Variation on the Dynamics of Predator-Prey Ecological Communities}
+\author{\vspace{-15pt} Sam Fleischer, Pablo Chavarria}
+\date{\vspace{-5pt} May 3, 2015}
 
 \begin{document}
 
@@ -60,45 +60,51 @@
 \begin{frame}
 	\frametitle{Overview}
 	\begin{itemize}
-		\item Motivation / Observations in Nature
-		\item Model Formulation
+		\item Motivation
 		\begin{itemize}
-			\item Classical Lotka-Volterra Predator-Prey Model
-			\item Schreiber, B\"urger, and Bolnick's Extension
-			\item Our Extension
+			\item Observations in Nature
+			\item Previous Models
 		\end{itemize}
-		\item Preliminary Results
-		\item Future Work
+		\item Our Expansions
+		\begin{itemize}
+			\item Gaussian Attack Rate under Coevolution
+			\item Introduce Stabilizing Selection
+			\item General Ditrophic Expansion
+		\end{itemize}
+		\item Discussion
 	\end{itemize}
 \end{frame}
 
-\section{Motivation / Observations in Nature}
+\section{Motivation}
+\subsection{Observations in Nature}
 \begin{frame}
-	\frametitle{Motivation / Observations in Nature}
-\begin{minipage}{0.65\textwidth}
-	\begin{itemize}
-		\item Predator/Prey interactions are prevalent in nature
+	\frametitle{Observations in Nature}
+	\begin{minipage}{0.65\textwidth}
 		\begin{itemize}
-			\item Crab vs. gastropod {\tiny[Saloniemi, 1993]}
-			\item Protist vs. bacteria {\tiny[terHorst]}
+			\item Predator/Prey interactions are prevalent in nature
+			\begin{itemize}
+				\item Crab vs. gastropod {\tiny[Saloniemi, 1993]}
+				\item Classical Lotka-Volterra model
+				\begin{itemize}
+					\item Genetic adaptation is insignificant
+				\end{itemize}
+			\end{itemize} \vspace{15pt}
+			\uncover<2->{\item There is trait variation within species, which causes {\bf variation in fundametal model parameters}
+			\begin{itemize}
+				% \item Thickness of plant cuticula {\tiny[Saloniemi, 1993]}
+				\item Relative strength of crab claw vs. gastropod shell {\tiny[Saloniemi, 1993]}
+				\item Incorporating trait variation provides {\bf richer dynamics} than classical Lotka-Volterra models
+			\end{itemize}}
 		\end{itemize}
-		\item There is trait variation within species
-		\begin{itemize}
-			\item Thickness of plant cuticula {\tiny[Saloniemi, 1993]}
-			\item Strength of gastropod shell {\tiny[Saloniemi, 1993]}
-		\end{itemize}
-		\item Incorporating trait variation provides {\bf richer dynamics} than classical Lotka-Volterra models
-	\end{itemize}
 	\end{minipage}
 	\begin{minipage}{0.25\textwidth}
-	\begin{figure}
-	\includegraphics[width=0.95\textwidth]{figures/crab_eating_gastropod.jpg}
-	\end{figure}
+		\begin{figure}
+			\includegraphics[width=1.5\textwidth]{figures/crab_eating_gastropod.jpg}
+		\end{figure}
 	\end{minipage}
 \end{frame}
 
-\section{Model Formulation}
-\subsection{Lotka-Volterra}
+\subsection{Previous Models}
 \begin{frame}
 	\frametitle{Classical Lotka-Volterra Model}
 	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
@@ -116,11 +122,16 @@
 		(2)		edge node {$dM$} (output);
 	\end{tikzpicture}\vskip0.75cm
 	\begin{columns}
-    		\begin{column}{0.35\textwidth}
+    		\begin{column}{0.4\textwidth}
 			\begin{align*}
 				\frac{dN}{dt} &= N(r - {\color{red}\alpha} M)\\[.1cm]
 				\frac{dM}{dt} &= M(e{\color{red}\alpha} N - d)
 			\end{align*}
+    		\begin{itemize}
+    			\item \footnotesize Prey Exponential Growth
+    			\item Predator Exponential Decay
+    			\item Linear Functional Response
+    		\end{itemize}
    		 \end{column}
 		 \begin{column}{0.60\textwidth}
 			{\bf Variables}
@@ -131,16 +142,15 @@
 			{\bf Parameters}
 			\begin{itemize}
 				\item {\color{red}$\alpha \equiv $ Attack rate\uncover<2->{\ \ \ \ \ $\longleftarrow$ {\bf No variation!}}}
-				\item $r \equiv $ Prey birth rate
+				\item $r \equiv $ Prey Growth rate
 				\item $e \equiv $ Efficiency
 				\item $d \equiv $ Predator death rate
 			\end{itemize}
 		\end{column}
 	\end{columns}
 \end{frame}
-\subsection{Schreiber, B\"urger, and Bolnick}
 \begin{frame}
-	\frametitle{Schreiber, B\"urger, and Bolnick's Extension}
+	\frametitle{Schreiber, B\"urger, and Bolnick's Expansion}
 	{\bf Assume the {\color{red}Predator Species} has a normally distributed trait value.}
 	\begin{align*}
 		p({\color{red}m}, \overline{m}) &= \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[{-\frac{({\color{red}m} - \overline{m})^2}{2\sigma^2}}\right]
@@ -168,7 +178,9 @@
 		\end{column}
 	\end{columns}
 \end{frame}
-\subsection*{Our Extension}
+
+\section{Our Expansions}
+\subsection{Coevolution Model}
 \begin{frame}
 	\frametitle{Normally Distributed Trait Values}
 	{\bf Assume {\color{blue}Prey} and {\color{red}Predator} have normally distributed trait values.}
@@ -196,19 +208,23 @@
 			\end{itemize}
 		\end{column}
 	\end{columns}
-
 \end{frame}
+
 \begin{frame}
-	\frametitle{{\large Attack Rate as a function of Normally Distributed Trait Values}}
-	{\bf Attack Rate is a Function of the {\color{blue}Prey's Trait Value} and the {\color{red}Predator's Trait Value}}
+	\vspace{-5pt}
+	\frametitle{Attack Rate}
+	{\bf Attack Rate is a Gaussian Function of the {\color{blue}Prey's Trait Value} and the {\color{red}Predator's Trait Value}}
+	\vspace{-7pt}
 	\begin{align*}
 		a({\color{blue}n}, {\color{red}m}) &= \alpha \exp\left[-\frac{(({\color{red}m} - {\color{blue}n}) - {\color{cyan}\theta})^2}{2\tau^2}\right]
 	\end{align*}
-	\uncover<2->{{\bf Average Attack Rate}
+	\uncover<2->{\vspace{-7pt}
+	{\bf Average Attack Rate}
 	\begin{align*}
 		\overline{a}({\color{blue}\overline{n}}, {\color{red}\overline{m}}) &= \int_{-\infty}^{\infty}\int_{\-\infty}^{\infty} a({\color{blue}n}, {\color{red}m}) \cdot p({\color{blue}n}, {\color{blue}\overline{n}}) \cdot p({\color{red}m}, {\color{red}\overline{m}})\ d{\color{blue}n} d{\color{red}m} \\
 		&= \frac{\alpha\tau}{\sqrt{\sigma^2 + \beta^2 + \tau^2}}\exp\left[{-\frac{(({\color{red}\overline{m}} - {\color{blue}\overline{n}}) - {\color{cyan}\theta})^2}{2(\sigma^2 + \beta^2 + \tau^2)}}\right]
 	\end{align*}}
+	\vspace{-5pt}
 	\begin{columns}
 		\begin{column}{0.50\textwidth}
 			{\bf Variables}
@@ -271,19 +287,19 @@
 	&= {\color{red}eN\overline{a}(\overline{n}, \overline{m}) - d}
 	\end{align*}
 	\begin{columns}
-		\begin{column}{0.45\textwidth}
+		\begin{column}{0.5\textwidth}
 			{\bf Variables}
 			\begin{itemize}
 				\item \footnotesize{\color{blue}$N \equiv $ Prey Density}
 				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
 				\item {\color{red}$M \equiv $ Predator Density}
-				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait \hphantom{$\overline{m} \equiv $} Value}
+				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait Value}
 			\end{itemize}
 		\end{column}
-		\begin{column}{0.55\textwidth}
+		\begin{column}{0.5\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item \footnotesize$\overline{r} \equiv $ Intrinsic Prey Growth Rate
+				\item \footnotesize$r \equiv $ Intrinsic Prey Growth Rate
 				\item $K \equiv $ Prey Carrying Capacity
 				\item $d \equiv $ Predator Death Rate
 				\item $e \equiv $ Efficiency
@@ -293,10 +309,11 @@
 \end{frame}
 \begin{frame}
 	\frametitle{Ecological Components}
+	\vspace{-10pt}
 	\begin{align*}
 		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})}\ = N{\color{blue}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})\right]}\\[.1cm]
 		\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} = M{\color{red}\left[eN\overline{a}(\overline{n}, \overline{m}) - d\right]}
-	\end{align*}\vskip0.15cm
+	\end{align*}
 	\begin{center}
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
 	
@@ -307,13 +324,12 @@
 			\node (output) [right of=2] {};
 	
 			\path[every node/.style={font=\sffamily\small}]
-			(input)	edge node {{\color{blue}$rN(1 - \frac{N}{K})$}} (1)
+			(input)	edge node {{\color{blue}$rN\left(1 - \dfrac{N}{K}\right)$}} (1)
 			(1)		edge node {{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (midpt)
 			(midpt)	edge node {{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (2)
 			(2)		edge node {{\color{red}$dM$}} (output);
 		\end{tikzpicture}\vskip0.35cm
 	\end{center}
-	\vskip.25cm
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			{\bf Variables}
@@ -327,7 +343,7 @@
 		\begin{column}{0.5\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item \footnotesize$\overline{r} \equiv $ Intrinsic Prey Growth Rate
+				\item \footnotesize$r \equiv $ Intrinsic Prey Growth Rate
 				\item $K \equiv $ Prey Carrying Capacity
 				\item $d \equiv $ Predator Death Rate
 				\item $e \equiv $ Efficiency
@@ -341,15 +357,15 @@
 		\item The evolution of the mean trait value is always \underline{in the direction} \underline{which increases the mean fitness in the population}. {\tiny[Lande, 1976]}
 	\end{itemize}
 	\begin{align*}
-	\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}\\[.1cm]
-	\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}\\[.1cm]
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
 	\end{align*}
 	\vskip.25cm
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			{\bf Variables}
 			\begin{itemize}
-				\item $N \equiv $ Prey Density
+				\item \footnotesize$N \equiv $ Prey Density
 				\item $\overline{n} \equiv $ Mean Prey Character
 				\item $M \equiv $ Predator Density
 				\item $\overline{m} \equiv $ Mean Predator Character
@@ -358,65 +374,53 @@
 		\begin{column}{0.5\textwidth}
 			{\bf Parameters}
 			\begin{itemize}
-				\item $\beta_G^2 \equiv $ Prey genetic variance
+				\item \footnotesize$\beta_G^2 \equiv $ Prey genetic variance
 				\item $\sigma_G^2 \equiv $ Predator genetic variance
 			\end{itemize}
 		\end{column}
 	\end{columns}
 \end{frame}
 \begin{frame}
-	\frametitle{The Complete $1\times1$ Model \\ (One Predator Species, One Prey Species)}
+	\frametitle{The Complete $1\times1$ Model \\ (One Prey Species, One Predator Species)}
 	{\bf Ecological Components}
 	\begin{align*}
-	\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)}\ \ =\ N{\color{blue}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
-	\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(\overline{m}, \overline{n}, N)}\ \ \ \ \ =\ M{\color{red}\left[eN\overline{a}(\overline{m}, \overline{n}) - d\right]}
+		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})}\ \ =\ N{\color{blue}\left[r\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
+		\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})}\ \ \ \ \ =\ M{\color{red}\left[eN\overline{a}(\overline{m}, \overline{n}) - d\right]}
 	\end{align*}
 	{\bf Evolutionary Components}
 	\begin{align*}
-	\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}\\[.1cm]
-	\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta + \overline{n} - \overline{m})}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}\\[.1cm]
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
 	\end{align*}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Equilibria - $1\times1$}
-	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(\overline{m}, \overline{n}, N)} & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
-		\end{array}
-	\end{align*}
 	{\bf Extinction} \uncover<2->{$\boxed{\text{\it Unstable}}$}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (0, 0, \underline{\ \ }, \underline{\ \ })
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = ({\color{blue}0}, {\color{red}0}, {\color{cyan}\underline{\ \ }}, {\color{magenta}\underline{\ \ }})
 	\end{align*}
-	{\bf Exclusion} \uncover<3->{$\boxed{\text{\it Stable under certain conditions}}$}
+	\uncover<3->{{\bf Exclusion}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (K, 0, \underline{\ \ }, \underline{\ \ })
-	\end{align*}
-	\uncover<4->{{\bf Necessary Conditions for Stable Exclusion:}}
-	\begin{itemize}
-		\item \uncover<4->{$d > e\overline{a}(\overline{m}^*, \overline{n}^*)K$}
-		\item \uncover<4->{$(\overline{m}^* - \overline{n}^* - \theta)^2 < \sigma^2 + \beta^2 + \tau^2$}
-	\end{itemize}
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = ({\color{blue}K}, {\color{red}0}, {\color{cyan}\mu^*}, {\color{magenta}\mu^* + \theta})\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{where $\mu^*$ is arbitrary}
+	\end{align*}}
+	\uncover<4->{
+		{\it Necessary Condition for Asymptotically $\boxed{Stable}$ Exclusion:}
+		\begin{align*}
+			d > \dfrac{Ke\alpha\tau}{\sqrt{A}} \hphantom{mmmmmmmmm} \text{where A = $\sigma^2 + \beta^2 + \tau^2$}
+		\end{align*}}
 \end{frame}
 \begin{frame}
 	\frametitle{Equilibria - $1\times1$}
+	{\bf Coexistence}
 	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(\overline{m}, \overline{n}, M, N)} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(\overline{m}, \overline{n}, N)} & \ \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
-		\end{array}
-	\end{align*}
-	{\bf Coexistence} \uncover<2->{$\boxed{\text{\it Stable under certain conditions}}$}
-	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (\dfrac{d\sqrt{A}}{e \alpha \tau}\ ,\ \dfrac{r\sqrt{A}}{\alpha\tau}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\ ,\ \mu^*\ ,\ \mu^* - \theta) \\[.1cm]
-		\text{where $A = \sigma^2 + \beta^2 + \tau^2$ and $\mu^*$ is an arbitrary value.}
-	\end{align*}
-	\uncover<3->{{\bf Necessary Condition for Stable Coexistence:}}
-	\begin{itemize}
-		\item \uncover<3->{$d\sigma_G^2 > r\beta_G^2\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)$}
-	\end{itemize}
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = ({\color{blue}\dfrac{d\sqrt{A}}{e \alpha \tau}}\ ,\ {\color{red}\dfrac{r\sqrt{A}}{\alpha\tau}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)}\ ,\ {\color{cyan}\mu^*}\ ,\ {\color{magenta}\mu^* + \theta})
+		\end{align*}
+	\uncover<2->{
+		{\it Necessary Condition for Asymptotically $\boxed{Stable}$ Coexistence:}
+		\begin{align*}
+			\dfrac{\sigma_G^2}{\beta_G^2} > \dfrac{r}{d}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)
+		\end{align*}}
 \end{frame}
 
 \begin{frame}
@@ -443,16 +447,18 @@
    	\includegraphics[scale=0.3175]{figures/1x1/constant_growth/traits_unstable_coexistence.png}
 	}
 \end{frame}
+
+\subsection{Stabilizing Selection}
 \begin{frame}
 	\frametitle{Avoiding an ``Arms Race'' with Stabilizing Selection}
 	{\bf Assume Prey Growth Rate is a Function of the {\color{blue}Prey's Trait Value}}
 	\begin{align*}
-		r({\color{blue}n}) &= \rho \exp\left[-\frac{({\color{blue}n} - \phi)^2}{2\gamma^2}\right]
+		r({\color{blue}n}) &= \rho \exp\left[-\frac{({\color{blue}n} - {\color{cyan}\phi})^2}{2\gamma^2}\right]
 	\end{align*}
 	\uncover<2->{{\bf Averge Growth Rate}}
 	\uncover<2->{\begin{align*}
 		\overline{r}({\color{blue}\overline{n}}) &= \int_{-\infty}^{\infty}r({\color{blue}n}) \cdot p({\color{blue}n}, {\color{blue}\overline{n}}) d{\color{blue}n} \\
-		&= \frac{\rho\gamma}{\sqrt{\beta^2 + \gamma^2}}\exp{\left[-\frac{({\color{blue}n} - \phi)^2}{2\gamma^2}\right]}
+		&= \frac{\rho\gamma}{\sqrt{\beta^2 + \gamma^2}}\exp{\left[-\frac{({\color{blue}n} - {\color{cyan}\phi})^2}{2\gamma^2}\right]}
 	\end{align*}}
 	\begin{columns}
 		\begin{column}{0.42\textwidth}
@@ -466,7 +472,7 @@
 			{\bf Parameters}
 			\begin{itemize}
 				\item \footnotesize$\rho \equiv $ Maximum Growth Rate
-				\item $\phi \equiv $ Prey Optimum Trait Value
+				\item {\color{cyan}$\phi \equiv $ Prey Optimum Trait Value}
 				\item $\gamma^2 \equiv $ Stabilizing Selection Constant
 				\item \uncover<2->{$\beta^2 \equiv $ Prey Trait Variance}
 			\end{itemize}
@@ -504,113 +510,113 @@
 		\end{column}
 	\end{columns}
 \end{frame}
-\begin{frame}
-	\frametitle{Average Fitness}
-	\begin{align*}
-	{\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})} &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} Y(N, n, M, m) \cdot p(m, \overline{m}) \cdot p(n, \overline{n})\ dm dn \\
-	&= {\color{blue}\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})} \\[.1cm]
-	{\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} W(N, n, M, m) \cdot p(m, \overline{m}) \cdot p(n, \overline{n})\ dm dn \\
-	&= {\color{red}eN\overline{a}(\overline{n}, \overline{m}) - d}
-	\end{align*}
-	\begin{columns}
-		\begin{column}{0.45\textwidth}
-			{\bf Variables}
-			\begin{itemize}
-				\item \footnotesize{\color{blue}$N \equiv $ Prey Density}
-				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
-				\item {\color{red}$M \equiv $ Predator Density}
-				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait \hphantom{$\overline{m} \equiv $} Value}
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.55\textwidth}
-			{\bf Parameters}
-			\begin{itemize}
-				\item \footnotesize$\overline{r} \equiv $ Average Intrinsic Prey Growth Rate \hphantom{$\overline{r} \equiv $} Function
-				\item $K \equiv $ Prey Carrying Capacity
-				\item $d \equiv $ Predator Death Rate
-				\item $e \equiv $ Efficiency
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-\begin{frame}
-	\frametitle{Ecological Components}
-	\begin{align*}
-		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})}\ = N{\color{blue}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})\right]}\\[.1cm]
-		\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} = M{\color{red}\left[eN\overline{a}(\overline{n}, \overline{m}) - d\right]}
-	\end{align*}\vskip0.15cm
-	\begin{center}
-		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+% \begin{frame}
+% 	\frametitle{Average Fitness}
+% 	\begin{align*}
+% 	{\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})} &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} Y(N, n, M, m) \cdot p(m, \overline{m}) \cdot p(n, \overline{n})\ dm dn \\
+% 	&= {\color{blue}\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})} \\[.1cm]
+% 	{\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} W(N, n, M, m) \cdot p(m, \overline{m}) \cdot p(n, \overline{n})\ dm dn \\
+% 	&= {\color{red}eN\overline{a}(\overline{n}, \overline{m}) - d}
+% 	\end{align*}
+% 	\begin{columns}
+% 		\begin{column}{0.45\textwidth}
+% 			{\bf Variables}
+% 			\begin{itemize}
+% 				\item \footnotesize{\color{blue}$N \equiv $ Prey Density}
+% 				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
+% 				\item {\color{red}$M \equiv $ Predator Density}
+% 				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait \hphantom{$\overline{m} \equiv $} Value}
+% 			\end{itemize}
+% 		\end{column}
+% 		\begin{column}{0.55\textwidth}
+% 			{\bf Parameters}
+% 			\begin{itemize}
+% 				\item \footnotesize$\overline{r} \equiv $ Average Intrinsic Prey Growth Rate \hphantom{$\overline{r} \equiv $} Function
+% 				\item $K \equiv $ Prey Carrying Capacity
+% 				\item $d \equiv $ Predator Death Rate
+% 				\item $e \equiv $ Efficiency
+% 			\end{itemize}
+% 		\end{column}
+% 	\end{columns}
+% \end{frame}
+% \begin{frame}
+% 	\frametitle{Ecological Components}
+% 	\begin{align*}
+% 		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})}\ = N{\color{blue}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})\right]}\\[.1cm]
+% 		\frac{dM}{dt} &= M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} = M{\color{red}\left[eN\overline{a}(\overline{n}, \overline{m}) - d\right]}
+% 	\end{align*}\vskip0.15cm
+% 	\begin{center}
+% 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
 	
-			\node[main node] (1) {$N$};
-			\node (midpt) [right of=1] {$\frown$};
-			\node[main node] (2) [right of=midpt] {$M$};
-			\node (input) [left of=1] {};
-			\node (output) [right of=2] {};
+% 			\node[main node] (1) {$N$};
+% 			\node (midpt) [right of=1] {$\frown$};
+% 			\node[main node] (2) [right of=midpt] {$M$};
+% 			\node (input) [left of=1] {};
+% 			\node (output) [right of=2] {};
 	
-			\path[every node/.style={font=\sffamily\small}]
-			(input)	edge node {{\color{blue}$\overline{r}(\overline{n})N(1 - \frac{N}{K})$}} (1)
-			(1)		edge node {{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (midpt)
-			(midpt)	edge node {{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (2)
-			(2)		edge node {{\color{red}$dM$}} (output);
-		\end{tikzpicture}\vskip0.35cm
-	\end{center}
-	\vskip.25cm
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			{\bf Variables}
-			\begin{itemize}
-				\item \footnotesize{\color{blue}$N \equiv $ Prey Density}
-				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
-				\item {\color{red}$M \equiv $ Predator Density}
-				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait Value}
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			{\bf Parameters}
-			\begin{itemize}
-				\item \footnotesize$\overline{r} \equiv $ Average Intrinsic Prey Growth \hphantom{$\overline{r} \equiv $} Rate Function
-				\item $K \equiv $ Prey Carrying Capacity
-				\item $d \equiv $ Predator Death Rate
-				\item $e \equiv $ Efficiency
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
+% 			\path[every node/.style={font=\sffamily\small}]
+% 			(input)	edge node {{\color{blue}$\overline{r}(\overline{n})N(1 - \frac{N}{K})$}} (1)
+% 			(1)		edge node {{\color{blue}$\overline{a}(\overline{n}, \overline{m})MN$}} (midpt)
+% 			(midpt)	edge node {{\color{red}$e\overline{a}(\overline{n}, \overline{m})MN$}} (2)
+% 			(2)		edge node {{\color{red}$dM$}} (output);
+% 		\end{tikzpicture}\vskip0.35cm
+% 	\end{center}
+% 	\vskip.25cm
+% 	\begin{columns}
+% 		\begin{column}{0.5\textwidth}
+% 			{\bf Variables}
+% 			\begin{itemize}
+% 				\item \footnotesize{\color{blue}$N \equiv $ Prey Density}
+% 				\item {\color{blue}$\overline{n} \equiv $ {\bf Average} Prey Trait Value}
+% 				\item {\color{red}$M \equiv $ Predator Density}
+% 				\item {\color{red}$\overline{m} \equiv $ {\bf Average} Predator Trait Value}
+% 			\end{itemize}
+% 		\end{column}
+% 		\begin{column}{0.5\textwidth}
+% 			{\bf Parameters}
+% 			\begin{itemize}
+% 				\item \footnotesize$\overline{r} \equiv $ Average Intrinsic Prey Growth \hphantom{$\overline{r} \equiv $} Rate Function
+% 				\item $K \equiv $ Prey Carrying Capacity
+% 				\item $d \equiv $ Predator Death Rate
+% 				\item $e \equiv $ Efficiency
+% 			\end{itemize}
+% 		\end{column}
+% 	\end{columns}
+% \end{frame}
+% \begin{frame}
+% 	\frametitle{Evolutionary Components}
+% 	\begin{itemize}
+% 		\item The evolution of the average trait value is always \underline{in the direction} \underline{which increases the mean fitness in the population}. {\tiny[Lande, 1976]}
+% 	\end{itemize}
+% 	\begin{align*}
+% 		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
+% 		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
+% 	\end{align*}
+% 	\vskip.25cm
+% 	\begin{columns}
+% 		\begin{column}{0.5\textwidth}
+% 			{\bf Variables}
+% 			\begin{itemize}
+% 				\item \footnotesize$N \equiv $ Prey Density
+% 				\item $\overline{n} \equiv $ {\bf Average} Prey Trait Value
+% 				\item $M \equiv $ Predator Density
+% 				\item $\overline{m} \equiv $ {\bf Average} Predator Trait Value
+% 			\end{itemize}
+% 		\end{column}
+% 		\begin{column}{0.5\textwidth}
+% 			{\bf Parameters}
+% 			\begin{itemize}
+% 				\item \footnotesize$\phi \equiv $ Prey Optimum Trait Value
+% 				\item $\gamma^2 \equiv $ Stabilizing Selection Constant
+% 				\item $\overline{r} \equiv $ Average Intrinsic Prey Growth \hphantom{$\overline{r} \equiv $} Rate Function
+% 				\item \footnotesize$\beta_G^2 \equiv $ Prey genetic variance
+% 				\item $\sigma_G^2 \equiv $ Predator genetic variance
+% 			\end{itemize}
+% 		\end{column}
+% 	\end{columns}
+% \end{frame}
 \begin{frame}
-	\frametitle{Evolutionary Components}
-	\begin{itemize}
-		\item The evolution of the average trait value is always \underline{in the direction} \underline{which increases the mean fitness in the population}. {\tiny[Lande, 1976]}
-	\end{itemize}
-	\begin{align*}
-		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
-		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
-	\end{align*}
-	\vskip.25cm
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			{\bf Variables}
-			\begin{itemize}
-				\item \footnotesize$N \equiv $ Prey Density
-				\item $\overline{n} \equiv $ {\bf Average} Prey Trait Value
-				\item $M \equiv $ Predator Density
-				\item $\overline{m} \equiv $ {\bf Average} Predator Trait Value
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			{\bf Parameters}
-			\begin{itemize}
-				\item \footnotesize$\phi \equiv $ Prey Optimum Trait Value
-				\item $\gamma^2 \equiv $ Stabilizing Selection Constant
-				\item $\overline{r} \equiv $ Average Intrinsic Prey Growth \hphantom{$\overline{r} \equiv $} Rate Function
-				\item \footnotesize$\beta_G^2 \equiv $ Prey genetic variance
-				\item $\sigma_G^2 \equiv $ Predator genetic variance
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-\begin{frame}
-	\frametitle{The Complete $1\times1$ Model \\ (One Predator Species, One Prey Species)}
+	\frametitle{The Complete $1\times1$ Model \\ (One Prey Species, One Predator Species)}
 	{\bf Ecological Components}
 	\begin{align*}
 		\frac{dN}{dt} &= N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})}\ = N{\color{blue}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - M\overline{a}(\overline{n}, \overline{m})\right]}\\[.1cm]
@@ -619,7 +625,7 @@
 	{\bf Evolutionary Components}
 	\begin{align*}
 		\frac{d\overline{n}}{dt} &= \beta_G^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_G^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \frac{M(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})\right]}\\[.1cm]
-		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{m}, \overline{n})}
+		\frac{d\overline{m}}{dt} &= \sigma_G^2{\color{magenta}\frac{\partial \overline{W}}{\partial \overline{m}}} = \sigma_G^2{\color{magenta}\frac{eN(\theta - (\overline{m} - \overline{n}))}{\sigma^2 + \beta^2 + \tau^2} \overline{a}(\overline{n}, \overline{m})}
 	\end{align*}
 \end{frame}
 
@@ -632,49 +638,33 @@
 % \end{frame}
 
 
-
-
-\section{Preliminary Results}
-\subsection{$1 \times 1$}
 \begin{frame}
 	\frametitle{Equilibria - $1\times1$}
-	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} & \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
-		\end{array}
-	\end{align*}
 	{\bf Extinction} \uncover<2->{$\boxed{\text{\it Unstable}}$}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (0, 0, \underline{\ \ }, \underline{\ \ })
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = ({\color{blue}0}, {\color{red}0}, {\color{cyan}\underline{\ \ }}, {\color{magenta}\underline{\ \ }})
 	\end{align*}
-	{\bf Exclusion} \uncover<3->{$\boxed{\text{\it Locally stable under certain conditions}}$}
+	\uncover<3->{{\bf Exclusion}
 	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (K, 0, \underline{\ \ }, \underline{\ \ })
-	\end{align*}
-	\uncover<4->{{\bf Necessary Conditions for Locally Stable Exclusion:}}
-	\begin{itemize}
-		\item \uncover<4->{$d > e\overline{a}(\overline{m}^*, \overline{n}^*)K$}
-		\item \uncover<4->{$((\overline{m}^* - \overline{n}^*) - \theta)^2 < \sigma^2 + \beta^2 + \tau^2$}
-	\end{itemize}
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = ({\color{blue}K}, {\color{red}0}, {\color{cyan}\mu^*}, {\color{magenta}\mu^* + \theta})\ \ \ \ \ \text{where $\mu^*$ is arbitrary}
+	\end{align*}}
+	\uncover<4->{
+		{\it Necessary Condition for Asymptotically $\boxed{Stable}$ Exclusion:}
+		\begin{align*}
+			d > \dfrac{Ke\alpha\tau}{\sqrt{A}} \hphantom{mmmmmmmmm} \text{where A = $\sigma^2 + \beta^2 + \tau^2$}
+		\end{align*}}
 \end{frame}
 \begin{frame}
 	\frametitle{Equilibria - $1\times1$}
+	{\bf Coexistence}
 	\begin{align*}
-		\begin{array}{ll}
-			\dfrac{dN}{dt} = N\cdot {\color{blue}\overline{Y}(N, \overline{n}, M, \overline{m})} &\ \ \ \ \ \ \dfrac{d\overline{n}}{dt} = \beta_G^2{\color{cyan}\dfrac{\partial \overline{Y}}{\partial \overline{n}}} \\[.3cm]
-			\dfrac{dM}{dt} = M\cdot {\color{red}\overline{W}(N, \overline{n}, M, \overline{m})} & \ \ \ \ \ \dfrac{d\overline{m}}{dt} = \sigma_G^2{\color{magenta}\dfrac{\partial \overline{W}}{\partial \overline{m}}}
-		\end{array}
-	\end{align*}
-	{\bf Coexistence} \uncover<2->{$\boxed{\text{\it Locally stable under certain conditions}}$}
-	\begin{align*}
-		(N^*, M^*, \overline{n}^*, \overline{m}^*) = (\dfrac{d\sqrt{A}}{e \alpha \tau}\ ,\ \dfrac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\ ,\ \theta\ ,\ \theta + \phi) \\[.1cm]
+		({\color{blue}N^*}, {\color{red}M^*}, {\color{cyan}\overline{n}^*}, {\color{magenta}\overline{m}^*}) = \left({\color{blue}\dfrac{d\sqrt{A}}{e \alpha \tau}}\ ,\ {\color{red}\dfrac{\rho\gamma\sqrt{A}}{\alpha\tau\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)}\ ,\ {\color{cyan}\phi}\ ,\ {\color{magenta}\theta + \phi}\right) \\[.1cm]
 		\text{where $A = \sigma^2 + \beta^2 + \tau^2$ and $B = \beta^2 + \gamma^2$}
 	\end{align*}
-	\uncover<3->{{\bf Necessary Condition for Locally Stable Coexistence:}}
-	\begin{itemize}
-		\item \uncover<3->{$\dfrac{\sigma_G^2}{\beta_G^2} > \dfrac{\rho\gamma}{d\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \dfrac{A}{B}\right)$}
-	\end{itemize}
+	\uncover<2->{{\it Necessary Condition for Asymptotically $\boxed{Stable}$ Coexistence:}
+	\begin{align*}
+		\dfrac{\sigma_G^2}{\beta_G^2} > \dfrac{\rho\gamma}{d\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \dfrac{A}{B}\right)
+	\end{align*}}
 \end{frame}
 
 \begin{frame}
@@ -723,6 +713,83 @@
 	\end{columns}
 \end{frame}
 
+% \begin{frame}
+% 	\LARGE \vspace{-20pt}
+% 	\begin{center}
+% 		\underline{\it Question}\\
+% 		What happens when the exclusion {\bf AND} coexistence stability criterion are {\bf NOT} met? \\ \vspace{15pt}
+% 		\uncover<2->{
+% 		\underline{\it Answer}\\
+% 		{\bf Stable Limit Cycles}}
+% 	\end{center}
+% \end{frame}
+
+\begin{frame}
+	\frametitle{Contour Plot - Coexistence Asymptotic Stability Criterion}
+	\vspace{-5pt}
+	\begin{center}
+		\includegraphics[width=8cm, height=5cm]{figures/1x1/variable_growth/contour_plots/tau_ratio_150417_125636.png} \\
+	\end{center}
+	\vspace{-10pt}
+	\begin{align*}
+		f_{\text{stable}}(\text{\it system parameters}) = \dfrac{\sigma_G^2}{\beta_G^2} -\dfrac{\rho\gamma}{d\sqrt{B}}\left(1 - \dfrac{d\sqrt{A}}{Ke\alpha\tau}\right)\left(1 - \dfrac{A}{B}\right)
+	\end{align*}
+	$f_{\text{stable}} > 0 \implies \text{Coexistence is \it stable}$ \\
+	$f_{\text{stable}} < 0 \implies \text{Coexistence is \it unstable}$ \\
+	$f_{\text{stable}} = 0 \implies \text{Hopf Bifurcation}$
+\end{frame}
+\begin{frame}
+	\frametitle{{\small$\tau = 0.05$:}\ \ \ \ Limit Cycle\ \ \ \ \ \ \ \ vs.\ \ \ \ \ \ \ \ \ \ \ \ Node}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			$\frac{\sigma_G}{\beta_G} = 1.3 \implies f_{\text{stable}} < 0$\\
+			\vspace{-1pt}
+			\includegraphics[width=5cm,height=3.55cm]{figures/1x1/variable_growth/contour_plots/density_phase_plane_limit_cycle.png}\\
+			\includegraphics[width=5cm,height=3.55cm]{figures/1x1/variable_growth/contour_plots/trait_phase_plane_limit_cycle.png}
+		\end{column}
+		\hspace{-30pt}
+		\vrule{}
+		\begin{column}{.5\textwidth}
+			\centering
+			$\frac{\sigma_G}{\beta_G} = 1.5 \implies f_{\text{stable}} > 0$\\
+			\vspace{-1pt}
+			\includegraphics[width=5cm,height=3.55cm]{figures/1x1/variable_growth/contour_plots/density_phase_plane_node.png}\\
+			\includegraphics[width=5cm,height=3.55cm]{figures/1x1/variable_growth/contour_plots/trait_phase_plane_node.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\section{Discussion}
+\subsection{Summary of the $1\times 1$ Model}
+\begin{frame}
+	\frametitle{Summary of the $1\times 1$ Model}
+	\begin{itemize}
+		\item 4-dimensional system of ODEs
+		\begin{itemize}
+			\item 2 ODEs describing the change in {\bf population size} over time
+			\item 2 ODEs describing the change in {\bf trait value} over time
+		\end{itemize}
+		\uncover<2->{\item 3 equilibrium points
+		\begin{itemize}
+			\item Extinction (Unstable)
+			\item Exclusion (Stable under certain conditions)
+			\item Coexistence (Stable under certain conditions)
+		\end{itemize}}
+		\uncover<3->{\item Non-Equilibrium Dynamics
+		\begin{itemize}
+			\item Constant Growth Rate
+			\begin{itemize}
+				\item ``Arms Race'' Coexistence
+			\end{itemize}
+			\item Gaussian Growth Rate Function
+			\begin{itemize}
+				\item Stable Limit Cycles
+			\end{itemize}
+		\end{itemize}}
+	\end{itemize}
+\end{frame}
+
 \subsection*{General Ditrophic Expansion}
 \begin{frame}
 	\frametitle{Expansion of Fitness Functions}
@@ -745,30 +812,30 @@
 	\begin{align*}
 		{\color{blue}\overline{Y}_j(N_j, \overline{n_j}, [M_i]_{i=1}^{u}, }&{\color{blue}[\overline{m_i}]_{i=1}^{u})} \\
 		&= \int\limits_{\mathbb{R}^{u+1}} Y_j \cdot \prod\limits_{i=1}^{u}\Big[p_i(m_i, \overline{m_i})\Big] \cdot p(n, \overline{n}) \prod\limits_{i=1}^{u}\Big[dm_i\Big] dn_j\\
-		&= {\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}
+		&= {\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a_{ij}}(\overline{n_j}, \overline{m_i})}
 	\end{align*}
 	\begin{align*}
 		{\color{red}\overline{W}_i(N_j, \overline{n_j}, [M_i]_{i=1}^{u}, }&{\color{red}[\overline{m_i}]_{i=1}^{u})} \\
-		&= \int\limits_{\mathbb{R}^{u+1}} W_i \cdot p_i(m_i, \overline{m_i}) \cdot \prod\limits_{j=1}^{v}\Big[p(n_j, \overline{n}_j)\Big] dm_i \prod\limits_{j=1}^{v}\Big[dn_j\Big]\\
-		&= {\color{red}\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)\Big] - d_i}
+		&= \int\limits_{\mathbb{R}^{u+1}} W_i \cdot p_i(m_i, \overline{m_i}) \cdot \prod\limits_{j=1}^{v}\Big[p(n_j, \overline{n_j})\Big] dm_i \prod\limits_{j=1}^{v}\Big[dn_j\Big]\\
+		&= {\color{red}\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a_{ij}}(\overline{n_j}, \overline{m_i})\Big] - d_i}
 	\end{align*}
 \end{frame}
 \begin{frame}
-	\frametitle{The Complete $u\times v$ Model - \normalsize($u$ Predator Species, $v$ Prey Species)}
+	\frametitle{The Complete $v\times u$ Model - \normalsize($v$ Prey Species, $u$ Predator Species)}
 	{\bf Ecological Components}
 	\begin{align*}
-		\frac{dN_j}{dt} &= N_j{\color{blue}\overline{Y_j}} = N_j {\color{blue}\left[{\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a}_{ij}(\overline{n}_j, \overline{m}_i)}\right]} \\
-		\frac{dM_i}{dt} &= M_i{\color{red}\overline{W_i}} = M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a}_{ij}(\overline{m}_i, \overline{n}_j)\Big] - d_i\right]}
+		\frac{dN_j}{dt} &= N_j{\color{blue}\overline{Y_j}} = N_j {\color{blue}\left[{\color{blue}\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right) - \sum\limits_{i = 1}^{u}M_i\overline{a_{ij}}(\overline{n_j}, \overline{m_i})}\right]} \\
+		\frac{dM_i}{dt} &= M_i{\color{red}\overline{W_i}} = M_i {\color{red}\left[\sum\limits_{j = 1}^{v}\Big[e_{ij}N_j\overline{a_{ij}}(\overline{n_j}, \overline{m_i})\Big] - d_i\right]}
 	\end{align*}
 	{\bf Evolutionary Components}
 	\begin{align*}
-		\frac{d\overline{n}_j}{dt} &= \beta_{Gj}^2{\color{cyan}\frac{\partial \overline{Y_j}}{\partial \overline{n_j}}} = \beta_{Gj}^2{\color{cyan}\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{(\phi_j - \overline{n_j})}{\beta_j^2 + \gamma_j^2}\right.}
-		\\&\hphantom{\text{mmmmmmmmmmm}}{\left.\color{cyan}+ \sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]\right]}\\
-		\frac{d\overline{m}_i}{dt} &= \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a}_{ij}(\overline{m_i}, \overline{n_j})\right]}
+		\frac{d\overline{n_j}}{dt} &= \beta_{Gj}^2{\color{cyan}\frac{\partial \overline{Y_j}}{\partial \overline{n_j}}} = \beta_{Gj}^2{\color{cyan}\left[\overline{r_j}(\overline{n_j})\left(1 - \frac{N_j}{K_j}\right)\frac{(\phi_j - \overline{n_j})}{\beta_j^2 + \gamma_j^2}\right.}
+		\\&\hphantom{\text{mmmmmmmmmmm}}{\left.\color{cyan}+ \sum\limits_{i=1}^{u}\left[\frac{M_i(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a_{ij}}(\overline{n_j}, \overline{m_i})\right]\right]}\\
+		\frac{d\overline{m_i}}{dt} &= \sigma_{Gi}^2{\color{magenta}\frac{\partial\overline{W_i}}{\partial\overline{m_i}}} = \sigma_{Gi}^2{\color{magenta}\sum\limits_{j=1}^{v}\left[\frac{e_{ij}N_j(\theta_{ij} - (\overline{m_i} - \overline{n_j}))}{\sigma_i^2 + \beta_j^2 + \tau_{ij}^2} \overline{a_{ij}}(\overline{n_j}, \overline{m_i})\right]}
 	\end{align*}
 \end{frame}
 \begin{frame}
-	\frametitle{The Complete $u\times v$ Model - \normalsize($u$ Predator Species, $v$ Prey Species)}
+	\frametitle{The Complete $v\times u$ Model - \normalsize($v$ Prey Species, $u$ Predator Species)}
 	\Wider[6em]{
 	\begin{center}
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm, thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
@@ -802,16 +869,140 @@
 	}
 \end{frame}
 
-\section{Future Work}
+\subsection{$2\times 1$ and $1\times 2$ Simulations}
+
+\begin{frame}
+	\frametitle{The Complete $2\times 1$ Model - \normalsize($2$ Prey Species, $1$ Predator Species)}
+	{\bf Ecological Components}
+	{\footnotesize\begin{align*}
+		\frac{dN_1}{dt} &= N_1{\color{blue}\overline{Y_1}} = N_1 {\color{blue}\left[{\color{blue}\overline{r_1}(\overline{n_1})\left(1 - \frac{N_1}{K_1}\right) - M\overline{a_1}(\overline{n_1}, \overline{m})}\right]} \\
+		\frac{dN_2}{dt} &= N_2{\color{blue}\overline{Y_2}} = N_2 {\color{blue}\left[{\color{blue}\overline{r_2}(\overline{n_2})\left(1 - \frac{N_2}{K_2}\right) - M\overline{a_2}(\overline{n_2}, \overline{m})}\right]} \\
+		\frac{dM}{dt} &= M{\color{red}\overline{W}} = M {\color{red}\left[\sum\limits_{j = 1}^{2}\Big[e_{j}N_j\overline{a_j}(\overline{n_j}, \overline{m})\Big] - d\right]}
+	\end{align*}}%
+	{\bf Evolutionary Components}
+	{\footnotesize\begin{align*}
+		\frac{d\overline{n_1}}{dt} &= \beta_{G1}^2{\color{cyan}\frac{\partial \overline{Y_1}}{\partial \overline{n_1}}} = \beta_{G1}^2{\color{cyan}\left[\overline{r_1}(\overline{n_1})\left(1 - \frac{N_1}{K_1}\right)\frac{(\phi_1 - \overline{n_1})}{\beta_1^2 + \gamma_1^2} + \frac{M(\theta_{1} - (\overline{m} - \overline{n_1}))}{\sigma^2 + \beta_1^2 + \tau_{1}^2} \overline{a_1}(\overline{n_1}, \overline{m})\right]}\\
+		\frac{d\overline{n_2}}{dt} &= \beta_{G1}^2{\color{cyan}\frac{\partial \overline{Y_2}}{\partial \overline{n_2}}} = \beta_{G2}^2{\color{cyan}\left[\overline{r_2}(\overline{n_2})\left(1 - \frac{N_2}{K_2}\right)\frac{(\phi_2 - \overline{n_2})}{\beta_2^2 + \gamma_2^2} + \frac{M(\theta_{2} - (\overline{m} - \overline{n_2}))}{\sigma^2 + \beta_2^2 + \tau_{2}^2} \overline{a_2}(\overline{n_2}, \overline{m})\right]}\\
+		\frac{d\overline{m}}{dt} &= \sigma_{G}^2{\color{magenta}\frac{\partial\overline{W}}{\partial\overline{m}}} = \sigma_{G}^2{\color{magenta}\sum\limits_{j=1}^{2}\left[\frac{e_{j}N_j(\theta_{j} - (\overline{m} - \overline{n_j}))}{\sigma^2 + \beta_j^2 + \tau_{j}^2} \overline{a_j}(\overline{n_j}, \overline{m})\right]}
+	\end{align*}}%
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $2\times1$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/densities_cyclic_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/density_phase_plane_cyclic_domination.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/traits_cyclic_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/trait_phase_plane_cyclic_domination.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $2\times1$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/densities_stable_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/density_phase_plane_stable_domination.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/traits_stable_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/trait_phase_plane_stable_domination.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $2\times1$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/densities_random_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/density_phase_plane_random_domination.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/traits_random_domination.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/trait_phase_plane_random_domination.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $2\times1$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/densities_RQD.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/density_phase_plane_RQD.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/traits_RQD.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/1x2/variable_growth/trait_phase_plane_RQD.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Complete $1\times 2$ Model - \normalsize($1$ Prey Species, $2$ Predator Species)}
+	{\bf Ecological Components}
+	{\footnotesize\begin{align*}
+		\frac{dN}{dt} &= N{\color{blue}\overline{Y}} = N {\color{blue}\left[{\color{blue}\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right) - \sum\limits_{i=1}^2M_i\overline{a_i}(\overline{n}, \overline{m_i})}\right]} \\
+		\frac{dM_1}{dt} &= M_1{\color{red}\overline{W}} = M_1 {\color{red}\Big[e_{1}N\overline{a_1}(\overline{n}, \overline{m_1}) - d_1\Big]} \\
+		\frac{dM_2}{dt} &= M_2{\color{red}\overline{W}} = M_2 {\color{red}\Big[e_{2}N\overline{a_2}(\overline{n}, \overline{m_2}) - d_2\Big]}
+	\end{align*}}%
+	{\bf Evolutionary Components}
+	{\footnotesize\begin{align*}
+		\frac{d\overline{n}}{dt} &= \beta_{G}^2{\color{cyan}\frac{\partial \overline{Y}}{\partial \overline{n}}} = \beta_{G}^2{\color{cyan}\left[\overline{r}(\overline{n})\left(1 - \frac{N}{K}\right)\frac{(\phi - \overline{n})}{\beta^2 + \gamma^2} + \sum\limits_{i=1}^{2}\left[\frac{M_i(\theta_{i} - (\overline{m_i} - \overline{n}))}{\sigma_i^2 + \beta^2 + \tau_{i}^2} \overline{a_{i}}(\overline{n}, \overline{m_i})\right]\right]}\\
+		\frac{d\overline{m_1}}{dt} &= \sigma_{G1}^2{\color{magenta}\frac{\partial\overline{W_1}}{\partial\overline{m_1}}} = \sigma_{G1}^2{\color{magenta}\left[\frac{e_{1}N(\theta_{1} - (\overline{m_1} - \overline{n}))}{\sigma_1^2 + \beta^2 + \tau_{1}^2} \overline{a_1}(\overline{n}, \overline{m_1})\right]} \\
+		\frac{d\overline{m_2}}{dt} &= \sigma_{G1}^2{\color{magenta}\frac{\partial\overline{W_2}}{\partial\overline{m_2}}} = \sigma_{G1}^2{\color{magenta}\left[\frac{e_{2}N(\theta_{2} - (\overline{m_2} - \overline{n}))}{\sigma_2^2 + \beta^2 + \tau_{2}^2} \overline{a_2}(\overline{n}, \overline{m_2})\right]}
+	\end{align*}}%
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $1\times2$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/densities_slow_prey_evo.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/density_phase_plane_slow_prey_evo.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/traits_slow_prey_evo.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/trait_phase_plane_slow_prey_evo.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\frametitle{Figures - $1\times2$}
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/densities_fast_prey_evo.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/density_phase_plane_fast_prey_evo.png}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/traits_fast_prey_evo.png}\\
+			\includegraphics[width=5cm,height=3.75cm]{figures/2x1/variable_growth/trait_phase_plane_fast_prey_evo.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\subsection{Future Work}
 \begin{frame}
 	\frametitle{Future Work}
 	\begin{itemize}
-		\item Two prey species in apparent competition via one generalist predator
-		\item Two predator species in competition for one prey
-		\item One specialist predator competing with one generalist predator for two prey
-		\item Two specialist predators competing with one generalist predator for two prey species
-		\item Further analysis of the general $u \times v$ model
-		\item Intraguild predation
+		\item \large ($1\times 2$) Two predator species in competition for one prey
+		\item ($2\times 1$) Two prey species in apparent competition via one generalist predator
+		\item ($2\times 2$) One specialist predator competing with one generalist predator for two prey
+		\item ($2\times 3$) Two specialist predators competing with one generalist predator for two prey species
+		\item ($u \times v$) The General Ditrophic Expansion
+		\item Intraguild Predation and General Multitrophic Expansion
 	\end{itemize}
 \end{frame}
 
@@ -819,8 +1010,8 @@
 	\frametitle{Thank You!}
 	\begin{itemize}
 		\item PUMP (Preparing Undergraduates through Mentoring towards PhDs)
-		\item Pacific Math Alliance
-		\item National Math Alliance
+		\item The Pacific Math Alliance
+		\item The National Math Alliance
 		\item Dr. Helena Noronha, Dr. Ramin Vakilian, and all other PUMP organizers
 		\item National Science Foundation
 		\item California State University, Northridge

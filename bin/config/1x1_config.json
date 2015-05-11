@@ -1,12 +1,12 @@
 {
     "system_parameters": [
         {
-            "final_time": 100000, 
+            "final_time": 500, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
-                        "start": 0.1, 
-                        "stop": 0.1
+                        "start": 0.05, 
+                        "stop": 0.05
                     }
                 }, 
                 "max_attack_rates": {
@@ -31,29 +31,29 @@
             "predator": {
                 "death_rates": {
                     "1": {
-                        "start": 0.025, 
-                        "stop": 0.025
+                        "start": 0.05, 
+                        "stop": 0.1
                     }
                 }, 
                 "initial_values": {
                     "densities": {
                         "1": {
-                            "start": 1.0, 
-                            "stop": 1.0
+                            "start": 100.0, 
+                            "stop": 100.0
                         }
                     }, 
                     "traits": {
                         "1": {
-                            "start": 0.0, 
-                            "stop": 0.0
+                            "start": 1.1, 
+                            "stop": 1.1
                         }
                     }
                 }, 
                 "trait_variances": {
                     "genetic": {
                         "1": {
-                            "start": 0.05, 
-                            "stop": 0.2
+                            "start": 0.1, 
+                            "stop": 0.1
                         }
                     }, 
                     "total": {
@@ -118,7 +118,7 @@
                     }
                 }
             }, 
-            "steps": 45
+            "steps": 5
         }
     ]
 }

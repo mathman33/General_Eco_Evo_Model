@@ -1,8 +1,11 @@
 \beamer@endinputifotherversion {3.33pt}
-\beamer@sectionintoc {0}{Motivation / Observations in Nature}{3}{0}{1}
-\beamer@sectionintoc {1}{Model Formulation}{4}{0}{2}
-\beamer@subsectionintoc {1}{1}{Lotka-Volterra}{4}{0}{2}
-\beamer@subsectionintoc {1}{2}{Schreiber, B\"urger, and Bolnick}{6}{0}{2}
-\beamer@sectionintoc {2}{Preliminary Results}{34}{0}{3}
-\beamer@subsectionintoc {2}{1}{$1 \times 1$}{34}{0}{3}
-\beamer@sectionintoc {3}{Future Work}{50}{0}{4}
+\beamer@sectionintoc {0}{Motivation}{3}{0}{1}
+\beamer@subsectionintoc {0}{1}{Observations in Nature}{3}{0}{1}
+\beamer@subsectionintoc {0}{2}{Previous Models}{5}{0}{1}
+\beamer@sectionintoc {1}{Our Expansions}{10}{0}{2}
+\beamer@subsectionintoc {1}{1}{Coevolution Model}{10}{0}{2}
+\beamer@subsectionintoc {1}{2}{Stabilizing Selection}{27}{0}{2}
+\beamer@sectionintoc {2}{Discussion}{42}{0}{3}
+\beamer@subsectionintoc {2}{1}{Summary of the $1\times 1$ Model}{42}{0}{3}
+\beamer@subsectionintoc {2}{3}{$2\times 1$ and $1\times 2$ Simulations}{51}{0}{3}
+\beamer@subsectionintoc {2}{4}{Future Work}{59}{0}{3}
