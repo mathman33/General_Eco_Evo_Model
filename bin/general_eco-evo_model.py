@@ -404,11 +404,12 @@ class System:
         self.n0 = parameters["n0"]
         self.beta = parameters["beta"]
         self.betaG = parameters["betaG"]
+        self.num_preys = len(self.N0)
+
         self.rho = parameters["rho"]
         self.phi = parameters["phi"]
         self.gamma = parameters["gamma"]
         self.K = parameters["K"]
-        self.num_preys = len(self.N0)
 
         self.y0 = []
         for i in xrange(0, self.num_preds):
@@ -607,6 +608,22 @@ def get_system_dimension(set_):
     return dim
 
 
+def get_system_model(set_):
+    if "max_growth_rates" in set_["prey"]:
+        growth = "variable"
+    elif "intrinsic_growth_rates" in set_["prey"]:
+        growth = "constant"
+    else:
+        raise ValueError
+    if "max_carrying_capacities" in set_["prey"]:
+        capacity = "variable"
+    elif "carrying_capacities" in set_["prey"]:
+        capacity = "constant"
+    else:
+        raise ValueError
+    return (growth, capacity)
+
+
 def SET_TRAIT_GRAPH_LIMITS(args):
     global LOWER_LIMIT
     global UPPER_LIMIT
@@ -721,6 +738,7 @@ def main():
         now = datetime.now()
         date_time_stamp = now.strftime(DATE_TIME_DIRECTORY_FORMAT)
         dimension = get_system_dimension(set_)
+        (growth, capacity) = get_system_model(set_)
 
         current_directory = "%s/graphs/%s/%s" % (DIRECTORY, dimension, date_time_stamp)
         os.system("mkdir -p %s" % current_directory)
@@ -750,16 +768,24 @@ def main():
             "n0":     set_["prey"]["initial_values"]["traits"],
             "beta":   set_["prey"]["trait_variances"]["total"],
             "betaG":  set_["prey"]["trait_variances"]["genetic"],
-            "K":      set_["prey"]["carrying_capacities"],
-            "rho":    set_["prey"]["max_growth_rates"],
-            "phi":    set_["prey"]["optimum_trait_values"],
-            "gamma":  set_["prey"]["cost_variances"],
 
             "eff":    set_["interaction_parameters"]["efficiencies"],
             "tau":    set_["interaction_parameters"]["specialization"],
             "alpha":  set_["interaction_parameters"]["max_attack_rates"],
             "theta":  set_["interaction_parameters"]["optimal_trait_differences"],
         }
+        if growth == "variable":
+            config_descriptions_to_variables["rho"] = set_["prey"]["max_growth_rates"]
+            config_descriptions_to_variables["phi"] = set_["prey"]["optimum_growth_rate_trait_values"]
+            config_descriptions_to_variables["gamma"] = set_["prey"]["growth_rate_stabilizing_selection_variance"]
+        elif growth == "constant":
+            config_descriptions_to_variables["r"] = set_["prey"]["intrinsic_growth_rates"]
+        if capacity == "variable":
+            config_descriptions_to_variables["kappa"] = set_["prey"]["max_carrying_capacities"]
+            config_descriptions_to_variables["xi"] = set_["prey"]["optimum_carrying_capacity_trait_values"]
+            config_descriptions_to_variables["delta"] = set_["prey"]["carrying_capacity_stabilizing_selection_variance"]
+        elif capacity == "constant":
+            config_descriptions_to_variables["K"] = set_["prey"]["carrying_capacities"]
 
         # Parameter Step
         steps = int(set_["steps"])
@@ -794,7 +820,19 @@ def main():
                 for subscript, parameter_range in dict_.iteritems():
                     parameters[variable][subscript] = parameter_range["start"] + (step*parameter_range["step"])
 
+
+
+
+
+
+            ###### THIS NEEDS TO BE FIXED ######
             system = System(parameters, tf)
+            ###### THIS NEEDS TO BE FIXED ######
+
+
+
+
+
 
             ### Get parameters in text format for the graphs
             text = []
