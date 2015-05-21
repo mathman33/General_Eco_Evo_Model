@@ -48,27 +48,27 @@ GRAPH SAVED
 -----------
 %s"""
 LaTeX_VARIABLE_FORMAT = {
-    "M0"    : "M_{0",
-    "m0"    : "m_{0",
-    "sigma" : "\\sigma_{",
+    "M0":     "M_{0",
+    "m0":     "m_{0",
+    "sigma":  "\\sigma_{",
     "sigmaG": "\\sigma_{G",
-    "d"     : "d_{",
+    "d":      "d_{",
 
-    "N0"    : "N_{0",
-    "n0"    : "n_{0",
-    "beta"  : "\\beta_{",
-    "betaG" : "\\beta_{G",
-    "r"     : "r_{",
-    "K"     : "K_{",
+    "N0":     "N_{0",
+    "n0":     "n_{0",
+    "beta":   "\\beta_{",
+    "betaG":  "\\beta_{G",
+    "r":      "r_{",
+    "K":      "K_{",
 
-    "eff"   : "e_{",
-    "tau"   : "\\tau_{",
-    "alpha" : "\\alpha_{",
-    "theta" : "\\theta_{",
+    "eff":    "e_{",
+    "tau":    "\\tau_{",
+    "alpha":  "\\alpha_{",
+    "theta":  "\\theta_{",
 
-    "rho"   : "\\rho_{",
-    "phi"   : "\\phi_{",
-    "gamma" : "\\gamma_{"
+    "rho":    "\\rho_{",
+    "phi":    "\\phi_{",
+    "gamma":  "\\gamma_{"
 }
 
 
@@ -122,17 +122,17 @@ def plot_densities(system, densities_file, text, display_parameters):
     print GRAPH_SAVED % densities_file
 
 
-def plot_traits(system, traits_file, text, display_parameters, combine):
+def plot_traits(system, traits_file, text, args):
     plt.figure()
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
 
     plt.ylim(LOWER_LIMIT, UPPER_LIMIT)
     plt.xlabel('Time')
     plt.ylabel('Character Value')
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         for index, text_line in enumerate(text):
             plt.text(-.25*system.tf, UPPER_LIMIT*(1-(.05*index)), text_line)
 
@@ -150,10 +150,10 @@ def plot_traits(system, traits_file, text, display_parameters, combine):
 
 
 ### 1x1 HARD-CODED PHASE PLANE FUNCTION
-def plot_1x1_densities_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+def plot_1x1_densities_phase_plane(system, phase_plane_file, text, args):
     plt.figure()
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
 
     xlimit = 1.1*max(system.M["1"])
@@ -164,7 +164,7 @@ def plot_1x1_densities_phase_plane(system, phase_plane_file, text, display_param
     plt.xlabel('Predator 1 Density')
     plt.ylabel('Prey 1 Density')
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         for index, text_line in enumerate(text):
             plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
 
@@ -180,21 +180,21 @@ def plot_1x1_densities_phase_plane(system, phase_plane_file, text, display_param
 
 
 ### 1x2 HARD-CODED PHASE PLANE FUNCTION
-def plot_1x2_densities_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+def plot_1x2_densities_phase_plane(system, phase_plane_file, text, args):
     fig = plt.figure()
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
-
-    if display_parameters and not combine:
-        for index, text_line in enumerate(text):
-            plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
 
     ax = fig.gca(projection='3d')
 
     xlimit = 1.1*max(system.M["1"])
     ylimit = 1.1*max(system.N["1"])
     zlimit = 1.1*max(system.N["2"])
+
+    if args.display_parameters and not args.combine:
+        for index, text_line in enumerate(text):
+            plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
 
     ax.set_xlim3d(0, xlimit)
     ax.set_ylim3d(0, ylimit)
@@ -213,21 +213,21 @@ def plot_1x2_densities_phase_plane(system, phase_plane_file, text, display_param
 
 
 ### 2x1 HARD-CODED PHASE PLANE FUNCTION
-def plot_2x1_densities_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+def plot_2x1_densities_phase_plane(system, phase_plane_file, text, args):
     fig = plt.figure()
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
-
-    if display_parameters and not combine:
-        for index, text_line in enumerate(text):
-            plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
 
     ax = fig.gca(projection='3d')
 
     xlimit = 1.1*max(system.M["1"])
     ylimit = 1.1*max(system.M["2"])
     zlimit = 1.1*max(system.N["1"])
+
+    if args.display_parameters and not args.combine:
+        for index, text_line in enumerate(text):
+            plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
 
     ax.set_xlim3d(0, xlimit)
     ax.set_ylim3d(0, ylimit)
@@ -246,10 +246,10 @@ def plot_2x1_densities_phase_plane(system, phase_plane_file, text, display_param
 
 
 ### 1x1 HARD-CODED PHASE PLANE FUNCTION
-def plot_1x1_traits_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+def plot_1x1_traits_phase_plane(system, phase_plane_file, text, args):
     plt.figure()
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
 
     m_min = min(system.m["1"])
@@ -264,7 +264,7 @@ def plot_1x1_traits_phase_plane(system, phase_plane_file, text, display_paramete
     plt.xlabel('Predator 1 Character')
     plt.ylabel('Prey 1 Character')
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         for index, text_line in enumerate(text):
             x_diff = m_max - m_min
             plt.text(m_min-.25*x_diff, n_max*(1-(.05*index)), text_line)
@@ -281,16 +281,11 @@ def plot_1x1_traits_phase_plane(system, phase_plane_file, text, display_paramete
 
 
 ### 1x2 HARD-CODED PHASE PLANE FUNCTION
-def plot_1x2_traits_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+def plot_1x2_traits_phase_plane(system, phase_plane_file, text, args):
     fig = plt.figure()
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
-
-    if display_parameters and not combine:
-        for index, text_line in enumerate(text):
-            x_diff = m_max - m_min
-            plt.text(m_min-.25*x_diff, n_max*(1-(.05*index)), text_line)
 
     ax = fig.gca(projection='3d')
 
@@ -302,6 +297,11 @@ def plot_1x2_traits_phase_plane(system, phase_plane_file, text, display_paramete
 
     n2_min = min(system.n["2"])
     n2_max = max(system.n["2"])
+
+    if args.display_parameters and not args.combine:
+        for index, text_line in enumerate(text):
+            x_diff = m_max - m_min
+            plt.text(m_min-.25*x_diff, n1_max*(1-(.05*index)), text_line)
 
     ax.set_xlim3d(m_min, m_max)
     ax.set_ylim3d(n1_min, n1_max)
@@ -320,16 +320,11 @@ def plot_1x2_traits_phase_plane(system, phase_plane_file, text, display_paramete
 
 
 ### 2x1 HARD-CODED PHASE PLANE FUNCTION
-def plot_2x1_traits_phase_plane(system, phase_plane_file, text, display_parameters, combine):
+def plot_2x1_traits_phase_plane(system, phase_plane_file, text, args):
     fig = plt.figure()
 
-    if display_parameters and not combine:
+    if args.display_parameters and not args.combine:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
-
-    if display_parameters and not combine:
-        for index, text_line in enumerate(text):
-            x_diff = m_max - m_min
-            plt.text(m_min-.25*x_diff, n_max*(1-(.05*index)), text_line)
 
     ax = fig.gca(projection='3d')
 
@@ -341,6 +336,11 @@ def plot_2x1_traits_phase_plane(system, phase_plane_file, text, display_paramete
 
     n_min = min(system.n["1"])
     n_max = max(system.n["1"])
+
+    if args.display_parameters and not args.combine:
+        for index, text_line in enumerate(text):
+            x_diff = m1_max - m1_min
+            plt.text(m1_min-.25*x_diff, n_max*(1-(.05*index)), text_line)
 
     ax.set_xlim3d(m1_min, m1_max)
     ax.set_ylim3d(m2_min, m2_max)
@@ -393,21 +393,21 @@ class System:
         self.tf = tf
         self.t = np.linspace(0, self.tf, 100000)
 
-        self.M0        = parameters["M0"]
-        self.m0        = parameters["m0"]
-        self.sigma     = parameters["sigma"]
-        self.sigmaG    = parameters["sigmaG"]
-        self.d         = parameters["d"]
+        self.M0 = parameters["M0"]
+        self.m0 = parameters["m0"]
+        self.sigma = parameters["sigma"]
+        self.sigmaG = parameters["sigmaG"]
+        self.d = parameters["d"]
         self.num_preds = len(self.M0)
 
-        self.N0        = parameters["N0"]
-        self.n0        = parameters["n0"]
-        self.beta      = parameters["beta"]
-        self.betaG     = parameters["betaG"]
-        self.rho       = parameters["rho"]
-        self.phi       = parameters["phi"]
-        self.gamma     = parameters["gamma"]
-        self.K         = parameters["K"]
+        self.N0 = parameters["N0"]
+        self.n0 = parameters["n0"]
+        self.beta = parameters["beta"]
+        self.betaG = parameters["betaG"]
+        self.rho = parameters["rho"]
+        self.phi = parameters["phi"]
+        self.gamma = parameters["gamma"]
+        self.K = parameters["K"]
         self.num_preys = len(self.N0)
 
         self.y0 = []
@@ -420,40 +420,40 @@ class System:
         for i in xrange(0, self.num_preys):
             self.y0.append(self.n0[str(i+1)])
 
-        self.eff    = parameters["eff"]
-        self.tau    = parameters["tau"]
-        self.alpha  = parameters["alpha"]
-        self.theta  = parameters["theta"]
+        self.eff = parameters["eff"]
+        self.tau = parameters["tau"]
+        self.alpha = parameters["alpha"]
+        self.theta = parameters["theta"]
 
-        self.A                    = {}
+        self.A = {}
         for pred_subscript in self.M0:
             for prey_subscript in self.N0:
                 interaction_subscript = pred_subscript + prey_subscript
                 self.A[interaction_subscript] = self.sigma[pred_subscript]**2 + self.beta[prey_subscript]**2 + self.tau[interaction_subscript]**2
 
-        self.B                    = {}
+        self.B = {}
         for prey_subscript in self.N0:
             self.B[prey_subscript] = self.beta[prey_subscript]**2 + self.gamma[prey_subscript]**2
 
-        self.avgattack            = {}
+        self.avgattack = {}
         for pred_subscript in self.M0:
             for prey_subscript in self.N0:
                 interaction_subscript = pred_subscript + prey_subscript
                 self.avgattack[interaction_subscript] = self.give_params_avgattack(interaction_subscript)
 
-        self.avg_pred_fitness     = {}
-        self.pred_trait_response  = {}
+        self.avg_pred_fitness = {}
+        self.pred_trait_response = {}
         for pred_subscript in self.M0:
-            self.avg_pred_fitness[pred_subscript]    = self.give_params_avg_pred_fitness(pred_subscript)
+            self.avg_pred_fitness[pred_subscript] = self.give_params_avg_pred_fitness(pred_subscript)
             self.pred_trait_response[pred_subscript] = self.give_params_pred_trait_response(pred_subscript)
 
-        self.avg_prey_fitness     = {}
-        self.prey_trait_response  = {}
+        self.avg_prey_fitness = {}
+        self.prey_trait_response = {}
         self.avg_prey_growth_rate = {}
         for prey_subscript in self.N0:
             self.avg_prey_growth_rate[prey_subscript] = self.give_params_avg_prey_growth_rate(prey_subscript)
-            self.avg_prey_fitness[prey_subscript]     = self.give_params_avg_prey_fitness(prey_subscript)
-            self.prey_trait_response[prey_subscript]  = self.give_params_prey_trait_response(prey_subscript)
+            self.avg_prey_fitness[prey_subscript] = self.give_params_avg_prey_fitness(prey_subscript)
+            self.prey_trait_response[prey_subscript] = self.give_params_prey_trait_response(prey_subscript)
 
         self.soln = odeint(self.f, self.y0, self.t)
 
@@ -513,9 +513,9 @@ class System:
         return f
 
     def give_params_avgattack(self, interaction_subscript):
-        A     = self.A[interaction_subscript]
+        A = self.A[interaction_subscript]
         alpha = self.alpha[interaction_subscript]
-        tau   = self.tau[interaction_subscript]
+        tau = self.tau[interaction_subscript]
         theta = self.theta[interaction_subscript]
 
         def avgattack(m, n):
@@ -538,15 +538,15 @@ class System:
         return avg_pred_fitness
 
     def give_params_avg_prey_growth_rate(self, prey_subscript):
-        rho   = self.rho[prey_subscript]
-        phi   = self.phi[prey_subscript]
+        rho = self.rho[prey_subscript]
+        phi = self.phi[prey_subscript]
         gamma = self.gamma[prey_subscript]
-        B     = self.B[prey_subscript]
+        B = self.B[prey_subscript]
 
         def avg_prey_growth_rate(n):
-            numerator      = rho*gamma
-            denominator    = sqrt(B)
-            exponent_num   = -(n - phi)**2
+            numerator = rho*gamma
+            denominator = sqrt(B)
+            exponent_num = -(n - phi)**2
             exponent_denom = 2*B
             return (numerator/denominator)*exp(exponent_num/exponent_denom)
 
@@ -582,10 +582,10 @@ class System:
         return pred_trait_response
 
     def give_params_prey_trait_response(self, prey_subscript):
-        r   = self.avg_prey_growth_rate[prey_subscript]
+        r = self.avg_prey_growth_rate[prey_subscript]
         phi = self.phi[prey_subscript]
-        B   = self.B[prey_subscript]
-        K   = self.K[prey_subscript]
+        B = self.B[prey_subscript]
+        K = self.K[prey_subscript]
 
         def prey_trait_response(M, m, N, n):
             response = ((phi - n)/B)*(1 - N/K)*r(n)
@@ -602,7 +602,7 @@ class System:
 
 def get_system_dimension(set_):
     number_of_predators = str(len(set_["predator"]["initial_values"]["densities"]))
-    number_of_preys     = str(len(set_["prey"]["initial_values"]["densities"]))
+    number_of_preys = str(len(set_["prey"]["initial_values"]["densities"]))
     dim = "%sx%s" % (number_of_predators, number_of_preys)
     return dim
 
@@ -659,6 +659,56 @@ def PARSE_ARGS():
     return parser.parse_args()
 
 
+def plot_time_graphs(current_directory, step, system, text, args, time, dimension):
+    ts = default_timer()
+    densities_file = "%s/densities_%03d.png" % (current_directory, step)
+    plot_densities(system, densities_file, text, args)
+    data_time = default_timer() - ts
+    print "Time taken for this data: %.03f\n" % (data_time)
+    time += data_time
+
+    ts = default_timer()
+    traits_file = "%s/traits_%03d.png" % (current_directory, step)
+    plot_traits(system, traits_file, text, args)
+    data_time = default_timer() - ts
+    print "Time taken for this data: %.03f\n" % (data_time)
+    time += data_time
+
+    combined_time_graphs = "%s/combined_time_graphs_%.3d.png" % (current_directory, step)
+    if args.combine:
+        combine_images(densities_file, traits_file, combined_time_graphs, args.keep_original_images, IMAGEMAGICK_SIDE_BY_SIDE_COMMAND)
+
+
+def plot_phase_planes(current_directory, step, system, text, args, time, dimension):
+    if dimension == "1x1":
+        (density_phase_plane_plot, trait_phase_plane_plot) = (plot_1x1_densities_phase_plane, plot_1x1_traits_phase_plane)
+    elif dimension == "1x2":
+        (density_phase_plane_plot, trait_phase_plane_plot) = (plot_1x2_densities_phase_plane, plot_1x2_traits_phase_plane)
+    elif dimension == "2x1":
+        (density_phase_plane_plot, trait_phase_plane_plot) = (plot_2x1_densities_phase_plane, plot_2x1_traits_phase_plane)
+
+    ts = default_timer()
+    density_phase_plane_file = "%s/density_phase_plane_%03d.png" % (current_directory, step)
+    density_phase_plane_plot(system, density_phase_plane_file, text, args)
+    data_time = default_timer() - ts
+    print "Time taken for this data: %.03f\n" % (data_time)
+
+    ts = default_timer()
+    trait_phase_plane_file = "%s/trait_phase_plane_%03d.png" % (current_directory, step)
+    trait_phase_plane_plot(system, trait_phase_plane_file, text, args)
+    data_time = default_timer() - ts
+    print "Time taken for this data: %.03f\n" % (data_time)
+
+    combined_phase_planes = "%s/combined_phase_planes_%.3d.png" % (current_directory, step)
+    if args.combine:
+        combine_images(density_phase_plane_file, trait_phase_plane_file, combined_phase_planes, args.keep_original_images, IMAGEMAGICK_SIDE_BY_SIDE_COMMAND)
+
+
+def plot_graphs(current_directory, step, system, text, args, time, dimension):
+    plot_time_graphs(current_directory, step, system, text, args, time, dimension)
+    plot_phase_planes(current_directory, step, system, text, args, time, dimension)
+
+
 def main():
     args = PARSE_ARGS()
 
@@ -690,25 +740,25 @@ def main():
             print(NO_STABILITY_CHECK)
 
         config_descriptions_to_variables = {
-            "M0"     : set_["predator"]["initial_values"]["densities"],
-            "m0"     : set_["predator"]["initial_values"]["traits"],
-            "sigma"  : set_["predator"]["trait_variances"]["total"],
-            "sigmaG" : set_["predator"]["trait_variances"]["genetic"],
-            "d"      : set_["predator"]["death_rates"],
+            "M0":     set_["predator"]["initial_values"]["densities"],
+            "m0":     set_["predator"]["initial_values"]["traits"],
+            "sigma":  set_["predator"]["trait_variances"]["total"],
+            "sigmaG": set_["predator"]["trait_variances"]["genetic"],
+            "d":      set_["predator"]["death_rates"],
 
-            "N0"     : set_["prey"]["initial_values"]["densities"],
-            "n0"     : set_["prey"]["initial_values"]["traits"],
-            "beta"   : set_["prey"]["trait_variances"]["total"],
-            "betaG"  : set_["prey"]["trait_variances"]["genetic"],
-            "K"      : set_["prey"]["carrying_capacities"],
-            "rho"    : set_["prey"]["max_growth_rates"],
-            "phi"    : set_["prey"]["optimum_trait_values"],
-            "gamma"  : set_["prey"]["cost_variances"],
+            "N0":     set_["prey"]["initial_values"]["densities"],
+            "n0":     set_["prey"]["initial_values"]["traits"],
+            "beta":   set_["prey"]["trait_variances"]["total"],
+            "betaG":  set_["prey"]["trait_variances"]["genetic"],
+            "K":      set_["prey"]["carrying_capacities"],
+            "rho":    set_["prey"]["max_growth_rates"],
+            "phi":    set_["prey"]["optimum_trait_values"],
+            "gamma":  set_["prey"]["cost_variances"],
 
-            "eff"    : set_["interaction_parameters"]["efficiencies"],
-            "tau"    : set_["interaction_parameters"]["specialization"],
-            "alpha"  : set_["interaction_parameters"]["max_attack_rates"],
-            "theta"  : set_["interaction_parameters"]["optimal_trait_differences"],
+            "eff":    set_["interaction_parameters"]["efficiencies"],
+            "tau":    set_["interaction_parameters"]["specialization"],
+            "alpha":  set_["interaction_parameters"]["max_attack_rates"],
+            "theta":  set_["interaction_parameters"]["optimal_trait_differences"],
         }
 
         # Parameter Step
@@ -737,7 +787,6 @@ def main():
         tf = set_["final_time"]
 
         for step in irange(0, steps, 1):
-            ts = default_timer()
 
             parameters = {}
             for variable, dict_ in starts_and_steps.iteritems():
@@ -754,75 +803,7 @@ def main():
                     if starts_and_steps[variable][subscript]["step"] != 0:
                         text.append(r"$%s%s}= %.03f$" % (LaTeX_VARIABLE_FORMAT[variable], subscript, value))
 
-            ### plot results
-            densities_file = "%s/densities_%03d.png" % (current_directory, step)
-            plot_densities(system, densities_file, text, args.display_parameters)
-            data_time = default_timer() - ts
-            print "Time taken for this data: %.03f\n" % (data_time)
-            time += data_time
-
-            ts = default_timer()
-
-            traits_file = "%s/traits_%03d.png" % (current_directory, step)
-            plot_traits(system, traits_file, text, args.display_parameters, args.combine)
-            data_time = default_timer() - ts
-            print "Time taken for this data: %.03f\n" % (data_time)
-            time += data_time
-
-            combined_time_graphs = "%s/combined_time_graphs_%.3d.png" % (current_directory, step)
-            if args.combine:
-                combine_images(densities_file, traits_file, combined_time_graphs, args.keep_original_images, IMAGEMAGICK_SIDE_BY_SIDE_COMMAND)
-
-            ts = default_timer()
-
-            if dimension == "1x1":
-                density_phase_plane_file = "%s/density_phase_plane_%03d.png" % (current_directory, step)
-                plot_1x1_densities_phase_plane(system, density_phase_plane_file, text, args.display_parameters, args.combine)
-                data_time = default_timer() - ts
-                print "Time taken for this data: %.03f\n" % (data_time)
-                time += data_time
-
-                ts = default_timer()
-
-                trait_phase_plane_file = "%s/trait_phase_plane_%03d.png" % (current_directory, step)
-                plot_1x1_traits_phase_plane(system, trait_phase_plane_file, text, args.display_parameters, args.combine)
-                data_time = default_timer() - ts
-                print "Time taken for this data: %.03f\n" % (data_time)
-                time += data_time
-
-            elif dimension == "1x2":
-                density_phase_plane_file = "%s/density_phase_plane_%03d.png" % (current_directory, step)
-                plot_1x2_densities_phase_plane(system, density_phase_plane_file, text, args.display_parameters, args.combine)
-                data_time = default_timer() - ts
-                print "Time taken for this data: %.03f\n" % (data_time)
-                time += data_time
-
-                ts = default_timer()
-
-                trait_phase_plane_file = "%s/trait_phase_plane_%03d.png" % (current_directory, step)
-                plot_1x2_traits_phase_plane(system, trait_phase_plane_file, text, args.display_parameters, args.combine)
-                data_time = default_timer() - ts
-                print "Time taken for this data: %.03f\n" % (data_time)
-                time += data_time
-
-            elif dimension == "2x1":
-                density_phase_plane_file = "%s/density_phase_plane_%03d.png" % (current_directory, step)
-                plot_2x1_densities_phase_plane(system, density_phase_plane_file, text, args.display_parameters, args.combine)
-                data_time = default_timer() - ts
-                print "Time taken for this data: %.03f\n" % (data_time)
-                time += data_time
-
-                ts = default_timer()
-
-                trait_phase_plane_file = "%s/trait_phase_plane_%03d.png" % (current_directory, step)
-                plot_2x1_traits_phase_plane(system, trait_phase_plane_file, text, args.display_parameters, args.combine)
-                data_time = default_timer() - ts
-                print "Time taken for this data: %.03f\n" % (data_time)
-                time += data_time
-
-            combined_phase_planes = "%s/combined_phase_planes_%.3d.png" % (current_directory, step)
-            if args.combine:
-                combine_images(density_phase_plane_file, trait_phase_plane_file, combined_phase_planes, args.keep_original_images, IMAGEMAGICK_SIDE_BY_SIDE_COMMAND)
+            plot_graphs(current_directory, step, system, text, args, time, dimension)
 
         ### This separate section is so that the images are guaranteed to exist before attempting to combine them
         print "\n\nUsing ImageMagick to combine graphs.....\n\n"
