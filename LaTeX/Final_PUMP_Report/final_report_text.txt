@@ -1,0 +1,331 @@
+
+The Effects of Intraspecific Genetic Variation on the Dynamics of Predator-Prey Ecological Communities
+
+
+
+
+
+
+
+
+
+ABSTRACT
+Predator-prey interactions are ubiquitous in nature and have captured the attention of ecologists and mathematicians.  Previous studies have focused on coexistence dynamics without taking into account phenotypic and genetic variation within a species.  Recent ecological models have incorporated evolutionary variables in order to further understand predator/prey and competitive dynamics.  General classifications of possible dynamics exist, but no previous model has provided enough flexibility to generate all dynamics.  We formulate new models for coevolution in generalized ditrophic predator-prey systems by incorporating quantitative characters relevant to predation in both prey and predator.  We study the impact of such trait variation by means of theoretical analysis and numerical simulations.
+
+
+
+
+
+
+
+
+
+
+
+INTRODUCTION
+Trait variation plays an important role in understanding the variety of dynamics of predator-prey interactions seen in nature.  Evidence shows that species evolve over time but this is ignored in most classical mathematical ecological models.  Models for purely ecological predator-prey interactions with different functional responses are well understood to some extent.  Several recent studies have incorporated trait variation into these traditional ecological models in a variety of ways.  All of them have demonstrated much richer dynamics compared to the classical models.
+
+In particular, Abrams and Matsuda introduced vulnerability as an evolutionary variable for a prey species.  This model results in chaotic, cyclic, and stable dynamics under various conditions \cite{Abrams_Matsuda_1997}.  Saloniemi introduced quantitative traits in a coevolutionary model.  Attack rate was defined as a linear function of both predator and prey trait values.  This model also produces chaotic dynamics under certain conditions \cite{Saloniemi_1993}.  More recently, Schreiber et. al. proposed an apparent competition model with Gaussian attack rate functions for an evolving generalist predator on two non-evolving prey populations.  In contrast with classical apparent competition theory, this model provided evidence that apparent competition can give rise to stable facilitation between under certain conditions \cite{Schreiber_2011}.
+
+The variety of dynamics produced by incorporating evolutionary variables into purely ecological models is both ecologically and mathematically relevant.  The modified models and results have drawn attention from theoretical ecologists and applied mathematicians.  Our work was motivated by both Schreiber et. al. and Saloniemi.  In particular, we combine the coevolutionary dynamics of Saloniemi's work with the Gaussian attack rate and density-dependent prey growth rate from Schreiber et. al. \cite{Schreiber_2011}, \cite{Saloniemi_1993}.
+
+We build a general ditrophic model of $u$ predator populations and $v$ prey populations by assuming
+	- predator exponential decay in the absence of prey
+	- prey logicistic density-dependent growth in the absence of predator
+	- linear functional response
+	- all ecological parameters are dependent on evoloving genetic quantitative traits of both predator and prey
+
+We then provide two specific manifestations of the general model.  In the first model, we assume the attack rate is a Gaussian function of both their trait values.  The second model is an expansion of the first model; we incorporate stabilizing selection in the form of a Gaussian growth rate function of the prey trait value.
+
+Section 2 describes the formulation of the general ditrophic model, and the two specific models described above.  Section 3 describes the analytical results of the reduction of the two specific models to one predator and one prey.  Section 4 summarizes the work, and section 5 discusses its implications and future work.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MODELS AND METHODS
+Consider the ditrophic dynamics of $u$ predator populations with densities $M_i = M_i(t)$, consuming $v$ prey populations with densities $N_j = N_j(t)$, respectively ($i = 1, \dots, u$, and $j = 1, \dots, v$).  Ecological parameters will be defined as functions of predator phenotypic values, $m_i$, and prey phenotypic values, $n_j$, of quantitative traits.  We assume these traits can be measured in the same unit, or can be transformed into the same unit \cite{Saloniemi_1993}.  Assume predator traits are normally distributed with mean $\overline{m_i} = \overline{m_i}(t)$ and constant variances $\sigma_i^2$, and prey traits are normally distributed with mean $\overline{n_j} = \overline{n_j}(t)$ and constant variances $\beta_j^2$, i.e., their distributions are given by
+
+	(distributions)
+
+These variances have genetic and environmental components:
+
+	(variances)
+
+Assuming predator $i$ has a linear functional response with attack rate $a_{ij} = a_{ij}(m_i, n_j)$ on prey $j$, converts consumed prey $j$ into offspring with efficiencies $e_{ij} = e_{ij}(m_i, n_j)$, and experiences a per-capita mortality rate $d_i(m_i)$, then the fitness of a predator with phenotype $m_i$ is
+
+	(predator fitness)
+
+and the mean fitness of the $i$\textsuperscript{th} predator population is
+
+	(average predator fitness)
+
+Assume in the absence of any predators, each prey species experiences logistic-type growth with growth rates $r_j = r_j(n_j)$ and carrying capacities $K_j = K_j(n_j)$.  Under these assumptions, the fitness of a prey individual with phenotype $n_j$ is
+
+	(prey fitness)
+
+and the mean fitness of the $j$\textsuperscript{th} prey population is
+
+	(average prey fitness)
+
+Thus, the ecological components of this model are
+
+	(ecological components)
+
+Assuming the evolutionary variables stay normally distributed, then their evolution is proportional to the partial derivative of the fitness function with respect to that variable.  In other words, evolution is always in the direction which increases the mean fitness of the population \cite{Lande_1976}.  This gives rise to the evolutionary components of this model:
+
+	(evolutionary components)
+
+The complete ditrophic model of $u$ predator species and $v$ prey species is given by
+
+	(general model)
+
+where $i = 1, \dots, u$ and $j = 1, \dots, v$.
+
+The general idea of this model is that all ecological parameters can be defined as functions of the evolutionary variables, which themselves change in proportion to the change in fitness.  This ecological-evolutionary feedback, ``Eco-Evo Feedback'', is what drives the vast array of dynamics produced.
+
+This model is a branch of Khibnik and Kondrashov's General Model of Coevolution \cite{Khibnik_Kondrashov_1997}, which describes a multitrophic ecological system of species, each of which may have a number of quantitative traits which affect each species' fitness.
+
+Since community genetic changes occur over many generations, evolutionary variables are considered to be ``slow'' variables.  Their speeds are parameters in model given by $\sigma_{Gi}^2$ and $\beta_{Gi}^2$; they are the constants of proportionality between the change in the trait value and the change in fitness.  In contrast, ecological changes may happen within a single generation, and so the ecological variables are considered to be ``fast'' variables.  These differing timescales allow us to consider the coevolution models as two separate subsystems, the ecological and the evolutionary.  In the context of the ecological subsystem, the evolutionary variables can be viewed as slowly changing parameters.
+
+In the following two sections we provide two particular manifestations of (general model).  In the first model, all ecological parameters are constant except the attack rate, which we define as a function of the evolutionary variables.  The second is an extension of the first, in which a prey's growth rate is defined as a function of its evolutionary variable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+MODEL 1
+This first model is a coevolutionary extension of Schreiber's et. al. apparent competition model in which the predator is assumed to have a quantitative trait and evolves in response to the ecological changes of two non-evolving prey species \cite{Schreiber_2011}.  In contrast to Schreiber et.~al., we assume an individual predator's attack rate on an individual prey is dependent on both trait values, is maximal at an optimal trait difference, $m_i - n_j = \theta_{ij}$, and decreases away from this optimal trait difference in a Gaussian manner, i.e.,
+
+	(attack rate)
+
+where $\alpha_{ij}$ is the maximal attack and $\tau_{ij}$ determines how steeply the attack rate declines with distance from the optimal trait difference $\theta_{ij}$.  In effect, $\tau_{ij}$ determines how phenotypically specialized predator $i$ must be to use prey $j$.  We assume the prey growth rates and carrying capacities, $r_j$ and $K_j$, and the predator death rates and efficiencies, $d_i$, and $e_{ij}$, are constant.  Under these assumptions, the average attack rate of predator species $i$ on prey species $j$ is
+
+	(average attack rate)
+
+where $A_{ij} = \tau_{ij}^2 + \sigma_i^2 + \beta_j^2$.  (See the appendix for the derivation of (average attack rate)).  (average predator fitness), and (average prey fitness) now yield eplicit formulas for $\overline{W_i}$ and $\overline{Y_j}$ in terms of (average attack rate):
+
+	(model 1 average predator fitness)
+	(model 1 average prey fitness)
+
+(See the appendix for the derivations of (model 1 average pred fitness) and (model 1 average prey fitness)).  Relavent partial derivatives of (model 1 average pred fitness) and (model 1 average prey fitness) are easily computable:
+
+	(model 1 predator fitness partial)
+	(model 1 prey fitness partial)
+
+Thus (general model) simplifies:
+
+	(model 1)
+
+Refer to Table 1 for parameters and their contextual meanings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MODEL 2
+This second model introduces stabilizing selection to Model 1 by assuming each prey species has an optimal trait value by which growth rate is maximized, and decreases away from the optimal trait value in a Gaussian manner, i.e.
+
+	(growth rate)
+
+where $\rho_j$ is the maximal growth rate of the $j$\textsuperscript{th} prey species and $\gamma_j$ determines how steeply the growth rate declines with distance from the optimal trait value $\phi_j$.  In effect, $\gamma_j$ determines how far prey $j$ can deviate from its optimal trait value while still maintaining an adequate growth rate.  Under these assumptions, the average growth rate of prey species $j$ is
+
+	(average growth rate)
+
+where $B_j = \beta_j^2 + \gamma_j^2$.  (See the appendix for the derivation of (average growth rate)).  Since $\overline{W_i}$ is not dependent on $r_j$, (model 1 average pred fitness) suffices, but $\overline{Y_j}$ must be recalculated since it is dependent on $r_j$.  (average prey fitness) yields an explicit formula in terms of (average attack rate) and (average growth rate):
+
+	(model 2 average prey fitness)
+
+(See the appendix for the derivation of (model 2 average prey fitness)).  Since $\overline{W_i}$ did not change from Model 1, (model 1 c) is sufficient for the right hand side of (general model c).  However, the right hand side of (general model d}) must be recalculated.
+
+	(model 2 prey fitness partial)
+
+Thus (general model) simplifies:
+
+	(model 2)
+
+Refer to Tables 1 and 2 for parameters and their contextual meanings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RESULTS
+
+PAIRWISE PREDATOR-PREY DYNAMICS OF MODEL 1
+If there is only one predator species and one prey species, then (model 1) simplifies:
+
+	(pairwise model 1)
+
+There are three classifications of equilibria of (pairwise model 1): extinction, exclusion, and coexistence.  Although there are an infinite amount of equilibrium points for each of these three classifications, their ecological components are unique and are comparable with common ecological models.  Extinction equilibria are given by
+
+	(extinction model 1)
+
+where $\mu^*$ and $\nu^*$ are arbitrary values.  Exclusion equilibria are given by
+
+	(exclusion model 1)
+
+where $\mu^*$ is an arbitrary value.  Coexistence equilibria are given by
+
+	(coexistence model 1)
+	
+where $\mu^*$ is an arbitrary value.  Local stability analysis yields that all extinction equilibria are unstable, exclusion equilibria are locally asymptotically stable if
+
+	(exclusion stability model 1)
+
+and coexistence equilibria are locally asymptotically stable if
+
+	(coexistence stability model 1)
+
+(See the appendix for the derivation of the equilibria and local stability conditions.)  In nature, (exclusion stability model 1) is consistent with the fact that exclusion is possible if the predator death rate is high.  Figure 1 displays a simulation that results in stable exclusion.
+
+Note that if (exclusion stability model 1) holds then (coexistence model 1) is not biologically feasible ($M^* < 0$), implying that coexistent states do not exist, and so even though (coexistence stability model 1) would hold (since all parameters are assumed to be positive), it would be irrelevant.  Since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then intuitively, coexistence is stable if the predator is ``fast'' enough at evolving in comparison to the prey.  If this happens, the predator trait value ``catches up'' to the prey trait value.  Figure 2 displays a simulation that results in stable coexistence.
+
+Since (exclusion stability model 1) and (coexistence stability model 1) are not equal and opposite conditions, the possibility remains that neither conditon holds.  A natural question is what dynamics appear in these circumstances.  Numerical simulations provide insight into these dynamics.  Figure 3 depicts an evolutionary ``arms race'' between the predator and prey.  The prey has no particular optimal value, and the predator is not fast enough at evolving to catch up to the prey, so they continuously evolve in a linear fashion.  The ``arms race'' is due to that fact that there is no stabilizing selection in this model; the prey species has no reason to stop evolving, and the predator species has no reason to stop chasing the prey.  The next model shows one of many possible ways to introduce stabilizing selection for the purpose of avoiding an ``arms race''.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PAIRWISE PREDATOR-PREY DYNAMICS OF MODEL 2
+If there is only one predator species and one prey species, then (model 2) simplifies:
+
+	(pairwise model 2)
+
+Similarly to (pairwise model 1), there are three classifications of equilibrium of system (pairwise model 2): extinction, exclusion, and coexistence.  There are an infinite amount of equilibrium points for the extinction and exclusion classifications, but stabilizing selection provides a unique coexistence equilibrium point.  Extinction equilibria are given by (extinction model 1), and exclusion equilibria are given by (excslusion model 1).  The coexistence equilibrium point is given by
+
+	(coexistence model 2)
+
+Local stability analysis for extinction and exclusion equilibria is nearly identical to Model 1 - all extinction equilibria are unstable and exclusion equilibria are asymptotically stable if (exclusion stability model 1) holds.  The coexistence equilibrium is asymptotically stable if
+
+	(coexistence stability model 2)
+
+(See the appendix for the derivation of the equilibria and local stability conditions.)  Similar to Model 1, exclusion is stable if the predator death rate is high enough, and if (exclusion stability model 1) holds then (coexistence model 2) is not biologically feasible ($M^* < 0$), and so even though (coexistence stability model 2) may hold, it would be irrelevant.  Again, since $\sigma_G^2/\beta_G^2$ is the ratio of predator and prey ``speeds'' of evolution, then coexistence is stable only if the predator is ``fast'' enough at evolving in comparison to the prey.  Figure 4 displays a simulation that results in stable exclusion, and Figure 5 displays a simulation that results in stable coexistence.
+
+(exclusion stability model 1) and (coexistence stability model 2) are not equal and opposite conditions, so there is at least one type of non-equilibrium coexistence dynamic.  Numerical simulations provide insight into these dynamics.  Figure 6 depicts long-term stable oscillatory behavior.  We can intuitively understand these dynamics by considering the inverse effects that the evolution of the prey trait has on its own fitness.  At the same time the prey evolves its own trait value away from the predator trait value (to minimize attack rate), it must also stay close enough to its optimal trait value $\phi_j$ to maintain an adequate growth rate.  These effects nullify each other whenever the prey trait value reaches a maximum or minimum.  Immediately after the prey trait value reverses direction, the prey has double incentive to evolve toward $\phi_j$: it increases its growth rate while minimizing the predator's attack rate.  Immediately after passing through $\phi_j$, however, the inverse effects take hold, and the cycle begins again.
+
+Analytically, a Hopf Bifurcation occurs as parameters are changed in such a way that does not alter the dissatisfaction of (exclusion stability model 1) but simply dissatisfies (coexistence stability model 2).  This can happen under a number of conditions, as explained in the appendix.  Figure 7 shows one such condition, which compares $\frac{\sigma_G}{\beta_G}$ (the ratio of evolution ``speeds'' of predator and prey) vs. $\tau$ (the specialization constant).  The values seen on this plot are found by solving (coexistence stability model 2) for zero, i.e.
+
+	(coexistence stability model 2 function)
+
+This proves the existence of a limit cycle.  Note $f > 0$ implies stable coexistence but $f < 0$ does not imply stable exclusion.  A detailed discussion of the Hopf Bifurcation analysis will be investigated as one of the future works.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SUMMARY
+The first part of section 2 describes the ditrophic model in general, without specifying the particular functions that govern the dynamics of the system.  The second part of section 2 describes two concrete manifestations of the general model by providing explicit functions for the ecological parameters.  Lastly, section 3 provides analytical results of the reduction of the two specific models to one predator and one prey.
+
+The novelty of this model resides in the incorporation of coevolutionary dynamics with realistic and natural Gaussian functions and density-dependent prey growth rates.  In the first model, the attack rate is, in contrast to that of Schreiber et. al., dependent on both predator and prey trait values.  In the second model, prey growth rate is defined as a Gaussian function dependent on the prey's trait value.
+
+The dynamics of the first model include the exclusion of the predator, a stable coexistence state, and an evolutionary ``arms race'' dynamic.  We note that in order to for the exclusion state to be stable, the predator death rate must be high enough, which matches with our biological intuition (see (exclusion stability model 1)).  For coexistence, we see that the predator must be ``fast'' enough at evolving in order for it to have any chance of survival.  The ``arms race'' coexistence dynamic is not found in classical ecological models, and can be interpreted as possible speciation.
+
+The second model's dynamics include the exclusion of predator, and a coexistence state.  The conditions for stability of both exclusion and coexistence are parallel to that of the first model.  In contrast to the first model, however, the non-constant coexistence dynamic shows cyclic behavior.  The introduction of stabilizing selection for the prey prevented the evolutionary ``arms race''.  Instead, the second model provides long-term Red Queen Dynamics \cite{Khibnik_Kondrashov_1997} and possibly unique, globally stable limit cycles.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DISCUSSION
+Our model demonstrates that incorporating trait variation into ecological models is necessary in order to obtain the rich array of dynamics seen in nature.  Our work serves as further evidence that evolution plays a central role in determining the dynamics in predator-prey interactions.  Inclusion of evolution into more intricate and complex ecological models can provide insight into the true causes of exclusion and coexistence.
+
+One of our immediate goals is to prove, for the second model, the existence of a globally stable unique limit cycle.  We would also like to expand our analytical results in general for more complex predator-prey interactions.  In particular, expanding Schreiber's et.~al.~apparent competition model by incorporating prey evolution ($1 \times 2$ system), exploring direct competition of two predator on one prey ($2 \times 1$ system), and possibly up to the general ditrophic $u \times v$ system.  Other expansions include multitrophic intraguid predation with coevolution, and prey resource competition.
+
+
