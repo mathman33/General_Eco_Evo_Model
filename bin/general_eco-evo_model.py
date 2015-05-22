@@ -15,6 +15,7 @@ from subprocess import Popen, PIPE
 from datetime import datetime
 
 AVG_TIME_PER_GRAPH = 0.583
+SUPPORTED_DIMENSIONS = ["1x1", "1x2", "2x1"]
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 if DIRECTORY.endswith("/bin"):
     DIRECTORY = DIRECTORY[:-4]
@@ -68,7 +69,11 @@ LaTeX_VARIABLE_FORMAT = {
 
     "rho":    "\\rho_{",
     "phi":    "\\phi_{",
-    "gamma":  "\\gamma_{"
+    "gamma":  "\\gamma_{",
+
+    "kappa":  "\\kappa_{",
+    "xi":     "\\xi_{",
+    "delta":  "\\delta_{"
 }
 
 
@@ -388,7 +393,66 @@ def irange(start, stop, step):
         r += step
 
 
-class System:
+def give_params_avgattack(system, interaction_subscript):
+    A = system.A[interaction_subscript]
+    alpha = system.alpha[interaction_subscript]
+    tau = system.tau[interaction_subscript]
+    theta = system.theta[interaction_subscript]
+
+    def avgattack(m, n):
+        return ((alpha*tau)/sqrt(A))*exp(-(m - n - theta)**2/(2*A))
+
+    return avgattack
+
+
+def give_params_avg_pred_fitness(system, pred_subscript):
+    d = system.d[pred_subscript]
+
+    def avg_pred_fitness(m, N, n):
+        fitness_source = 0
+        for prey_subscript in system.N0:
+            interaction_subscript = pred_subscript + prey_subscript
+            eff = system.eff[interaction_subscript]
+            avgattack = system.avgattack[interaction_subscript]
+            fitness_source += eff*avgattack(m, n[int(prey_subscript)-1])*N[int(prey_subscript)-1]
+        return fitness_source - d
+
+    return avg_pred_fitness
+
+
+def give_params_pred_trait_response(system, pred_subscript):
+
+    def pred_trait_response(N, m, n):
+        response = 0
+        for prey_subscript in system.N0:
+            interaction_subscript = pred_subscript + prey_subscript
+            avgattack = system.avgattack[interaction_subscript]
+            eff = system.eff[interaction_subscript]
+            A = system.A[interaction_subscript]
+            theta = system.theta[interaction_subscript]
+            response += avgattack(m, n[int(prey_subscript)-1])*(eff*N[int(prey_subscript)-1]*(theta + n[int(prey_subscript)-1] - m))/(A)
+        return response
+
+    return pred_trait_response
+
+
+def give_params_avg_prey_growth_rate(system, prey_subscript):
+    rho = system.rho[prey_subscript]
+    phi = system.phi[prey_subscript]
+    gamma = system.gamma[prey_subscript]
+    B = system.B[prey_subscript]
+
+    def avg_prey_growth_rate(n):
+        numerator = rho*gamma
+        denominator = sqrt(B)
+        exponent_num = -(n - phi)**2
+        exponent_denom = 2*B
+        return (numerator/denominator)*exp(exponent_num/exponent_denom)
+
+    return avg_prey_growth_rate
+
+
+class FullSystem:
     def __init__(self, parameters, tf):
         self.tf = tf
         self.t = np.linspace(0, self.tf, 100000)
@@ -406,10 +470,18 @@ class System:
         self.betaG = parameters["betaG"]
         self.num_preys = len(self.N0)
 
+        self.eff = parameters["eff"]
+        self.tau = parameters["tau"]
+        self.alpha = parameters["alpha"]
+        self.theta = parameters["theta"]
+
         self.rho = parameters["rho"]
         self.phi = parameters["phi"]
         self.gamma = parameters["gamma"]
-        self.K = parameters["K"]
+
+        self.kappa = parameters["kappa"]
+        self.xi = parameters["xi"]
+        self.delta = parameters["delta"]
 
         self.y0 = []
         for i in xrange(0, self.num_preds):
@@ -421,11 +493,6 @@ class System:
         for i in xrange(0, self.num_preys):
             self.y0.append(self.n0[str(i+1)])
 
-        self.eff = parameters["eff"]
-        self.tau = parameters["tau"]
-        self.alpha = parameters["alpha"]
-        self.theta = parameters["theta"]
-
         self.A = {}
         for pred_subscript in self.M0:
             for prey_subscript in self.N0:
@@ -436,23 +503,35 @@ class System:
         for prey_subscript in self.N0:
             self.B[prey_subscript] = self.beta[prey_subscript]**2 + self.gamma[prey_subscript]**2
 
+        self.D = {}
+        for prey_subscript in self.N0:
+            self.D[prey_subscript] = (self.delta[prey_subscript]**2)*(self.beta[prey_subscript]**2)
+            self.D[prey_subscript] += (self.gamma[prey_subscript]**2)*(self.delta[prey_subscript]**2)
+            self.D[prey_subscript] -= (self.beta[prey_subscript]**2)*(self.gamma[prey_subscript]**2)
+
+        self.E = {}
+        for prey_subscript in self.N0:
+            self.E[prey_subscript] = (self.delta[prey_subscript]**2) - (((self.beta[prey_subscript]*self.gamma[prey_subscript])**2)/(self.B[prey_subscript]))
+
         self.avgattack = {}
         for pred_subscript in self.M0:
             for prey_subscript in self.N0:
                 interaction_subscript = pred_subscript + prey_subscript
-                self.avgattack[interaction_subscript] = self.give_params_avgattack(interaction_subscript)
+                self.avgattack[interaction_subscript] = give_params_avgattack(self, interaction_subscript)
 
         self.avg_pred_fitness = {}
         self.pred_trait_response = {}
         for pred_subscript in self.M0:
-            self.avg_pred_fitness[pred_subscript] = self.give_params_avg_pred_fitness(pred_subscript)
-            self.pred_trait_response[pred_subscript] = self.give_params_pred_trait_response(pred_subscript)
+            self.avg_pred_fitness[pred_subscript] = give_params_avg_pred_fitness(self, pred_subscript)
+            self.pred_trait_response[pred_subscript] = give_params_pred_trait_response(self, pred_subscript)
 
         self.avg_prey_fitness = {}
         self.prey_trait_response = {}
         self.avg_prey_growth_rate = {}
+        self.capacity_hat = {}
         for prey_subscript in self.N0:
-            self.avg_prey_growth_rate[prey_subscript] = self.give_params_avg_prey_growth_rate(prey_subscript)
+            self.avg_prey_growth_rate[prey_subscript] = give_params_avg_prey_growth_rate(self, prey_subscript)
+            self.capacity_hat[prey_subscript] = self.give_params_capacity_hat(prey_subscript)
             self.avg_prey_fitness[prey_subscript] = self.give_params_avg_prey_fitness(prey_subscript)
             self.prey_trait_response[prey_subscript] = self.give_params_prey_trait_response(prey_subscript)
 
@@ -513,45 +592,189 @@ class System:
 
         return f
 
-    def give_params_avgattack(self, interaction_subscript):
-        A = self.A[interaction_subscript]
-        alpha = self.alpha[interaction_subscript]
-        tau = self.tau[interaction_subscript]
-        theta = self.theta[interaction_subscript]
-
-        def avgattack(m, n):
-            return ((alpha*tau)/sqrt(A))*exp(-(m - n - theta)**2/(2*A))
-
-        return avgattack
-
-    def give_params_avg_pred_fitness(self, pred_subscript):
-        d = self.d[pred_subscript]
-
-        def avg_pred_fitness(m, N, n):
-            fitness_source = 0
-            for prey_subscript in self.N0:
-                interaction_subscript = pred_subscript + prey_subscript
-                eff = self.eff[interaction_subscript]
-                avgattack = self.avgattack[interaction_subscript]
-                fitness_source += eff*avgattack(m, n[int(prey_subscript)-1])*N[int(prey_subscript)-1]
-            return fitness_source - d
-
-        return avg_pred_fitness
-
-    def give_params_avg_prey_growth_rate(self, prey_subscript):
-        rho = self.rho[prey_subscript]
-        phi = self.phi[prey_subscript]
+    def give_params_capacity_hat(self, prey_subscript):
+        kappa = self.kappa[prey_subscript]
+        xi = self.xi[prey_subscript]
+        delta = self.delta[prey_subscript]
+        beta = self.beta[prey_subscript]
         gamma = self.gamma[prey_subscript]
-        B = self.B[prey_subscript]
+        phi = self.phi[prey_subscript]
 
-        def avg_prey_growth_rate(n):
-            numerator = rho*gamma
-            denominator = sqrt(B)
-            exponent_num = -(n - phi)**2
-            exponent_denom = 2*B
+        D = self.D[prey_subscript]
+        E = self.E[prey_subscript]
+
+        def capacity_hat(n):
+            numerator = kappa*sqrt(E)
+            denominator = delta
+            exponent_num = -((beta*(phi - xi))**2 + (gamma*(n - xi))**2 + (E - (delta**2))*((n - phi)**2))
+            exponent_denom = 2*D
             return (numerator/denominator)*exp(exponent_num/exponent_denom)
 
-        return avg_prey_growth_rate
+        return capacity_hat
+
+    def give_params_avg_prey_fitness(self, prey_subscript):
+        r = self.avg_prey_growth_rate[prey_subscript]
+        K_hat = self.capacity_hat[prey_subscript]
+
+        def avg_prey_fitness(M, m, N, n):
+            fitness_sink = 0
+            for pred_subscript in self.M0:
+                interaction_subscript = pred_subscript + prey_subscript
+                avgattack = self.avgattack[interaction_subscript]
+                fitness_sink += avgattack(m[int(pred_subscript)-1], n)*M[int(pred_subscript)-1]
+            return r(n)*(1 - (N/K_hat(n))) - fitness_sink
+
+        return avg_prey_fitness
+
+    def give_params_prey_trait_response(self, prey_subscript):
+        r = self.avg_prey_growth_rate[prey_subscript]
+        K_hat = self.capacity_hat[prey_subscript]
+
+        xi = self.xi[prey_subscript]
+        delta = self.delta[prey_subscript]
+        phi = self.phi[prey_subscript]
+        gamma = self.gamma[prey_subscript]
+
+        B = self.B[prey_subscript]
+        D = self.D[prey_subscript]
+
+        def prey_trait_response(M, m, N, n):
+            response = r(n)*(((phi - n)/(B)) - ((N*(n*(gamma**2 - delta**2) + ((delta**2)*phi - (gamma**2)*xi)))/(K_hat(n)*D)))
+            for pred_subscript in self.M0:
+                interaction_subscript = pred_subscript + prey_subscript
+                avgattack = self.avgattack[interaction_subscript]
+                A = self.A[interaction_subscript]
+                theta = self.theta[interaction_subscript]
+                response += avgattack(m[int(pred_subscript)-1], n)*(M[int(pred_subscript)-1]*(theta + n - m[int(pred_subscript)-1]))/(A)
+            return response
+
+        return prey_trait_response
+
+
+class VariableGrowthSystem:
+    def __init__(self, parameters, tf):
+        self.tf = tf
+        self.t = np.linspace(0, self.tf, 100000)
+
+        self.M0 = parameters["M0"]
+        self.m0 = parameters["m0"]
+        self.sigma = parameters["sigma"]
+        self.sigmaG = parameters["sigmaG"]
+        self.d = parameters["d"]
+        self.num_preds = len(self.M0)
+
+        self.N0 = parameters["N0"]
+        self.n0 = parameters["n0"]
+        self.beta = parameters["beta"]
+        self.betaG = parameters["betaG"]
+        self.num_preys = len(self.N0)
+
+        self.eff = parameters["eff"]
+        self.tau = parameters["tau"]
+        self.alpha = parameters["alpha"]
+        self.theta = parameters["theta"]
+
+        self.rho = parameters["rho"]
+        self.phi = parameters["phi"]
+        self.gamma = parameters["gamma"]
+        self.K = parameters["K"]
+
+        self.y0 = []
+        for i in xrange(0, self.num_preds):
+            self.y0.append(self.M0[str(i+1)])
+        for i in xrange(0, self.num_preys):
+            self.y0.append(self.N0[str(i+1)])
+        for i in xrange(0, self.num_preds):
+            self.y0.append(self.m0[str(i+1)])
+        for i in xrange(0, self.num_preys):
+            self.y0.append(self.n0[str(i+1)])
+
+        self.A = {}
+        for pred_subscript in self.M0:
+            for prey_subscript in self.N0:
+                interaction_subscript = pred_subscript + prey_subscript
+                self.A[interaction_subscript] = self.sigma[pred_subscript]**2 + self.beta[prey_subscript]**2 + self.tau[interaction_subscript]**2
+
+        self.B = {}
+        for prey_subscript in self.N0:
+            self.B[prey_subscript] = self.beta[prey_subscript]**2 + self.gamma[prey_subscript]**2
+
+        self.avgattack = {}
+        for pred_subscript in self.M0:
+            for prey_subscript in self.N0:
+                interaction_subscript = pred_subscript + prey_subscript
+                self.avgattack[interaction_subscript] = give_params_avgattack(self, interaction_subscript)
+
+        self.avg_pred_fitness = {}
+        self.pred_trait_response = {}
+        for pred_subscript in self.M0:
+            self.avg_pred_fitness[pred_subscript] = give_params_avg_pred_fitness(self, pred_subscript)
+            self.pred_trait_response[pred_subscript] = give_params_pred_trait_response(self, pred_subscript)
+
+        self.avg_prey_fitness = {}
+        self.prey_trait_response = {}
+        self.avg_prey_growth_rate = {}
+        for prey_subscript in self.N0:
+            self.avg_prey_growth_rate[prey_subscript] = give_params_avg_prey_growth_rate(self, prey_subscript)
+            self.avg_prey_fitness[prey_subscript] = self.give_params_avg_prey_fitness(prey_subscript)
+            self.prey_trait_response[prey_subscript] = self.give_params_prey_trait_response(prey_subscript)
+
+        self.soln = odeint(self.f, self.y0, self.t)
+
+        self.M = {}
+        self.N = {}
+        self.m = {}
+        self.n = {}
+
+        for i in xrange(0, self.num_preds):
+            index = i
+            self.M[str(i+1)] = self.soln[:, index]
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds
+            self.N[str(i+1)] = self.soln[:, index]
+        for i in xrange(0, self.num_preds):
+            index = i + self.num_preds + self.num_preys
+            self.m[str(i+1)] = self.soln[:, index]
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds + self.num_preys + self.num_preds
+            self.n[str(i+1)] = self.soln[:, index]
+
+    def f(self, y, t):
+        M = [0] * self.num_preds
+        for i in xrange(0, self.num_preds):
+            index = i
+            M[i] = y[index]
+
+        N = [0] * self.num_preys
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds
+            N[i] = y[index]
+
+        m = [0] * self.num_preds
+        for i in xrange(0, self.num_preds):
+            index = i + self.num_preds + self.num_preys
+            m[i] = y[index]
+
+        n = [0] * self.num_preys
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds + self.num_preys + self.num_preds
+            n[i] = y[index]
+
+        f = [0] * 2*(self.num_preds + self.num_preys)
+        for i in xrange(0, self.num_preds):
+            index = i
+            f[index] = M[i]*self.avg_pred_fitness[str(i+1)](m[i], N, n)
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds
+            f[index] = N[i]*self.avg_prey_fitness[str(i+1)](M, m, N[i], n[i])
+        for i in xrange(0, self.num_preds):
+            index = i + self.num_preds + self.num_preys
+            f[index] = (self.sigmaG[str(i+1)]**2)*self.pred_trait_response[str(i+1)](N, m[i], n)
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds + self.num_preys + self.num_preds
+            f[index] = (self.betaG[str(i+1)]**2)*self.prey_trait_response[str(i+1)](M, m, N[i], n[i])
+
+        return f
 
     def give_params_avg_prey_fitness(self, prey_subscript):
         r = self.avg_prey_growth_rate[prey_subscript]
@@ -567,21 +790,6 @@ class System:
 
         return avg_prey_fitness
 
-    def give_params_pred_trait_response(self, pred_subscript):
-
-        def pred_trait_response(N, m, n):
-            response = 0
-            for prey_subscript in self.N0:
-                interaction_subscript = pred_subscript + prey_subscript
-                avgattack = self.avgattack[interaction_subscript]
-                eff = self.eff[interaction_subscript]
-                A = self.A[interaction_subscript]
-                theta = self.theta[interaction_subscript]
-                response += avgattack(m, n[int(prey_subscript)-1])*(eff*N[int(prey_subscript)-1]*(theta + n[int(prey_subscript)-1] - m))/(A)
-            return response
-
-        return pred_trait_response
-
     def give_params_prey_trait_response(self, prey_subscript):
         r = self.avg_prey_growth_rate[prey_subscript]
         phi = self.phi[prey_subscript]
@@ -590,6 +798,340 @@ class System:
 
         def prey_trait_response(M, m, N, n):
             response = ((phi - n)/B)*(1 - N/K)*r(n)
+            for pred_subscript in self.M0:
+                interaction_subscript = pred_subscript + prey_subscript
+                avgattack = self.avgattack[interaction_subscript]
+                A = self.A[interaction_subscript]
+                theta = self.theta[interaction_subscript]
+                response += avgattack(m[int(pred_subscript)-1], n)*(M[int(pred_subscript)-1]*(theta + n - m[int(pred_subscript)-1]))/(A)
+            return response
+
+        return prey_trait_response
+
+
+class VariableCapacitySystem:
+    def __init__(self, parameters, tf):
+        self.tf = tf
+        self.t = np.linspace(0, self.tf, 100000)
+
+        self.M0 = parameters["M0"]
+        self.m0 = parameters["m0"]
+        self.sigma = parameters["sigma"]
+        self.sigmaG = parameters["sigmaG"]
+        self.d = parameters["d"]
+        self.num_preds = len(self.M0)
+
+        self.N0 = parameters["N0"]
+        self.n0 = parameters["n0"]
+        self.beta = parameters["beta"]
+        self.betaG = parameters["betaG"]
+        self.num_preys = len(self.N0)
+
+        self.eff = parameters["eff"]
+        self.tau = parameters["tau"]
+        self.alpha = parameters["alpha"]
+        self.theta = parameters["theta"]
+
+        self.r = parameters["r"]
+        self.kappa = parameters["kappa"]
+        self.xi = parameters["xi"]
+        self.delta = parameters["delta"]
+
+        self.y0 = []
+        for i in xrange(0, self.num_preds):
+            self.y0.append(self.M0[str(i+1)])
+        for i in xrange(0, self.num_preys):
+            self.y0.append(self.N0[str(i+1)])
+        for i in xrange(0, self.num_preds):
+            self.y0.append(self.m0[str(i+1)])
+        for i in xrange(0, self.num_preys):
+            self.y0.append(self.n0[str(i+1)])
+
+        self.A = {}
+        for pred_subscript in self.M0:
+            for prey_subscript in self.N0:
+                interaction_subscript = pred_subscript + prey_subscript
+                self.A[interaction_subscript] = self.sigma[pred_subscript]**2 + self.beta[prey_subscript]**2 + self.tau[interaction_subscript]**2
+
+        self.C = {}
+        for prey_subscript in self.N0:
+            self.C[prey_subscript] = self.delta[prey_subscript]**2 - self.beta[prey_subscript]**2
+
+        self.avgattack = {}
+        for pred_subscript in self.M0:
+            for prey_subscript in self.N0:
+                interaction_subscript = pred_subscript + prey_subscript
+                self.avgattack[interaction_subscript] = give_params_avgattack(self, interaction_subscript)
+
+        self.avg_pred_fitness = {}
+        self.pred_trait_response = {}
+        for pred_subscript in self.M0:
+            self.avg_pred_fitness[pred_subscript] = give_params_avg_pred_fitness(self, pred_subscript)
+            self.pred_trait_response[pred_subscript] = give_params_pred_trait_response(self, pred_subscript)
+
+        self.avg_prey_fitness = {}
+        self.prey_trait_response = {}
+        self.capacity_tilde = {}
+        for prey_subscript in self.N0:
+            self.capacity_tilde[prey_subscript] = self.give_params_capacity_tilde(prey_subscript)
+            self.avg_prey_fitness[prey_subscript] = self.give_params_avg_prey_fitness(prey_subscript)
+            self.prey_trait_response[prey_subscript] = self.give_params_prey_trait_response(prey_subscript)
+
+        self.soln = odeint(self.f, self.y0, self.t)
+
+        self.M = {}
+        self.N = {}
+        self.m = {}
+        self.n = {}
+
+        for i in xrange(0, self.num_preds):
+            index = i
+            self.M[str(i+1)] = self.soln[:, index]
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds
+            self.N[str(i+1)] = self.soln[:, index]
+        for i in xrange(0, self.num_preds):
+            index = i + self.num_preds + self.num_preys
+            self.m[str(i+1)] = self.soln[:, index]
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds + self.num_preys + self.num_preds
+            self.n[str(i+1)] = self.soln[:, index]
+
+    def f(self, y, t):
+        M = [0] * self.num_preds
+        for i in xrange(0, self.num_preds):
+            index = i
+            M[i] = y[index]
+
+        N = [0] * self.num_preys
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds
+            N[i] = y[index]
+
+        m = [0] * self.num_preds
+        for i in xrange(0, self.num_preds):
+            index = i + self.num_preds + self.num_preys
+            m[i] = y[index]
+
+        n = [0] * self.num_preys
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds + self.num_preys + self.num_preds
+            n[i] = y[index]
+
+        f = [0] * 2*(self.num_preds + self.num_preys)
+        for i in xrange(0, self.num_preds):
+            index = i
+            f[index] = M[i]*self.avg_pred_fitness[str(i+1)](m[i], N, n)
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds
+            f[index] = N[i]*self.avg_prey_fitness[str(i+1)](M, m, N[i], n[i])
+        for i in xrange(0, self.num_preds):
+            index = i + self.num_preds + self.num_preys
+            f[index] = (self.sigmaG[str(i+1)]**2)*self.pred_trait_response[str(i+1)](N, m[i], n)
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds + self.num_preys + self.num_preds
+            f[index] = (self.betaG[str(i+1)]**2)*self.prey_trait_response[str(i+1)](M, m, N[i], n[i])
+
+        return f
+
+    def give_params_capacity_tilde(self, prey_subscript):
+        kappa = self.kappa[prey_subscript]
+        xi = self.xi[prey_subscript]
+        delta = self.delta[prey_subscript]
+        C = self.C[prey_subscript]
+
+        def capacity_tilde(n):
+            numerator = kappa*sqrt(C)
+            denominator = delta
+            exponent_num = -(n - xi)**2
+            exponent_denom = 2*C
+            return (numerator/denominator)*exp(exponent_num/exponent_denom)
+
+        return capacity_tilde
+
+    def give_params_avg_prey_fitness(self, prey_subscript):
+        r = self.r[prey_subscript]
+        K_tilde = self.capacity_tilde[prey_subscript]
+
+        def avg_prey_fitness(M, m, N, n):
+            fitness_sink = 0
+            for pred_subscript in self.M0:
+                interaction_subscript = pred_subscript + prey_subscript
+                avgattack = self.avgattack[interaction_subscript]
+                fitness_sink += avgattack(m[int(pred_subscript)-1], n)*M[int(pred_subscript)-1]
+            return r*(1 - (N/K_tilde(n))) - fitness_sink
+
+        return avg_prey_fitness
+
+    def give_params_prey_trait_response(self, prey_subscript):
+        r = self.r[prey_subscript]
+        xi = self.xi[prey_subscript]
+        C = self.C[prey_subscript]
+        K_tilde = self.capacity_tilde[prey_subscript]
+
+        def prey_trait_response(M, m, N, n):
+            response = (r*N*(xi - n))/(K_tilde(n)*C)
+            for pred_subscript in self.M0:
+                interaction_subscript = pred_subscript + prey_subscript
+                avgattack = self.avgattack[interaction_subscript]
+                A = self.A[interaction_subscript]
+                theta = self.theta[interaction_subscript]
+                response += avgattack(m[int(pred_subscript)-1], n)*(M[int(pred_subscript)-1]*(theta + n - m[int(pred_subscript)-1]))/(A)
+            return response
+
+        return prey_trait_response
+
+
+class NullSystem:
+    def __init__(self, parameters, tf):
+        self.tf = tf
+        self.t = np.linspace(0, self.tf, 100000)
+
+        self.M0 = parameters["M0"]
+        self.m0 = parameters["m0"]
+        self.sigma = parameters["sigma"]
+        self.sigmaG = parameters["sigmaG"]
+        self.d = parameters["d"]
+        self.num_preds = len(self.M0)
+
+        self.N0 = parameters["N0"]
+        self.n0 = parameters["n0"]
+        self.beta = parameters["beta"]
+        self.betaG = parameters["betaG"]
+        self.num_preys = len(self.N0)
+
+        self.eff = parameters["eff"]
+        self.tau = parameters["tau"]
+        self.alpha = parameters["alpha"]
+        self.theta = parameters["theta"]
+
+        self.r = parameters["r"]
+        self.K = parameters["K"]
+
+        self.y0 = []
+        for i in xrange(0, self.num_preds):
+            self.y0.append(self.M0[str(i+1)])
+        for i in xrange(0, self.num_preys):
+            self.y0.append(self.N0[str(i+1)])
+        for i in xrange(0, self.num_preds):
+            self.y0.append(self.m0[str(i+1)])
+        for i in xrange(0, self.num_preys):
+            self.y0.append(self.n0[str(i+1)])
+
+        self.A = {}
+        for pred_subscript in self.M0:
+            for prey_subscript in self.N0:
+                interaction_subscript = pred_subscript + prey_subscript
+                self.A[interaction_subscript] = self.sigma[pred_subscript]**2 + self.beta[prey_subscript]**2 + self.tau[interaction_subscript]**2
+
+        self.avgattack = {}
+        for pred_subscript in self.M0:
+            for prey_subscript in self.N0:
+                interaction_subscript = pred_subscript + prey_subscript
+                self.avgattack[interaction_subscript] = give_params_avgattack(self, interaction_subscript)
+
+        self.avg_pred_fitness = {}
+        self.pred_trait_response = {}
+        for pred_subscript in self.M0:
+            self.avg_pred_fitness[pred_subscript] = give_params_avg_pred_fitness(self, pred_subscript)
+            self.pred_trait_response[pred_subscript] = give_params_pred_trait_response(self, pred_subscript)
+
+        self.avg_prey_fitness = {}
+        self.prey_trait_response = {}
+        for prey_subscript in self.N0:
+            self.avg_prey_fitness[prey_subscript] = self.give_params_avg_prey_fitness(prey_subscript)
+            self.prey_trait_response[prey_subscript] = self.give_params_prey_trait_response(prey_subscript)
+
+        self.soln = odeint(self.f, self.y0, self.t)
+
+        self.M = {}
+        self.N = {}
+        self.m = {}
+        self.n = {}
+
+        for i in xrange(0, self.num_preds):
+            index = i
+            self.M[str(i+1)] = self.soln[:, index]
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds
+            self.N[str(i+1)] = self.soln[:, index]
+        for i in xrange(0, self.num_preds):
+            index = i + self.num_preds + self.num_preys
+            self.m[str(i+1)] = self.soln[:, index]
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds + self.num_preys + self.num_preds
+            self.n[str(i+1)] = self.soln[:, index]
+
+    def f(self, y, t):
+        M = [0] * self.num_preds
+        for i in xrange(0, self.num_preds):
+            index = i
+            M[i] = y[index]
+
+        N = [0] * self.num_preys
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds
+            N[i] = y[index]
+
+        m = [0] * self.num_preds
+        for i in xrange(0, self.num_preds):
+            index = i + self.num_preds + self.num_preys
+            m[i] = y[index]
+
+        n = [0] * self.num_preys
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds + self.num_preys + self.num_preds
+            n[i] = y[index]
+
+        f = [0] * 2*(self.num_preds + self.num_preys)
+        for i in xrange(0, self.num_preds):
+            index = i
+            f[index] = M[i]*self.avg_pred_fitness[str(i+1)](m[i], N, n)
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds
+            f[index] = N[i]*self.avg_prey_fitness[str(i+1)](M, m, N[i], n[i])
+        for i in xrange(0, self.num_preds):
+            index = i + self.num_preds + self.num_preys
+            f[index] = (self.sigmaG[str(i+1)]**2)*self.pred_trait_response[str(i+1)](N, m[i], n)
+        for i in xrange(0, self.num_preys):
+            index = i + self.num_preds + self.num_preys + self.num_preds
+            f[index] = (self.betaG[str(i+1)]**2)*self.prey_trait_response[str(i+1)](M, m, N[i], n[i])
+
+        return f
+
+    def give_params_capacity_tilde(self, prey_subscript):
+        kappa = self.kappa[prey_subscript]
+        xi = self.xi[prey_subscript]
+        delta = self.delta[prey_subscript]
+        C = self.C[prey_subscript]
+
+        def capacity_tilde(n):
+            numerator = kappa*sqrt(C)
+            denominator = delta
+            exponent_num = -(n - xi)**2
+            exponent_denom = 2*C
+            return (numerator/denominator)*exp(exponent_num/exponent_denom)
+
+        return capacity_tilde
+
+    def give_params_avg_prey_fitness(self, prey_subscript):
+        r = self.r[prey_subscript]
+        K = self.K[prey_subscript]
+
+        def avg_prey_fitness(M, m, N, n):
+            fitness_sink = 0
+            for pred_subscript in self.M0:
+                interaction_subscript = pred_subscript + prey_subscript
+                avgattack = self.avgattack[interaction_subscript]
+                fitness_sink += avgattack(m[int(pred_subscript)-1], n)*M[int(pred_subscript)-1]
+            return r*(1 - (N/K)) - fitness_sink
+
+        return avg_prey_fitness
+
+    def give_params_prey_trait_response(self, prey_subscript):
+
+        def prey_trait_response(M, m, N, n):
+            response = 0
             for pred_subscript in self.M0:
                 interaction_subscript = pred_subscript + prey_subscript
                 avgattack = self.avgattack[interaction_subscript]
@@ -621,6 +1163,7 @@ def get_system_model(set_):
         capacity = "constant"
     else:
         raise ValueError
+
     return (growth, capacity)
 
 
@@ -667,7 +1210,7 @@ def save_OUT_and_ERR(OUT, ERR, current_directory):
 
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
-    parser.add_argument("dimension")
+    parser.add_argument("config")
     parser.add_argument("-k", "--keep-orignial-images", action="store_true", dest="keep_original_images", default=False, help=K_OPTION_HELP)
     parser.add_argument("-n", "--no-combine", action="store_false", dest="combine", default=True, help=C_OPTION_HELP)
     parser.add_argument("-p", "--no-parameters", action="store_false", dest="display_parameters", default=True, help=P_OPTION_HELP)
@@ -723,7 +1266,8 @@ def plot_phase_planes(current_directory, step, system, text, args, time, dimensi
 
 def plot_graphs(current_directory, step, system, text, args, time, dimension):
     plot_time_graphs(current_directory, step, system, text, args, time, dimension)
-    plot_phase_planes(current_directory, step, system, text, args, time, dimension)
+    if dimension in SUPPORTED_DIMENSIONS:
+        plot_phase_planes(current_directory, step, system, text, args, time, dimension)
 
 
 def main():
@@ -731,8 +1275,7 @@ def main():
 
     SET_TRAIT_GRAPH_LIMITS(args)
 
-    config_file = "%s/bin/config/%s_config.json" % (DIRECTORY, args.dimension)
-    data = json.loads(open(config_file).read())
+    data = json.loads(open(args.config).read())
 
     for set_ in data["system_parameters"]:
         now = datetime.now()
@@ -740,7 +1283,16 @@ def main():
         dimension = get_system_dimension(set_)
         (growth, capacity) = get_system_model(set_)
 
-        current_directory = "%s/graphs/%s/%s" % (DIRECTORY, dimension, date_time_stamp)
+        if growth == "variable" and capacity == "variable":
+            system_type = "full_system"
+        elif growth == "variable" and capacity == "constant":
+            system_type = "variable_growth"
+        elif growth == "constant" and capacity == "variable":
+            system_type = "variable_capacity"
+        elif growth == "constant" and capacity == "constant":
+            system_type = "null_system"
+
+        current_directory = "%s/graphs/%s/%s/%s" % (DIRECTORY, system_type, dimension, date_time_stamp)
         os.system("mkdir -p %s" % current_directory)
 
         relevant_data_file = "%s/relevant_data.json" % current_directory
@@ -777,13 +1329,13 @@ def main():
         if growth == "variable":
             config_descriptions_to_variables["rho"] = set_["prey"]["max_growth_rates"]
             config_descriptions_to_variables["phi"] = set_["prey"]["optimum_growth_rate_trait_values"]
-            config_descriptions_to_variables["gamma"] = set_["prey"]["growth_rate_stabilizing_selection_variance"]
+            config_descriptions_to_variables["gamma"] = set_["prey"]["growth_rate_stabilizing_selection_variances"]
         elif growth == "constant":
             config_descriptions_to_variables["r"] = set_["prey"]["intrinsic_growth_rates"]
         if capacity == "variable":
             config_descriptions_to_variables["kappa"] = set_["prey"]["max_carrying_capacities"]
             config_descriptions_to_variables["xi"] = set_["prey"]["optimum_carrying_capacity_trait_values"]
-            config_descriptions_to_variables["delta"] = set_["prey"]["carrying_capacity_stabilizing_selection_variance"]
+            config_descriptions_to_variables["delta"] = set_["prey"]["carrying_capacity_stabilizing_selection_variances"]
         elif capacity == "constant":
             config_descriptions_to_variables["K"] = set_["prey"]["carrying_capacities"]
 
@@ -820,19 +1372,14 @@ def main():
                 for subscript, parameter_range in dict_.iteritems():
                     parameters[variable][subscript] = parameter_range["start"] + (step*parameter_range["step"])
 
-
-
-
-
-
-            ###### THIS NEEDS TO BE FIXED ######
-            system = System(parameters, tf)
-            ###### THIS NEEDS TO BE FIXED ######
-
-
-
-
-
+            if system_type == "full_system":
+                system = FullSystem(parameters, tf)
+            elif system_type == "variable_growth":
+                system = VariableGrowthSystem(parameters, tf)
+            elif system_type == "variable_capacity":
+                system = VariableCapacitySystem(parameters, tf)
+            elif system_type == "null_system":
+                system = NullSystem(parameters, tf)
 
             ### Get parameters in text format for the graphs
             text = []
@@ -849,11 +1396,9 @@ def main():
             combined_time_graphs = "%s/combined_time_graphs_%.3d.png" % (current_directory, step)
             combined_phase_planes = "%s/combined_phase_planes_%.3d.png" % (current_directory, step)
             output = "%s/output_%.3d.png" % (current_directory, step)
-            if args.combine:
+            if args.combine and dimension in SUPPORTED_DIMENSIONS:
                 combine_images(combined_time_graphs, combined_phase_planes, output, args.keep_original_images, IMAGEMAGICK_ON_TOP_COMMAND)
 
-        print TOT_TIME_MESSAGE % (time)
-        print AVG_TIME_MESSAGE % (time/number_of_graphs)
         print date_time_stamp
         print "\a\a\a"
 
