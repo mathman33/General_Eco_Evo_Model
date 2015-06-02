@@ -1,18 +1,18 @@
 {
     "system_parameters": [
         {
-            "final_time": 500, 
+            "final_time": 20000, 
             "interaction_parameters": {
                 "efficiencies": {
                     "11": {
-                        "start": 0.05, 
-                        "stop": 0.05
+                        "start": 0.5, 
+                        "stop": 0.5
                     }
                 }, 
                 "max_attack_rates": {
                     "11": {
                         "start": 0.05, 
-                        "stop": 0.05
+                        "stop": 0.25
                     }
                 }, 
                 "optimal_trait_differences": {
@@ -23,8 +23,8 @@
                 }, 
                 "specialization": {
                     "11": {
-                        "start": 0.05, 
-                        "stop": 0.05
+                        "start": 0.1, 
+                        "stop": 0.1
                     }
                 }
             }, 
@@ -32,28 +32,28 @@
                 "death_rates": {
                     "1": {
                         "start": 0.05, 
-                        "stop": 0.1
+                        "stop": 0.05
                     }
                 }, 
                 "initial_values": {
                     "densities": {
                         "1": {
-                            "start": 100.0, 
-                            "stop": 100.0
+                            "start": 40.0, 
+                            "stop": 40.0
                         }
                     }, 
                     "traits": {
                         "1": {
-                            "start": 1.1, 
-                            "stop": 1.1
+                            "start": 0.0, 
+                            "stop": 0.0
                         }
                     }
                 }, 
                 "trait_variances": {
                     "genetic": {
                         "1": {
-                            "start": 0.1, 
-                            "stop": 0.1
+                            "start": 0.18, 
+                            "stop": 0.18
                         }
                     }, 
                     "total": {
@@ -73,8 +73,8 @@
                 }, 
                 "carrying_capacity_stabilizing_selection_variances": {
                     "1": {
-                        "start": 0.3, 
-                        "stop": 0.3
+                        "start": 1.0, 
+                        "stop": 1.0
                     }
                 }, 
                 "initial_values": {
@@ -86,15 +86,15 @@
                     }, 
                     "traits": {
                         "1": {
-                            "start": 1.0, 
-                            "stop": 1.0
+                            "start": 0.7, 
+                            "stop": 0.7
                         }
                     }
                 }, 
                 "intrinsic_growth_rates": {
                     "1": {
-                        "start": 0.5, 
-                        "stop": 0.5
+                        "start": 0.2, 
+                        "stop": 0.2
                     }
                 }, 
                 "optimum_carrying_capacity_trait_values": {
@@ -118,7 +118,7 @@
                     }
                 }
             }, 
-            "steps": 5
+            "steps": 20
         }
     ]
 }

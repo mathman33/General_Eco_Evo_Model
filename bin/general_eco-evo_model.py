@@ -39,10 +39,10 @@ enables the -k/--keep-orignial-images option."""
 P_OPTION_HELP = """\
 No parameter values are printed on the graphs."""
 LOWER_LIMIT_HELP = """
-Define lowest y-value on the trait graph.  Default is -10.
+Define lowest y-value on the trait graph.  Default is -5.
 """
 UPPER_LIMIT_HELP = """
-Define highest y-value on the trait graph.  Default is 10.
+Define highest y-value on the trait graph.  Default is 5.
 """
 GRAPH_SAVED = """
 GRAPH SAVED
@@ -1099,21 +1099,6 @@ class NullSystem:
 
         return f
 
-    def give_params_capacity_tilde(self, prey_subscript):
-        kappa = self.kappa[prey_subscript]
-        xi = self.xi[prey_subscript]
-        delta = self.delta[prey_subscript]
-        C = self.C[prey_subscript]
-
-        def capacity_tilde(n):
-            numerator = kappa*sqrt(C)
-            denominator = delta
-            exponent_num = -(n - xi)**2
-            exponent_denom = 2*C
-            return (numerator/denominator)*exp(exponent_num/exponent_denom)
-
-        return capacity_tilde
-
     def give_params_avg_prey_fitness(self, prey_subscript):
         r = self.r[prey_subscript]
         K = self.K[prey_subscript]
@@ -1171,7 +1156,7 @@ def SET_TRAIT_GRAPH_LIMITS(args):
     global LOWER_LIMIT
     global UPPER_LIMIT
 
-    default_limit = 10
+    default_limit = 5
 
     if not args.trait_graph_lower_limit and not args.trait_graph_upper_limit:
         LOWER_LIMIT = -default_limit
@@ -1181,13 +1166,13 @@ def SET_TRAIT_GRAPH_LIMITS(args):
         if LOWER_LIMIT < default_limit:
             UPPER_LIMIT = default_limit
         else:
-            UPPER_LIMIT = 10 + LOWER_LIMIT
+            UPPER_LIMIT = 2*default_limit + LOWER_LIMIT
     elif not args.trait_graph_lower_limit and args.trait_graph_upper_limit:
         UPPER_LIMIT = args.trait_graph_upper_limit
         if UPPER_LIMIT > -default_limit:
             LOWER_LIMIT = -default_limit
         else:
-            LOWER_LIMIT = UPPER_LIMIT - 10
+            LOWER_LIMIT = UPPER_LIMIT - 2*default_limit
     else:
         if args.trait_graph_upper_limit > args.trait_graph_lower_limit:
             LOWER_LIMIT = args.trait_graph_lower_limit
