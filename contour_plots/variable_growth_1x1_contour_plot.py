@@ -84,7 +84,7 @@ def main():
     date_time_stamp = NOW.strftime(DATE_TIME_DIRECTORY_FORMAT)
 
     cwd = os.path.dirname(os.path.realpath(__file__))
-    data_file = "data.json"
+    data_file = "variable_growth_1x1_data.json"
     data = json.loads(open(os.path.join(cwd, data_file)).read())
 
     (coexistence_stability_check, exclusion_stability_check) = make_stability_checks(data)
@@ -117,7 +117,7 @@ def main():
         os.system("mkdir %s" % plots)
 
     for type_ in ["coexistence", "exclusion"]:
-        direc = os.path.join(plots_dir, type_)
+        direc = os.path.join(plots_dir, type_, "variable_growth")
         if not os.path.isdir(direc):
             os.system("mkdir %s" % direc)
 
@@ -138,7 +138,7 @@ def main():
         plt.title(Title, fontsize=20)
 
         file_name = "%s_%s_%s.png" % (x_var, y_var, date_time_stamp)
-        file_path = os.path.join(plots, type_, file_name)
+        file_path = os.path.join(plots, type_, "variable_growth", file_name)
         save_location = os.path.join(direc, file_name)
         try:
             plt.savefig(save_location, format="png")

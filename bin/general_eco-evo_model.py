@@ -98,10 +98,10 @@ def remove_command(*items):
     return command
 
 
-def plot_densities(system, densities_file, text, display_parameters):
+def plot_densities(system, densities_file, text, args):
     plt.figure()
 
-    if display_parameters:
+    if args.display_parameters:
         plt.axes([0.20, 0.1, 0.75, 0.8], axisbg="white", frameon=True)
 
     limit = 1.1*max([max(system.M[value]) for value in system.M] + [max(system.N[value]) for value in system.N])
@@ -110,7 +110,7 @@ def plot_densities(system, densities_file, text, display_parameters):
     plt.xlabel('Time')
     plt.ylabel('Population Density')
 
-    if display_parameters:
+    if args.display_parameters:
         for index, text_line in enumerate(text):
             plt.text(-.25*system.tf, limit*(1-(.05*index)), text_line)
 
@@ -1157,6 +1157,11 @@ def SET_TRAIT_GRAPH_LIMITS(args):
     global UPPER_LIMIT
 
     default_limit = 5
+
+    if args.trait_graph_lower_limit == 0.0:
+        args.trait_graph_lower_limit = -0.000001
+    if args.trait_graph_upper_limit == 0.0:
+        args.trait_graph_upper_limit = 0.000001
 
     if not args.trait_graph_lower_limit and not args.trait_graph_upper_limit:
         LOWER_LIMIT = -default_limit
