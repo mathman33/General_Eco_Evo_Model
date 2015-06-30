@@ -14,6 +14,8 @@ from time import sleep
 from subprocess import Popen, PIPE
 from datetime import datetime
 
+LINESTYLES = ['-', '--', ':', '_']
+
 AVG_TIME_PER_GRAPH = 0.583
 SUPPORTED_DIMENSIONS = ["1x1", "1x2", "2x1"]
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -30,10 +32,12 @@ TOT_TIME_MESSAGE = "total time taken: %.03f seconds"
 NO_STABILITY_CHECK = """
 NO STABILITY CHECK FILE EXISTS --- NO ANALYSIS WILL BE DONE
 """
+F_OPTION_HELP = """\
+Final values are displayed on the time graphs."""
 K_OPTION_HELP = """\
 Individual Density and Trait graphs are not deleted after being combined into a single .png
 through ImageMagick.  This option is automatically enabled if -c/--no-combine is specified."""
-C_OPTION_HELP = """\
+N_OPTION_HELP = """\
 ImageMagick is not called, and no combination .png's are created.  This option automatically
 enables the -k/--keep-orignial-images option."""
 P_OPTION_HELP = """\
@@ -114,10 +118,18 @@ def plot_densities(system, densities_file, text, args):
         for index, text_line in enumerate(text):
             plt.text(-.25*system.tf, limit*(1-(.05*index)), text_line)
 
+    LINESTYLE_NO = 0
+
     for i, value in enumerate(system.M):
-        plt.plot(system.t, system.M[value], label="Predator %d Density" % (i+1), lw=2)
+        plt.plot(system.t, system.M[value], LINESTYLES[LINESTYLE_NO], label="Predator %d Density" % (i+1), lw=2)
+        if args.final_values:
+            plt.text(system.t[-1], system.M[value][-1], "%.3f" % system.M[value][-1])
+        LINESTYLE_NO += 1
     for i, value in enumerate(system.N):
-        plt.plot(system.t, system.N[value], label="Prey %d Density" % (i+1), lw=2)
+        plt.plot(system.t, system.N[value], LINESTYLES[LINESTYLE_NO], label="Prey %d Density" % (i+1), lw=2)
+        if args.final_values:
+            plt.text(system.t[-1], system.N[value][-1], "%.3f" % system.N[value][-1])
+        LINESTYLE_NO += 1
 
     plt.legend(loc=0)
 
@@ -141,10 +153,18 @@ def plot_traits(system, traits_file, text, args):
         for index, text_line in enumerate(text):
             plt.text(-.25*system.tf, UPPER_LIMIT*(1-(.05*index)), text_line)
 
+    LINESTYLE_NO = 0
+
     for i, value in enumerate(system.m):
-        plt.plot(system.t, system.m[value], label="Predator %d Character" % (i+1), lw=2)
+        plt.plot(system.t, system.m[value], LINESTYLES[LINESTYLE_NO], label="Predator %d Character" % (i+1), lw=2)
+        if args.final_values:
+            plt.text(system.t[-1], system.m[value][-1], "%.3f" % system.m[value][-1])
+        LINESTYLE_NO += 1
     for i, value in enumerate(system.n):
-        plt.plot(system.t, system.n[value], label="Prey %d Character" % (i+1), lw=2)
+        plt.plot(system.t, system.n[value], LINESTYLES[LINESTYLE_NO], label="Prey %d Character" % (i+1), lw=2)
+        if args.final_values:
+            plt.text(system.t[-1], system.n[value][-1], "%.3f" % system.n[value][-1])
+        LINESTYLE_NO += 1
 
     plt.legend(loc=0)
 
@@ -1201,11 +1221,12 @@ def save_OUT_and_ERR(OUT, ERR, current_directory):
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
     parser.add_argument("config")
+    parser.add_argument("-f", "--final-values", action="store_true", dest="final_values", default=False, help=F_OPTION_HELP)
     parser.add_argument("-k", "--keep-orignial-images", action="store_true", dest="keep_original_images", default=False, help=K_OPTION_HELP)
-    parser.add_argument("-n", "--no-combine", action="store_false", dest="combine", default=True, help=C_OPTION_HELP)
+    parser.add_argument("-n", "--no-combine", action="store_false", dest="combine", default=True, help=N_OPTION_HELP)
     parser.add_argument("-p", "--no-parameters", action="store_false", dest="display_parameters", default=True, help=P_OPTION_HELP)
-    parser.add_argument("--lower-limit", dest="trait_graph_lower_limit", type=float, help=LOWER_LIMIT_HELP)
-    parser.add_argument("--upper-limit", dest="trait_graph_upper_limit", type=float, help=UPPER_LIMIT_HELP)
+    parser.add_argument("-l", "--lower-limit", dest="trait_graph_lower_limit", type=float, help=LOWER_LIMIT_HELP)
+    parser.add_argument("-u", "--upper-limit", dest="trait_graph_upper_limit", type=float, help=UPPER_LIMIT_HELP)
     return parser.parse_args()
 
 
