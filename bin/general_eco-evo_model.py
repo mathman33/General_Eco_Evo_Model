@@ -42,6 +42,8 @@ ImageMagick is not called, and no combination .png's are created.  This option a
 enables the -k/--keep-orignial-images option."""
 P_OPTION_HELP = """\
 No parameter values are printed on the graphs."""
+L_OPTION_HELP = """\
+No legends are included on the graphs."""
 LOWER_LIMIT_HELP = """
 Define lowest y-value on the trait graph.  Default is -5.
 """
@@ -131,7 +133,8 @@ def plot_densities(system, densities_file, text, args):
             plt.text(system.t[-1]*1.01, system.N[value][-1], "%.3f" % system.N[value][-1])
         LINESTYLE_NO += 1
 
-    plt.legend(loc=0)
+    if args.legend:
+        plt.legend(loc=0)
 
     plt.savefig(densities_file, format='png')
     plt.close()
@@ -166,7 +169,8 @@ def plot_traits(system, traits_file, text, args):
             plt.text(system.t[-1]*1.01, system.n[value][-1], "%.3f" % system.n[value][-1])
         LINESTYLE_NO += 1
 
-    plt.legend(loc=0)
+    if args.legend:
+        plt.legend(loc=0)
 
     plt.savefig(traits_file, format='png')
     plt.close()
@@ -196,7 +200,9 @@ def plot_1x1_densities_phase_plane(system, phase_plane_file, text, args):
     plt.plot(system.M["1"], system.N["1"], lw=1)
     plt.plot(system.M["1"][0], system.N["1"][0], 'gD', label="TIME=0.0")
     plt.plot(system.M["1"][-1], system.N["1"][-1], 'rD', label="TIME=%.1f" % system.tf)
-    plt.legend(loc=0)
+    
+    if args.legend:
+        plt.legend(loc=0)
 
     plt.savefig(phase_plane_file, format='png')
     plt.close()
@@ -297,7 +303,9 @@ def plot_1x1_traits_phase_plane(system, phase_plane_file, text, args):
     plt.plot(system.m["1"], system.n["1"], lw=1)
     plt.plot(system.m["1"][0], system.n["1"][0], 'gD', label="TIME=0.0")
     plt.plot(system.m["1"][-1], system.n["1"][-1], 'rD', label="TIME=%.1f" % system.tf)
-    plt.legend(loc=0)
+    
+    if args.legend:
+        plt.legend(loc=0)
 
     plt.savefig(phase_plane_file, format='png')
     plt.close()
@@ -1225,6 +1233,7 @@ def PARSE_ARGS():
     parser.add_argument("-k", "--keep-orignial-images", action="store_true", dest="keep_original_images", default=False, help=K_OPTION_HELP)
     parser.add_argument("-n", "--no-combine", action="store_false", dest="combine", default=True, help=N_OPTION_HELP)
     parser.add_argument("-p", "--no-parameters", action="store_false", dest="display_parameters", default=True, help=P_OPTION_HELP)
+    parser.add_argument("-L", "--no-legend", action="store_false", dest="legend", default=True, help=L_OPTION_HELP)
     parser.add_argument("-l", "--lower-limit", dest="trait_graph_lower_limit", type=float, help=LOWER_LIMIT_HELP)
     parser.add_argument("-u", "--upper-limit", dest="trait_graph_upper_limit", type=float, help=UPPER_LIMIT_HELP)
     return parser.parse_args()
