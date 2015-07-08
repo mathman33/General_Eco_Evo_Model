@@ -123,12 +123,12 @@ def plot_densities(system, densities_file, text, args):
     for i, value in enumerate(system.M):
         plt.plot(system.t, system.M[value], LINESTYLES[LINESTYLE_NO], label="Predator %d Density" % (i+1), lw=2)
         if args.final_values:
-            plt.text(system.t[-1], system.M[value][-1], "%.3f" % system.M[value][-1])
+            plt.text(system.t[-1]*1.01, system.M[value][-1], "%.3f" % system.M[value][-1])
         LINESTYLE_NO += 1
     for i, value in enumerate(system.N):
         plt.plot(system.t, system.N[value], LINESTYLES[LINESTYLE_NO], label="Prey %d Density" % (i+1), lw=2)
         if args.final_values:
-            plt.text(system.t[-1], system.N[value][-1], "%.3f" % system.N[value][-1])
+            plt.text(system.t[-1]*1.01, system.N[value][-1], "%.3f" % system.N[value][-1])
         LINESTYLE_NO += 1
 
     plt.legend(loc=0)
@@ -158,12 +158,12 @@ def plot_traits(system, traits_file, text, args):
     for i, value in enumerate(system.m):
         plt.plot(system.t, system.m[value], LINESTYLES[LINESTYLE_NO], label="Predator %d Character" % (i+1), lw=2)
         if args.final_values:
-            plt.text(system.t[-1], system.m[value][-1], "%.3f" % system.m[value][-1])
+            plt.text(system.t[-1]*1.01, system.m[value][-1], "%.3f" % system.m[value][-1])
         LINESTYLE_NO += 1
     for i, value in enumerate(system.n):
         plt.plot(system.t, system.n[value], LINESTYLES[LINESTYLE_NO], label="Prey %d Character" % (i+1), lw=2)
         if args.final_values:
-            plt.text(system.t[-1], system.n[value][-1], "%.3f" % system.n[value][-1])
+            plt.text(system.t[-1]*1.01, system.n[value][-1], "%.3f" % system.n[value][-1])
         LINESTYLE_NO += 1
 
     plt.legend(loc=0)
