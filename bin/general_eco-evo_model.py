@@ -200,7 +200,7 @@ def plot_1x1_densities_phase_plane(system, phase_plane_file, text, args):
     plt.plot(system.M["1"], system.N["1"], lw=1)
     plt.plot(system.M["1"][0], system.N["1"][0], 'gD', label="TIME=0.0")
     plt.plot(system.M["1"][-1], system.N["1"][-1], 'rD', label="TIME=%.1f" % system.tf)
-    
+
     if args.legend:
         plt.legend(loc=0)
 
@@ -303,7 +303,7 @@ def plot_1x1_traits_phase_plane(system, phase_plane_file, text, args):
     plt.plot(system.m["1"], system.n["1"], lw=1)
     plt.plot(system.m["1"][0], system.n["1"][0], 'gD', label="TIME=0.0")
     plt.plot(system.m["1"][-1], system.n["1"][-1], 'rD', label="TIME=%.1f" % system.tf)
-    
+
     if args.legend:
         plt.legend(loc=0)
 
