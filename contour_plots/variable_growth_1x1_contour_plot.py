@@ -73,9 +73,14 @@ def make_title(data):
 
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-c", dest="contour_line_delta", type=float, default=0.5)
-    parser.add_argument("-r", dest="contour_range", type=float, nargs=2, default=[-1., 1.])
-    parser.add_argument("-p", dest="print_parameters", action="store_true", default=False)
+    parser.add_argument("-c", dest="contour_line_delta", type=float, default=0.5, help="""
+Difference in contours when used without any flags or with the -r option.""")
+    parser.add_argument("-r", dest="contour_range", type=float, nargs=2, default=[-1., 1.], help="""
+Two arguments: first is the lowest contour, second is the greatest.""")
+    parser.add_argument("-p", dest="print_parameters", action="store_true", default=False, help="""
+Print the parameters in the title""")
+    parser.add_argument("-e", "--explicit-contours", dest="explicit", type=float, nargs="+", help="""
+Pass in explicit contours for the plot rather than defaulting to evenly-spaced.""")
     return parser.parse_args()
 
 
@@ -133,11 +138,15 @@ def main():
             warning = True
             constant_value = float(Z[type_])
             Z[type_] = np.asarray([[float(Z[type_])]*mesh_refinement]*mesh_refinement)
-        CS = plt.contour(X, Y, Z[type_], np.arange(min(args.contour_range), max(args.contour_range), args.contour_line_delta), cmap=cm.RdBu)
+        if args.explicit:
+            CS = plt.contour(X, Y, Z[type_], args.explicit, colors="k")
+        else:
+            CS = plt.contour(X, Y, Z[type_], np.arange(min(args.contour_range), max(args.contour_range), args.contour_line_delta), colors="k")
         plt.clabel(CS, inline=1, fontsize=10)
 
-        Title = make_title(data)
-        plt.title(Title, fontsize=15)
+        if args.print_parameters:
+            Title = make_title(data)
+            plt.title(Title, fontsize=15)
 
         file_name = "%s_%s_%s.png" % (x_var, y_var, date_time_stamp)
         file_path = os.path.join(plots, type_, "variable_growth", file_name)
