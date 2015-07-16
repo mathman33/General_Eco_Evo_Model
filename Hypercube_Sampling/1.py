@@ -14,6 +14,9 @@ from time import sleep
 RATIO_OPTION_HELP = """
 Use division and a comparison against 1, rather than subtraction and a comparison against 0.
 """
+KEEP_OPTION_HELP = """
+Keep all individual images.  Do not remove them after combining.
+"""
 
 PLAIN_TO_LATEX = {
     "sigma_G": r"$\sigma_G$",
@@ -48,6 +51,7 @@ def f_1_RATIO(sigma_G, beta_G, d, r, sigma, beta, alpha, tau, e, K):
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
     parser.add_argument("--RATIO", action="store_true", dest="RATIO", default=False, help=RATIO_OPTION_HELP)
+    parser.add_argument("--KEEP", action="store_true", dest="KEEP", default=False, help=KEEP_OPTION_HELP)
     return parser.parse_args()
 
 
@@ -115,6 +119,8 @@ def main():
 
     print "Statistical Values Computed"
 
+    directory = "Figures_Model_1"
+    os.system("mkdir %s" % directory)
     for key, values in hyper_cube_sample.iteritems():
         plt.figure()
         plt.scatter(values, function_values, color="brown")
@@ -126,7 +132,7 @@ def main():
         else:
             plt.axhline(0)
         plt.title(PLAIN_TO_LATEX[key] + " --- SPEARMAN: %.6f" % statistical_values[key]["SPEARMAN"] + " --- P-VALUE: %.6f" % statistical_values[key]["P_VALUE"])
-        plt.savefig(key+".png", format="png", dpi=200)
+        plt.savefig(directory + "/" + key+".png", format="png", dpi=200)
         plt.close()
 
     print "Parameter Graphs Built"
@@ -144,7 +150,7 @@ def main():
     pylab.yticks(pos, LATEX_PARAMETER_LIST, fontsize=20)
     pylab.xlabel('Spearman Constant', fontsize=20)
     pylab.ylabel("Parameter", fontsize=20)
-    pylab.savefig("bar_plot.png", format="png", dpi=200)
+    pylab.savefig(directory + "/bar_plot.png", format="png", dpi=200)
     pylab.close()
 
     print "Bar Graph Built"
@@ -155,22 +161,23 @@ def main():
     frame.axes.get_xaxis().set_ticks([])
     frame.axes.get_yaxis().set_ticks([])
     plt.text(0.25, 0.5, "MODEL 1", fontsize=50)
-    plt.savefig("TITLE_1.png", format="png", dpi=200)
+    plt.savefig(directory + "/TITLE_1.png", format="png", dpi=200)
     plt.close()
 
     print "Title Page Built"
 
-    os.system("convert sigma_G.png beta_G.png d.png bar_plot.png +append output1.png")
-    os.system("convert r.png sigma.png beta.png K.png +append output2.png")
-    os.system("convert alpha.png tau.png e.png TITLE_1.png +append output3.png")
-    FILENAME = "Sensitivity_Analysis_Model_1"
+    os.system("convert %s/sigma_G.png %s/beta_G.png %s/d.png %s/bar_plot.png +append %s/output1.png" % tuple([directory]*5))
+    os.system("convert %s/r.png %s/sigma.png %s/beta.png %s/K.png +append %s/output2.png" % tuple([directory]*5))
+    os.system("convert %s/alpha.png %s/tau.png %s/e.png %s/TITLE_1.png +append %s/output3.png" % tuple([directory]*5))
+    FILENAME = "/Sensitivity_Analysis_Model_1"
     if args.RATIO:
         FILENAME += "_RATIO"
     FILENAME += ".png"
-    os.system("convert output1.png output2.png output3.png -append %s" % FILENAME)
+    os.system("convert %s/output1.png %s/output2.png %s/output3.png -append %s/%s" % tuple([directory]*4 + [FILENAME]))
     sleep(1)
-    for param in parameter_list + ["output1", "output2", "output3", "bar_plot", "TITLE_1"]:
-        os.system("rm %s.png" % param)
+    if not args.KEEP:
+        for param in parameter_list + ["output1", "output2", "output3", "bar_plot", "TITLE_1"]:
+            os.system("rm %s/%s.png" % (directory, param))
 
     print "Graphs Merged"
     print "\n\nCOMPLETE\n\n"

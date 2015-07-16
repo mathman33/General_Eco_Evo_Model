@@ -14,6 +14,9 @@ from time import sleep
 RATIO_OPTION_HELP = """
 Use division and a comparison against 1, rather than subtraction and a comparison against 0.
 """
+KEEP_OPTION_HELP = """
+Keep all individual images.  Do not remove them after combining.
+"""
 
 VERTICAL_RATIO = {
     "ratio": r"$\frac{\sigma_G}{\beta_G}$",
@@ -49,7 +52,7 @@ def f_3(ratio, d, kappa, delta, sigma, beta, alpha, tau, e, r):
     max_a = (alpha*tau)/(math.sqrt(A))
     N = (d)/(e*max_a)
 
-    return ratio**2/((r/d)*(1 - (N/max_K)*(1 + A/C)))
+    return ratio**2 - (r/d)*(1 - (N/max_K)*(1 + A/C))
 
 
 def f_3_RATIO(ratio, d, kappa, delta, sigma, beta, alpha, tau, e, r):
@@ -59,12 +62,13 @@ def f_3_RATIO(ratio, d, kappa, delta, sigma, beta, alpha, tau, e, r):
     max_a = (alpha*tau)/(math.sqrt(A))
     N = (d)/(e*max_a)
 
-    return ratio**2 - (r/d)*(1 - (N/max_K)*(1 + A/C))
+    return ratio**2/((r/d)*(1 - (N/max_K)*(1 + A/C)))
 
 
 def PARSE_ARGS():
     parser = argparse.ArgumentParser()
     parser.add_argument("--RATIO", action="store_true", dest="RATIO", default=False, help=RATIO_OPTION_HELP)
+    parser.add_argument("--KEEP", action="store_true", dest="KEEP", default=False, help=KEEP_OPTION_HELP)
     return parser.parse_args()
 
 
@@ -132,6 +136,8 @@ def main():
 
     print "Statistical Values Computed"
 
+    directory = "Figures_Model_3"
+    os.system("mkdir %s" % directory)
     for key, values in hyper_cube_sample.iteritems():
         plt.figure()
         plt.scatter(values, function_values, color="brown")
@@ -143,7 +149,7 @@ def main():
         else:
             plt.axhline(0)
         plt.title(PLAIN_TO_LATEX[key] + " --- SPEARMAN: %.6f" % statistical_values[key]["SPEARMAN"] + " --- P-VALUE: %.6f" % statistical_values[key]["P_VALUE"])
-        plt.savefig(key+".png", format="png", dpi=200)
+        plt.savefig(directory + "/" + key+".png", format="png", dpi=200)
         plt.close()
 
     print "Parameter Graphs Built"
@@ -161,7 +167,7 @@ def main():
     pylab.yticks(pos, LATEX_PARAMETER_LIST, fontsize=20)
     pylab.xlabel('Spearman Constant', fontsize=20)
     pylab.ylabel("Parameter", fontsize=20)
-    pylab.savefig("bar_plot.png", format="png", dpi=200)
+    pylab.savefig(directory + "/bar_plot.png", format="png", dpi=200)
     pylab.close()
 
     print "Bar Graph Built"
@@ -172,24 +178,25 @@ def main():
     frame.axes.get_xaxis().set_ticks([])
     frame.axes.get_yaxis().set_ticks([])
     plt.text(0.25, 0.5, "MODEL 3", fontsize=50)
-    plt.savefig("TITLE_3.png", format="png", dpi=200)
+    plt.savefig(directory + "/TITLE_3.png", format="png", dpi=200)
     plt.close()
 
     print "Title Page Built"
 
-    os.system("convert ratio.png d.png kappa.png +append output1.png")
-    os.system("convert delta.png sigma.png beta.png +append output2.png")
-    os.system("convert alpha.png tau.png e.png +append output3.png")
-    os.system("convert bar_plot.png r.png TITLE_3.png -append output4.png")
-    os.system("convert output1.png output2.png output3.png -append output5.png")
-    FILENAME = "Sensitivity_Analysis_Model_3"
+    os.system("convert %s/ratio.png %s/d.png %s/kappa.png +append %s/output1.png" % tuple([directory]*4))
+    os.system("convert %s/delta.png %s/sigma.png %s/beta.png +append %s/output2.png" % tuple([directory]*4))
+    os.system("convert %s/alpha.png %s/tau.png %s/e.png +append %s/output3.png" % tuple([directory]*4))
+    os.system("convert %s/bar_plot.png %s/r.png %s/TITLE_3.png -append %s/output4.png" % tuple([directory]*4))
+    os.system("convert %s/output1.png %s/output2.png %s/output3.png -append %s/output5.png" % tuple([directory]*4))
+    FILENAME = "%s/Sensitivity_Analysis_Model_3" % directory
     if args.RATIO:
         FILENAME += "_RATIO"
     FILENAME += ".png"
-    os.system("convert output5.png output4.png +append %s" % FILENAME)
+    os.system("convert %s/output5.png %s/output4.png +append %s" % tuple([directory]*2 + [FILENAME]))
     sleep(1)
-    for param in parameter_list + ["output1", "output2", "output3", "output4", "output5", "bar_plot", "TITLE_3"]:
-        os.system("rm %s.png" % param)
+    if not args.KEEP:
+        for param in parameter_list + ["output1", "output2", "output3", "output4", "output5", "bar_plot", "TITLE_3"]:
+            os.system("rm %s/%s.png" % param)
 
     print "Graphs Merged"
     print "\n\nCOMPLETE\n\n"
