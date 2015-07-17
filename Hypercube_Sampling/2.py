@@ -88,7 +88,7 @@ def main():
         "alpha": (0.01, 1),
         "tau": (0.01, 3),
         "e": (0.01, 0.5),
-        "K": (1, 500)
+        "K": (50, 500)
     }
 
     parameters = len(parameter_list)
@@ -165,7 +165,7 @@ def main():
     pylab.barh(pos, SP_VALS, align='center', color="brown")
     LATEX_PARAMETER_LIST = [VERTICAL_RATIO[p] for p in parameter_list]
     pylab.yticks(pos, LATEX_PARAMETER_LIST, fontsize=20)
-    pylab.xlabel('Spearman Constant', fontsize=20)
+    pylab.xlabel('Spearman Coefficient', fontsize=20)
     pylab.ylabel("Parameter", fontsize=20)
     pylab.savefig("%s/bar_plot.png" % directory, format="png", dpi=200)
     pylab.close()
