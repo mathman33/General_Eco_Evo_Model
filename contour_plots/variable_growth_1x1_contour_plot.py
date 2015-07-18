@@ -25,6 +25,19 @@ LaTeX_VARIABLE_FORMAT = {
     "ratio": "\\sigma_G/\\beta_G"
 }
 
+LaTeX_VERTICAL_FORMAT = {
+    "sigma": "\\sigma",
+    "d": "d",
+    "beta": "\\beta",
+    "K": "K",
+    "e": "e",
+    "tau": "\\tau",
+    "alpha": "\\alpha",
+    "rho": "\\rho",
+    "gamma": "\\gamma",
+    "ratio": "\\frac{\\sigma_G}{\\beta_G}"
+}
+
 
 def make_stability_checks(data):
 
@@ -130,7 +143,7 @@ def main():
 
         plt.figure()
         plt.xlabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[x_var]), fontsize=15, rotation=0)
-        plt.ylabel(r"$%s$" % str(LaTeX_VARIABLE_FORMAT[y_var]), fontsize=15, rotation=0)
+        plt.ylabel(r"$%s$" % str(LaTeX_VERTICAL_FORMAT[y_var]), fontsize=15, rotation=0)
         try:
             l = len(Z[type_])
             warning = False
@@ -144,6 +157,8 @@ def main():
             CS = plt.contour(X, Y, Z[type_], np.arange(min(args.contour_range), max(args.contour_range), args.contour_line_delta), colors="k")
         plt.clabel(CS, inline=1, fontsize=10)
 
+        plt.title(r"$f_2$" + ": Model 2 Coexistence Local Stability Criterion")
+
         if args.print_parameters:
             Title = make_title(data)
             plt.title(Title, fontsize=15)
@@ -152,7 +167,7 @@ def main():
         file_path = os.path.join(plots, type_, "variable_growth", file_name)
         save_location = os.path.join(direc, file_name)
         try:
-            plt.savefig(save_location, format="png")
+            plt.savefig(save_location, format="png", dpi=200)
             print "\nFile saved: %s" % file_path
             if warning:
                 print "Warning: %s function is constant with respect to %s and %s" % (type_, x_var, y_var)

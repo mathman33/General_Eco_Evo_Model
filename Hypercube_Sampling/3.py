@@ -88,7 +88,7 @@ def main():
         "alpha": (0.01, 1),
         "tau": (0.01, 3),
         "e": (0.01, 0.5),
-        "kappa": (1, 500)
+        "kappa": (50, 500)
     }
 
     parameters = len(parameter_list)
@@ -137,7 +137,15 @@ def main():
     print "Statistical Values Computed"
 
     directory = "Figures_Model_3"
-    os.system("mkdir %s" % directory)
+    if os.path.isdir(directory):
+        overwrite = str(raw_input("overwrite? [y/n] --> "))
+        if overwrite.lower() == "y" or overwrite.lower() == "yes":
+            os.system("rm -r %s" % directory)
+            os.system("mkdir %s" % directory)
+        else:
+            return(0)
+    else:
+        os.system("mkdir %s" % directory)
     for key, values in hyper_cube_sample.iteritems():
         plt.figure()
         plt.scatter(values, function_values, color="brown")
