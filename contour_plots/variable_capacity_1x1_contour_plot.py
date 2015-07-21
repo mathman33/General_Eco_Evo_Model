@@ -162,6 +162,9 @@ def main():
 
         plt.title(r"$f_3$" + ": Model 3 Coexistence Local Stability Criterion")
 
+        # plt.plot(0.3, 1.1, "bo")
+        # plt.plot(0.3, 1.3, "gd")
+
         if args.print_parameters:
             Title = make_title(data)
             plt.title(Title, fontsize=12)
@@ -170,7 +173,7 @@ def main():
         file_path = os.path.join(plots, type_, "variable_capacity", file_name)
         save_location = os.path.join(direc, file_name)
         try:
-            plt.savefig(save_location, format="png")
+            plt.savefig(save_location, format="png", dpi=200)
             print "\nFile saved: %s" % file_path
             if warning:
                 print "Warning: %s function is constant with respect to %s and %s" % (type_, x_var, y_var)
