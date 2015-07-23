@@ -14,7 +14,7 @@ from time import sleep
 from subprocess import Popen, PIPE
 from datetime import datetime
 
-LINESTYLES = ['-', '--', ':', '_']
+LINESTYLES = ['--', '-', ':', '_']
 
 AVG_TIME_PER_GRAPH = 0.583
 SUPPORTED_DIMENSIONS = ["1x1", "1x2", "2x1"]
@@ -136,7 +136,7 @@ def plot_densities(system, densities_file, text, args):
     if args.legend:
         plt.legend(loc=0)
 
-    plt.savefig(densities_file, format='png')
+    plt.savefig(densities_file, format='png', dpi=200)
     plt.close()
     garbage.collect()
     print GRAPH_SAVED % densities_file
@@ -150,7 +150,7 @@ def plot_traits(system, traits_file, text, args):
 
     plt.ylim(LOWER_LIMIT, UPPER_LIMIT)
     plt.xlabel('Time')
-    plt.ylabel('Character Value')
+    plt.ylabel('Mean Trait Value')
 
     if args.display_parameters and not args.combine:
         for index, text_line in enumerate(text):
@@ -159,12 +159,12 @@ def plot_traits(system, traits_file, text, args):
     LINESTYLE_NO = 0
 
     for i, value in enumerate(system.m):
-        plt.plot(system.t, system.m[value], LINESTYLES[LINESTYLE_NO], label="Predator %d Character" % (i+1), lw=2)
+        plt.plot(system.t, system.m[value], LINESTYLES[LINESTYLE_NO], label="Predator %d Mean Trait Value" % (i+1), lw=2)
         if args.final_values:
             plt.text(system.t[-1]*1.01, system.m[value][-1], "%.3f" % system.m[value][-1])
         LINESTYLE_NO += 1
     for i, value in enumerate(system.n):
-        plt.plot(system.t, system.n[value], LINESTYLES[LINESTYLE_NO], label="Prey %d Character" % (i+1), lw=2)
+        plt.plot(system.t, system.n[value], LINESTYLES[LINESTYLE_NO], label="Prey %d Mean Trait Value" % (i+1), lw=2)
         if args.final_values:
             plt.text(system.t[-1]*1.01, system.n[value][-1], "%.3f" % system.n[value][-1])
         LINESTYLE_NO += 1
@@ -172,7 +172,7 @@ def plot_traits(system, traits_file, text, args):
     if args.legend:
         plt.legend(loc=0)
 
-    plt.savefig(traits_file, format='png')
+    plt.savefig(traits_file, format='png', dpi=200)
     plt.close()
     garbage.collect()
     print GRAPH_SAVED % traits_file
@@ -198,13 +198,13 @@ def plot_1x1_densities_phase_plane(system, phase_plane_file, text, args):
             plt.text(-.25*xlimit, ylimit*(1-(.05*index)), text_line)
 
     plt.plot(system.M["1"], system.N["1"], lw=1)
-    plt.plot(system.M["1"][0], system.N["1"][0], 'gD', label="TIME=0.0")
-    plt.plot(system.M["1"][-1], system.N["1"][-1], 'rD', label="TIME=%.1f" % system.tf)
+    plt.plot(system.M["1"][0], system.N["1"][0], 'g^', label="TIME=0.0")
+    plt.plot(system.M["1"][-1], system.N["1"][-1], 'ro', label="TIME=%.1f" % system.tf)
 
     if args.legend:
         plt.legend(loc=0)
 
-    plt.savefig(phase_plane_file, format='png')
+    plt.savefig(phase_plane_file, format='png', dpi=200)
     plt.close()
     garbage.collect()
     print GRAPH_SAVED % phase_plane_file
@@ -237,7 +237,7 @@ def plot_1x2_densities_phase_plane(system, phase_plane_file, text, args):
 
     ax.plot(system.M["1"], system.N["1"], system.N["2"])
 
-    plt.savefig(phase_plane_file, format='png')
+    plt.savefig(phase_plane_file, format='png', dpi=200)
     plt.close()
     garbage.collect()
     print GRAPH_SAVED % phase_plane_file
@@ -270,7 +270,7 @@ def plot_2x1_densities_phase_plane(system, phase_plane_file, text, args):
 
     ax.plot(system.M["1"], system.M["2"], system.N["1"])
 
-    plt.savefig(phase_plane_file, format='png')
+    plt.savefig(phase_plane_file, format='png', dpi=200)
     plt.close()
     garbage.collect()
     print GRAPH_SAVED % phase_plane_file
@@ -286,14 +286,24 @@ def plot_1x1_traits_phase_plane(system, phase_plane_file, text, args):
     m_min = min(system.m["1"])
     m_max = max(system.m["1"])
 
+    m_range = m_max - m_min
+
+    m_min -= (0.05*m_range)
+    m_max += (0.05*m_range)
+
     n_min = min(system.n["1"])
     n_max = max(system.n["1"])
+
+    n_range = n_max - n_min
+
+    n_min -= (0.05*n_range)
+    n_max += (0.05*n_range)
 
     plt.xlim(m_min, m_max)
     plt.ylim(n_min, n_max)
 
-    plt.xlabel('Predator 1 Character')
-    plt.ylabel('Prey 1 Character')
+    plt.xlabel('Predator 1 Mean Trait Value')
+    plt.ylabel('Prey 1 Mean Trait Value')
 
     if args.display_parameters and not args.combine:
         for index, text_line in enumerate(text):
@@ -301,13 +311,13 @@ def plot_1x1_traits_phase_plane(system, phase_plane_file, text, args):
             plt.text(m_min-.25*x_diff, n_max*(1-(.05*index)), text_line)
 
     plt.plot(system.m["1"], system.n["1"], lw=1)
-    plt.plot(system.m["1"][0], system.n["1"][0], 'gD', label="TIME=0.0")
-    plt.plot(system.m["1"][-1], system.n["1"][-1], 'rD', label="TIME=%.1f" % system.tf)
+    plt.plot(system.m["1"][0], system.n["1"][0], 'g^', label="TIME=0.0")
+    plt.plot(system.m["1"][-1], system.n["1"][-1], 'ro', label="TIME=%.1f" % system.tf)
 
     if args.legend:
         plt.legend(loc=0)
 
-    plt.savefig(phase_plane_file, format='png')
+    plt.savefig(phase_plane_file, format='png', dpi=200)
     plt.close()
     garbage.collect()
     print GRAPH_SAVED % phase_plane_file
@@ -325,11 +335,26 @@ def plot_1x2_traits_phase_plane(system, phase_plane_file, text, args):
     m_min = min(system.m["1"])
     m_max = max(system.m["1"])
 
+    m_range = m_max - m_min
+
+    m_min -= (0.05*m_range)
+    m_max += (0.05*m_range)
+
     n1_min = min(system.n["1"])
     n1_max = max(system.n["1"])
 
+    n1_range = n1_max - n1_min
+
+    n1_min -= (0.05*n1_range)
+    n1_max += (0.05*n1_range)
+
     n2_min = min(system.n["2"])
     n2_max = max(system.n["2"])
+
+    n2_range = n2_max - n2_min
+
+    n2_min -= (0.05*n2_range)
+    n2_max += (0.05*n2_range)
 
     if args.display_parameters and not args.combine:
         for index, text_line in enumerate(text):
@@ -340,13 +365,13 @@ def plot_1x2_traits_phase_plane(system, phase_plane_file, text, args):
     ax.set_ylim3d(n1_min, n1_max)
     ax.set_zlim3d(n2_min, n2_max)
 
-    ax.set_xlabel('Predator Character')
-    ax.set_ylabel('Prey 1 Character')
-    ax.set_zlabel('Prey 2 Character')
+    ax.set_xlabel('Predator Mean Trait Value')
+    ax.set_ylabel('Prey 1 Mean Trait Value')
+    ax.set_zlabel('Prey 2 Mean Trait Value')
 
     ax.plot(system.m["1"], system.n["1"], system.n["2"])
 
-    plt.savefig(phase_plane_file, format='png')
+    plt.savefig(phase_plane_file, format='png', dpi=200)
     plt.close()
     garbage.collect()
     print GRAPH_SAVED % phase_plane_file
@@ -364,11 +389,26 @@ def plot_2x1_traits_phase_plane(system, phase_plane_file, text, args):
     m1_min = min(system.m["1"])
     m1_max = max(system.m["1"])
 
+    m1_range = m1_max - m1_min
+
+    m1_min -= (0.05*m1_range)
+    m1_max += (0.05*m1_range)
+
     m2_min = min(system.m["2"])
     m2_max = max(system.m["2"])
 
+    m2_range = m2_max - m2_min
+
+    m2_min -= (0.05*m2_range)
+    m2_max += (0.05*m2_range)
+
     n_min = min(system.n["1"])
     n_max = max(system.n["1"])
+
+    n_range = n_max - n_min
+
+    n_min -= (0.05*n_range)
+    n_max += (0.05*n_range)
 
     if args.display_parameters and not args.combine:
         for index, text_line in enumerate(text):
@@ -379,13 +419,13 @@ def plot_2x1_traits_phase_plane(system, phase_plane_file, text, args):
     ax.set_ylim3d(m2_min, m2_max)
     ax.set_zlim3d(n_min, n_max)
 
-    ax.set_xlabel('Predator 1 Character')
-    ax.set_ylabel('Predator 2 Character')
-    ax.set_zlabel('Prey 1 Character')
+    ax.set_xlabel('Predator 1 Mean Trait Value')
+    ax.set_ylabel('Predator 2 Mean Trait Value')
+    ax.set_zlabel('Prey 1 Mean Trait Value')
 
     ax.plot(system.m["1"], system.m["2"], system.n["1"])
 
-    plt.savefig(phase_plane_file, format='png')
+    plt.savefig(phase_plane_file, format='png', dpi=200)
     plt.close()
     garbage.collect()
     print GRAPH_SAVED % phase_plane_file

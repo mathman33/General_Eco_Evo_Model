@@ -162,8 +162,8 @@ def main():
 
         plt.title(r"$f_3$" + ": Model 3 Coexistence Local Stability Criterion")
 
-        # plt.plot(0.3, 1.1, "bo")
-        # plt.plot(0.3, 1.3, "gd")
+        # plt.plot(0.3, 1.1, "ro")
+        # plt.plot(0.3, 1.3, "g^")
 
         if args.print_parameters:
             Title = make_title(data)

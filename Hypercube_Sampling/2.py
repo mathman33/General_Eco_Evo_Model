@@ -45,7 +45,7 @@ PLAIN_TO_LATEX = {
 }
 
 
-def f_2(ratio, d, rho, gamma, sigma, beta, alpha, tau, e, K):
+def S_2(ratio, d, rho, gamma, sigma, beta, alpha, tau, e, K):
     A = sigma**2 + beta**2 + tau**2
     B = beta**2 + gamma**2
     max_r = (rho*gamma)/(math.sqrt(B))
@@ -55,7 +55,7 @@ def f_2(ratio, d, rho, gamma, sigma, beta, alpha, tau, e, K):
     return ratio**2 - (max_r/d)*(1 - (N/K))*(1 - A/B)
 
 
-def f_2_RATIO(ratio, d, rho, gamma, sigma, beta, alpha, tau, e, K):
+def S_2_RATIO(ratio, d, rho, gamma, sigma, beta, alpha, tau, e, K):
     A = sigma**2 + beta**2 + tau**2
     B = beta**2 + gamma**2
     max_r = (rho*gamma)/(math.sqrt(B))
@@ -119,9 +119,9 @@ def main():
         for key, values in hyper_cube_sample.iteritems():
             kwargs[key] = values[i]
         if args.RATIO:
-            function_values[i] = f_2_RATIO(**kwargs)
+            function_values[i] = S_2_RATIO(**kwargs)
         else:
-            function_values[i] = f_2(**kwargs)
+            function_values[i] = S_2(**kwargs)
 
     print "Function Values Obtained"
 
@@ -141,7 +141,7 @@ def main():
     for key, values in hyper_cube_sample.iteritems():
         plt.figure()
         plt.scatter(values, function_values, color="brown")
-        plt.ylabel(r"$f_2$", fontsize=20, rotation=0)
+        plt.ylabel(r"$S_2$", fontsize=20, rotation=0)
         plt.xlabel(PLAIN_TO_LATEX[key], fontsize=20)
         plt.ylim(-20, 50)
         if args.RATIO:
