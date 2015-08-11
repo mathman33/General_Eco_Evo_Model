@@ -128,12 +128,12 @@ def plot_densities(system, densities_file, text, args):
     for i, value in enumerate(system.M):
         plt.plot(system.t, system.M[value], LINESTYLES[LINESTYLE_NO], label="Predator %d Density" % (i+1), lw=2)
         if args.final_values:
-            plt.text(system.t[-1]*1.01, system.M[value][-1], "%.3f" % system.M[value][-1])
+            plt.text(system.t[-1]*1.01, system.M[value][-1], r"$%.3f$" % system.M[value][-1])
         LINESTYLE_NO += 1
     for i, value in enumerate(system.N):
         plt.plot(system.t, system.N[value], LINESTYLES[LINESTYLE_NO], label="Prey %d Density" % (i+1), lw=2)
         if args.final_values:
-            plt.text(system.t[-1]*1.01, system.N[value][-1], "%.3f" % system.N[value][-1])
+            plt.text(system.t[-1]*1.01, system.N[value][-1], r"$%.3f$" % system.N[value][-1])
         LINESTYLE_NO += 1
 
     if args.legend:
@@ -164,26 +164,30 @@ def plot_traits(system, traits_file, text, args):
     for i, value in enumerate(system.m):
         plt.plot(system.t, system.m[value], LINESTYLES[LINESTYLE_NO], label="Predator %d Mean Trait Value" % (i+1), lw=2)
         if args.final_values:
-            plt.text(system.t[-1]*1.01, system.m[value][-1], "%.3f" % system.m[value][-1])
+            plt.text(system.t[-1]*1.01, system.m[value][-1], r"$%.3f$" % system.m[value][-1])
         LINESTYLE_NO += 1
     for i, value in enumerate(system.n):
         plt.plot(system.t, system.n[value], LINESTYLES[LINESTYLE_NO], label="Prey %d Mean Trait Value" % (i+1), lw=2)
         if args.final_values:
-            plt.text(system.t[-1]*1.01, system.n[value][-1], "%.3f" % system.n[value][-1])
+            plt.text(system.t[-1]*1.01, system.n[value][-1], r"$%.3f$" % system.n[value][-1])
         LINESTYLE_NO += 1
 
     if args.opt_traits_horiz_line:
         if system.__class__.__name__ == "VariableGrowthSystem":
             for prey, phi in system.phi.iteritems():
                 plt.axhline(phi, color="k")
+                plt.text(system.t[-1]*1.01, phi, r"$\phi=%.3f$" % (phi))
         elif system.__class__.__name__ == "VariableCapacitySystem":
             for prey, xi in system.xi.iteritems():
                 plt.axhline(xi, color="k")
+                plt.text(system.t[-1]*1.01, xi, r"$\xi=%.3f$" % (xi))
         elif system.__class__.__name__ == "FullSystem":
             for prey, phi in system.phi.iteritems():
                 plt.axhline(phi, color="k")
+                plt.text(system.t[-1]*1.01, phi, r"$\phi=%.3f$" % (phi))
             for prey, xi in system.xi.iteritems():
                 plt.axhline(xi, color="k", ls="dashed")
+                plt.text(system.t[-1]*1.01, xi, r"$\xi=%.3f$" % (xi))
 
     if args.legend:
         plt.legend(loc=0)
