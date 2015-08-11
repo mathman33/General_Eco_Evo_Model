@@ -50,6 +50,9 @@ Define lowest y-value on the trait graph.  Default is -5.
 UPPER_LIMIT_HELP = """
 Define highest y-value on the trait graph.  Default is 5.
 """
+O_OPTION_HELP = """
+Include black horizontal lines indicating optimal prey traits in the traits vs time graphs.
+"""
 GRAPH_SAVED = """
 GRAPH SAVED
 -----------
@@ -168,6 +171,19 @@ def plot_traits(system, traits_file, text, args):
         if args.final_values:
             plt.text(system.t[-1]*1.01, system.n[value][-1], "%.3f" % system.n[value][-1])
         LINESTYLE_NO += 1
+
+    if args.opt_traits_horiz_line:
+        if system.__class__.__name__ == "VariableGrowthSystem":
+            for prey, phi in system.phi.iteritems():
+                plt.axhline(phi, color="k")
+        elif system.__class__.__name__ == "VariableCapacitySystem":
+            for prey, xi in system.xi.iteritems():
+                plt.axhline(xi, color="k")
+        elif system.__class__.__name__ == "FullSystem":
+            for prey, phi in system.phi.iteritems():
+                plt.axhline(phi, color="k")
+            for prey, xi in system.xi.iteritems():
+                plt.axhline(xi, color="k", ls="dashed")
 
     if args.legend:
         plt.legend(loc=0)
@@ -1276,6 +1292,7 @@ def PARSE_ARGS():
     parser.add_argument("-L", "--no-legend", action="store_false", dest="legend", default=True, help=L_OPTION_HELP)
     parser.add_argument("-l", "--lower-limit", dest="trait_graph_lower_limit", type=float, help=LOWER_LIMIT_HELP)
     parser.add_argument("-u", "--upper-limit", dest="trait_graph_upper_limit", type=float, help=UPPER_LIMIT_HELP)
+    parser.add_argument("-o", "--opt_traits_horiz_line", action="store_true", dest="opt_traits_horiz_line", default=False, help=O_OPTION_HELP)
     return parser.parse_args()
 
 
