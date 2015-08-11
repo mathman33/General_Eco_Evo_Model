@@ -37,9 +37,12 @@ Final values are displayed on the time graphs."""
 K_OPTION_HELP = """\
 Individual Density and Trait graphs are not deleted after being combined into a single .png
 through ImageMagick.  This option is automatically enabled if -c/--no-combine is specified."""
-N_OPTION_HELP = """\
+n_OPTION_HELP = """\
 ImageMagick is not called, and no combination .png's are created.  This option automatically
 enables the -k/--keep-orignial-images option."""
+N_OPTION_HELP = """\
+Do NOT show the value of the optimal prey traits on the traits vs time graphs.  Default is true (only shows if -o option is specified)
+"""
 P_OPTION_HELP = """\
 No parameter values are printed on the graphs."""
 L_OPTION_HELP = """\
@@ -176,18 +179,22 @@ def plot_traits(system, traits_file, text, args):
         if system.__class__.__name__ == "VariableGrowthSystem":
             for prey, phi in system.phi.iteritems():
                 plt.axhline(phi, color="k")
-                plt.text(system.t[-1]*1.01, phi, r"$\phi=%.3f$" % (phi))
+                if args.no_opt_traits_label:
+                    plt.text(system.t[-1]*1.01, phi, r"$\phi=%.3f$" % (phi))
         elif system.__class__.__name__ == "VariableCapacitySystem":
             for prey, xi in system.xi.iteritems():
                 plt.axhline(xi, color="k")
-                plt.text(system.t[-1]*1.01, xi, r"$\xi=%.3f$" % (xi))
+                if args.no_opt_traits_label:
+                    plt.text(system.t[-1]*1.01, xi, r"$\xi=%.3f$" % (xi))
         elif system.__class__.__name__ == "FullSystem":
             for prey, phi in system.phi.iteritems():
                 plt.axhline(phi, color="k")
-                plt.text(system.t[-1]*1.01, phi, r"$\phi=%.3f$" % (phi))
+                if args.no_opt_traits_label:
+                    plt.text(system.t[-1]*1.01, phi, r"$\phi=%.3f$" % (phi))
             for prey, xi in system.xi.iteritems():
                 plt.axhline(xi, color="k", ls="dashed")
-                plt.text(system.t[-1]*1.01, xi, r"$\xi=%.3f$" % (xi))
+                if args.no_opt_traits_label:
+                    plt.text(system.t[-1]*1.01, xi, r"$\xi=%.3f$" % (xi))
 
     if args.legend:
         plt.legend(loc=0)
@@ -1291,12 +1298,13 @@ def PARSE_ARGS():
     parser.add_argument("config")
     parser.add_argument("-f", "--final-values", action="store_true", dest="final_values", default=False, help=F_OPTION_HELP)
     parser.add_argument("-k", "--keep-orignial-images", action="store_true", dest="keep_original_images", default=False, help=K_OPTION_HELP)
-    parser.add_argument("-n", "--no-combine", action="store_false", dest="combine", default=True, help=N_OPTION_HELP)
+    parser.add_argument("-n", "--no-combine", action="store_false", dest="combine", default=True, help=n_OPTION_HELP)
     parser.add_argument("-p", "--no-parameters", action="store_false", dest="display_parameters", default=True, help=P_OPTION_HELP)
     parser.add_argument("-L", "--no-legend", action="store_false", dest="legend", default=True, help=L_OPTION_HELP)
     parser.add_argument("-l", "--lower-limit", dest="trait_graph_lower_limit", type=float, help=LOWER_LIMIT_HELP)
     parser.add_argument("-u", "--upper-limit", dest="trait_graph_upper_limit", type=float, help=UPPER_LIMIT_HELP)
     parser.add_argument("-o", "--opt_traits_horiz_line", action="store_true", dest="opt_traits_horiz_line", default=False, help=O_OPTION_HELP)
+    parser.add_argument("-N", "--no_opt_traits_label", action="store_false", dest="no_opt_traits_label", default=True, help=N_OPTION_HELP)
     return parser.parse_args()
 
 
