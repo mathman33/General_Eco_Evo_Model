@@ -84,7 +84,7 @@ LaTeX_VARIABLE_FORMAT = {
     "gamma":  "\\gamma_{",
 
     "kappa":  "\\kappa_{",
-    "xi":     "\\xi_{",
+    "psi":     "\\psi_{",
     "delta":  "\\delta_{"
 }
 
@@ -182,19 +182,19 @@ def plot_traits(system, traits_file, text, args):
                 if args.no_opt_traits_label:
                     plt.text(system.t[-1]*1.01, phi, r"$\phi=%.3f$" % (phi))
         elif system.__class__.__name__ == "VariableCapacitySystem":
-            for prey, xi in system.xi.iteritems():
-                plt.axhline(xi, color="k")
+            for prey, psi in system.psi.iteritems():
+                plt.axhline(psi, color="k")
                 if args.no_opt_traits_label:
-                    plt.text(system.t[-1]*1.01, xi, r"$\xi=%.3f$" % (xi))
+                    plt.text(system.t[-1]*1.01, psi, r"$\psi=%.3f$" % (psi))
         elif system.__class__.__name__ == "FullSystem":
             for prey, phi in system.phi.iteritems():
                 plt.axhline(phi, color="k")
                 if args.no_opt_traits_label:
                     plt.text(system.t[-1]*1.01, phi, r"$\phi=%.3f$" % (phi))
-            for prey, xi in system.xi.iteritems():
-                plt.axhline(xi, color="k", ls="dashed")
+            for prey, psi in system.psi.iteritems():
+                plt.axhline(psi, color="k", ls="dashed")
                 if args.no_opt_traits_label:
-                    plt.text(system.t[-1]*1.01, xi, r"$\xi=%.3f$" % (xi))
+                    plt.text(system.t[-1]*1.01, psi, r"$\psi=%.3f$" % (psi))
 
     if args.legend:
         plt.legend(loc=0)
@@ -575,7 +575,7 @@ class FullSystem:
         self.gamma = parameters["gamma"]
 
         self.kappa = parameters["kappa"]
-        self.xi = parameters["xi"]
+        self.psi = parameters["psi"]
         self.delta = parameters["delta"]
 
         self.y0 = []
@@ -689,7 +689,7 @@ class FullSystem:
 
     def give_params_capacity_hat(self, prey_subscript):
         kappa = self.kappa[prey_subscript]
-        xi = self.xi[prey_subscript]
+        psi = self.psi[prey_subscript]
         delta = self.delta[prey_subscript]
         beta = self.beta[prey_subscript]
         gamma = self.gamma[prey_subscript]
@@ -701,7 +701,7 @@ class FullSystem:
         def capacity_hat(n):
             numerator = kappa*sqrt(E)
             denominator = delta
-            exponent_num = -((beta*(phi - xi))**2 + (gamma*(n - xi))**2 + (E - (delta**2))*((n - phi)**2))
+            exponent_num = -((beta*(phi - psi))**2 + (gamma*(n - psi))**2 + (E - (delta**2))*((n - phi)**2))
             exponent_denom = 2*D
             return (numerator/denominator)*exp(exponent_num/exponent_denom)
 
@@ -725,7 +725,7 @@ class FullSystem:
         r = self.avg_prey_growth_rate[prey_subscript]
         K_hat = self.capacity_hat[prey_subscript]
 
-        xi = self.xi[prey_subscript]
+        psi = self.psi[prey_subscript]
         delta = self.delta[prey_subscript]
         phi = self.phi[prey_subscript]
         gamma = self.gamma[prey_subscript]
@@ -734,7 +734,7 @@ class FullSystem:
         D = self.D[prey_subscript]
 
         def prey_trait_response(M, m, N, n):
-            response = r(n)*(((phi - n)/(B)) - ((N*(n*(gamma**2 - delta**2) + ((delta**2)*phi - (gamma**2)*xi)))/(K_hat(n)*D)))
+            response = r(n)*(((phi - n)/(B)) - ((N*(n*(gamma**2 - delta**2) + ((delta**2)*phi - (gamma**2)*ps)))/(K_hat(n)*D)))
             for pred_subscript in self.M0:
                 interaction_subscript = pred_subscript + prey_subscript
                 avgattack = self.avgattack[interaction_subscript]
@@ -929,7 +929,7 @@ class VariableCapacitySystem:
 
         self.r = parameters["r"]
         self.kappa = parameters["kappa"]
-        self.xi = parameters["xi"]
+        self.psi = parameters["psi"]
         self.delta = parameters["delta"]
 
         self.y0 = []
@@ -1031,14 +1031,14 @@ class VariableCapacitySystem:
 
     def give_params_capacity_tilde(self, prey_subscript):
         kappa = self.kappa[prey_subscript]
-        xi = self.xi[prey_subscript]
+        psi = self.psi[prey_subscript]
         delta = self.delta[prey_subscript]
         C = self.C[prey_subscript]
 
         def capacity_tilde(n):
             numerator = kappa*sqrt(C)
             denominator = delta
-            exponent_num = -(n - xi)**2
+            exponent_num = -(n - psi)**2
             exponent_denom = 2*C
             return (numerator/denominator)*exp(exponent_num/exponent_denom)
 
@@ -1060,12 +1060,12 @@ class VariableCapacitySystem:
 
     def give_params_prey_trait_response(self, prey_subscript):
         r = self.r[prey_subscript]
-        xi = self.xi[prey_subscript]
+        psi = self.psi[prey_subscript]
         C = self.C[prey_subscript]
         K_tilde = self.capacity_tilde[prey_subscript]
 
         def prey_trait_response(M, m, N, n):
-            response = (r*N*(xi - n))/(K_tilde(n)*C)
+            response = (r*N*(psi - n))/(K_tilde(n)*C)
             for pred_subscript in self.M0:
                 interaction_subscript = pred_subscript + prey_subscript
                 avgattack = self.avgattack[interaction_subscript]
@@ -1423,7 +1423,7 @@ def main():
             config_descriptions_to_variables["r"] = set_["prey"]["intrinsic_growth_rates"]
         if capacity == "variable":
             config_descriptions_to_variables["kappa"] = set_["prey"]["max_carrying_capacities"]
-            config_descriptions_to_variables["xi"] = set_["prey"]["optimum_carrying_capacity_trait_values"]
+            config_descriptions_to_variables["psi"] = set_["prey"]["optimum_carrying_capacity_trait_values"]
             config_descriptions_to_variables["delta"] = set_["prey"]["carrying_capacity_stabilizing_selection_variances"]
         elif capacity == "constant":
             config_descriptions_to_variables["K"] = set_["prey"]["carrying_capacities"]
